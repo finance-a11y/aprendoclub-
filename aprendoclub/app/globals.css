@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  /* aprendoclub Brand Colors */
+  --bg-primary: #0a0f14;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+
+  --primary: #012fd8;
+  --primary-light: #0495f1;
+  --primary-medium: #0360e5;
+  --primary-glow: #0495f180;
+
+  --accent: #b8f60d;
+  --accent-glow: #b8f60d66;
+
+  --text-primary: #ffffff;
+  --text-secondary: #ffffffcc;
+  --text-muted: #ffffff80;
+
+  --border-glass: #ffffff14;
+  --border-glow: #0495f14D;
+
+  --tier-aprendiz: #22c55e;
+  --tier-especialista: #0495f1;
+  --tier-consultor: #a855f7;
+
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+}
+
+@theme inline {
+  --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+  }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(1, 47, 216, 0.3);
+  color: white;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #012fd8;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #b8f60d;
+  outline-offset: 2px;
+}
+
+@utility container-padding {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  @media (min-width: 640px) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; filter: blur(8px); }
+  50% { opacity: 0.7; filter: blur(12px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, -30px) rotate(5deg); }
+  50% { transform: translate(-10px, 20px) rotate(-5deg); }
+  75% { transform: translate(30px, 10px) rotate(3deg); }
+}
+
+@keyframes pulse-blob {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.15; }
+}
+
+@utility section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  @media (min-width: 768px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Safe area for mobile devices with notch */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
