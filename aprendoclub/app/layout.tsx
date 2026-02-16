@@ -11,16 +11,16 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Especialízate en SEO + IA con aprendoclub | Academia online",
+  title: "Academia SEO + IA | Especialízate en SEO + IA con aprendoclub ",
   description:
-    "Deja de improvisar tu carrera. Únete a la comunidad de SEO y SEO + IA para marketers que buscan mejores sueldos, clientes de alto valor y acompañamiento real. ¡Especialízate con nosotros!",
+    "Deja de improvisar tu carrera. Únete a la comunidad de SEO y AIO para marketers que buscan mejores sueldos, clientes de alto valor y acompañamiento real. ¡Especialízate con nosotros!",
   keywords:
     "SEO, IA, aprendoclub, marketing digital, cursos SEO, comunidad SEO, mentoría SEO",
   metadataBase: new URL("https://aprendoclub.com"),
   openGraph: {
-    title: "Especialízate en SEO + IA con aprendoclub | Academia online",
+    title: "Especialízate en SEO + IA con aprendoclub | Academia de SEO Y AIO",
     description:
-      "Deja de improvisar tu carrera. Únete a la comunidad de SEO y SEO + IA para marketers que buscan mejores sueldos, clientes de alto valor y acompañamiento real.",
+      "Deja de improvisar tu carrera. Únete a la comunidad de SEO y AIO para marketers que buscan mejores sueldos, clientes de alto valor y acompañamiento real.",
     url: "https://aprendoclub.com",
     siteName: "aprendoclub",
     locale: "es_ES",
