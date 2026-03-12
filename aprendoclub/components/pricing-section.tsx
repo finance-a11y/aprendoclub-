@@ -31,7 +31,11 @@ const plans: PricingPlan[] = [
     monthlyPrice: 90,
     desc: "Para quienes quieren dominar SEO con el diplomado completo, sesiones semanales y ruta profesional.",
     features: [
-      { text: "Todo lo de Aprendiz", included: true },
+      { text: "Comunidad activa 24/7", included: true },
+      { text: "Cursos cortos y prácticos", included: true },
+      { text: "1 sesión grupal semanal", included: true },
+      { text: "Bolsa de trabajo curada", included: true },
+      { text: "Actualizaciones SEO + IA", included: true },
       { text: "Diplomado CERO A SEO completo", included: true },
       { text: "3 sesiones semanales", included: true },
       { text: "Proyectos aplicados reales", included: true },
@@ -39,7 +43,7 @@ const plans: PricingPlan[] = [
       { text: "Plantillas, frameworks, SOPs", included: true },
       { text: "Comunidad privada profesional", included: true },
     ],
-    cta: "Comenzar ahora",
+    cta: "Comenzar como Especialista",
     checkoutUrl: "https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout",
   },
   {
@@ -49,9 +53,13 @@ const plans: PricingPlan[] = [
     originalPrice: 90,
     billingNote: "pago único de $360",
     savingsNote: "Ahorras $180 (33% off)",
-    desc: "La opción más inteligente: mismo acceso completo al diplomado, sesiones y ruta profesional, con mejor precio por compromiso semestral.",
+    desc: "Misma experiencia completa con mejor precio por compromiso semestral.",
     features: [
-      { text: "Todo lo de Aprendiz", included: true },
+      { text: "Comunidad activa 24/7", included: true },
+      { text: "Cursos cortos y prácticos", included: true },
+      { text: "1 sesión grupal semanal", included: true },
+      { text: "Bolsa de trabajo curada", included: true },
+      { text: "Actualizaciones SEO + IA", included: true },
       { text: "Diplomado CERO A SEO completo", included: true },
       { text: "3 sesiones semanales", included: true },
       { text: "Proyectos aplicados reales", included: true },
@@ -156,7 +164,7 @@ function PricingCard({
     }
   };
 
-  // Especialista 1 mes - Clean card
+  // Especialista 1 mes — clean card
   if (plan.id === "especialista-1") {
     return (
       <div className="group rounded-2xl bg-[#0d1117] border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
@@ -170,7 +178,7 @@ function PricingCard({
     );
   }
 
-  // Especialista 6 meses - Highlighted with pulsing glow
+  // Especialista 6 meses — highlighted with pulsing glow
   if (plan.id === "especialista-6") {
     return (
       <div className="relative group">
@@ -181,7 +189,7 @@ function PricingCard({
           </span>
         </div>
 
-        {/* Pulsing Glow Effect */}
+        {/* Pulsing Glow */}
         <div
           className="absolute -inset-[1px] rounded-2xl opacity-60"
           style={{
@@ -190,7 +198,7 @@ function PricingCard({
           }}
         />
 
-        {/* Static Gradient Border */}
+        {/* Gradient Border */}
         <div
           className="absolute -inset-[1px] rounded-2xl"
           style={{
@@ -198,7 +206,6 @@ function PricingCard({
           }}
         />
 
-        {/* Card Content */}
         <div className="relative rounded-2xl bg-[#0a0c10] p-8 transition-transform duration-300 group-hover:-translate-y-1">
           <CardContent
             plan={plan}
@@ -219,7 +226,6 @@ function PricingCard({
           👑 Para profesionales
         </span>
       </div>
-
       <div className="rounded-2xl bg-[#0d1117] border border-white/10 p-8 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-white/20">
         <CardContent
           plan={plan}
@@ -246,24 +252,29 @@ function CardContent({
   return (
     <div className="flex flex-col gap-6">
       {/* Plan Name */}
-      <div>
-        <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-      </div>
+      <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
 
       {/* Price */}
       <div className="flex flex-col gap-1">
         <div className="flex items-baseline gap-2">
-          <span className="text-5xl font-extrabold text-white">
-            ${plan.monthlyPrice}
-          </span>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={plan.monthlyPrice}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="text-5xl font-extrabold text-white"
+            >
+              ${plan.monthlyPrice}
+            </motion.span>
+          </AnimatePresence>
           {plan.originalPrice && (
             <span className="text-xl text-gray-500 line-through">
               ${plan.originalPrice}
             </span>
           )}
-          <span className="text-gray-500">
-            /mes
-          </span>
+          <span className="text-gray-500">/mes</span>
         </div>
         {plan.billingNote && (
           <span className="text-sm text-gray-400">{plan.billingNote}</span>
@@ -272,11 +283,6 @@ function CardContent({
           <span className="text-sm font-bold text-[#b8f60d]">{plan.savingsNote}</span>
         )}
       </div>
-
-      {/* Note */}
-      {plan.note && (
-        <p className="text-sm text-[#b8f60d] font-medium -mt-2">{plan.note}</p>
-      )}
 
       {/* Description */}
       <p className="text-gray-400 text-sm leading-relaxed">{plan.desc}</p>
