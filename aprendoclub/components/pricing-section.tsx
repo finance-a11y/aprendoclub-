@@ -24,25 +24,26 @@ interface PricingPlan {
   note?: string;
 }
 
+const especialistaFeatures: PlanFeature[] = [
+  { text: "Comunidad activa 24/7", included: true },
+  { text: "Cursos cortos y prácticos", included: true },
+  { text: "Bolsa de trabajo curada", included: true },
+  { text: "Actualizaciones SEO + IA", included: true },
+  { text: "Diplomado CERO A SEO completo", included: true },
+  { text: "3 sesiones semanales", included: true },
+  { text: "Proyectos aplicados reales", included: true },
+  { text: "Ruta profesional guiada", included: true },
+  { text: "Plantillas, frameworks, SOPs", included: true },
+  { text: "Comunidad privada profesional", included: true },
+];
+
 const plans: PricingPlan[] = [
   {
     id: "especialista-1",
     name: "Especialista 1 mes",
     monthlyPrice: 90,
     desc: "Para quienes quieren dominar SEO con el diplomado completo, sesiones semanales y ruta profesional.",
-    features: [
-      { text: "Comunidad activa 24/7", included: true },
-      { text: "Cursos cortos y prácticos", included: true },
-      { text: "1 sesión grupal semanal", included: true },
-      { text: "Bolsa de trabajo curada", included: true },
-      { text: "Actualizaciones SEO + IA", included: true },
-      { text: "Diplomado CERO A SEO completo", included: true },
-      { text: "3 sesiones semanales", included: true },
-      { text: "Proyectos aplicados reales", included: true },
-      { text: "Ruta profesional guiada", included: true },
-      { text: "Plantillas, frameworks, SOPs", included: true },
-      { text: "Comunidad privada profesional", included: true },
-    ],
+    features: especialistaFeatures,
     cta: "Comenzar como Especialista",
     checkoutUrl: "https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout",
   },
@@ -54,19 +55,7 @@ const plans: PricingPlan[] = [
     billingNote: "pago único de $360",
     savingsNote: "Ahorras $180 (33% off)",
     desc: "Misma experiencia completa con mejor precio por compromiso semestral.",
-    features: [
-      { text: "Comunidad activa 24/7", included: true },
-      { text: "Cursos cortos y prácticos", included: true },
-      { text: "1 sesión grupal semanal", included: true },
-      { text: "Bolsa de trabajo curada", included: true },
-      { text: "Actualizaciones SEO + IA", included: true },
-      { text: "Diplomado CERO A SEO completo", included: true },
-      { text: "3 sesiones semanales", included: true },
-      { text: "Proyectos aplicados reales", included: true },
-      { text: "Ruta profesional guiada", included: true },
-      { text: "Plantillas, frameworks, SOPs", included: true },
-      { text: "Comunidad privada profesional", included: true },
-    ],
+    features: especialistaFeatures,
     cta: "Elegir Especialista 6 meses",
     checkoutUrl: "https://diplomado.aprendoseo.com/offers/hHa9LbUL/checkout",
   },
