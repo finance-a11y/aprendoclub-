@@ -31,7 +31,7 @@ export function Hero() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="https://diplomado.aprendoseo.com/offers/hh75Pypz/checkout"
+            href="https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:brightness-110"
