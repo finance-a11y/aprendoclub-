@@ -59,9 +59,9 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white"
         >
-         La única academiate que te certifica{" "}
+         La única academia que te prepara {" "}
           <span className="bg-gradient-to-r from-white via-[#b8f60d] to-[#012fd8] bg-clip-text text-transparent">
-           y prepara para conseguir un trabajo real.
+          para conseguir un trabajo real.
           </span>
         </motion.h1>
 
