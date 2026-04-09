@@ -100,7 +100,7 @@ export function PricingSection() {
             💬 Hablemos
           </span>
           <p className="text-white text-xl font-extrabold mb-3 leading-snug">
-            ¿El precio no es lo tuyo?{" "}
+           ¿Necesitas facilidades de pago personalizadas?{" "}
             <span className="text-[#c8f135]">Hay una forma para ti.</span>
           </p>
           <p className="text-[#8892a4] text-sm leading-relaxed">
