@@ -4,317 +4,132 @@ import { useRef, useState, useEffect } from "react";
 import { Check, X } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { trackInitiateCheckout, trackSchedule, trackViewContent } from "./meta-pixel";
+import Link from "next/link";
 
-interface PlanFeature {
-  text: string;
-  included: boolean;
-}
-
-interface PricingPlan {
-  id: "especialista-1" | "especialista-6" | "consultor";
-  name: string;
-  monthlyPrice: number;
-  originalPrice?: number;
-  billingNote?: string;
-  savingsNote?: string;
-  desc: string;
-  features: PlanFeature[];
-  cta: string;
-  checkoutUrl: string;
-  note?: string;
-}
-
-const especialistaFeatures: PlanFeature[] = [
-  { text: "Comunidad activa 24/7", included: true },
-  { text: "Cursos cortos y prácticos", included: true },
-  { text: "Bolsa de trabajo curada", included: true },
-  { text: "Actualizaciones SEO + IA", included: true },
-  { text: "Diplomado CERO A SEO completo", included: true },
-  { text: "3 sesiones semanales", included: true },
-  { text: "Proyectos aplicados reales", included: true },
-  { text: "Ruta profesional guiada", included: true },
-  { text: "Plantillas, frameworks, SOPs", included: true },
-  { text: "Comunidad privada profesional", included: true },
+const features = [
+  "Comunidad activa 24/7",
+  "Cursos cortos y prácticos (SEO con IA, SEO para rrss, creación de webs)",
+  "Bolsa de trabajo curada",
+  "Actualizaciones SEO + IA",
+  "Diplomado completo Cero a SEO",
+  "3 sesiones semanales en vivo",
+  "Proyectos con casos reales",
+  "Ruta profesional guiada",
+  "Plantillas, frameworks y SOPs",
+  "Comunidad privada de profesionales",
 ];
 
-const plans: PricingPlan[] = [
-  {
-    id: "especialista-1",
-    name: "Especialista 1 mes",
-    monthlyPrice: 90,
-    desc: "Para quienes quieren dominar SEO con el diplomado completo, sesiones semanales y ruta profesional.",
-    features: especialistaFeatures,
-    cta: "Comenzar como Especialista",
-    checkoutUrl: "https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout",
-  },
-  {
-    id: "especialista-6",
-    name: "Especialista 6 meses",
-    monthlyPrice: 60,
-    originalPrice: 90,
-    billingNote: "pago único de $360",
-    savingsNote: "Ahorras $180 (33% off)",
-    desc: "Misma experiencia completa con mejor precio por compromiso semestral.",
-    features: especialistaFeatures,
-    cta: "Elegir Especialista 6 meses",
-    checkoutUrl: "https://diplomado.aprendoseo.com/offers/hHa9LbUL/checkout",
-  },
-  {
-    id: "consultor",
-    name: "Consultor",
-    monthlyPrice: 600,
-    desc: "Acceso total con sesiones estratégicas 1:1, análisis de casos reales y feedback de alto nivel.",
-    features: [
-      { text: "Todo lo anterior incluido", included: true },
-      { text: "Sesiones estratégicas 1:1", included: true },
-      { text: "Análisis de casos reales", included: true },
-      { text: "Feedback directo de alto nivel", included: true },
-      { text: "Enfoque en diagnóstico y estrategia", included: true },
-    ],
-    cta: "Ser Consultor",
-    checkoutUrl: "https://calendly.com/hello-arianna-lupi/meet-with-me",
-  },
-];
-
-export function PricingSection() {
-  const [hasTrackedView, setHasTrackedView] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    if (isInView && !hasTrackedView) {
-      trackViewContent("Pricing Section");
-      setHasTrackedView(true);
-    }
-  }, [isInView, hasTrackedView]);
-
+export default function PricingSection() {
   return (
-    <section
-      id="precios"
-      ref={ref}
-      className="flex w-full flex-col items-center gap-12 lg:gap-16 container-padding section-spacing"
-      style={{
-        background:
-          "linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)",
-      }}
-    >
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="flex max-w-[700px] flex-col items-center gap-4"
-      >
-        <span className="text-sm font-bold uppercase tracking-wider text-[#012fd8]">
-          PRECIOS
-        </span>
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-          Elige tu camino de especialización
-        </h2>
-        <p className="text-center text-lg text-gray-400">
-          Todos los planes incluyen acceso completo al contenido.
-        </p>
-      </motion.div>
+    <section id="precios" className="bg-[#0d0f14] py-16 px-5 font-['Montserrat']">
+      <p className="text-center text-[11px] font-bold tracking-[3px] text-[#c8f135] uppercase mb-3">
+        PRECIOS
+      </p>
+      <h2 className="text-white text-4xl font-extrabold text-center mb-3 leading-tight">
+        Elige tu camino de especialización
+      </h2>
+      <p className="text-gray-500 text-center text-[15px] mb-14">
+        Todos los planes incluyen acceso completo al contenido
+      </p>
 
-      {/* Cards */}
-      <div className="grid w-full grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 items-center max-w-6xl">
-        {plans.map((plan, index) => (
-          <motion.div
-            key={plan.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.6,
-              delay: 0.2 + index * 0.15,
-              ease: plan.id === "especialista-6" ? [0.34, 1.56, 0.64, 1] : "easeOut",
-            }}
-            className={`relative ${plan.id === "especialista-6" ? "lg:scale-105 z-10" : "z-0"}`}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto mb-5">
+        {/* Card 1: Cuotas */}
+        <div className="bg-[#12161f] border border-[#232836] rounded-2xl p-9 flex flex-col">
+          <p className="text-[11px] font-bold tracking-[2.5px] text-[#3d5cf5] uppercase mb-2">
+            Acceso completo
+          </p>
+          <p className="text-white text-2xl font-extrabold">Empieza hoy en cuotas</p>
+          <div className="flex items-baseline gap-1 mt-4 mb-1">
+            <span className="text-white text-6xl font-black leading-none">$210</span>
+          </div>
+          <p className="text-gray-500 text-sm mb-5 font-medium">
+            x 4 cuotas mensuales · Total $840
+          </p>
+          <hr className="border-[#1e2330] mb-5" />
+          <ul className="space-y-2 flex-1 mb-7">
+            {features.map((f) => (
+              <li key={f} className="flex gap-2.5 text-[13.5px] text-[#b0b8cc] font-medium leading-snug">
+                <span className="text-[#c8f135] font-black mt-0.5 shrink-0">✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          
+            href="https://diplomado.aprendoseo.com/offers/hHa9LbUL/checkout"
+            className="block w-full text-center py-4 rounded-xl border border-[#2e3547] text-gray-300 font-extrabold text-[15px] hover:border-white hover:text-white transition"
           >
-            <PricingCard plan={plan} isInView={isInView} />
-          </motion.div>
-        ))}
+            Comenzar en cuotas
+          </a>
+        </div>
+
+        {/* Card 2: Pago único */}
+        <div className="relative bg-[#0e1428] border-2 border-[#3d5cf5] rounded-2xl p-9 flex flex-col shadow-[0_0_40px_rgba(61,92,245,0.12)]">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#c8f135] text-[#111] text-[11px] font-black px-5 py-1.5 rounded-full whitespace-nowrap tracking-wide">
+            ⚡ Mejor valor
+          </span>
+          <span className="inline-block bg-[rgba(200,241,53,0.1)] text-[#c8f135] border border-[rgba(200,241,53,0.3)] text-[11px] font-bold px-3 py-1 rounded-full mb-3 tracking-wide w-fit">
+            Ahorras $60
+          </span>
+          <p className="text-[11px] font-bold tracking-[2.5px] text-[#3d5cf5] uppercase mb-2">
+            Todo incluido
+          </p>
+          <p className="text-white text-2xl font-extrabold">Pago único sin cuotas</p>
+          <div className="flex items-baseline gap-1 mt-4 mb-1">
+            <span className="text-white text-6xl font-black leading-none">$780</span>
+          </div>
+          <p className="text-gray-500 text-sm mb-5 font-medium">
+            Pago único · Sin cuotas · Sin sorpresas
+          </p>
+          <hr className="border-[#1e2330] mb-5" />
+          <ul className="space-y-2 flex-1 mb-7">
+            {features.map((f) => (
+              <li key={f} className="flex gap-2.5 text-[13.5px] text-[#b0b8cc] font-medium leading-snug">
+                <span className="text-[#c8f135] font-black mt-0.5 shrink-0">✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          
+            href="https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout"
+            className="block w-full text-center py-4 rounded-xl bg-[#3d5cf5] text-white font-extrabold text-[15px] hover:bg-[#2f4ee0] transition"
+          >
+            Obtener acceso completo →
+          </a>
+        </div>
+      </div>
+
+      {/* Card 3: CTA WhatsApp */}
+      <div className="max-w-3xl mx-auto bg-[#0e1428] border-2 border-[#c8f135] rounded-2xl p-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+        <div className="flex-1">
+          <span className="inline-flex items-center gap-1.5 bg-[rgba(200,241,53,0.1)] border border-[rgba(200,241,53,0.35)] text-[#c8f135] text-[11px] font-extrabold px-3.5 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+            💬 Hablemos
+          </span>
+          <p className="text-white text-xl font-extrabold mb-3 leading-snug">
+            ¿El precio no es lo tuyo?{" "}
+            <span className="text-[#c8f135]">Hay una forma para ti.</span>
+          </p>
+          <p className="text-[#8892a4] text-sm leading-relaxed">
+            No dejes que el dinero decida tu futuro. Si tienes la disposición, nosotros
+            encontramos la forma. Agenda una asesoría gratuita con nuestra directora de
+            admisiones y encontramos juntos la opción ideal para ti.
+          </p>
+        </div>
+        <div className="flex flex-col items-center gap-2 shrink-0">
+          
+            href="https://wa.link/85a89y"
+            className="inline-flex items-center gap-2.5 bg-[#c8f135] text-[#111] font-extrabold text-[15px] px-7 py-5 rounded-2xl hover:bg-[#d9ff3d] transition whitespace-nowrap"
+          >
+            Agendar asesoría gratuita
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.123 1.528 5.855L0 24l6.335-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.677-.497-5.215-1.367l-.374-.222-3.863.919.975-3.767-.243-.387A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+          </a>
+          <p className="text-[#555] text-[11px] font-semibold tracking-wide">
+            Respuesta en menos de 24hs · 100% gratuito
+          </p>
+        </div>
       </div>
     </section>
-  );
-}
-
-function PricingCard({
-  plan,
-  isInView,
-}: {
-  plan: PricingPlan;
-  isInView: boolean;
-}) {
-  const handleCtaClick = () => {
-    if (plan.id === "consultor") {
-      trackSchedule(`Consultor - ${plan.name}`);
-    } else {
-      trackInitiateCheckout(plan.name, plan.monthlyPrice);
-    }
-  };
-
-  // Especialista 1 mes — clean card
-  if (plan.id === "especialista-1") {
-    return (
-      <div className="group rounded-2xl bg-[#0d1117] border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
-        <CardContent
-          plan={plan}
-          isInView={isInView}
-          onCtaClick={handleCtaClick}
-          ctaStyle="border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
-        />
-      </div>
-    );
-  }
-
-  // Especialista 6 meses — highlighted with pulsing glow
-  if (plan.id === "especialista-6") {
-    return (
-      <div className="relative group">
-        {/* Popular Badge */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#b8f60d] px-4 py-1.5 text-sm font-bold text-black shadow-lg">
-            ⚡ Más popular
-          </span>
-        </div>
-
-        {/* Pulsing Glow */}
-        <div
-          className="absolute -inset-[1px] rounded-2xl opacity-60"
-          style={{
-            background: "linear-gradient(135deg, #012fd8, #b8f60d)",
-            animation: "pulse-glow 2s ease-in-out infinite",
-          }}
-        />
-
-        {/* Gradient Border */}
-        <div
-          className="absolute -inset-[1px] rounded-2xl"
-          style={{
-            background: "linear-gradient(135deg, #012fd8, #b8f60d)",
-          }}
-        />
-
-        <div className="relative rounded-2xl bg-[#0a0c10] p-8 transition-transform duration-300 group-hover:-translate-y-1">
-          <CardContent
-            plan={plan}
-            isInView={isInView}
-            onCtaClick={handleCtaClick}
-            ctaStyle="bg-[#012fd8] text-white hover:shadow-[0_0_30px_rgba(1,47,216,0.4)] transition-all duration-300"
-          />
-        </div>
-      </div>
-    );
-  }
-
-  // Consultor
-  return (
-    <div className="relative group">
-      <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-        <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-[#0d1117] px-4 py-1.5 text-sm font-medium text-gray-300">
-          👑 Para profesionales
-        </span>
-      </div>
-      <div className="rounded-2xl bg-[#0d1117] border border-white/10 p-8 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-white/20">
-        <CardContent
-          plan={plan}
-          isInView={isInView}
-          onCtaClick={handleCtaClick}
-          ctaStyle="bg-[#b8f60d] text-black font-bold hover:brightness-110 transition-all duration-300"
-        />
-      </div>
-    </div>
-  );
-}
-
-function CardContent({
-  plan,
-  isInView,
-  onCtaClick,
-  ctaStyle,
-}: {
-  plan: PricingPlan;
-  isInView: boolean;
-  onCtaClick: () => void;
-  ctaStyle: string;
-}) {
-  return (
-    <div className="flex flex-col gap-6">
-      {/* Plan Name */}
-      <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-
-      {/* Price */}
-      <div className="flex flex-col gap-1">
-        <div className="flex items-baseline gap-2">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={plan.monthlyPrice}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="text-5xl font-extrabold text-white"
-            >
-              ${plan.monthlyPrice}
-            </motion.span>
-          </AnimatePresence>
-          {plan.originalPrice && (
-            <span className="text-xl text-gray-500 line-through">
-              ${plan.originalPrice}
-            </span>
-          )}
-          <span className="text-gray-500">/mes</span>
-        </div>
-        {plan.billingNote && (
-          <span className="text-sm text-gray-400">{plan.billingNote}</span>
-        )}
-        {plan.savingsNote && (
-          <span className="text-sm font-bold text-[#b8f60d]">{plan.savingsNote}</span>
-        )}
-      </div>
-
-      {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed">{plan.desc}</p>
-
-      {/* Divider */}
-      <div className="h-px w-full bg-white/10" />
-
-      {/* Features */}
-      <div className="flex flex-col gap-3">
-        {plan.features.map((feature, index) => (
-          <motion.div
-            key={feature.text}
-            initial={{ opacity: 0, x: -10 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
-            className="flex items-center gap-3"
-          >
-            {feature.included ? (
-              <Check className="h-5 w-5 shrink-0 text-green-400" />
-            ) : (
-              <X className="h-5 w-5 shrink-0 text-gray-600" />
-            )}
-            <span
-              className={`text-sm ${
-                feature.included ? "text-gray-300" : "text-gray-600"
-              }`}
-            >
-              {feature.text}
-            </span>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* CTA */}
-      <a
-        href={plan.checkoutUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={onCtaClick}
-        className={`mt-auto flex items-center justify-center rounded-xl px-6 py-4 text-base font-bold ${ctaStyle}`}
-      >
-        {plan.cta}
-      </a>
-    </div>
   );
 }
