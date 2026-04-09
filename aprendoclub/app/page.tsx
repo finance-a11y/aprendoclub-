@@ -20,16 +20,16 @@ export default function Home() {
         Ir al contenido principal
       </a>
       <main className="flex min-h-screen w-full flex-col">
-      <Navbar />
-      <HeroSection />
-      <ProblemaSection />
-      <BeneficiosSection />
-      <PricingSection />
-      <TestimoniosSection />
-      <InstructorSection />
-      <FaqSection />
-      <CtaSection />
-      <Footer />
+        <Navbar />
+        <HeroSection />
+        <ProblemaSection />
+        <BeneficiosSection />
+        <PricingSection />
+        <TestimoniosSection />
+        <InstructorSection />
+        <FaqSection />
+        <CtaSection />
+        <Footer />
       </main>
       <StickyCTAMobile />
     </>
