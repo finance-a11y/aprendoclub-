@@ -15,7 +15,7 @@ const features = [
   "Comunidad privada de profesionales",
 ];
 
-export default function PricingSection() {
+export function PricingSection() {
   return (
     <section id="precios" className="bg-[#0d0f14] py-16 px-5 font-['Montserrat']">
       <p className="text-center text-[11px] font-bold tracking-[3px] text-[#c8f135] uppercase mb-3">
@@ -133,3 +133,5 @@ export default function PricingSection() {
     </section>
   );
 }
+
+export default PricingSection;
