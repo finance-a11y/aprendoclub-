@@ -1,10 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { Check, X } from "lucide-react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { trackInitiateCheckout, trackSchedule, trackViewContent } from "./meta-pixel";
-import Link from "next/link";
+import { trackInitiateCheckout, trackSchedule } from "./meta-pixel";
 
 const features = [
   "Comunidad activa 24/7",
@@ -33,6 +29,7 @@ export default function PricingSection() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto mb-5">
+
         {/* Card 1: Cuotas */}
         <div className="bg-[#12161f] border border-[#232836] rounded-2xl p-9 flex flex-col">
           <p className="text-[11px] font-bold tracking-[2.5px] text-[#3d5cf5] uppercase mb-2">
@@ -54,8 +51,9 @@ export default function PricingSection() {
               </li>
             ))}
           </ul>
-          
+          <a
             href="https://diplomado.aprendoseo.com/offers/hHa9LbUL/checkout"
+            onClick={() => trackInitiateCheckout()}
             className="block w-full text-center py-4 rounded-xl border border-[#2e3547] text-gray-300 font-extrabold text-[15px] hover:border-white hover:text-white transition"
           >
             Comenzar en cuotas
@@ -89,8 +87,9 @@ export default function PricingSection() {
               </li>
             ))}
           </ul>
-          
+          <a
             href="https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout"
+            onClick={() => trackInitiateCheckout()}
             className="block w-full text-center py-4 rounded-xl bg-[#3d5cf5] text-white font-extrabold text-[15px] hover:bg-[#2f4ee0] transition"
           >
             Obtener acceso completo →
@@ -115,8 +114,9 @@ export default function PricingSection() {
           </p>
         </div>
         <div className="flex flex-col items-center gap-2 shrink-0">
-          
+          <a
             href="https://wa.link/85a89y"
+            onClick={() => trackSchedule()}
             className="inline-flex items-center gap-2.5 bg-[#c8f135] text-[#111] font-extrabold text-[15px] px-7 py-5 rounded-2xl hover:bg-[#d9ff3d] transition whitespace-nowrap"
           >
             Agendar asesoría gratuita
