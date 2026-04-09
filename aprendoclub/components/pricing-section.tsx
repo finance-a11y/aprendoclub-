@@ -38,7 +38,7 @@ export function PricingSection() {
             <span className="text-white text-6xl font-black leading-none">$210</span>
           </div>
           <p className="text-gray-500 text-sm mb-5 font-medium">
-            x 4 cuotas mensuales · Total $840
+            4 cuotas mensuales
           </p>
           <hr className="border-[#1e2330] mb-5" />
           <ul className="space-y-2 flex-1 mb-7">
@@ -60,10 +60,10 @@ export function PricingSection() {
         {/* Card 2: Pago único */}
         <div className="relative bg-[#0e1428] border-2 border-[#3d5cf5] rounded-2xl p-9 flex flex-col shadow-[0_0_40px_rgba(61,92,245,0.12)]">
           <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#c8f135] text-[#111] text-[11px] font-black px-5 py-1.5 rounded-full whitespace-nowrap tracking-wide">
-            ⚡ Mejor valor
+            🏆 Más elegido
           </span>
           <span className="inline-block bg-[rgba(200,241,53,0.1)] text-[#c8f135] border border-[rgba(200,241,53,0.3)] text-[11px] font-bold px-3 py-1 rounded-full mb-3 tracking-wide w-fit">
-            Ahorras $60
+            Ahorrás más en un solo pago
           </span>
           <p className="text-[11px] font-bold tracking-[2.5px] text-[#3d5cf5] uppercase mb-2">
             Todo incluido
