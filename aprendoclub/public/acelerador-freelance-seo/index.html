@@ -533,11 +533,18 @@
   .pricing__note strong { color: var(--lima); }
   .pricing__spots {
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    margin-top: 16px; font-size: 13px; color: var(--text-dim);
+    margin-top: 20px; font-size: 13px; font-weight: 600;
+    color: var(--text-muted);
+    background: var(--lima-dim);
+    border: 1px solid var(--border-lime);
+    border-radius: 100px;
+    padding: 8px 20px;
+    width: fit-content;
+    margin-left: auto; margin-right: auto;
   }
   .pricing__spots-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--lima); animation: pulse 1.8s infinite;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--lima); animation: pulse 1.8s infinite; flex-shrink: 0;
   }
 
   /* ═══════════════════════════════════════════
@@ -1057,15 +1064,16 @@
 
     </div>
 
-    <div style="background:var(--bg-card-2);border:1px solid var(--border-lime);border-radius:var(--radius);padding:24px 32px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <div style="background:var(--bg-card-2);border:1px solid var(--border-lime);border-radius:var(--radius);padding:16px 24px;margin-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
       <div>
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:4px;">Valor total del programa</div>
-        <div style="font-size:32px;font-weight:900;color:var(--lima);">$6,500</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:2px;">Valor total del programa</div>
+        <div style="font-size:24px;font-weight:900;color:var(--lima);">$6,500</div>
       </div>
+      <div style="width:1px;height:40px;background:var(--border-lime);"></div>
       <div style="text-align:right;">
-        <div style="font-size:13px;color:var(--lima);font-weight:700;margin-bottom:4px;">Precio piloto — primera generación</div>
-        <div style="font-size:44px;font-weight:900;color:var(--lima);letter-spacing:-.03em;line-height:1;">$1,500</div>
-        <div style="font-size:12px;color:var(--text-dim);">Un solo pago · Garantía de 90 días</div>
+        <div style="font-size:12px;color:var(--lima);font-weight:700;margin-bottom:2px;">Precio piloto · Primera generación</div>
+        <div style="font-size:36px;font-weight:900;color:var(--lima);letter-spacing:-.03em;line-height:1;">$1,500</div>
+        <div style="font-size:11px;color:var(--text-dim);">Un solo pago · Garantía de 90 días</div>
       </div>
     </div>
   </div>
