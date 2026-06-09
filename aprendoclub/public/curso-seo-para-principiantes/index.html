@@ -117,15 +117,14 @@
 
   /* FEATURES */
   .features-bg{background:var(--bg2)}
-  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-  .feature-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
-  .feature-card:hover{border-color:rgba(91,138,245,0.3);transform:translateY(-4px)}
-  .feature-card-img{width:100%;height:160px;display:block;flex-shrink:0}
-  .feature-card-body{padding:18px 18px 22px;flex:1}
-  .feature-card-body h3{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;margin-bottom:7px;color:var(--text)}
-  .feature-card-body p{font-size:13px;color:var(--text-muted);line-height:1.6}
-  @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.features-grid{grid-template-columns:1fr}}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:32px}
+  .feature-card{padding:20px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);transition:border-color .2s;position:relative;overflow:hidden}
+  .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blue);opacity:0;transition:opacity .2s}
+  .feature-card:hover{border-color:rgba(91,138,245,0.25)}
+  .feature-card:hover::before{opacity:1}
+  .feature-icon{font-size:22px;margin-bottom:10px;display:block}
+  .feature-card h3{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;margin-bottom:5px}
+  .feature-card p{font-size:13px;color:var(--text-muted);line-height:1.55}
 
   /* TESTIMONIALS */
   .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:32px}
@@ -337,171 +336,12 @@
     <span class="section-label label-blue">Lo que incluye</span>
     <h2 class="section-title">No solo teoría. <span class="em-blue">Práctica real.</span></h2>
     <div class="features-grid">
-
-      <div class="feature-card">
-        <svg class="feature-card-img" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d1018"/><stop offset="100%" stop-color="#12161f"/></linearGradient></defs>
-          <rect width="400" height="160" fill="url(#g1)"/>
-          <rect x="40" y="25" width="210" height="24" rx="6" fill="#1a2035"/><rect x="40" y="25" width="210" height="24" rx="6" fill="none" stroke="#5b8af5" stroke-width="1" opacity="0.6"/>
-          <rect x="48" y="30" width="10" height="14" rx="2" fill="#5b8af5" opacity="0.9"/><rect x="64" y="33" width="90" height="6" rx="3" fill="#8892a4"/><rect x="162" y="33" width="40" height="6" rx="3" fill="#b3f000" opacity="0.7"/>
-          <circle cx="265" cy="37" r="9" fill="#3ecf8e" opacity="0.15"/><path d="M261 37 l3 3 l5-5" stroke="#3ecf8e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <rect x="40" y="57" width="230" height="24" rx="6" fill="#1a2035"/><rect x="40" y="57" width="230" height="24" rx="6" fill="none" stroke="#b3f000" stroke-width="1" opacity="0.5"/>
-          <rect x="48" y="62" width="10" height="14" rx="2" fill="#b3f000" opacity="0.8"/><rect x="64" y="65" width="110" height="6" rx="3" fill="#8892a4"/><rect x="182" y="65" width="50" height="6" rx="3" fill="#5b8af5" opacity="0.5"/>
-          <circle cx="285" cy="69" r="9" fill="#3ecf8e" opacity="0.1"/><path d="M281 69 l3 3 l5-5" stroke="#3ecf8e" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
-          <rect x="40" y="89" width="190" height="24" rx="6" fill="#1a2035"/><rect x="40" y="89" width="190" height="24" rx="6" fill="none" stroke="#2a3050" stroke-width="1"/>
-          <rect x="48" y="94" width="10" height="14" rx="2" fill="#555e70" opacity="0.6"/><rect x="64" y="97" width="80" height="6" rx="3" fill="#555e70" opacity="0.5"/>
-          <rect x="40" y="121" width="160" height="24" rx="6" fill="#12161f" opacity="0.6"/>
-          <rect x="48" y="126" width="10" height="14" rx="2" fill="#555e70" opacity="0.3"/><rect x="64" y="129" width="60" height="6" rx="3" fill="#555e70" opacity="0.3"/>
-          <rect x="40" y="150" width="250" height="5" rx="2.5" fill="#1a2035"/>
-          <rect x="40" y="150" width="155" height="5" rx="2.5" fill="#b3f000" opacity="0.7"/>
-          <text x="300" y="155" font-size="11" fill="#b3f000" font-family="sans-serif" opacity="0.9">62%</text>
-        </svg>
-        <div class="feature-card-body"><h3>Contenido estructurado</h3><p>Módulos fáciles de seguir. Teoría + práctica aplicable desde el día uno.</p></div>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-card-img" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d1018"/><stop offset="100%" stop-color="#0a1420"/></linearGradient></defs>
-          <rect width="400" height="160" fill="url(#g2)"/>
-          <rect x="90" y="20" width="220" height="125" rx="10" fill="#12161f" stroke="#1e2840" stroke-width="1.5"/>
-          <rect x="100" y="30" width="200" height="104" rx="6" fill="#0a0e18"/>
-          <rect x="106" y="36" width="188" height="14" rx="3" fill="#1a2035"/>
-          <rect x="112" y="40" width="55" height="6" rx="2" fill="#5b8af5" opacity="0.7"/><rect x="175" y="40" width="40" height="6" rx="2" fill="#8892a4" opacity="0.4"/>
-          <rect x="106" y="55" width="188" height="55" rx="4" fill="#0f1628"/>
-          <circle cx="200" cy="82" r="16" fill="#5b8af5" opacity="0.12"/><circle cx="200" cy="82" r="16" fill="none" stroke="#5b8af5" stroke-width="1" opacity="0.4"/>
-          <polygon points="196,75 196,89 213,82" fill="#5b8af5" opacity="0.85"/>
-          <rect x="110" y="114" width="180" height="4" rx="2" fill="#1a2035"/>
-          <rect x="110" y="114" width="100" height="4" rx="2" fill="#b3f000" opacity="0.7"/>
-          <circle cx="210" cy="116" r="5" fill="#b3f000"/>
-          <rect x="80" y="143" width="240" height="9" rx="4" fill="#1a2035"/>
-          <rect x="165" y="145" width="70" height="5" rx="2" fill="#12161f"/>
-          <rect x="320" y="35" width="34" height="58" rx="6" fill="#12161f" stroke="#1e2840" stroke-width="1"/>
-          <rect x="324" y="40" width="26" height="42" rx="4" fill="#0a0e18"/>
-          <circle cx="337" cy="88" r="2.5" fill="#555e70"/>
-          <rect x="308" y="105" width="54" height="34" rx="5" fill="#12161f" stroke="#1e2840" stroke-width="1"/>
-          <rect x="312" y="109" width="46" height="24" rx="3" fill="#0a0e18"/>
-          <circle cx="357" cy="28" r="6" fill="#3ecf8e" opacity="0.25"/>
-          <circle cx="357" cy="28" r="3.5" fill="#3ecf8e"/>
-          <text x="365" y="32" font-size="9" fill="#3ecf8e" font-family="sans-serif">LIVE</text>
-        </svg>
-        <div class="feature-card-body"><h3>Acceso 100% online</h3><p>Desde cualquier lugar y dispositivo. El ritmo lo pones tú.</p></div>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-card-img" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d1018"/><stop offset="100%" stop-color="#0f1a12"/></linearGradient></defs>
-          <rect width="400" height="160" fill="url(#g3)"/>
-          <circle cx="200" cy="78" r="56" fill="#12161f" stroke="#1e2840" stroke-width="1.5"/>
-          <circle cx="200" cy="78" r="48" fill="none" stroke="#1a2035" stroke-width="1"/>
-          <line x1="200" y1="30" x2="200" y2="38" stroke="#555e70" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="200" y1="118" x2="200" y2="126" stroke="#555e70" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="148" y1="78" x2="156" y2="78" stroke="#555e70" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="244" y1="78" x2="252" y2="78" stroke="#555e70" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="219" y1="34" x2="217" y2="40" stroke="#2a3050" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="238" y1="50" x2="233" y2="55" stroke="#2a3050" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="181" y1="34" x2="183" y2="40" stroke="#2a3050" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="162" y1="50" x2="167" y2="55" stroke="#2a3050" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="200" y1="78" x2="176" y2="52" stroke="#f0f2f7" stroke-width="3" stroke-linecap="round"/>
-          <line x1="200" y1="78" x2="222" y2="43" stroke="#b3f000" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="200" y1="78" x2="218" y2="94" stroke="#5b8af5" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          <circle cx="200" cy="78" r="5" fill="#f0f2f7"/>
-          <circle cx="200" cy="78" r="2.5" fill="#b3f000"/>
-          <text x="191" y="104" font-size="13" fill="#8892a4" font-family="sans-serif" font-weight="bold">24/7</text>
-          <path d="M153 78 A47 47 0 1 1 247 78" fill="none" stroke="#b3f000" stroke-width="2" stroke-linecap="round" opacity="0.15"/>
-        </svg>
-        <div class="feature-card-body"><h3>A tu propio ritmo</h3><p>Disponible 24/7. Revisa cada lección las veces que necesites.</p></div>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-card-img" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d1018"/><stop offset="100%" stop-color="#120d18"/></linearGradient></defs>
-          <rect width="400" height="160" fill="url(#g4)"/>
-          <rect x="35" y="18" width="170" height="40" rx="10" fill="#1a2035" stroke="#2a3050" stroke-width="1"/>
-          <polygon points="48,58 35,70 72,58" fill="#1a2035"/>
-          <rect x="48" y="28" width="100" height="7" rx="3" fill="#8892a4"/>
-          <rect x="48" y="40" width="70" height="7" rx="3" fill="#555e70" opacity="0.6"/>
-          <circle cx="50" cy="85" r="16" fill="#1a2035" stroke="#2a3050" stroke-width="1"/>
-          <circle cx="50" cy="81" r="6" fill="#555e70"/>
-          <path d="M39 95 q11-9 22 0" fill="#555e70" opacity="0.4"/>
-          <rect x="195" y="44" width="170" height="44" rx="10" fill="#162030" stroke="#5b8af5" stroke-width="1" opacity="0.6"/>
-          <polygon points="343,88 360,100 330,88" fill="#162030"/>
-          <rect x="208" y="54" width="110" height="7" rx="3" fill="#8892a4"/>
-          <rect x="208" y="66" width="80" height="7" rx="3" fill="#5b8af5" opacity="0.5"/>
-          <circle cx="350" cy="108" r="16" fill="#162030" stroke="#5b8af5" stroke-width="1" opacity="0.5"/>
-          <circle cx="350" cy="104" r="6" fill="#5b8af5" opacity="0.6"/>
-          <path d="M339 118 q11-9 22 0" fill="#5b8af5" opacity="0.25"/>
-          <rect x="35" y="102" width="150" height="34" rx="10" fill="#1a2035" opacity="0.55"/>
-          <rect x="48" y="113" width="88" height="6" rx="3" fill="#555e70" opacity="0.45"/>
-          <rect x="48" y="123" width="60" height="6" rx="3" fill="#555e70" opacity="0.28"/>
-          <circle cx="218" cy="148" r="5" fill="#5b8af5" opacity="0.3"/>
-          <circle cx="232" cy="148" r="5" fill="#5b8af5" opacity="0.55"/>
-          <circle cx="246" cy="148" r="5" fill="#5b8af5" opacity="0.8"/>
-        </svg>
-        <div class="feature-card-body"><h3>Soporte incluido</h3><p>Recursos adicionales para resolver tus dudas durante el proceso.</p></div>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-card-img" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d1018"/><stop offset="100%" stop-color="#12180a"/></linearGradient>
-            <linearGradient id="gb1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#b3f000" stop-opacity="0.85"/><stop offset="100%" stop-color="#b3f000" stop-opacity="0.15"/></linearGradient>
-            <linearGradient id="gb2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#5b8af5" stop-opacity="0.85"/><stop offset="100%" stop-color="#5b8af5" stop-opacity="0.15"/></linearGradient>
-          </defs>
-          <rect width="400" height="160" fill="url(#g5)"/>
-          <rect x="25" y="15" width="350" height="135" rx="8" fill="#0f1320" stroke="#1e2840" stroke-width="1"/>
-          <rect x="25" y="15" width="350" height="24" rx="8" fill="#12161f"/>
-          <rect x="25" y="27" width="350" height="12" fill="#12161f"/>
-          <circle cx="40" cy="27" r="4.5" fill="#3ecf8e" opacity="0.6"/>
-          <rect x="54" y="24" width="70" height="6" rx="2" fill="#555e70" opacity="0.5"/>
-          <rect x="36" y="88" width="22" height="52" rx="3" fill="url(#gb1)"/>
-          <rect x="64" y="68" width="22" height="72" rx="3" fill="url(#gb1)"/>
-          <rect x="92" y="78" width="22" height="62" rx="3" fill="url(#gb2)"/>
-          <rect x="120" y="52" width="22" height="88" rx="3" fill="url(#gb1)"/>
-          <rect x="148" y="62" width="22" height="78" rx="3" fill="url(#gb2)"/>
-          <rect x="176" y="44" width="22" height="96" rx="3" fill="url(#gb1)"/>
-          <rect x="204" y="48" width="22" height="92" rx="3" fill="url(#gb1)"/>
-          <polyline points="47,88 75,68 103,78 131,52 159,62 187,44 215,48" fill="none" stroke="#b3f000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-          <rect x="242" y="44" width="120" height="40" rx="6" fill="#12161f" stroke="#1e2840" stroke-width="1"/>
-          <text x="252" y="59" font-size="9" fill="#8892a4" font-family="sans-serif">Tráfico orgánico</text>
-          <text x="252" y="76" font-size="17" fill="#b3f000" font-family="sans-serif" font-weight="bold">+142%</text>
-          <rect x="242" y="92" width="120" height="40" rx="6" fill="#12161f" stroke="#1e2840" stroke-width="1"/>
-          <text x="252" y="107" font-size="9" fill="#8892a4" font-family="sans-serif">Posición promedio</text>
-          <text x="252" y="124" font-size="17" fill="#5b8af5" font-family="sans-serif" font-weight="bold">#4.2</text>
-          <line x1="34" y1="140" x2="230" y2="140" stroke="#1e2840" stroke-width="1"/>
-        </svg>
-        <div class="feature-card-body"><h3>Proyecto práctico</h3><p>Al finalizar, aplicas todo en un proyecto real para consolidar lo aprendido.</p></div>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-card-img" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d1018"/><stop offset="100%" stop-color="#0d1220"/></linearGradient></defs>
-          <rect width="400" height="160" fill="url(#g6)"/>
-          <circle cx="90" cy="78" r="30" fill="#1a2035" stroke="#b3f000" stroke-width="2"/>
-          <circle cx="90" cy="78" r="23" fill="none" stroke="#b3f000" stroke-width="1" opacity="0.25"/>
-          <text x="90" y="74" font-size="10" fill="#b3f000" font-family="sans-serif" text-anchor="middle" font-weight="bold">CURSO</text>
-          <text x="90" y="86" font-size="10" fill="#b3f000" font-family="sans-serif" text-anchor="middle" font-weight="bold">SEO</text>
-          <circle cx="90" cy="118" r="5" fill="#b3f000" opacity="0.8"/>
-          <text x="90" y="136" font-size="9" fill="#8892a4" font-family="sans-serif" text-anchor="middle">Estás aquí</text>
-          <line x1="124" y1="78" x2="162" y2="78" stroke="#555e70" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <polygon points="162,73 174,78 162,83" fill="#555e70" opacity="0.7"/>
-          <circle cx="210" cy="78" r="35" fill="#12233a" stroke="#5b8af5" stroke-width="2" opacity="0.8"/>
-          <circle cx="210" cy="78" r="27" fill="none" stroke="#5b8af5" stroke-width="1" opacity="0.3"/>
-          <text x="210" y="73" font-size="9" fill="#a0b8f8" font-family="sans-serif" text-anchor="middle" font-weight="bold">DIPLOMADO</text>
-          <text x="210" y="84" font-size="9" fill="#a0b8f8" font-family="sans-serif" text-anchor="middle" font-weight="bold">SEO y AIO</text>
-          <rect x="167" y="22" width="86" height="20" rx="5" fill="#12233a" stroke="#5b8af5" stroke-width="1" opacity="0.8"/>
-          <text x="210" y="36" font-size="9" fill="#a0b8f8" font-family="sans-serif" text-anchor="middle">✦ UCAB · CIAP</text>
-          <text x="210" y="120" font-size="9" fill="#555e70" font-family="sans-serif" text-anchor="middle">Siguiente nivel</text>
-          <line x1="249" y1="78" x2="287" y2="78" stroke="#2a3050" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <polygon points="287,73 299,78 287,83" fill="#2a3050" opacity="0.5"/>
-          <circle cx="330" cy="78" r="28" fill="#0d1320" stroke="#2a3050" stroke-width="1.5" opacity="0.5"/>
-          <text x="330" y="74" font-size="8" fill="#555e70" font-family="sans-serif" text-anchor="middle">ESPECIALISTA</text>
-          <text x="330" y="85" font-size="8" fill="#555e70" font-family="sans-serif" text-anchor="middle">DIGITAL</text>
-          <text x="237" y="54" font-size="13" fill="#f5c842" font-family="sans-serif" opacity="0.7">★</text>
-          <text x="249" y="54" font-size="13" fill="#f5c842" font-family="sans-serif" opacity="0.7">★</text>
-        </svg>
-        <div class="feature-card-body"><h3>Puerta al Diplomado</h3><p>La base perfecta para el Diplomado SEO y AIO, acreditado por la UCAB.</p></div>
-      </div>
-
+      <div class="feature-card"><span class="feature-icon">📚</span><h3>Contenido estructurado</h3><p>Módulos fáciles de seguir. Teoría + práctica aplicable desde el día uno.</p></div>
+      <div class="feature-card"><span class="feature-icon">💻</span><h3>Acceso 100% online</h3><p>Desde cualquier lugar y dispositivo. El ritmo lo pones tú.</p></div>
+      <div class="feature-card"><span class="feature-icon">🧠</span><h3>A tu propio ritmo</h3><p>Disponible 24/7. Revisa cada lección las veces que necesites.</p></div>
+      <div class="feature-card"><span class="feature-icon">🎓</span><h3>Soporte incluido</h3><p>Recursos adicionales para resolver tus dudas durante el proceso.</p></div>
+      <div class="feature-card"><span class="feature-icon">📈</span><h3>Proyecto práctico</h3><p>Al finalizar, aplicas todo en un proyecto real para consolidar lo aprendido.</p></div>
+      <div class="feature-card"><span class="feature-icon">🚀</span><h3>Puerta al Diplomado</h3><p>La base perfecta para el Diplomado SEO y AIO de aprendoclub.</p></div>
     </div>
   </div>
 </section>
