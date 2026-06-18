@@ -22,3 +22,31 @@ export function GoogleAnalytics() {
     </>
   );
 }
+
+// Helper to track a GA4 event
+export function trackGAEvent(
+  eventName: string,
+  params?: Record<string, unknown>
+) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
+  }
+}
+
+// Track an outbound/link click (GA4 select_content)
+export function trackLinkClick(linkId: string, linkText: string, url: string) {
+  trackGAEvent("select_content", {
+    content_type: "link",
+    item_id: linkId,
+    link_text: linkText,
+    link_url: url,
+    transport_type: "beacon",
+  });
+}
+
+// Type declaration for window.gtag
+declare global {
+  interface Window {
+    gtag: (...args: unknown[]) => void;
+  }
+}

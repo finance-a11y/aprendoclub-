@@ -2,21 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, GraduationCap, CalendarCheck, BookOpen } from "lucide-react";
+import { trackLinkClick } from "@/components/google-analytics";
 
 const links = [
   {
+    id: "conoce-aprendoclub",
     label: "Conoce aprendoclub: Academia de SEO y AIO",
     href: "https://www.aprendoclub.com/",
     icon: GraduationCap,
     external: false,
   },
   {
+    id: "asesoria-gratuita",
     label: "Agenda una llamada de asesoría gratuita",
     href: "https://links.apturio.com/widget/bookings/aprendoclub-candidatos",
     icon: CalendarCheck,
     external: true,
   },
   {
+    id: "curso-seo-principiantes",
     label: "Únete gratis a nuestro curso SEO para principiantes",
     href: "https://www.aprendoclub.com/curso-seo-para-principiantes",
     icon: BookOpen,
@@ -97,6 +101,7 @@ export default function LinksPage() {
                 href={link.href}
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
+                onClick={() => trackLinkClick(link.id, link.label, link.href)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
