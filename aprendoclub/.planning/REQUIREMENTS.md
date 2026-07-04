@@ -27,11 +27,10 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 
 ### Programas (PROG)
 
-- [ ] **PROG-01**: Existe la página hub `/programas` que presenta y enlaza los cuatro programas.
+- [ ] **PROG-01**: Existe la página hub `/programas` que presenta y enlaza los programas.
 - [ ] **PROG-02**: El Diplomado (ruta `/diplomado` existente) queda enlazado desde el hub y la navegación.
 - [ ] **PROG-03**: Existe la página del Taller de SEO con IA con su contenido migrado de aprendoseo.com.
 - [ ] **PROG-04**: Existe la página del Reto de 7 días como ruta Next.js, editable para reflejar si el reto no está activo.
-- [ ] **PROG-05**: Existe la página de Econía / SEOconía (sección de economía) con su contenido.
 - [ ] **PROG-06**: El home muestra/enlaza la sección de programas (visible desde el home).
 - [ ] **PROG-08**: El Diplomado (`/diplomado`) se integra al shell compartido `(site)` y adopta por completo el diseño de aprendoclub (mismo navbar/footer, Montserrat, tokens `var(--bg-primary)`/`#b8f60d`/`#012fd8`, `container-padding`/`section-spacing`), conservando su contenido (16 semanas, EPAM, pricing, equipo, FAQ). Reemplaza su navbar/footer/tokens propios (shadcn `bg-background`/`bg-primary`, `#b8ff2b`, `font-mono`).
 
@@ -51,6 +50,7 @@ Diferido a milestones futuros. Reconocido pero fuera del roadmap actual.
 
 ### Programas adicionales
 
+- **PROG-05**: Página de Econía / SEOconía (sección de economía). Diferida: sin fuente de contenido en aprendoseo.com ni en el repo. Se retoma cuando Juan aporte el contenido.
 - **PROG-07**: Páginas de SEO para redes sociales.
 
 ## Out of Scope
@@ -84,15 +84,14 @@ Mapeo completo a fases del roadmap v1.0.
 | PROG-02 | Phase 4 | Pending |
 | PROG-03 | Phase 4 | Pending |
 | PROG-04 | Phase 4 | Pending |
-| PROG-05 | Phase 4 | Pending |
 | PROG-06 | Phase 4 | Pending |
 | PROG-08 | Phase 4 | Pending |
 | LINK-01 | Phase 5 | Pending |
 
 **Coverage:**
 
-- v1 requirements: 17 total
-- Mapped to phases: 17 ✓
+- v1 requirements: 16 total (PROG-05 Econía diferido a futuro)
+- Mapped to phases: 16 ✓
 - Unmapped: 0 ✓
 
 ---

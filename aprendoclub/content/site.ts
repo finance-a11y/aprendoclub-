@@ -69,8 +69,7 @@ export const footerColumns: FooterColumn[] = [
       { label: "Taller SEO con IA", href: "/programas" },
       // Fase 4: repuntar a /reto cuando exista.
       { label: "Reto 7 días", href: "/programas" },
-      // Fase 4: repuntar a /programas/econia cuando exista.
-      { label: "Econía / SEOconía", href: "/programas" },
+      // Econía/SEOconía diferido (PROG-05, sin contenido); se agregará luego.
     ],
   },
   {
