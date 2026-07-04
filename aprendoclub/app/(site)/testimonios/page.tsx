@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
+import { TestimoniosHero } from "@/components/testimonios/hero";
+import { TestimoniosGrid } from "@/components/testimonios/grid";
+import { RetoGaleria } from "@/components/testimonios/reto-galeria";
+import { TestimoniosCta } from "@/components/testimonios/cta";
 
 export const metadata: Metadata = {
   title: "Testimonios | aprendoclub",
   description:
-    "Historias reales de estudiantes que impulsaron su carrera con aprendoclub.",
+    "Historias reales de estudiantes de aprendoclub que empezaron desde cero y hoy posicionan sitios, consiguen clientes o trabajan remoto con el SEO.",
 };
 
 export default function TestimoniosPage() {
   return (
-    <section className="section-spacing container-padding max-w-6xl mx-auto flex flex-col items-center text-center pt-28">
-      <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-        Testimonios
-      </h1>
-      <p className="mt-4 text-gray-400">Contenido próximamente.</p>
-    </section>
+    <>
+      <TestimoniosHero />
+      <TestimoniosGrid />
+      <RetoGaleria />
+      <TestimoniosCta />
+    </>
   );
 }
