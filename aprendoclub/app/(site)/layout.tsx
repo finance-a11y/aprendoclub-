@@ -17,7 +17,7 @@ export default function SiteLayout({
       <Navbar />
       <main
         id="main"
-        className="flex min-h-screen w-full flex-col scroll-mt-[72px]"
+        className="flex min-h-dvh w-full flex-col scroll-mt-[72px]"
       >
         {children}
       </main>

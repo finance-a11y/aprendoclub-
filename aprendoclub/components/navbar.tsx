@@ -257,7 +257,7 @@ export function Navbar() {
           <button
             ref={toggleRef}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors"
+            className="md:hidden flex items-center justify-center min-w-11 min-h-11 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu-panel"

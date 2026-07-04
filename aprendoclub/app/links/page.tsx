@@ -66,7 +66,7 @@ export default function LinksPage() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[var(--bg-primary)] py-20 px-6">
+    <main className="relative min-h-dvh w-full flex flex-col items-center justify-center overflow-hidden bg-[var(--bg-primary)] py-20 px-6">
       {/* Dots Pattern Overlay */}
       <div
         className="absolute inset-0 z-0"

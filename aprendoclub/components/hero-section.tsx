@@ -15,7 +15,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full min-h-dvh flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Video Background */}
       <video
