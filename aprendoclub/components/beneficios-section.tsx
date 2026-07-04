@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { BookOpen, MessageCircle, Video, Briefcase } from "lucide-react";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Card } from "@/components/ui/card";
 
 const benefits = [
   {
@@ -44,10 +46,8 @@ export function BeneficiosSection() {
         transition={{ duration: 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-          LA SOLUCIÓN
-        </span>
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white">
+        <Eyebrow>LA SOLUCIÓN</Eyebrow>
+        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
           Todo lo que necesitas para dominar el SEO
         </h2>
         <p className="text-center text-lg text-gray-400">
@@ -63,15 +63,16 @@ export function BeneficiosSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group flex flex-col items-center gap-5 rounded-xl bg-[#0d1117] border border-white/10 p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#b8f60d]/30"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#b8f60d]/10 transition-colors group-hover:bg-[#b8f60d]/20">
-              <benefit.icon className="h-7 w-7 text-[#b8f60d]" />
-            </div>
-            <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
-            <p className="text-sm leading-relaxed text-gray-400">
-              {benefit.desc}
-            </p>
+            <Card hover="liftAccent" className="group flex flex-col items-center gap-5 text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--accent)]/10 transition-colors group-hover:bg-[var(--accent)]/20">
+                <benefit.icon className="h-7 w-7 text-[var(--accent)]" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
+              <p className="text-sm leading-relaxed text-gray-400">
+                {benefit.desc}
+              </p>
+            </Card>
           </motion.div>
         ))}
       </div>

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 const stats = [
   { value: "$2M+", label: "en ventas generadas" },
@@ -31,7 +32,7 @@ export function InstructorSection() {
           className="relative flex justify-center lg:justify-start"
         >
           {/* Decorative Frame - offset behind */}
-          <div className="absolute top-4 left-4 lg:left-0 w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl border-2 border-[#012fd8]/30" />
+          <div className="absolute top-4 left-4 lg:left-0 w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl border-2 border-[var(--primary)]/30" />
 
           {/* Photo */}
           <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl overflow-hidden">
@@ -51,23 +52,21 @@ export function InstructorSection() {
           className="flex flex-col gap-6 text-center lg:text-left"
         >
           <div>
-            <span className="text-sm font-bold uppercase tracking-wider text-[#b8f60d]">
-              TU INSTRUCTOR
-            </span>
+            <Eyebrow>TU INSTRUCTOR</Eyebrow>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             <a
               href="https://ariannalupi.com"
               target="_blank"
               rel="noopener"
-              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-[#b8f60d] hover:decoration-[#b8f60d]"
+              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
             >
               Arianna Lupi
             </a>
           </h2>
 
-          <p className="text-lg text-[#012fd8] font-medium">
+          <p className="text-lg text-[var(--primary)] font-semibold">
             Consultora SEO y Fundadora aprendoclub
           </p>
 
@@ -89,7 +88,7 @@ export function InstructorSection() {
                 transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.4 + index * 0.1 }}
                 className="flex flex-col"
               >
-                <span className="text-3xl md:text-4xl font-extrabold text-white">
+                <span className="text-3xl md:text-4xl font-semibold text-white">
                   {stat.value}
                 </span>
                 <span className="text-sm text-gray-500">{stat.label}</span>

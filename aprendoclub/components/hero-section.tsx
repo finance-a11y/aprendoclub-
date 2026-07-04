@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ChevronDown, Calendar } from "lucide-react";
+import { ChevronDown, Calendar, Rocket, Star } from "lucide-react";
 import { trackSchedule } from "./meta-pixel";
 
 export function HeroSection() {
@@ -45,10 +45,11 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="flex items-center gap-2 rounded-full border border-[#b8f60d]/30 bg-[#b8f60d]/5 px-4 py-1.5 backdrop-blur-sm"
+          className="flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 px-4 py-1.5 backdrop-blur-sm"
         >
-          <span className="text-sm font-medium text-[#b8f60d]">
-            🚀 +500 estudiantes ya aprenden SEO con IA
+          <span className="flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]">
+            <Rocket className="h-4 w-4" aria-hidden="true" />
+            +500 estudiantes ya aprenden SEO con IA
           </span>
         </motion.div>
 
@@ -57,10 +58,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight text-white"
         >
          La única academia que te prepara {" "}
-          <span className="bg-gradient-to-r from-white via-[#b8f60d] to-[#012fd8] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-white via-[var(--accent)] to-[var(--primary)] bg-clip-text text-transparent">
           para conseguir un trabajo real.
           </span>
         </motion.h1>
@@ -86,7 +87,7 @@ export function HeroSection() {
           <a
             href="#precios"
             aria-label="Ver planes y precios"
-            className="w-full sm:w-auto flex items-center justify-center rounded-xl bg-[var(--primary)] px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-[var(--primary-medium)] hover:shadow-[0_0_40px_rgba(1,47,216,0.5)]"
+            className="w-full sm:w-auto flex items-center justify-center rounded-xl bg-[var(--primary)] px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-[var(--primary-medium)] hover:shadow-[0_0_40px_rgba(1,47,216,0.5)]"
           >
             Únete a aprendoclub
           </a>
@@ -96,7 +97,7 @@ export function HeroSection() {
             rel="noopener noreferrer"
             aria-label="Agenda una llamada con un asesor"
             onClick={() => trackSchedule("Hero - Agenda llamada")}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-lg font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30"
           >
             <Calendar className="h-5 w-5" aria-hidden="true" />
             Agenda una llamada
@@ -124,8 +125,9 @@ export function HeroSection() {
             ))}
           </div>
           {/* Rating */}
-          <p className="text-sm text-gray-500">
-            <span className="text-yellow-400">⭐</span> 4.9/5 de +500 estudiantes
+          <p className="flex items-center gap-1 text-sm text-gray-500">
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" aria-hidden="true" />
+            4.9/5 de +500 estudiantes
           </p>
         </motion.div>
       </div>

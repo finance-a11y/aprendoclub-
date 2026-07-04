@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Target,
 } from "lucide-react";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 const problems = [
   {
@@ -61,10 +62,8 @@ export function ProblemaSection() {
         transition={{ duration: 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#012fd8]">
-          EL PROBLEMA
-        </span>
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white">
+        <Eyebrow>EL PROBLEMA</Eyebrow>
+        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
           ¿Por qué necesitas aprendoclub?
         </h2>
         <p className="text-center text-lg text-gray-400">
@@ -100,10 +99,10 @@ function ProblemCard({
   desc: string;
 }) {
   return (
-    <div className="group h-full flex flex-col gap-4 rounded-xl bg-white/[0.03] border border-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#012fd8]/30 hover:-translate-y-1">
+    <div className="group h-full flex flex-col gap-4 rounded-xl bg-white/[0.03] border border-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30 hover:-translate-y-1">
       {/* Icon */}
-      <div className="w-fit rounded-xl bg-[#012fd8]/10 p-3">
-        <Icon className="h-6 w-6 text-[#012fd8]" />
+      <div className="w-fit rounded-xl bg-[var(--primary)]/10 p-3">
+        <Icon className="h-6 w-6 text-[var(--primary)]" />
       </div>
 
       {/* Title */}

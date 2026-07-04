@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { homeFaqs as faqs } from "@/content/faqs";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function FaqSection() {
   const ref = useRef(null);
@@ -27,10 +28,8 @@ export function FaqSection() {
         transition={{ duration: 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#012fd8]">
-          FAQ
-        </span>
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white">
+        <Eyebrow>FAQ</Eyebrow>
+        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
           Resolvemos tus dudas
         </h2>
       </motion.div>
@@ -53,8 +52,8 @@ export function FaqSection() {
               <span
                 className={`text-lg font-semibold pr-4 transition-colors duration-300 ${
                   openIndex === index
-                    ? "text-[#b8f60d]"
-                    : "text-white group-hover:text-[#b8f60d]"
+                    ? "text-[var(--accent)]"
+                    : "text-white group-hover:text-[var(--accent)]"
                 }`}
               >
                 {faq.question}
@@ -66,7 +65,7 @@ export function FaqSection() {
               >
                 <ChevronDown
                   className={`h-5 w-5 transition-colors duration-300 ${
-                    openIndex === index ? "text-[#b8f60d]" : "text-gray-500"
+                    openIndex === index ? "text-[var(--accent)]" : "text-gray-500"
                   }`}
                 />
               </motion.div>
