@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, GraduationCap, CalendarCheck, BookOpen, Rocket } from "lucide-react";
 import { trackLinkClick } from "@/components/google-analytics";
@@ -87,7 +88,14 @@ export default function LinksPage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-6"
         >
-          <img src="/logo.svg" alt="aprendoclub" className="h-10 w-auto" />
+          <Image
+            src="/logo.svg"
+            alt="aprendoclub"
+            width={207}
+            height={40}
+            className="h-10 w-auto"
+            priority
+          />
         </motion.a>
 
         {/* Avatar */}
@@ -97,10 +105,13 @@ export default function LinksPage() {
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="mb-4 rounded-full p-[2px] bg-gradient-to-r from-[var(--primary)] via-[var(--primary-light)] to-[var(--accent)]"
         >
-          <img
+          <Image
             src="/arianna-lupi.webp"
             alt="aprendoclub"
+            width={96}
+            height={96}
             className="h-24 w-24 rounded-full object-cover border-4 border-[var(--bg-primary)]"
+            priority
           />
         </motion.div>
 

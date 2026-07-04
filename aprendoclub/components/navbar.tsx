@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -108,7 +109,14 @@ export function Navbar() {
         <div className="flex h-full items-center justify-between container-padding max-w-7xl mx-auto">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <img src="/logo.svg" alt="aprendoclub" className="h-8 w-auto" />
+            <Image
+              src="/logo.svg"
+              alt="aprendoclub"
+              width={166}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

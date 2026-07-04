@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Youtube } from "lucide-react";
 import { footerColumns, footerSocials, footerMeta } from "@/content/site";
@@ -36,7 +37,14 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <Link href="/" className="flex items-center w-fit">
-              <img src="/logo.svg" alt="aprendoclub" className="h-6 w-auto" />
+              <Image
+                src="/logo.svg"
+                alt="aprendoclub"
+                width={124}
+                height={24}
+                className="h-6 w-auto"
+                priority
+              />
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
               {footerMeta.blurb}
