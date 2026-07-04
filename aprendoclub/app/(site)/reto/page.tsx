@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RetoPage() {
   return (
-    <div className="w-full bg-[var(--bg-primary)] text-white">
+    <div className="w-full bg-[var(--bg-primary)] text-white pt-[72px]">
       <JsonLd
         data={course({
           name: "Reto 7 días",
