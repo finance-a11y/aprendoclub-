@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Fundaciones y navegación** - Shell compartido, navbar real, footer limpio, patrón data-driven y sitemap
 - [x] **Phase 2: Quiénes somos** - Página `/quienes-somos` con historia y bio de la fundadora + teaser en el home (completed 2026-07-04)
-- [ ] **Phase 3: Testimonios** - Página `/testimonios` migrada + sección visible desde el home
+- [x] **Phase 3: Testimonios** - Página `/testimonios` migrada + sección visible desde el home (completed 2026-07-04)
 - [ ] **Phase 4: Programas** - Hub `/programas` + páginas individuales de los cuatro programas
 - [ ] **Phase 5: Enlazado interno** - Cross-linking coherente entre todas las páginas para navegación y SEO interno
 
@@ -73,7 +73,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Plans**: 1 plan
 
-  - [ ] 03-01-PLAN.md — content/testimonios.ts (verbatim) + página /testimonios (hero, grid, banda de logos, galería del Reto, CTA) + botón "Ver todos" en el home
+  - [x] 03-01-PLAN.md — content/testimonios.ts (verbatim) + página /testimonios (hero, grid, banda de logos, galería del Reto, CTA) + botón "Ver todos" en el home
+
 **UI hint**: yes
 
 ### Phase 4: Programas
@@ -115,6 +116,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Fundaciones y navegación | 0/3 | Not started | - |
 | 2. Quiénes somos | 2/2 | Complete   | 2026-07-04 |
-| 3. Testimonios | 0/1 | Not started | - |
+| 3. Testimonios | 1/1 | Complete   | 2026-07-04 |
 | 4. Programas | 0/TBD | Not started | - |
 | 5. Enlazado interno | 0/TBD | Not started | - |

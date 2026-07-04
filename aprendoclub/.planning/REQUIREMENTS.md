@@ -22,8 +22,8 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 
 ### Testimonios (TEST)
 
-- [ ] **TEST-01**: Existe la página `/testimonios` con los testimonios migrados de aprendoseo.com y de `public/reto/testimonios`.
-- [ ] **TEST-02**: La sección de testimonios del home queda visible y enlaza a la página completa de testimonios.
+- [x] **TEST-01**: Existe la página `/testimonios` con los testimonios migrados de aprendoseo.com y de `public/reto/testimonios`.
+- [x] **TEST-02**: La sección de testimonios del home queda visible y enlaza a la página completa de testimonios.
 
 ### Programas (PROG)
 
@@ -78,8 +78,8 @@ Mapeo completo a fases del roadmap v1.0.
 | NAV-05 | Phase 1 | Pending |
 | ABOUT-01 | Phase 2 | Complete |
 | ABOUT-02 | Phase 2 | Complete |
-| TEST-01 | Phase 3 | Pending |
-| TEST-02 | Phase 3 | Pending |
+| TEST-01 | Phase 3 | Complete |
+| TEST-02 | Phase 3 | Complete |
 | PROG-01 | Phase 4 | Pending |
 | PROG-02 | Phase 4 | Pending |
 | PROG-03 | Phase 4 | Pending |
