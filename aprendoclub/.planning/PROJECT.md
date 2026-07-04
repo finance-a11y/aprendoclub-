@@ -38,6 +38,7 @@ Que un visitante de Google Ads aterrice y encuentre una web creíble y navegable
 - [ ] Página Quiénes somos
 - [ ] Testimonios migrados + visibles desde home
 - [ ] Página Programas (hub) + páginas Taller SEO con IA y Econía/SEOconía
+- [ ] Diplomado integrado al shell + rediseñado al look aprendoclub (PROG-08)
 - [ ] Reto 7 días como ruta (editable si el reto no está activo)
 - [ ] Header + footer con navegación real y limpia
 - [ ] Enlazado interno + sitemap
@@ -77,6 +78,7 @@ Que un visitante de Google Ads aterrice y encuentre una web creíble y navegable
 | Estático ahora, Payload CMS en v1.1 | Salir rápido para Google Ads; CMS después en otra rama | — Pending |
 | Construir Payload-ready (contenido separado) | Migración limpia a bloques/colecciones Payload | — Pending |
 | Scrapear aprendoseo.com como fuente | Contenido real ya existe ahí | — Pending |
+| Diplomado se integra al shell y diseño aprendoclub (revierte "chrome propio") | Juan pidió unificar el diseño; hoy `/diplomado` usa tokens shadcn distintos | — Pending (Fase 4) |
 
 ## Evolution
 

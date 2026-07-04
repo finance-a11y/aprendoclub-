@@ -33,6 +33,7 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 - [ ] **PROG-04**: Existe la página del Reto de 7 días como ruta Next.js, editable para reflejar si el reto no está activo.
 - [ ] **PROG-05**: Existe la página de Econía / SEOconía (sección de economía) con su contenido.
 - [ ] **PROG-06**: El home muestra/enlaza la sección de programas (visible desde el home).
+- [ ] **PROG-08**: El Diplomado (`/diplomado`) se integra al shell compartido `(site)` y adopta por completo el diseño de aprendoclub (mismo navbar/footer, Montserrat, tokens `var(--bg-primary)`/`#b8f60d`/`#012fd8`, `container-padding`/`section-spacing`), conservando su contenido (16 semanas, EPAM, pricing, equipo, FAQ). Reemplaza su navbar/footer/tokens propios (shadcn `bg-background`/`bg-primary`, `#b8ff2b`, `font-mono`).
 
 ### Enlazado interno (LINK)
 
@@ -85,11 +86,12 @@ Mapeo completo a fases del roadmap v1.0.
 | PROG-04 | Phase 4 | Pending |
 | PROG-05 | Phase 4 | Pending |
 | PROG-06 | Phase 4 | Pending |
+| PROG-08 | Phase 4 | Pending |
 | LINK-01 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 16 total
-- Mapped to phases: 16 ✓
+- v1 requirements: 17 total
+- Mapped to phases: 17 ✓
 - Unmapped: 0 ✓
 
 ---

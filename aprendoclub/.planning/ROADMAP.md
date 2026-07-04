@@ -59,14 +59,15 @@ Decimal phases appear between their surrounding integers in numeric order.
 **UI hint**: yes
 
 ### Phase 4: Programas
-**Goal**: Presentar la oferta educativa completa — un hub `/programas` que introduce y enlaza los cuatro programas, con página propia para cada uno y visibilidad desde el home.
+**Goal**: Presentar la oferta educativa completa — un hub `/programas` que introduce y enlaza los cuatro programas, con página propia para cada uno y visibilidad desde el home. Incluye integrar el Diplomado existente al shell y diseño de aprendoclub.
 **Depends on**: Phase 1
-**Requirements**: PROG-01, PROG-02, PROG-03, PROG-04, PROG-05, PROG-06
+**Requirements**: PROG-01, PROG-02, PROG-03, PROG-04, PROG-05, PROG-06, PROG-08
 **Success Criteria** (what must be TRUE):
   1. Un visitante puede abrir `/programas` y ver presentados y enlazados los cuatro programas (Diplomado, Taller SEO con IA, Reto 7 días, Econía/SEOconía).
   2. Desde el hub y la navegación se llega al Diplomado (`/diplomado` existente), a la página del Taller de SEO con IA y a la página del Reto de 7 días (editable para reflejar si el reto no está activo).
   3. Existe la página de Econía/SEOconía con su contenido publicado.
   4. El home muestra/enlaza la sección de programas, visible sin scroll profundo.
+  5. El Diplomado (`/diplomado`) usa el mismo navbar/footer del shell `(site)` y el diseño de aprendoclub (Montserrat, `#b8f60d`, `var(--bg-primary)`), sin rastro del navbar/footer/tokens propios anteriores, conservando su contenido.
 **Plans**: TBD
 **UI hint**: yes
 **Content note**: PROG-05 (Econía/SEOconía) NO tiene fuente de contenido en aprendoseo.com ni en `public/`. Juan debe aportar el contenido al momento de ejecutar esta fase; hasta entonces la página no puede completarse.
