@@ -48,8 +48,8 @@ export function Methodology() {
               key={i}
               className="group rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6 transition-colors hover:border-white/20"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 transition-colors group-hover:bg-[var(--accent)]/10">
-                <pillar.icon className="h-6 w-6 text-[var(--primary-light)] transition-colors group-hover:text-[var(--accent)]" />
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
+                <pillar.icon className="h-6 w-6 text-[var(--primary-light)]" />
               </div>
               <h3 className="mb-2 font-semibold text-white">{pillar.title}</h3>
               <p className="text-sm leading-relaxed text-gray-400">

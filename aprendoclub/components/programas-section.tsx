@@ -1,11 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { ProgramCard } from "@/components/program-card";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 import { programas, homeProgramas } from "@/content/programas";
 
 export function ProgramasSection() {
@@ -28,7 +27,7 @@ export function ProgramasSection() {
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow className="tracking-[0.2em]">{homeProgramas.eyebrow}</Eyebrow>
-        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           {homeProgramas.titulo}
         </h2>
         <p className="text-center text-lg text-gray-400">
@@ -48,13 +47,9 @@ export function ProgramasSection() {
         ))}
       </div>
 
-      <Link
-        href={homeProgramas.botonHref}
-        className="group inline-flex items-center gap-2 rounded-lg border border-[var(--border-card)] bg-[var(--surface-card)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-[var(--accent)]/30"
-      >
+      <Button href={homeProgramas.botonHref} variant="secondary" icon>
         {homeProgramas.botonLabel}
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </Link>
+      </Button>
     </section>
   );
 }

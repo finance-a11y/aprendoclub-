@@ -23,7 +23,7 @@ export function RelatedLinks({
             <Link
               key={link.href}
               href={link.href}
-              className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[var(--accent)]"
+              className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-white"
             >
               {link.label}
             </Link>

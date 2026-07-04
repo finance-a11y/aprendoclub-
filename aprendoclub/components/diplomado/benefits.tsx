@@ -30,7 +30,7 @@ const extras = [
 
 export function Benefits() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         <div className="mb-4">
           <Eyebrow>Beneficios</Eyebrow>
