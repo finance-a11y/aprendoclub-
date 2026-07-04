@@ -8,6 +8,8 @@ import {
   tallerPrecio,
   tallerCta,
 } from "@/content/taller-seo-con-ia";
+import { JsonLd } from "@/components/json-ld";
+import { course } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Taller SEO con IA | aprendoclub",
@@ -17,6 +19,15 @@ export const metadata: Metadata = {
 export default function TallerSeoConIaPage() {
   return (
     <>
+      <JsonLd
+        data={course({
+          name: "Taller de SEO con IA",
+          description: tallerHero.subtitulo,
+          path: "/programas/taller-seo-con-ia",
+          price: "49.99",
+          courseWorkload: "P15D",
+        })}
+      />
       {/* Hero */}
       <section className="container-padding section-spacing max-w-6xl mx-auto flex flex-col items-center gap-4 text-center pt-28">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">

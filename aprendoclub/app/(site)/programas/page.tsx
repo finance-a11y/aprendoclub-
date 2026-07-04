@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { ProgramCard } from "@/components/program-card";
 import { RelatedLinks } from "@/components/related-links";
 import { programas, hubHero, hubCtaFinal } from "@/content/programas";
+import { JsonLd } from "@/components/json-ld";
+import { programasGraph } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Programas | aprendoclub",
@@ -13,6 +15,16 @@ export const metadata: Metadata = {
 export default function ProgramasPage() {
   return (
     <>
+      <JsonLd
+        data={programasGraph([
+          { name: "Diplomado de cero a SEO", path: "/diplomado" },
+          {
+            name: "Taller de SEO con IA",
+            path: "/programas/taller-seo-con-ia",
+          },
+          { name: "Reto 7 días", path: "/reto" },
+        ])}
+      />
       {/* Hero */}
       <section className="container-padding section-spacing max-w-6xl mx-auto flex flex-col items-center gap-4 text-center pt-28">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">

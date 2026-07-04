@@ -4,6 +4,8 @@ import { RetoMid } from "@/components/reto/reto-mid";
 import { RetoBottom } from "@/components/reto/reto-bottom";
 import { RelatedLinks } from "@/components/related-links";
 import { hero } from "@/content/reto";
+import { JsonLd } from "@/components/json-ld";
+import { course } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Reto 7 días | aprendoclub",
@@ -13,6 +15,16 @@ export const metadata: Metadata = {
 export default function RetoPage() {
   return (
     <div className="w-full bg-[var(--bg-primary)] text-white">
+      <JsonLd
+        data={course({
+          name: "Reto 7 días",
+          description: hero.texto,
+          path: "/reto",
+          price: "20",
+          courseWorkload: "P7D",
+          startDate: "2026-07-13",
+        })}
+      />
       <RetoTop />
       <RetoMid />
       <RetoBottom />

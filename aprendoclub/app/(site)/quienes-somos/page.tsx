@@ -6,6 +6,9 @@ import { EquipoSection } from "@/components/quienes-somos/equipo";
 import { MetodologiaSection } from "@/components/quienes-somos/metodologia";
 import { StatsSection } from "@/components/quienes-somos/stats";
 import { CtaFinalSection } from "@/components/quienes-somos/cta";
+import { JsonLd } from "@/components/json-ld";
+import { aboutGraph } from "@/lib/schema";
+import { equipo } from "@/content/quienes-somos";
 
 export const metadata: Metadata = {
   title: "Quiénes somos | aprendoclub",
@@ -16,6 +19,7 @@ export const metadata: Metadata = {
 export default function QuienesSomosPage() {
   return (
     <>
+      <JsonLd data={aboutGraph(equipo)} />
       <QuienesSomosHero />
       <HistoriaSection />
       <FundadoraSection />

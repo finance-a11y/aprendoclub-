@@ -3,6 +3,9 @@ import { TestimoniosHero } from "@/components/testimonios/hero";
 import { TestimoniosGrid } from "@/components/testimonios/grid";
 import { RetoGaleria } from "@/components/testimonios/reto-galeria";
 import { TestimoniosCta } from "@/components/testimonios/cta";
+import { JsonLd } from "@/components/json-ld";
+import { testimoniosGraph } from "@/lib/schema";
+import { testimonios } from "@/content/testimonios";
 
 export const metadata: Metadata = {
   title: "Testimonios | aprendoclub",
@@ -13,6 +16,7 @@ export const metadata: Metadata = {
 export default function TestimoniosPage() {
   return (
     <>
+      <JsonLd data={testimoniosGraph(testimonios)} />
       <TestimoniosHero />
       <TestimoniosGrid />
       <RetoGaleria />
