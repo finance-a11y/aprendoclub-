@@ -22,3 +22,11 @@ yarn-error.log*
 
 # env files
 .env*
+
+# AI / GSD tooling artifacts
+.planning/
+.claude/
+CLAUDE.md
+.gsd/
+get-shit-done/
+*.log
