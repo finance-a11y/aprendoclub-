@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "$2M+", label: "en ventas generadas" },
@@ -85,6 +87,17 @@ export function InstructorSection() {
                 <span className="text-sm text-gray-500">{stat.label}</span>
               </motion.div>
             ))}
+          </div>
+
+          {/* Teaser → /quienes-somos (ABOUT-02) */}
+          <div className="flex justify-center lg:justify-start pt-2">
+            <Link
+              href="/quienes-somos"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-2.5 text-sm font-semibold text-white hover:border-white/40 hover:bg-white/5 transition-all"
+            >
+              Conoce más sobre nosotros
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </motion.div>
       </div>
