@@ -18,12 +18,12 @@ export default function ProgramasPage() {
     <>
       <JsonLd
         data={programasGraph([
-          { name: "Diplomado de cero a SEO", path: "/diplomado" },
+          { name: "Reto 7 días", path: "/reto" },
           {
             name: "Taller de SEO con IA",
             path: "/programas/taller-seo-con-ia",
           },
-          { name: "Reto 7 días", path: "/reto" },
+          { name: "Diplomado de cero a SEO", path: "/diplomado" },
         ])}
       />
       {/* Hero */}
@@ -36,7 +36,7 @@ export default function ProgramasPage() {
       </section>
 
       {/* Grid de programas */}
-      <section className="container-padding max-w-6xl mx-auto w-full">
+      <section className="container-padding section-spacing max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Render order (display-only, no data edit): low -> high commitment */}
           {["reto", "taller-seo-con-ia", "diplomado"]
