@@ -34,7 +34,7 @@ Tailwind v4 is base-4 already. Semantic scale:
 
 ## Typography
 
-4 roles, 2 weights.
+4 roles, 3 weights.
 
 | Role | Size | Weight | Line Height |
 |------|------|--------|-------------|
@@ -43,10 +43,11 @@ Tailwind v4 is base-4 already. Semantic scale:
 | Heading (h2/h3, section titles) | 28px → 36px responsive (`text-[1.75rem] md:text-4xl`) | 600 semibold | 1.2 |
 | Display (h1, hero only) | 40px → 56px responsive (`text-4xl md:text-5xl lg:text-6xl`) | 600 semibold | 1.1 |
 
-**Weight consolidation (exactly 2 weights):**
+**Weight consolidation (exactly 3 weights):**
 - **400 regular** — body copy, paragraphs, quotes, bios, descriptions.
-- **600 semibold** — everything else: eyebrows, headings h1-h6, buttons/CTAs, card titles, nav links, stat numbers.
-- Migrate `font-bold` (700) and `font-extrabold` (800) down to `font-semibold` (600). Do not introduce a third weight. `font-medium` (500) folds into semibold (emphasis) or drops the class (body/regular).
+- **500 medium** — nav links, labels, subtle emphasis where semibold reads too heavy (secondary UI text, form labels, meta captions).
+- **600 semibold** — headings h1-h6, eyebrows, buttons/CTAs, card titles, stat numbers, primary emphasis.
+- Migrate `font-bold` (700), `font-extrabold` (800) and `font-black` (900) down to `font-semibold` (600). Do not introduce a fourth weight. `font-medium` (500) is allowed and stays where already applied.
 
 **Auxiliary size (documented exception, not a new role):** `text-sm` (14px) remains valid ONLY for secondary/meta text beside body copy at reduced visual weight (timestamps, role captions, price notes) — never for primary reading content or headings.
 
@@ -218,12 +219,24 @@ Surface: `bg-[var(--surface-card)] border border-[var(--border-card)] rounded-xl
 
 ---
 
-## Adoption Status (Phase 6 capstone, 06-07)
+## Adoption Status (Phase 6 capstone, 06-07, gap-closed 06-08)
 
-**APPLIED — site-wide.** This is not aspirational documentation; it reflects code that shipped.
+**Tokens + shared primitives: DEFINED. Hex → token migration: APPLIED across all components.**
 
 - Tokens live in `app/globals.css` (`:root` + `@theme inline`). Primitives live in `components/ui/{eyebrow,button,card}.tsx`.
-- All v1.0 components and pages migrated: home/shared sections, chrome (navbar/footer), diplomado, quienes-somos, reto, testimonios/* (hero, cta, reto-galeria, testimonial-avatar), the programas hub, the taller-seo-con-ia inline page, and the /links linktree page.
-- Full-tree residue audit (`grep -RnE '#[0-9a-fA-F]{6}|font-bold|font-extrabold' components app --include='*.tsx'`, plus `rounded-3xl` and structural-emoji scans) returns clean — zero hits outside `app/globals.css` token definitions.
+- Full-tree residue audit (`grep -RnE '#[0-9a-fA-F]{6}|font-bold|font-extrabold|font-black' components app --include='*.tsx'`, plus `rounded-3xl` and structural-emoji scans) returns clean — zero hits outside `app/globals.css` token definitions. The 3-weight typography contract (400/500/600) is honored — `font-medium` is allowed and stays, `font-black` has been swept to `font-semibold`.
 - `npm run build` passes for the whole site with no content regressions.
 - The hex → token map above matches what was actually consumed by the codebase; no stray hex families were discovered during the audit beyond what's already documented.
+
+**PAGE-LEVEL adoption is NOT yet applied site-wide.** Rollout of the following items to individual pages is scheduled for Phases 7 (program pages) and 8 (trust pages), not this phase:
+
+- `.section-spacing` utility applied consistently on diplomado and pricing sections (some sections still use ad-hoc `py-*` values).
+- The Heading typographic role (28px→36px, 600 semibold) applied uniformly to all section `h2`s.
+- Disciplined accent (`--accent` #b8f60d) usage limited strictly to the 5 reserved elements listed above — not yet audited page-by-page.
+- Primitive adoption (`<Button>`/`<Card>`) in `pricing-section.tsx` and navbar CTAs, which currently use native styled elements rather than the shared components.
+
+**Deferred to Phases 7-8:**
+- `.section-spacing` adoption on diplomado/pricing sections
+- Heading role adoption on all h2s
+- Accent-usage discipline audit (5 reserved elements only)
+- `pricing-section.tsx` / navbar CTA adoption of `<Button>`/`<Card>` primitives
