@@ -30,6 +30,18 @@
   --radius-xl: 16px;
   --radius-2xl: 24px;
   --radius-full: 9999px;
+
+  /* Design system: card/panel surface (replaces hardcoded #0d1117) */
+  --surface-card: #0d1117;
+  --border-card: #ffffff1a;
+
+  /* Reserved for future form validation only (no consumer this phase) */
+  --destructive: #ef4444;
+
+  /* Shadow scale (subtle, layered, dark-theme appropriate) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
 }
 
 @theme inline {
@@ -116,4 +128,9 @@ a:focus-visible {
 /* Safe area for mobile devices with notch */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Prose measure cap: 65 characters per line (testimonial quotes, bios, FAQ answers) */
+@utility measure-prose {
+  max-width: 65ch;
 }
