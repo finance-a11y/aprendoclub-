@@ -1,5 +1,3 @@
-"use client";
-
 import { Check, Trophy, MessageCircle } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Card } from "@/components/ui/card";
