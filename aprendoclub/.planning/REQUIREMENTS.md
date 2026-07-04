@@ -1,0 +1,97 @@
+# Requirements: aprendoclub — Web
+
+**Defined:** 2026-07-03
+**Core Value:** Que un visitante de Google Ads encuentre una web creíble y navegable (quiénes somos, testimonios, programas) que convierta a inscripción.
+
+## v1 Requirements
+
+Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una fase del roadmap.
+
+### Fundaciones y navegación (NAV)
+
+- [ ] **NAV-01**: Todas las páginas nuevas usan un shell compartido con el mismo navbar y footer, coherente con el diseño del home.
+- [ ] **NAV-02**: El navbar ofrece navegación real entre páginas (Inicio, Quiénes somos, Programas, Testimonios) además del CTA, funcionando en desktop y mobile con el estilo glass actual.
+- [ ] **NAV-03**: El footer queda limpio: se eliminan los links muertos (Precios, Blog, Guías SEO, Herramientas, Testimonios roto, Comunidad) y solo apunta a páginas/secciones existentes.
+- [ ] **NAV-04**: `app/sitemap.ts` incluye todas las rutas nuevas del sitio.
+- [ ] **NAV-05**: Los componentes de sección se construyen data-driven (contenido separado de la presentación, en objetos/consts) para permitir la migración a bloques Payload en v1.1.
+
+### Quiénes somos (ABOUT)
+
+- [ ] **ABOUT-01**: Existe la página `/quienes-somos` con la historia, misión y propuesta de aprendoclub (contenido migrado de aprendoseo.com) y la bio de la fundadora Arianna Lupi.
+- [ ] **ABOUT-02**: El home muestra una sección/teaser de "quiénes somos" que enlaza a la página completa.
+
+### Testimonios (TEST)
+
+- [ ] **TEST-01**: Existe la página `/testimonios` con los testimonios migrados de aprendoseo.com y de `public/reto/testimonios`.
+- [ ] **TEST-02**: La sección de testimonios del home queda visible y enlaza a la página completa de testimonios.
+
+### Programas (PROG)
+
+- [ ] **PROG-01**: Existe la página hub `/programas` que presenta y enlaza los cuatro programas.
+- [ ] **PROG-02**: El Diplomado (ruta `/diplomado` existente) queda enlazado desde el hub y la navegación.
+- [ ] **PROG-03**: Existe la página del Taller de SEO con IA con su contenido migrado de aprendoseo.com.
+- [ ] **PROG-04**: Existe la página del Reto de 7 días como ruta Next.js, editable para reflejar si el reto no está activo.
+- [ ] **PROG-05**: Existe la página de Econía / SEOconía (sección de economía) con su contenido.
+- [ ] **PROG-06**: El home muestra/enlaza la sección de programas (visible desde el home).
+
+### Enlazado interno (LINK)
+
+- [ ] **LINK-01**: Las páginas se enlazan entre sí de forma cruzada (programas ↔ testimonios ↔ quiénes somos ↔ home) para navegación coherente y SEO interno.
+
+## v2 Requirements
+
+Diferido a milestones futuros. Reconocido pero fuera del roadmap actual.
+
+### CMS (Payload) — v1.1
+
+- **CMS-01**: Secciones dinámicas/editables desde Payload CMS.
+- **CMS-02**: Componentes de sección convertidos a bloques Payload.
+- **CMS-03**: Blog de aprendoseo migrado a Payload con categorías y authors.
+
+### Programas adicionales
+
+- **PROG-07**: Páginas de SEO para redes sociales.
+
+## Out of Scope
+
+Excluido explícitamente para prevenir scope creep.
+
+| Feature | Reason |
+|---------|--------|
+| CMS / contenido editable | Diferido a v1.1 (Payload). v1.0 es estático para salir rápido a Google Ads. |
+| Blog | Llega con Payload en v1.1. |
+| Páginas SEO redes sociales | Se agregan después. |
+| HTML plano en `public/` | Rompe el design system; todo se construye como rutas Next.js. |
+| Backend / auth / pagos | El sitio v1.0 es informativo/marketing; inscripción se maneja por enlaces externos existentes. |
+
+## Traceability
+
+Se completa durante la creación del roadmap.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| NAV-01 | — | Pending |
+| NAV-02 | — | Pending |
+| NAV-03 | — | Pending |
+| NAV-04 | — | Pending |
+| NAV-05 | — | Pending |
+| ABOUT-01 | — | Pending |
+| ABOUT-02 | — | Pending |
+| TEST-01 | — | Pending |
+| TEST-02 | — | Pending |
+| PROG-01 | — | Pending |
+| PROG-02 | — | Pending |
+| PROG-03 | — | Pending |
+| PROG-04 | — | Pending |
+| PROG-05 | — | Pending |
+| PROG-06 | — | Pending |
+| LINK-01 | — | Pending |
+
+**Coverage:**
+- v1 requirements: 16 total
+- Mapped to phases: 0 (pending roadmap)
+- Unmapped: 16 ⚠️
+
+---
+*Requirements defined: 2026-07-03*
+*Last updated: 2026-07-03 after initial definition*
