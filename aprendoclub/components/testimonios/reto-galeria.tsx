@@ -60,7 +60,7 @@ export function RetoGaleria() {
               duration: reduceMotion ? 0 : 0.6,
               delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.4),
             }}
-            className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[var(--surface-card)] transition-all duration-300 hover:border-[var(--accent)]/40 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[var(--surface-card)] transition-all duration-300 hover:border-white/25 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-label={`Ampliar: ${imagen.alt}`}
           >
             <img

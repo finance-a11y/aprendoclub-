@@ -32,7 +32,7 @@ export function TestimoniosCta() {
         </Button>
         <Link
           href="/quienes-somos"
-          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[var(--accent)]"
+          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-white"
         >
           Conoce al equipo detrás de aprendoclub
         </Link>
