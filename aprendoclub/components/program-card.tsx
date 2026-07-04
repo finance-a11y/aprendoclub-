@@ -1,13 +1,14 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import type { Program } from "@/content/programas";
+import { Card } from "@/components/ui/card";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 
 /**
  * Card reutilizable de programa (hub /programas + sección del home).
  *
- * Componente presentacional (server component). Look aprendoclub: superficie
- * #0d1117 con borde white/10; accent #b8f60d limitado a badge y CTA (regla 01-UI-SPEC).
- * `compact` reduce el padding para la versión del home.
+ * Componente presentacional (server component). Compone los primitivos
+ * compartidos Card/Eyebrow/Button; accent limitado a badge y CTA (regla
+ * 01-UI-SPEC). `compact` reduce el padding para la versión del home.
  */
 export function ProgramCard({
   program,
@@ -17,14 +18,12 @@ export function ProgramCard({
   compact?: boolean;
 }) {
   return (
-    <div
-      className={`group flex flex-col gap-4 rounded-xl bg-[#0d1117] border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-[#b8f60d]/30 ${
-        compact ? "p-6" : "p-8"
-      }`}
+    <Card
+      padding={compact ? "compact" : "default"}
+      hover="liftAccent"
+      className="group flex flex-col gap-4"
     >
-      <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#b8f60d]">
-        {program.badge}
-      </span>
+      <Eyebrow>{program.badge}</Eyebrow>
 
       <h3 className="text-lg font-semibold text-white">{program.nombre}</h3>
 
@@ -39,13 +38,14 @@ export function ProgramCard({
         )}
       </div>
 
-      <Link
+      <Button
         href={program.ctaHref}
-        className="group/cta mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-[#b8f60d] px-5 py-2.5 text-sm font-semibold text-black transition-all hover:brightness-110"
+        variant="primary"
+        icon
+        className="mt-4"
       >
         {program.ctaLabel}
-        <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
-      </Link>
-    </div>
+      </Button>
+    </Card>
   );
 }
