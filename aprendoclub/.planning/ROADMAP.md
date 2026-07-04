@@ -89,7 +89,15 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. El home muestra/enlaza la sección de programas, visible sin scroll profundo.
   4. El Diplomado (`/diplomado`) usa el mismo navbar/footer del shell `(site)` y el diseño de aprendoclub (Montserrat, `#b8f60d`, `var(--bg-primary)`), sin rastro del navbar/footer/tokens propios anteriores, conservando su contenido.
 
-**Plans**: TBD
+**Plans**: 8 plans
+- [ ] 04-01-PLAN.md — Capa de contenido (programas, taller) + ProgramCard reutilizable
+- [ ] 04-02-PLAN.md — Capa de contenido del Reto (content/reto.ts, FAQ verbatim del export)
+- [ ] 04-03-PLAN.md — Hub /programas (hero + 3 cards + CTA)
+- [ ] 04-04-PLAN.md — Página Taller SEO con IA (/programas/taller-seo-con-ia)
+- [ ] 04-05-PLAN.md — Página Reto 7 días (/reto)
+- [ ] 04-06-PLAN.md — Diplomado: mover a (site) + reskin secciones 1/2
+- [ ] 04-07-PLAN.md — Diplomado: reskin secciones 2/2
+- [ ] 04-08-PLAN.md — Sección home + repunte footer + sitemap + build
 **UI hint**: yes
 **Scope note**: PROG-05 (Econía/SEOconía) se difirió fuera de v1.0 (sin fuente de contenido). Se retoma cuando Juan lo aporte. El Reto se construye en modo edición activa / próxima edición.
 
@@ -116,5 +124,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Fundaciones y navegación | 0/3 | Not started | - |
 | 2. Quiénes somos | 2/2 | Complete   | 2026-07-04 |
 | 3. Testimonios | 1/1 | Complete   | 2026-07-04 |
-| 4. Programas | 0/TBD | Not started | - |
+| 4. Programas | 0/8 | Not started | - |
 | 5. Enlazado interno | 0/TBD | Not started | - |
