@@ -112,7 +112,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. No queda ninguna página huérfana ni enlace muerto en el recorrido del sitio.
   3. Los enlaces internos usan anchor text descriptivo (no "clic aquí") para SEO interno.
 
-**Plans**: TBD
+**Plans**: 1 plan
+- [ ] 05-01-PLAN.md — Tejer enlaces cruzados contextuales (RelatedLinks + enlaces inline) en todas las páginas
 
 ## Progress
 
@@ -125,4 +126,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Quiénes somos | 2/2 | Complete   | 2026-07-04 |
 | 3. Testimonios | 1/1 | Complete   | 2026-07-04 |
 | 4. Programas | 0/8 | Not started | - |
-| 5. Enlazado interno | 0/TBD | Not started | - |
+| 5. Enlazado interno | 0/1 | Not started | - |
