@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Fase 2 completa — checkpoint visual diferido al pase final de Juan
+status: Awaiting next milestone
 stopped_at: Completado 02-02-PLAN.md (Fase 2 completa)
-last_updated: "2026-07-04T05:39:19.558Z"
-last_activity: "2026-07-03 — Fase 2 ejecutada: /quienes-somos (7 secciones) + teaser home, build verde"
+last_updated: "2026-07-04T05:44:19.995Z"
+last_activity: 2026-07-04 — Milestone v1.0 completed and archived
 progress:
   total_phases: 5
   completed_phases: 4
@@ -25,12 +25,10 @@ See: .planning/PROJECT.md (updated 2026-07-03)
 
 ## Current Position
 
-Phase: 2 of 5 complete (Quiénes somos)
-Plan: 02-02 completado (2/2 planes de la Fase 2)
-Status: Fase 2 completa — checkpoint visual diferido al pase final de Juan
-Last activity: 2026-07-03 — Fase 2 ejecutada: /quienes-somos (7 secciones) + teaser home, build verde
-
-Progress: [████░░░░░░] 40%
+Phase: Milestone v1.0 complete
+Plan: —
+Status: Awaiting next milestone
+Last activity: 2026-07-04 — Milestone v1.0 completed and archived
 
 ## Performance Metrics
 
@@ -87,3 +85,7 @@ Items acknowledged and carried forward from previous milestone close:
 Last session: 2026-07-04T04:34:29.175Z
 Stopped at: Completado 02-02-PLAN.md (Fase 2 completa)
 Resume file: None
+
+## Operator Next Steps
+
+- Start the next milestone with /gsd:new-milestone

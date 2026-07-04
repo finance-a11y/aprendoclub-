@@ -30,25 +30,26 @@ Que un visitante de Google Ads aterrice y encuentre una web creíble y navegable
 - ✓ Página /diplomado (ruta Next.js) — pre-GSD
 - ✓ Página /links (linktree) con tracking GA4 — pre-GSD
 - ✓ Design system dark: `#0a0a0f`, accent `#b8f60d`, Montserrat, framer-motion, lucide, navbar glass — pre-GSD
+- ✓ Shell compartido `(site)` (navbar con navegación real + footer limpio) + patrón data-driven `content/` — v1.0 (Fase 1)
+- ✓ Página `/quienes-somos` (historia, fundadora, equipo, EPAM) + teaser en home — v1.0 (Fase 2)
+- ✓ Página `/testimonios` (24 testimonios + galería del Reto) + link desde home — v1.0 (Fase 3)
+- ✓ Hub `/programas` + Taller SEO con IA + Reto 7 días + sección programas en home — v1.0 (Fase 4)
+- ✓ Diplomado integrado al shell y rediseñado al look aprendoclub (PROG-08) — v1.0 (Fase 4)
+- ✓ Enlazado interno cruzado entre todas las páginas — v1.0 (Fase 5)
 
 ### Active
 
-<!-- Current scope. Building toward these. Detailed in REQUIREMENTS.md -->
+<!-- Current scope. Building toward these. Detailed en el próximo milestone -->
 
-- [ ] Página Quiénes somos
-- [ ] Testimonios migrados + visibles desde home
-- [ ] Página Programas (hub) + páginas Taller SEO con IA y Econía/SEOconía
-- [ ] Diplomado integrado al shell + rediseñado al look aprendoclub (PROG-08)
-- [ ] Reto 7 días como ruta (editable si el reto no está activo)
-- [ ] Header + footer con navegación real y limpia
-- [ ] Enlazado interno + sitemap
+(v1.0 completado — siguiente milestone: v1.1 Payload CMS)
 
 ### Out of Scope
 
 <!-- Explicit boundaries. Includes reasoning to prevent re-adding. -->
 
-- CMS / contenido editable — diferido a v1.1 (Payload CMS). Este milestone es estático (React hardcodeado) para salir rápido.
+- CMS / contenido editable — diferido a v1.1 (Payload CMS). v1.0 es estático (React hardcodeado) para salir rápido.
 - Blog — llega con Payload en v1.1 (migración del blog de aprendoseo con categorías/authors).
+- Econía/SEOconía — diferida: sin fuente de contenido; se retoma cuando Juan lo aporte.
 - Páginas de SEO redes sociales — se agregan después.
 - HTML plano en `public/` — rompe el design system; todo se construye como rutas Next.js.
 
