@@ -29,6 +29,7 @@ export function Navbar() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const programaTriggerRef = useRef<HTMLAnchorElement>(null);
 
   const openMega = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -133,14 +134,26 @@ export function Navbar() {
                     className="relative"
                     onMouseEnter={openMega}
                     onMouseLeave={closeMega}
+                    onFocus={openMega}
+                    onBlur={(e) => {
+                      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                        closeMega();
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape" && programaOpen) {
+                        if (closeTimer.current) clearTimeout(closeTimer.current);
+                        setProgramaOpen(false);
+                        programaTriggerRef.current?.focus();
+                      }
+                    }}
                   >
                     <Link
+                      ref={programaTriggerRef}
                       href={item.href}
                       aria-current={active ? "page" : undefined}
                       aria-haspopup="menu"
                       aria-expanded={programaOpen}
-                      onFocus={openMega}
-                      onBlur={closeMega}
                       className={className}
                     >
                       {item.label}
