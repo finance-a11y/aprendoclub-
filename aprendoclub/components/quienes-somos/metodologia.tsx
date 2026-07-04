@@ -37,7 +37,7 @@ export function MetodologiaSection() {
             transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : index * 0.1 }}
             className="rounded-xl bg-[#0d1117] border border-white/10 p-6"
           >
-            <span className="text-sm font-bold text-[#b8f60d]">
+            <span className="text-sm font-bold text-white/40">
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="mt-2 font-bold text-white">{pilar.nombre}</h3>
