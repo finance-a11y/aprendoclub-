@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 import {
@@ -89,11 +90,13 @@ export function TestimoniosGrid() {
         </p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {trustedCompanies.map((company) => (
-            <img
+            <Image
               key={company.name}
               src={company.logo}
               alt={company.name}
-              className="h-8 md:h-10 w-auto opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              width={120}
+              height={40}
+              className="h-8 md:h-10 w-auto object-contain opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
             />
           ))}
         </div>

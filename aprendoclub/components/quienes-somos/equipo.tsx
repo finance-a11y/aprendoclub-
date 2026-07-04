@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { equipo, type TeamMember } from "@/content/quienes-somos";
 import { Card } from "@/components/ui/card";
@@ -18,9 +19,11 @@ function TeamAvatar({ member }: { member: TeamMember }) {
   }
 
   return (
-    <img
-      src={member.foto}
+    <Image
+      src={member.foto ?? ""}
       alt={member.nombre}
+      width={64}
+      height={64}
       onError={() => setShowFallback(true)}
       className="h-16 w-16 shrink-0 rounded-full object-cover object-top"
     />

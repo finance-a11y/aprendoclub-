@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
@@ -59,9 +60,11 @@ export function Team() {
               className="flex flex-col items-center text-center"
             >
               {member.foto ? (
-                <img
+                <Image
                   src={member.foto}
                   alt={member.name}
+                  width={64}
+                  height={64}
                   className="mb-4 h-16 w-16 shrink-0 rounded-full object-cover object-top"
                 />
               ) : (
@@ -95,9 +98,11 @@ export function Team() {
           className="mt-16 p-8 md:p-10"
         >
           <div className="flex flex-col gap-8 md:flex-row md:items-start">
-            <img
+            <Image
               src="/coaches/arianna.avif"
               alt="Arianna Lupi"
+              width={96}
+              height={96}
               className="h-24 w-24 shrink-0 rounded-2xl object-cover object-top"
             />
             <div>

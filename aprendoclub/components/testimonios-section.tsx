@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -74,9 +75,11 @@ export function TestimoniosSection() {
             <Card padding="compact" hover="lift">
               {/* Header: Avatar + Name */}
               <div className="flex items-center gap-4 mb-4">
-                <img
+                <Image
                   src={testimonial.photo}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
@@ -127,11 +130,13 @@ export function TestimoniosSection() {
         </p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {trustedCompanies.map((company) => (
-            <img
+            <Image
               key={company.name}
               src={company.logo}
               alt={company.name}
-              className="h-8 md:h-10 w-auto opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              width={120}
+              height={40}
+              className="h-8 md:h-10 w-auto object-contain opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
             />
           ))}
         </div>
