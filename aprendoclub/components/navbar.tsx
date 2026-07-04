@@ -157,7 +157,7 @@ export function Navbar() {
                           aria-label="Programas"
                           className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4"
                         >
-                          <div className="w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]/95 backdrop-blur-xl shadow-2xl">
+                          <div className="w-[360px] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--border-card)] bg-[var(--surface-card)]/95 backdrop-blur-xl shadow-[var(--shadow-lg)]">
                             <div className="flex flex-col p-2">
                               {programMenu.map((p) => (
                                 <Link

@@ -3,7 +3,8 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
-import Link from "next/link";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
@@ -53,10 +54,8 @@ export function TestimoniosSection() {
         transition={{ duration: 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
-        <span className="text-sm font-bold uppercase tracking-wider text-[#b8f60d]">
-          TESTIMONIOS
-        </span>
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        <Eyebrow className="tracking-wider">TESTIMONIOS</Eyebrow>
+        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
           Lo que dicen nuestros estudiantes
         </h2>
       </motion.div>
@@ -69,7 +68,7 @@ export function TestimoniosSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 + index * 0.15 }}
-            className="group rounded-xl bg-[#0d1117] border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+            className="group rounded-xl bg-[var(--surface-card)] border border-[var(--border-card)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
           >
             {/* Header: Avatar + Name */}
             <div className="flex items-center gap-4 mb-4">
@@ -79,7 +78,7 @@ export function TestimoniosSection() {
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div>
-                <p className="font-bold text-white">{testimonial.name}</p>
+                <p className="font-semibold text-white">{testimonial.name}</p>
                 <p className="text-sm text-gray-500">{testimonial.role}</p>
               </div>
             </div>
@@ -108,12 +107,9 @@ export function TestimoniosSection() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <Link
-          href="/testimonios"
-          className="inline-flex items-center rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5"
-        >
+        <Button href="/testimonios" variant="ghost">
           Ver todos los testimonios
-        </Link>
+        </Button>
       </motion.div>
 
       {/* Trusted By */}

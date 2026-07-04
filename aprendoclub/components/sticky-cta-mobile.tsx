@@ -32,11 +32,11 @@ export function StickyCTAMobile() {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
         >
-          <div className="bg-[#0a0f14]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 safe-area-bottom">
+          <div className="bg-[var(--bg-primary)]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 safe-area-bottom">
             <a
               href="#precios"
               aria-label="Ver planes y precios"
-              className="flex w-full items-center justify-center rounded-xl bg-[#b8f60d] px-6 py-3.5 text-base font-bold text-black transition-all duration-300 active:scale-[0.98]"
+              className="flex w-full items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-base font-semibold text-black transition-all duration-300 active:scale-[0.98]"
             >
               Únete a aprendoclub
             </a>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { ProgramCard } from "@/components/program-card";
+import { Eyebrow } from "@/components/ui/eyebrow";
 import { programas, homeProgramas } from "@/content/programas";
 
 export function ProgramasSection() {
@@ -26,10 +27,8 @@ export function ProgramasSection() {
         transition={{ duration: 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-          {homeProgramas.eyebrow}
-        </span>
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white">
+        <Eyebrow className="tracking-[0.2em]">{homeProgramas.eyebrow}</Eyebrow>
+        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
           {homeProgramas.titulo}
         </h2>
         <p className="text-center text-lg text-gray-400">
@@ -51,7 +50,7 @@ export function ProgramasSection() {
 
       <Link
         href={homeProgramas.botonHref}
-        className="group inline-flex items-center gap-2 rounded-lg border border-white/10 bg-[#0d1117] px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-[#b8f60d]/30"
+        className="group inline-flex items-center gap-2 rounded-lg border border-[var(--border-card)] bg-[var(--surface-card)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-[var(--accent)]/30"
       >
         {homeProgramas.botonLabel}
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
