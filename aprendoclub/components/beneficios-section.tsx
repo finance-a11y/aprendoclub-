@@ -66,7 +66,7 @@ export function BeneficiosSection() {
           >
             <Card hover="liftAccent" className="group flex flex-col items-center gap-5 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--accent)]/10 transition-colors group-hover:bg-[var(--accent)]/20">
-                <benefit.icon className="h-7 w-7 text-[var(--accent)]" />
+                <benefit.icon className="h-6 w-6 text-[var(--accent)]" />
               </div>
               <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
               <p className="text-sm leading-relaxed text-gray-400">
