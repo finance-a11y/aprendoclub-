@@ -13,10 +13,10 @@ const features = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-[72px] py-20 md:py-28">
+    <section id="pricing" className="scroll-mt-[72px] section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         <div className="text-center">
-          <h2 className="text-balance text-3xl font-semibold text-white md:text-4xl">
+          <h2 className="text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
             Tu inversión tiene opciones. Tu crecimiento un camino claro.
           </h2>
           <p className="mt-4 text-lg text-gray-400">

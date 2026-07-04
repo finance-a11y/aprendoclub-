@@ -29,7 +29,7 @@ export function FAQ() {
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow className="tracking-[0.2em]">FAQ</Eyebrow>
-        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Preguntas que suelen hacernos antes de dar el sí
         </h2>
       </motion.div>
@@ -50,13 +50,7 @@ export function FAQ() {
               aria-controls={`diplomado-faq-panel-${index}`}
               className="group flex w-full items-center justify-between py-5 text-left"
             >
-              <span
-                className={`text-lg font-semibold pr-4 transition-colors duration-300 ${
-                  openIndex === index
-                    ? "text-[var(--accent)]"
-                    : "text-white group-hover:text-[var(--accent)]"
-                }`}
-              >
+              <span className="text-lg font-semibold pr-4 text-white transition-colors duration-300">
                 {faq.question}
               </span>
               <motion.div
@@ -64,11 +58,7 @@ export function FAQ() {
                 transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="shrink-0"
               >
-                <ChevronDown
-                  className={`h-5 w-5 transition-colors duration-300 ${
-                    openIndex === index ? "text-[var(--accent)]" : "text-gray-500"
-                  }`}
-                />
+                <ChevronDown className="h-5 w-5 text-gray-400 transition-colors duration-300" />
               </motion.div>
             </button>
 

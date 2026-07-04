@@ -2,15 +2,11 @@ import { Button } from "@/components/ui/button"
 
 export function CTA() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         <div className="relative overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--border-card)] bg-[var(--surface-card)] p-10 md:p-16">
-          {/* Glow effects */}
-          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[var(--primary)]/10 blur-[80px]" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[var(--accent)]/10 blur-[80px]" />
-
           <div className="relative text-center">
-            <h2 className="mx-auto max-w-2xl text-balance text-3xl font-semibold text-white md:text-4xl">
+            <h2 className="mx-auto max-w-2xl text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
               No es magia, es SEO. Y tú lo puedes aprender.
             </h2>
 
