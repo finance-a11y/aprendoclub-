@@ -30,7 +30,7 @@ export function RetoBottom() {
         <Card
           padding="default"
           hover="none"
-          className="border-[var(--accent)]/30 mx-auto flex max-w-md flex-col items-center gap-6 text-center"
+          className="!border-[var(--accent)]/30 mx-auto flex max-w-md flex-col items-center gap-6 text-center"
         >
           <div className="flex items-baseline gap-2">
             <span className="text-5xl font-semibold text-white">{pricing.precio}</span>
@@ -86,11 +86,7 @@ export function RetoBottom() {
                   aria-controls={`reto-faq-panel-${index}`}
                   className="group flex w-full items-center justify-between py-5 text-left"
                 >
-                  <span
-                    className={`pr-4 text-lg font-semibold text-white transition-colors duration-300 ${
-                      openIndex === index ? "" : "group-hover:text-[var(--accent)]"
-                    }`}
-                  >
+                  <span className="pr-4 text-lg font-semibold text-white transition-colors duration-300">
                     {item.pregunta}
                   </span>
                   <motion.div
