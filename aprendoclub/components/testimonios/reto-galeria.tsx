@@ -104,7 +104,7 @@ export function RetoGaleria() {
               animate={{ scale: 1, opacity: 1 }}
               exit={reduceMotion ? undefined : { scale: 0.95, opacity: 0 }}
               transition={{ duration: reduceMotion ? 0 : 0.2 }}
-              className="max-h-[90vh] max-w-3xl w-auto rounded-lg border border-white/10 object-contain shadow-2xl"
+              className="max-h-[90vh] max-w-3xl w-auto rounded-lg border border-white/10 object-contain shadow-[var(--shadow-lg)]"
             />
           </motion.div>
         )}
