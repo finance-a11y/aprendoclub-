@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { Eyebrow } from "@/components/ui/eyebrow"
 
 const weeks = [
   { week: 1, title: "Introducción al SEO - Empezando desde cero", detail: "Aprende a llevar a cabo un proyecto SEO de inicio a fin." },
@@ -26,13 +27,11 @@ export function Curriculum() {
   const [openWeek, setOpenWeek] = useState<number | null>(0)
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
-          16 semanas
-        </div>
+        <Eyebrow className="mb-4 block">16 semanas</Eyebrow>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
           Pasa de no saber nada a optimizar tu primer sitio web en 16 semanas
         </h2>
 

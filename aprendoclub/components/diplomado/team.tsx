@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 const team = [
   {
@@ -36,13 +37,11 @@ const team = [
 
 export function Team() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
-          Equipo
-        </div>
+        <Eyebrow className="mb-4 block">Equipo</Eyebrow>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
           Aquí te hablamos de SEO a SEO
         </h2>
 
@@ -75,7 +74,7 @@ export function Team() {
                   href={member.web}
                   target="_blank"
                   rel="noopener"
-                  className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+                  className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white/40"
                 >
                   {member.name}
                 </a>
@@ -109,7 +108,7 @@ export function Team() {
                 href="https://ariannalupi.com"
                 target="_blank"
                 rel="noopener"
-                className="mb-4 inline-block text-sm font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 hover:decoration-[var(--accent)]"
+                className="mb-4 inline-block text-sm font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white/60"
               >
                 Arianna Lupi
               </a>

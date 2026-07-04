@@ -1,5 +1,6 @@
 import { Clock, BookOpen, Video, FolderOpen, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Eyebrow } from "@/components/ui/eyebrow"
 
 const features = [
   {
@@ -36,13 +37,11 @@ const features = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
-          {'Cómo funciona'}
-        </div>
+        <Eyebrow className="mb-4 block">{'Cómo funciona'}</Eyebrow>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
           {'¿Cómo funciona el diplomado de cero a SEO?'}
         </h2>
 
