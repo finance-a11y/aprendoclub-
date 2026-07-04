@@ -44,7 +44,9 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. Un visitante puede abrir `/quienes-somos` y leer la historia, misión y propuesta de aprendoclub más la bio de Arianna Lupi (contenido migrado de aprendoseo.com).
   2. El home muestra un teaser de "quiénes somos" que enlaza a la página completa.
   3. La página `/quienes-somos` usa el shell compartido y el patrón data-driven de la Phase 1.
-**Plans**: TBD
+**Plans**: 2 plans
+  - [ ] 02-01-PLAN.md — content/quienes-somos.ts (copia verbatim) + secciones Hero, Historia, Fundadora, Equipo
+  - [ ] 02-02-PLAN.md — Secciones EPAM, Stats, CTA + ensamblaje de la página con metadata + teaser en el home
 **UI hint**: yes
 
 ### Phase 3: Testimonios
@@ -90,7 +92,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Fundaciones y navegación | 0/3 | Not started | - |
-| 2. Quiénes somos | 0/TBD | Not started | - |
+| 2. Quiénes somos | 0/2 | Not started | - |
 | 3. Testimonios | 0/TBD | Not started | - |
 | 4. Programas | 0/TBD | Not started | - |
 | 5. Enlazado interno | 0/TBD | Not started | - |
