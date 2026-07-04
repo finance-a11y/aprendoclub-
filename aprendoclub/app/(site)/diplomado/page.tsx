@@ -10,6 +10,7 @@ import { Benefits } from "@/components/diplomado/benefits"
 import { Pricing } from "@/components/diplomado/pricing"
 import { FAQ } from "@/components/diplomado/faq"
 import { CTA } from "@/components/diplomado/cta"
+import { RelatedLinks } from "@/components/related-links"
 
 export const metadata: Metadata = {
   title: "Diplomado de cero a SEO | aprendoclub",
@@ -39,6 +40,15 @@ export default function DiplomadoPage() {
         <FAQ />
       </div>
       <CTA />
+      <RelatedLinks
+        links={[
+          { href: "/programas", label: "Ver todos los programas" },
+          {
+            href: "/testimonios",
+            label: "Lee las historias de nuestros estudiantes",
+          },
+        ]}
+      />
     </div>
   )
 }

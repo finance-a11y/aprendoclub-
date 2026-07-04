@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { RetoTop } from "@/components/reto/reto-top";
 import { RetoMid } from "@/components/reto/reto-mid";
 import { RetoBottom } from "@/components/reto/reto-bottom";
+import { RelatedLinks } from "@/components/related-links";
 import { hero } from "@/content/reto";
 
 export const metadata: Metadata = {
@@ -15,6 +16,15 @@ export default function RetoPage() {
       <RetoTop />
       <RetoMid />
       <RetoBottom />
+      <RelatedLinks
+        links={[
+          { href: "/programas", label: "Ver todos los programas" },
+          {
+            href: "/testimonios",
+            label: "Lee las historias de nuestros estudiantes",
+          },
+        ]}
+      />
     </div>
   );
 }

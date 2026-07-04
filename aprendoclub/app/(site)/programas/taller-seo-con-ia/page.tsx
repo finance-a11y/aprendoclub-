@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, Check } from "lucide-react";
+import { RelatedLinks } from "@/components/related-links";
 import {
   tallerHero,
   tallerIncluye,
@@ -97,6 +98,16 @@ export default function TallerSeoConIaPage() {
           </a>
         </div>
       </section>
+
+      <RelatedLinks
+        links={[
+          { href: "/programas", label: "Ver todos los programas" },
+          {
+            href: "/testimonios",
+            label: "Lee las historias de nuestros estudiantes",
+          },
+        ]}
+      />
     </>
   );
 }

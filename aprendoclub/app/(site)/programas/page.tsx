@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { ProgramCard } from "@/components/program-card";
+import { RelatedLinks } from "@/components/related-links";
 import { programas, hubHero, hubCtaFinal } from "@/content/programas";
 
 export const metadata: Metadata = {
@@ -50,6 +51,20 @@ export default function ProgramasPage() {
           </a>
         </div>
       </section>
+
+      <RelatedLinks
+        title="Antes de decidir"
+        links={[
+          {
+            href: "/testimonios",
+            label: "Lee las historias de nuestros estudiantes",
+          },
+          {
+            href: "/quienes-somos",
+            label: "Conoce al equipo detrás de aprendoclub",
+          },
+        ]}
+      />
     </>
   );
 }
