@@ -25,7 +25,7 @@ export function PricingSection() {
       <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white text-center mb-3">
         Elige tu camino de especialización
       </h2>
-      <p className="text-gray-500 text-center text-[15px] mb-14">
+      <p className="text-gray-400 text-center text-[15px] mb-14">
         Todos los planes incluyen acceso completo al contenido
       </p>
 
@@ -40,7 +40,7 @@ export function PricingSection() {
           <div className="flex items-baseline gap-1 mt-4 mb-1">
             <span className="text-white text-6xl font-semibold leading-none">$210</span>
           </div>
-          <p className="text-gray-500 text-sm mb-5 font-medium">
+          <p className="text-gray-400 text-sm mb-5 font-medium">
             4 cuotas mensuales
           </p>
           <hr className="border-[var(--bg-tertiary)] mb-5" />
@@ -82,7 +82,7 @@ export function PricingSection() {
           <div className="flex items-baseline gap-1 mt-4 mb-1">
             <span className="text-white text-6xl font-semibold leading-none">$780</span>
           </div>
-          <p className="text-gray-500 text-sm mb-5 font-medium">
+          <p className="text-gray-400 text-sm mb-5 font-medium">
             Pago único · Sin cuotas · Sin sorpresas
           </p>
           <hr className="border-[var(--bg-tertiary)] mb-5" />

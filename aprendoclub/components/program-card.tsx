@@ -40,7 +40,7 @@ export function ProgramCard({
       <div className="mt-2 flex flex-col gap-0.5">
         <span className="text-white font-semibold">{program.precio}</span>
         {program.precioNota && (
-          <span className="text-gray-500 text-xs">{program.precioNota}</span>
+          <span className="text-gray-400 text-xs">{program.precioNota}</span>
         )}
       </div>
 

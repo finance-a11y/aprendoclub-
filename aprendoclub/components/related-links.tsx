@@ -15,7 +15,7 @@ export function RelatedLinks({
   return (
     <section className="container-padding section-spacing max-w-6xl mx-auto w-full">
       <div className="flex flex-col items-center gap-3 text-center">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
           {title}
         </span>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

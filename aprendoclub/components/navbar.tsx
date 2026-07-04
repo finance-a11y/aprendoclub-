@@ -365,7 +365,7 @@ export function Navbar() {
 
                 {/* Footer info */}
                 <div className="mt-auto pt-6 border-t border-white/10">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-400">
                     {footerMeta.mobilePanelBlurb}
                   </p>
                 </div>

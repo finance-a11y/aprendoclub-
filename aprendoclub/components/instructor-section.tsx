@@ -91,7 +91,7 @@ export function InstructorSection() {
                 <span className="text-3xl md:text-4xl font-semibold text-white">
                   {stat.value}
                 </span>
-                <span className="text-sm text-gray-500">{stat.label}</span>
+                <span className="text-sm text-gray-400">{stat.label}</span>
               </motion.div>
             ))}
           </div>

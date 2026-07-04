@@ -129,7 +129,7 @@ export function HeroSection() {
             ))}
           </div>
           {/* Rating */}
-          <p className="flex items-center gap-1 text-sm text-gray-500">
+          <p className="flex items-center gap-1 text-sm text-gray-400">
             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" aria-hidden="true" />
             4.9/5 de +500 estudiantes
           </p>
@@ -148,10 +148,10 @@ export function HeroSection() {
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-gray-500 uppercase tracking-wider">
+          <span className="text-xs text-gray-400 uppercase tracking-wider">
             Scroll
           </span>
-          <ChevronDown className="h-5 w-5 text-gray-500" />
+          <ChevronDown className="h-5 w-5 text-gray-400" />
         </motion.div>
       </motion.div>
     </section>

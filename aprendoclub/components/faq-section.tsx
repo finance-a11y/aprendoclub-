@@ -64,7 +64,7 @@ export function FaqSection() {
                 className="shrink-0"
               >
                 <ChevronDown
-                  className="h-5 w-5 text-gray-500 transition-colors duration-300"
+                  className="h-5 w-5 text-gray-400 transition-colors duration-300"
                 />
               </motion.div>
             </button>
