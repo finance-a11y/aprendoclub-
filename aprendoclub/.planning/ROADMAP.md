@@ -30,7 +30,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. El footer solo muestra enlaces a páginas/secciones que existen (sin Precios, Blog, Guías SEO, Herramientas, Testimonios roto ni Comunidad).
   4. `app/sitemap.ts` lista todas las rutas del sitio, incluyendo las que se crearán en las fases siguientes.
   5. Las secciones se construyen con el contenido en objetos/consts separados de la presentación, listo para convertirse en bloques Payload.
-**Plans**: TBD
+**Plans**: 3 plans
+  - [ ] 01-01-PLAN.md — Capa de contenido data-driven (content/site.ts) + sitemap
+  - [ ] 01-02-PLAN.md — Refactor navbar (rutas reales, ruta activa, reduced-motion) + footer limpio
+  - [ ] 01-03-PLAN.md — Route group (site) + mover home + placeholders + build
 **UI hint**: yes
 
 ### Phase 2: Quiénes somos
@@ -85,7 +88,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Fundaciones y navegación | 0/TBD | Not started | - |
+| 1. Fundaciones y navegación | 0/3 | Not started | - |
 | 2. Quiénes somos | 0/TBD | Not started | - |
 | 3. Testimonios | 0/TBD | Not started | - |
 | 4. Programas | 0/TBD | Not started | - |
