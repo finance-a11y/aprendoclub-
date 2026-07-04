@@ -30,7 +30,7 @@ export function RetoMid() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex flex-col items-center gap-3 text-center">
             <Eyebrow>AGENDA</Eyebrow>
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
+            <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
               7 días para cambiar tu rumbo
             </h2>
           </div>
@@ -123,7 +123,7 @@ export function RetoMid() {
       <section className="container-padding section-spacing max-w-6xl mx-auto">
         <div className="mb-10 flex flex-col items-center gap-3 text-center">
           <Eyebrow>PREMIOS</Eyebrow>
-          <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
+          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             No solo aprendes. También puedes ganar.
           </h2>
         </div>

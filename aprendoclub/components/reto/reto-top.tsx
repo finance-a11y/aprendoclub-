@@ -26,14 +26,14 @@ export function RetoTop() {
       </div>
 
       {/* Hero */}
-      <section className="container-padding max-w-6xl mx-auto grid grid-cols-1 items-center gap-10 pt-16 pb-20 lg:grid-cols-2 lg:gap-14 lg:pt-20">
+      <section className="container-padding section-spacing max-w-6xl mx-auto grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <motion.div
           {...reveal}
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
           <Eyebrow>{hero.eyebrow}</Eyebrow>
-          <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white">
             {hero.titulo}{" "}
             <span className="text-[var(--accent)]">{hero.destacado}</span>
           </h1>
@@ -94,7 +94,7 @@ export function RetoTop() {
           transition={{ duration: 0.6 }}
           className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center"
         >
-          <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
+          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             {razonNoEscalas.titulo}
           </h2>
           <p className="text-lg leading-relaxed text-gray-400">
@@ -135,7 +135,7 @@ export function RetoTop() {
         >
           <div className="flex flex-col gap-1">
             <Eyebrow>{mentora.rol}</Eyebrow>
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
+            <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
               {mentora.nombre}
             </h2>
           </div>
