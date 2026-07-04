@@ -103,7 +103,7 @@ export function Navbar() {
               const underline = active && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#b8f60d]"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent)]"
                   transition={underlineTransition}
                 />
               );
@@ -135,7 +135,7 @@ export function Navbar() {
           {/* Desktop CTA */}
           <Link
             href={siteCta.href}
-            className="hidden md:flex items-center justify-center rounded-lg bg-[#b8f60d] px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(184,246,13,0.3)]"
+            className="hidden md:flex items-center justify-center rounded-lg bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(184,246,13,0.3)]"
           >
             {siteCta.label}
           </Link>
@@ -201,7 +201,7 @@ export function Navbar() {
                         : "text-gray-400 hover:bg-white/5 hover:text-white"
                     }`;
                     const dot = active && (
-                      <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#b8f60d]" />
+                      <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                     );
                     const motionProps = reduceMotion
                       ? {}
@@ -249,7 +249,7 @@ export function Navbar() {
                   <Link
                     href={siteCta.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-center rounded-lg bg-[#b8f60d] px-5 py-3 text-base font-semibold text-black transition-all duration-300"
+                    className="flex items-center justify-center rounded-lg bg-[var(--accent)] px-5 py-3 text-base font-semibold text-black transition-all duration-300"
                   >
                     {siteCta.label}
                   </Link>
