@@ -2,7 +2,7 @@ import { CheckCircle2 } from "lucide-react"
 
 const benefits = [
   {
-    text: "Acceso a la plataforma Kajabi con todas las clases grabadas. Cada m\u00f3dulo se desbloquea a medida que avanzas y podr\u00e1s consultar el contenido durante 6 meses.",
+    text: "Acceso a la plataforma Kajabi con todas las clases grabadas. Cada módulo se desbloquea a medida que avanzas y podrás consultar el contenido durante 6 meses.",
     value: "$3.000",
   },
   {
@@ -10,11 +10,11 @@ const benefits = [
     value: "$2.000",
   },
   {
-    text: "Soporte de los coaches y acompa\u00f1amiento 1:1 durante todo el proceso.",
+    text: "Soporte de los coaches y acompañamiento 1:1 durante todo el proceso.",
     value: "$4.500",
   },
   {
-    text: "Recursos pr\u00e1cticos y exclusivos que te facilitar\u00e1n el aprendizaje.",
+    text: "Recursos prácticos y exclusivos que te facilitarán el aprendizaje.",
     value: "$3.000",
   },
 ]
@@ -23,24 +23,24 @@ const extras = [
   "Comunidad privada donde compartes tus avances y aprendes junto a otros estudiantes.",
   "Grupo de LinkedIn de Especialistas SEO.",
   "Proyecto final para portafolio.",
-  "Plantillas, brief y cuestionarios para ejercicios pr\u00e1cticos.",
-  "Certificaci\u00f3n como Especialista SEO.",
+  "Plantillas, brief y cuestionarios para ejercicios prácticos.",
+  "Certificación como Especialista SEO.",
 ]
 
 export function Benefits() {
   return (
     <section className="py-20 md:py-28">
-      <div className="mx-auto max-w-5xl px-4">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-accent">
+      <div className="mx-auto max-w-6xl container-padding">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1117] px-4 py-1.5 text-sm text-[#b8f60d]">
           Beneficios
         </div>
 
-        <h2 className="max-w-3xl text-balance font-mono text-3xl font-bold text-foreground md:text-4xl">
-          {'Qu\u00e9 recibes al inscribirte?'}
+        <h2 className="max-w-3xl text-balance text-3xl font-bold text-white md:text-4xl">
+          {'¿Qué recibes al inscribirte?'}
         </h2>
 
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Est&aacute;s a solo un clic de distancia de convertirte en un especialista
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-400">
+          Estás a solo un clic de distancia de convertirte en un especialista
           SEO.
         </p>
 
@@ -48,27 +48,27 @@ export function Benefits() {
           {benefits.map((benefit, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-border bg-secondary p-6"
+              className="rounded-2xl border border-white/10 bg-[#0d1117] p-6"
             >
-              <div className="mb-3 inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+              <div className="mb-3 inline-flex rounded-full bg-[#b8f60d]/10 px-3 py-1 text-xs font-semibold text-[#b8f60d]">
                 VALORADO EN {benefit.value}
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-sm leading-relaxed text-gray-400">
                 {benefit.text}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 rounded-2xl border border-border bg-secondary p-8">
-          <h3 className="mb-4 text-lg font-semibold text-foreground">
-            Tambi&eacute;n incluye:
+        <div className="mt-8 rounded-2xl border border-white/10 bg-[#0d1117] p-8">
+          <h3 className="mb-4 text-lg font-semibold text-white">
+            También incluye:
           </h3>
           <ul className="grid gap-3 sm:grid-cols-2">
             {extras.map((extra, i) => (
               <li key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <span className="text-sm leading-relaxed text-muted-foreground">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#b8f60d]" />
+                <span className="text-sm leading-relaxed text-gray-400">
                   {extra}
                 </span>
               </li>
