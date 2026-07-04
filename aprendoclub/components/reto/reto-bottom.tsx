@@ -83,6 +83,7 @@ export function RetoBottom() {
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   aria-expanded={openIndex === index}
+                  aria-controls={`reto-faq-panel-${index}`}
                   className="group flex w-full items-center justify-between py-5 text-left"
                 >
                   <span
@@ -109,6 +110,8 @@ export function RetoBottom() {
                 <AnimatePresence initial={false}>
                   {openIndex === index && (
                     <motion.div
+                      id={`reto-faq-panel-${index}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

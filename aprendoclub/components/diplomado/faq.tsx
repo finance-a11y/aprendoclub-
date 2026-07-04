@@ -45,6 +45,7 @@ export function FAQ() {
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 aria-expanded={openIndex === i}
+                aria-controls={`faq-panel-${i}`}
                 className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
               >
                 <span className="font-medium text-white">
@@ -57,7 +58,11 @@ export function FAQ() {
                 />
               </button>
               {openIndex === i && (
-                <div className="border-t border-white/10 px-6 py-5">
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  className="border-t border-white/10 px-6 py-5"
+                >
                   <p className="leading-relaxed text-gray-400">
                     {faq.answer}
                   </p>

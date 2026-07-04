@@ -44,6 +44,8 @@ export function Curriculum() {
             >
               <button
                 onClick={() => setOpenWeek(openWeek === i ? null : i)}
+                aria-expanded={openWeek === i}
+                aria-controls={`week-panel-${i}`}
                 className="flex w-full items-center gap-4 px-6 py-4 text-left"
               >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#012fd8]/10 text-xs font-semibold text-[#0495f1]">
@@ -59,7 +61,11 @@ export function Curriculum() {
                 />
               </button>
               {openWeek === i && (
-                <div className="border-t border-white/10 px-6 py-4">
+                <div
+                  id={`week-panel-${i}`}
+                  role="region"
+                  className="border-t border-white/10 px-6 py-4"
+                >
                   <p className="text-sm leading-relaxed text-gray-400">
                     {w.detail}
                   </p>
