@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { RelatedLinks } from "@/components/related-links";
 import {
   tallerHero,
@@ -33,7 +34,7 @@ export default function TallerSeoConIaPage() {
       {/* Hero */}
       <section className="container-padding section-spacing max-w-6xl mx-auto flex flex-col items-center gap-4 text-center pt-28">
         <Eyebrow className="tracking-[0.2em]">{tallerHero.eyebrow}</Eyebrow>
-        <h1 className="text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white">
           {tallerHero.titulo}
         </h1>
         <p className="max-w-2xl text-lg text-gray-400">{tallerHero.subtitulo}</p>
@@ -43,16 +44,13 @@ export default function TallerSeoConIaPage() {
       </section>
 
       {/* Qué incluye */}
-      <section className="container-padding max-w-6xl mx-auto w-full">
-        <h2 className="mb-8 text-center text-2xl font-semibold text-white sm:text-3xl">
+      <section className="container-padding section-spacing max-w-6xl mx-auto w-full">
+        <h2 className="mb-8 text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Qué incluye
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {tallerIncluye.map((item, i) => (
-            <div
-              key={i}
-              className="flex items-start gap-4 rounded-xl border border-white/10 bg-[var(--surface-card)] p-6"
-            >
+            <Card key={i} padding="compact" hover="none" className="flex items-start gap-4">
               <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--accent)]/10">
                 <Check className="h-5 w-5 text-[var(--accent)]" />
               </span>
@@ -64,7 +62,7 @@ export default function TallerSeoConIaPage() {
                   <span className="text-xs text-gray-500">{item.valor}</span>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
@@ -72,7 +70,7 @@ export default function TallerSeoConIaPage() {
       {/* Para quién */}
       <section className="container-padding section-spacing max-w-6xl mx-auto w-full">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <h2 className="text-2xl font-semibold text-white sm:text-3xl">
+          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             ¿Para quién es?
           </h2>
           <p className="text-lg leading-relaxed text-gray-400">
@@ -82,8 +80,12 @@ export default function TallerSeoConIaPage() {
       </section>
 
       {/* Precio + pago */}
-      <section className="container-padding max-w-6xl mx-auto w-full pb-24">
-        <div className="mx-auto flex max-w-md flex-col items-center gap-6 rounded-2xl border border-white/10 bg-[var(--surface-card)] p-8 text-center">
+      <section className="container-padding section-spacing max-w-6xl mx-auto w-full">
+        <Card
+          padding="default"
+          hover="none"
+          className="mx-auto flex max-w-md flex-col items-center gap-6 text-center"
+        >
           <span className="text-5xl font-semibold text-white">
             {tallerPrecio.monto}
           </span>
@@ -101,7 +103,7 @@ export default function TallerSeoConIaPage() {
           <Button href={tallerCta.href} target="_blank" rel="noopener noreferrer" className="mt-2 w-full" icon>
             {tallerCta.label}
           </Button>
-        </div>
+        </Card>
       </section>
 
       <RelatedLinks
