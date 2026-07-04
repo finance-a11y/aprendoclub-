@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export function StickyCTAMobile() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,13 +34,14 @@ export function StickyCTAMobile() {
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
         >
           <div className="bg-[var(--bg-primary)]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 safe-area-bottom">
-            <a
+            <Button
               href="#precios"
-              aria-label="Ver planes y precios"
-              className="flex w-full items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-base font-semibold text-black transition-all duration-300 active:scale-[0.98]"
+              variant="primary"
+              size="lg"
+              className="w-full active:scale-[0.98]"
             >
               Únete a aprendoclub
-            </a>
+            </Button>
           </div>
         </motion.div>
       )}

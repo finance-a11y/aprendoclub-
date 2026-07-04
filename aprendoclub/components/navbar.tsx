@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   siteNav,
   siteCta,
@@ -223,12 +224,13 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <Link
+          <Button
             href={siteCta.href}
-            className="hidden md:flex items-center justify-center rounded-lg bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(184,246,13,0.3)]"
+            variant="primary"
+            className="hidden md:flex px-5 py-2.5 text-sm"
           >
             {siteCta.label}
-          </Link>
+          </Button>
 
           {/* Mobile Menu Button */}
           <button
@@ -336,13 +338,16 @@ export function Navbar() {
                   transition={{ delay: reduceMotion ? 0 : 0.4 }}
                   className="mt-6"
                 >
-                  <Link
-                    href={siteCta.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-center rounded-lg bg-[var(--accent)] px-5 py-3 text-base font-semibold text-black transition-all duration-300"
-                  >
-                    {siteCta.label}
-                  </Link>
+                  <div onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button
+                      href={siteCta.href}
+                      variant="primary"
+                      size="lg"
+                      className="w-full"
+                    >
+                      {siteCta.label}
+                    </Button>
+                  </div>
                 </motion.div>
 
                 {/* Footer info */}
