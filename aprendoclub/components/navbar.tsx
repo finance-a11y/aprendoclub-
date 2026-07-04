@@ -1,17 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { siteNav, siteCta, footerMeta, type NavItem } from "@/content/site";
 
-const navLinks = [
-  { href: "#problema", label: "El Problema" },
-  { href: "#beneficios", label: "Beneficios" },
-  { href: "#precios", label: "Precios" },
-  { href: "#faq", label: "FAQ" },
-];
+// Secciones del home observadas por scroll (solo activo cuando pathname === "/").
+const homeSections = ["#problema", "#beneficios", "#precios", "#faq"];
+
+function isItemActive(
+  item: NavItem,
+  pathname: string,
+  activeSection: string
+): boolean {
+  // Anchors del home se resaltan por scroll (solo cuando estás en "/").
+  if (item.type === "anchor") {
+    return pathname === "/" && activeSection === item.href;
+  }
+  if (item.href === "/") return pathname === "/";
+  if (item.href === "/programas") return pathname.startsWith("/programas");
+  return pathname === item.href;
+}
 
 export function Navbar() {
+  const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -26,11 +41,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Intersection Observer for active section
+  // Intersection Observer for active section — SOLO en el home.
   useEffect(() => {
-    const sections = navLinks.map((link) =>
-      document.querySelector(link.href)
-    );
+    if (pathname !== "/") return;
+
+    const sections = homeSections.map((sel) => document.querySelector(sel));
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,7 +63,7 @@ export function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -62,12 +77,16 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+  const underlineTransition = reduceMotion
+    ? { duration: 0 }
+    : ({ type: "spring", stiffness: 380, damping: 30 } as const);
+
   return (
     <>
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
+        initial={reduceMotion ? false : { y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
           isScrolled
             ? "bg-black/60 backdrop-blur-xl border-b border-white/5"
@@ -76,45 +95,56 @@ export function Navbar() {
       >
         <div className="flex h-full items-center justify-between container-padding max-w-7xl mx-auto">
           {/* Logo */}
-          <a href="/" className="flex items-center">
-            <img
-              src="/logo.svg"
-              alt="aprendoclub"
-              className="h-8 w-auto"
-            />
-          </a>
+          <Link href="/" className="flex items-center">
+            <img src="/logo.svg" alt="aprendoclub" className="h-8 w-auto" />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`relative text-sm font-medium transition-colors ${
-                  activeSection === link.href
-                    ? "text-white"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {link.label}
-                {activeSection === link.href && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#b8f60d]"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            ))}
+            {siteNav.map((item) => {
+              const active = isItemActive(item, pathname, activeSection);
+              const className = `relative text-sm font-medium transition-colors ${
+                active ? "text-white" : "text-gray-400 hover:text-white"
+              }`;
+              const underline = active && (
+                <motion.div
+                  layoutId="activeNav"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#b8f60d]"
+                  transition={underlineTransition}
+                />
+              );
+
+              return item.type === "route" ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={className}
+                >
+                  {item.label}
+                  {underline}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={className}
+                >
+                  {item.label}
+                  {underline}
+                </a>
+              );
+            })}
           </div>
 
           {/* Desktop CTA */}
-          <a
-            href="#precios"
+          <Link
+            href={siteCta.href}
             className="hidden md:flex items-center justify-center rounded-lg bg-[#b8f60d] px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(184,246,13,0.3)]"
           >
-            Únete ahora
-          </a>
+            {siteCta.label}
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -147,53 +177,85 @@ export function Navbar() {
 
             {/* Slide-in Panel */}
             <motion.div
-              initial={{ x: "100%" }}
+              initial={reduceMotion ? false : { x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-[#0a0a0f] border-l border-white/10 md:hidden"
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { type: "spring", damping: 25, stiffness: 200 }
+              }
+              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-[var(--bg-primary)] border-l border-white/10 md:hidden"
             >
               <div className="flex flex-col h-full p-6 pt-20">
                 {/* Mobile Nav Links */}
                 <div className="flex flex-col gap-2">
-                  {navLinks.map((link, index) => (
-                    <motion.a
-                      key={link.href}
-                      href={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                        activeSection === link.href
-                          ? "bg-white/10 text-white"
-                          : "text-gray-400 hover:bg-white/5 hover:text-white"
-                      }`}
-                    >
-                      {link.label}
-                      {activeSection === link.href && (
-                        <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#b8f60d]" />
-                      )}
-                    </motion.a>
-                  ))}
+                  {siteNav.map((item, index) => {
+                    const active = isItemActive(item, pathname, activeSection);
+                    const className = `flex items-center px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      active
+                        ? "bg-white/10 text-white"
+                        : "text-gray-400 hover:bg-white/5 hover:text-white"
+                    }`;
+                    const dot = active && (
+                      <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#b8f60d]" />
+                    );
+                    const motionProps = reduceMotion
+                      ? {}
+                      : {
+                          initial: { opacity: 0, x: 20 },
+                          animate: { opacity: 1, x: 0 },
+                          transition: { delay: index * 0.1 },
+                        };
+
+                    return item.type === "route" ? (
+                      <motion.div key={item.href} {...motionProps}>
+                        <Link
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={className}
+                        >
+                          {item.label}
+                          {dot}
+                        </Link>
+                      </motion.div>
+                    ) : (
+                      <motion.a
+                        key={item.href}
+                        href={item.href}
+                        aria-current={active ? "page" : undefined}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={className}
+                        {...motionProps}
+                      >
+                        {item.label}
+                        {dot}
+                      </motion.a>
+                    );
+                  })}
                 </div>
 
                 {/* Mobile CTA */}
-                <motion.a
-                  href="#precios"
-                  initial={{ opacity: 0, y: 20 }}
+                <motion.div
+                  initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-6 flex items-center justify-center rounded-lg bg-[#b8f60d] px-5 py-3 text-base font-semibold text-black transition-all duration-300"
+                  transition={{ delay: reduceMotion ? 0 : 0.4 }}
+                  className="mt-6"
                 >
-                  Únete ahora
-                </motion.a>
+                  <Link
+                    href={siteCta.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center rounded-lg bg-[#b8f60d] px-5 py-3 text-base font-semibold text-black transition-all duration-300"
+                  >
+                    {siteCta.label}
+                  </Link>
+                </motion.div>
 
                 {/* Footer info */}
                 <div className="mt-auto pt-6 border-t border-white/10">
                   <p className="text-sm text-gray-500">
-                    Membresía profesional SEO + IA
+                    {footerMeta.mobilePanelBlurb}
                   </p>
                 </div>
               </div>
