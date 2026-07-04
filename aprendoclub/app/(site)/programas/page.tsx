@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ArrowRight } from "lucide-react";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 import { ProgramCard } from "@/components/program-card";
 import { RelatedLinks } from "@/components/related-links";
 import { programas, hubHero, hubCtaFinal } from "@/content/programas";
@@ -27,10 +28,8 @@ export default function ProgramasPage() {
       />
       {/* Hero */}
       <section className="container-padding section-spacing max-w-6xl mx-auto flex flex-col items-center gap-4 text-center pt-28">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-          {hubHero.eyebrow}
-        </span>
-        <h1 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+        <Eyebrow className="tracking-[0.2em]">{hubHero.eyebrow}</Eyebrow>
+        <h1 className="text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
           {hubHero.titulo}
         </h1>
         <p className="max-w-2xl text-lg text-gray-400">{hubHero.subtitulo}</p>
@@ -47,20 +46,19 @@ export default function ProgramasPage() {
 
       {/* CTA final */}
       <section className="container-padding section-spacing max-w-6xl mx-auto w-full">
-        <div className="flex flex-col items-center gap-5 rounded-2xl border border-white/10 bg-[#0d1117] px-6 py-12 text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+        <div className="flex flex-col items-center gap-5 rounded-2xl border border-white/10 bg-[var(--surface-card)] px-6 py-12 text-center">
+          <h2 className="text-2xl font-semibold text-white sm:text-3xl">
             {hubCtaFinal.titulo}
           </h2>
           <p className="max-w-xl text-gray-400">{hubCtaFinal.texto}</p>
-          <a
+          <Button
             href={hubCtaFinal.botonHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-lg bg-[#b8f60d] px-6 py-3 text-sm font-semibold text-black transition-all hover:brightness-110"
+            icon
           >
             {hubCtaFinal.botonLabel}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Button>
         </div>
       </section>
 

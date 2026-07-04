@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, GraduationCap, CalendarCheck, BookOpen } from "lucide-react";
+import { ArrowUpRight, GraduationCap, CalendarCheck, BookOpen, Rocket } from "lucide-react";
 import { trackLinkClick } from "@/components/google-analytics";
 
 const links = [
@@ -109,7 +109,7 @@ export default function LinksPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="text-2xl font-extrabold text-white text-center"
+          className="text-2xl font-semibold text-white text-center"
         >
           Bienvenido a aprendoclub.
         </motion.h1>
@@ -130,8 +130,9 @@ export default function LinksPage() {
           transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
           className="mt-4 mb-8 flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 px-4 py-1.5"
         >
-          <span className="text-sm font-medium text-[var(--accent)]">
-            🚀 10.000+ estudiantes
+          <span className="flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]">
+            <Rocket className="h-4 w-4" aria-hidden />
+            10.000+ estudiantes
           </span>
         </motion.div>
 

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { cta } from "@/content/testimonios";
 
 export function TestimoniosCta() {
@@ -21,20 +22,17 @@ export function TestimoniosCta() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-2xl flex-col items-center gap-6 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
+        <h2 className="text-3xl md:text-4xl font-semibold text-white">
           {cta.titulo}
         </h2>
         <p className="text-lg text-gray-400">{cta.texto}</p>
         {/* CTA primario → /programas (destino en cta.botonHref) */}
-        <Link
-          href={cta.botonHref}
-          className="bg-[var(--accent)] text-black px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_20px_rgba(184,246,13,0.3)] transition-all"
-        >
+        <Button href={cta.botonHref} variant="primary">
           {cta.botonLabel}
-        </Link>
+        </Button>
         <Link
           href="/quienes-somos"
-          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[#b8f60d]"
+          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[var(--accent)]"
         >
           Conoce al equipo detrás de aprendoclub
         </Link>

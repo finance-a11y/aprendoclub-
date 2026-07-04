@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
+import { Eyebrow } from "@/components/ui/eyebrow";
 import { reto, retoImagenes } from "@/content/testimonios";
 
 export function RetoGaleria() {
@@ -40,10 +41,8 @@ export function RetoGaleria() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
-        <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
-          {reto.eyebrow}
-        </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        <Eyebrow>{reto.eyebrow}</Eyebrow>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
           {reto.titulo}
         </h2>
         <p className="text-lg text-gray-400">{reto.texto}</p>
@@ -61,7 +60,7 @@ export function RetoGaleria() {
               duration: reduceMotion ? 0 : 0.6,
               delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.4),
             }}
-            className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[#0d1117] transition-all duration-300 hover:border-[var(--accent)]/40 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[var(--surface-card)] transition-all duration-300 hover:border-[var(--accent)]/40 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-label={`Ampliar: ${imagen.alt}`}
           >
             <img

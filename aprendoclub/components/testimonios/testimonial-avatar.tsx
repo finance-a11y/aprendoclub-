@@ -23,7 +23,7 @@ export function TestimonialAvatar({ testimonio }: { testimonio: Testimonio }) {
 
   if (showFallback) {
     return (
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-sm font-bold text-white">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-sm font-semibold text-white">
         {getIniciales(testimonio.nombre)}
       </div>
     );
