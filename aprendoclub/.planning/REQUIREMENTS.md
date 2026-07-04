@@ -36,7 +36,7 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 
 ### Enlazado interno (LINK)
 
-- [ ] **LINK-01**: Las páginas se enlazan entre sí de forma cruzada (programas ↔ testimonios ↔ quiénes somos ↔ home) para navegación coherente y SEO interno.
+- [x] **LINK-01**: Las páginas se enlazan entre sí de forma cruzada (programas ↔ testimonios ↔ quiénes somos ↔ home) para navegación coherente y SEO interno.
 
 ## v2 Requirements
 
@@ -86,7 +86,7 @@ Mapeo completo a fases del roadmap v1.0.
 | PROG-04 | Phase 4 | Pending |
 | PROG-06 | Phase 4 | Pending |
 | PROG-08 | Phase 4 | Pending |
-| LINK-01 | Phase 5 | Pending |
+| LINK-01 | Phase 5 | Complete |
 
 **Coverage:**
 

@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Quiénes somos** - Página `/quienes-somos` con historia y bio de la fundadora + teaser en el home (completed 2026-07-04)
 - [x] **Phase 3: Testimonios** - Página `/testimonios` migrada + sección visible desde el home (completed 2026-07-04)
 - [ ] **Phase 4: Programas** - Hub `/programas` + páginas individuales de los cuatro programas
-- [ ] **Phase 5: Enlazado interno** - Cross-linking coherente entre todas las páginas para navegación y SEO interno
+- [x] **Phase 5: Enlazado interno** - Cross-linking coherente entre todas las páginas para navegación y SEO interno (completed 2026-07-04)
 
 ## Phase Details
 
@@ -90,6 +90,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. El Diplomado (`/diplomado`) usa el mismo navbar/footer del shell `(site)` y el diseño de aprendoclub (Montserrat, `#b8f60d`, `var(--bg-primary)`), sin rastro del navbar/footer/tokens propios anteriores, conservando su contenido.
 
 **Plans**: 8 plans
+
 - [ ] 04-01-PLAN.md — Capa de contenido (programas, taller) + ProgramCard reutilizable
 - [ ] 04-02-PLAN.md — Capa de contenido del Reto (content/reto.ts, FAQ verbatim del export)
 - [ ] 04-03-PLAN.md — Hub /programas (hero + 3 cards + CTA)
@@ -98,6 +99,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] 04-06-PLAN.md — Diplomado: mover a (site) + reskin secciones 1/2
 - [ ] 04-07-PLAN.md — Diplomado: reskin secciones 2/2
 - [ ] 04-08-PLAN.md — Sección home + repunte footer + sitemap + build
+
 **UI hint**: yes
 **Scope note**: PROG-05 (Econía/SEOconía) se difirió fuera de v1.0 (sin fuente de contenido). Se retoma cuando Juan lo aporte. El Reto se construye en modo edición activa / próxima edición.
 
@@ -113,7 +115,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Los enlaces internos usan anchor text descriptivo (no "clic aquí") para SEO interno.
 
 **Plans**: 1 plan
-- [ ] 05-01-PLAN.md — Tejer enlaces cruzados contextuales (RelatedLinks + enlaces inline) en todas las páginas
+
+- [x] 05-01-PLAN.md — Tejer enlaces cruzados contextuales (RelatedLinks + enlaces inline) en todas las páginas
 
 ## Progress
 
@@ -126,4 +129,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Quiénes somos | 2/2 | Complete   | 2026-07-04 |
 | 3. Testimonios | 1/1 | Complete   | 2026-07-04 |
 | 4. Programas | 0/8 | Not started | - |
-| 5. Enlazado interno | 0/1 | Not started | - |
+| 5. Enlazado interno | 1/1 | Complete   | 2026-07-04 |
