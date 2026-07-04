@@ -215,3 +215,15 @@ Surface: `bg-[var(--surface-card)] border border-[var(--border-card)] rounded-xl
 - **ProgramCard**: refactors internals to compose `<Card padding={compact ? "compact" : "default"} hover="liftAccent">`, `<Eyebrow>`, and `<Button variant="primary">` — pixel-identical output, no regression.
 - **Testimonial card / Team card**: wrap content in `<Card padding="compact" hover="lift">` — no accent hover (trust/testimonial content, not conversion CTAs; `liftAccent` stays reserved for ProgramCard).
 - Avatar sizing (`h-12 w-12` testimonial, `h-16 w-16` team) is out of scope for the icon contract — these are images, not icons.
+
+---
+
+## Adoption Status (Phase 6 capstone, 06-07)
+
+**APPLIED — site-wide.** This is not aspirational documentation; it reflects code that shipped.
+
+- Tokens live in `app/globals.css` (`:root` + `@theme inline`). Primitives live in `components/ui/{eyebrow,button,card}.tsx`.
+- All v1.0 components and pages migrated: home/shared sections, chrome (navbar/footer), diplomado, quienes-somos, reto, testimonios/* (hero, cta, reto-galeria, testimonial-avatar), the programas hub, the taller-seo-con-ia inline page, and the /links linktree page.
+- Full-tree residue audit (`grep -RnE '#[0-9a-fA-F]{6}|font-bold|font-extrabold' components app --include='*.tsx'`, plus `rounded-3xl` and structural-emoji scans) returns clean — zero hits outside `app/globals.css` token definitions.
+- `npm run build` passes for the whole site with no content regressions.
+- The hex → token map above matches what was actually consumed by the codebase; no stray hex families were discovered during the audit beyond what's already documented.
