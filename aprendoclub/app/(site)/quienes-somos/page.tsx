@@ -1,18 +1,28 @@
 import type { Metadata } from "next";
+import { QuienesSomosHero } from "@/components/quienes-somos/hero";
+import { HistoriaSection } from "@/components/quienes-somos/historia";
+import { FundadoraSection } from "@/components/quienes-somos/fundadora";
+import { EquipoSection } from "@/components/quienes-somos/equipo";
+import { MetodologiaSection } from "@/components/quienes-somos/metodologia";
+import { StatsSection } from "@/components/quienes-somos/stats";
+import { CtaFinalSection } from "@/components/quienes-somos/cta";
 
 export const metadata: Metadata = {
   title: "Quiénes somos | aprendoclub",
   description:
-    "Conoce al equipo detrás de aprendoclub, la academia de SEO + IA.",
+    "Conoce la historia de aprendoclub, la primera academia de SEO e IA para el mundo hispano, y al equipo que forma especialistas con proyectos reales.",
 };
 
 export default function QuienesSomosPage() {
   return (
-    <section className="section-spacing container-padding max-w-6xl mx-auto flex flex-col items-center text-center pt-28">
-      <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-        Quiénes somos
-      </h1>
-      <p className="mt-4 text-gray-400">Contenido próximamente.</p>
-    </section>
+    <>
+      <QuienesSomosHero />
+      <HistoriaSection />
+      <FundadoraSection />
+      <EquipoSection />
+      <MetodologiaSection />
+      <StatsSection />
+      <CtaFinalSection />
+    </>
   );
 }
