@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -100,6 +101,20 @@ export function TestimoniosSection() {
           </motion.div>
         ))}
       </div>
+
+      {/* Ver todos los testimonios → /testimonios (TEST-02) */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        <Link
+          href="/testimonios"
+          className="inline-flex items-center rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5"
+        >
+          Ver todos los testimonios
+        </Link>
+      </motion.div>
 
       {/* Trusted By */}
       <motion.div
