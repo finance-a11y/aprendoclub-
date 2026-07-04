@@ -3,33 +3,7 @@
 import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-
-const faqs = [
-  {
-    q: "¿Qué incluye la membresía de aprendoclub?",
-    a: "Acceso a cursos, comunidad, sesiones en vivo, bolsa de trabajo y herramientas según tu plan.",
-  },
-  {
-    q: "¿Puedo cambiar de plan en cualquier momento?",
-    a: "Sí, puedes subir o bajar de plan cuando quieras sin penalización.",
-  },
-  {
-    q: "¿Necesito experiencia previa en SEO?",
-    a: "No, nuestro programa empieza desde cero y te lleva paso a paso hasta nivel consultor.",
-  },
-  {
-    q: "¿Cómo funcionan las sesiones en vivo?",
-    a: "Son sesiones semanales por videollamada donde resolvemos dudas, revisamos proyectos y aprendemos juntos.",
-  },
-  {
-    q: "¿Hay garantía de devolución?",
-    a: "Sí, tienes 7 días para probar la plataforma. Si no es para ti, te devolvemos el dinero.",
-  },
-  {
-    q: "¿Qué diferencia a aprendoclub de otros cursos online?",
-    a: "Combinamos cursos actualizados, comunidad activa, mentorías y proyectos reales en una sola plataforma.",
-  },
-];
+import { homeFaqs as faqs } from "@/content/faqs";
 
 export function FaqSection() {
   const ref = useRef(null);
@@ -83,7 +57,7 @@ export function FaqSection() {
                     : "text-white group-hover:text-[#b8f60d]"
                 }`}
               >
-                {faq.q}
+                {faq.question}
               </span>
               <motion.div
                 animate={{ rotate: openIndex === index ? 180 : 0 }}
@@ -108,7 +82,7 @@ export function FaqSection() {
                   className="overflow-hidden"
                 >
                   <p className="pb-5 text-base leading-relaxed text-gray-400">
-                    {faq.a}
+                    {faq.answer}
                   </p>
                 </motion.div>
               )}

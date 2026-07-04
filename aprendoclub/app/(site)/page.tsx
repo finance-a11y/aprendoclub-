@@ -5,16 +5,17 @@ import { ProgramasSection } from "@/components/programas-section";
 import { PricingSection } from "@/components/pricing-section";
 import { TestimoniosSection } from "@/components/testimonios-section";
 import { InstructorSection } from "@/components/instructor-section";
-import { FaqSection } from "@/components/faq-section";
 import { CtaSection } from "@/components/cta-section";
 import { StickyCTAMobile } from "@/components/sticky-cta-mobile";
+import { FaqSection } from "@/components/faq-section";
 import { JsonLd } from "@/components/json-ld";
-import { homeGraph } from "@/lib/schema";
+import { homeGraph, faqGraph } from "@/lib/schema";
+import { homeFaqs } from "@/content/faqs";
 
 export default function Home() {
   return (
     <>
-      <JsonLd data={homeGraph()} />
+      <JsonLd data={[...homeGraph(), faqGraph(homeFaqs)]} />
       <HeroSection />
       <ProblemaSection />
       <BeneficiosSection />

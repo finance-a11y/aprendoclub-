@@ -12,7 +12,8 @@ import { FAQ } from "@/components/diplomado/faq"
 import { CTA } from "@/components/diplomado/cta"
 import { RelatedLinks } from "@/components/related-links"
 import { JsonLd } from "@/components/json-ld"
-import { course } from "@/lib/schema"
+import { course, faqGraph } from "@/lib/schema"
+import { diplomadoFaqs } from "@/content/faqs"
 
 export const metadata: Metadata = {
   title: "Diplomado de cero a SEO | aprendoclub",
@@ -24,14 +25,17 @@ export default function DiplomadoPage() {
   return (
     <div className="w-full bg-[var(--bg-primary)] text-white">
       <JsonLd
-        data={course({
-          name: "Diplomado de cero a SEO",
-          description:
-            "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica real, coaching en vivo y certificación.",
-          path: "/diplomado",
-          price: "700",
-          courseWorkload: "P16W",
-        })}
+        data={[
+          course({
+            name: "Diplomado de cero a SEO",
+            description:
+              "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica real, coaching en vivo y certificación.",
+            path: "/diplomado",
+            price: "700",
+            courseWorkload: "P16W",
+          }),
+          faqGraph(diplomadoFaqs),
+        ]}
       />
       <Hero />
       <Origin />

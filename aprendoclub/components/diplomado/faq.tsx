@@ -1,76 +1,97 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ChevronDown } from "lucide-react"
-
-const faqs = [
-  {
-    question: "¿Debo tener experiencia previa?",
-    answer:
-      "No te preocupes, ¡no necesitas experiencia previa! El curso está diseñado para personas que recién están comenzando, así que puedes empezar desde cero.",
-  },
-  {
-    question: "¿Cuánto tiempo debo invertir para convertirme en un experto en SEO?",
-    answer:
-      "El diplomado se puede completar entre 3 y 6 meses. Con dedicación constante, podrás empezar a ver resultados desde las primeras semanas.",
-  },
-  {
-    question: "¿Cuáles son los tipos de SEO que existen?",
-    answer:
-      "Existen tres tipos principales: SEO On-Page (optimización del contenido), SEO Off-Page (construcción de autoridad) y SEO Técnico (optimización de la infraestructura web). En el diplomado cubrirás los tres.",
-  },
-  {
-    question: "¿Qué debo estudiar para ser SEO?",
-    answer:
-      "No necesitas estudios previos específicos. Nuestro diplomado te lleva desde lo más básico hasta estrategias avanzadas, con todo lo necesario para convertirte en especialista SEO.",
-  },
-]
+import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion"
+import { diplomadoFaqs as faqs } from "@/content/faqs"
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const reduceMotion = useReducedMotion()
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggleItem = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
 
   return (
-    <section className="py-20 md:py-28">
-      <div className="mx-auto max-w-3xl container-padding">
-        <h2 className="text-center text-3xl font-bold text-white md:text-4xl">
+    <section
+      ref={ref}
+      className="flex w-full flex-col items-center gap-12 lg:gap-16 bg-[var(--bg-secondary)] container-padding section-spacing"
+    >
+      {/* Header */}
+      <motion.div
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        className="flex max-w-[700px] flex-col items-center gap-4"
+      >
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#012fd8]">
+          FAQ
+        </span>
+        <h2 className="text-center text-3xl md:text-4xl font-bold text-white">
           Preguntas que suelen hacernos antes de dar el sí
         </h2>
+      </motion.div>
 
-        <div className="mt-10 flex flex-col gap-2">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-white/10 bg-[#0d1117]"
+      {/* FAQ Accordion */}
+      <div className="w-full max-w-3xl mx-auto">
+        {faqs.map((faq, index) => (
+          <motion.div
+            key={index}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
+            className={index !== faqs.length - 1 ? "border-b border-white/[0.06]" : ""}
+          >
+            <button
+              onClick={() => toggleItem(index)}
+              aria-expanded={openIndex === index}
+              aria-controls={`diplomado-faq-panel-${index}`}
+              className="group flex w-full items-center justify-between py-5 text-left"
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                aria-expanded={openIndex === i}
-                aria-controls={`faq-panel-${i}`}
-                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+              <span
+                className={`text-lg font-semibold pr-4 transition-colors duration-300 ${
+                  openIndex === index
+                    ? "text-[#b8f60d]"
+                    : "text-white group-hover:text-[#b8f60d]"
+                }`}
               >
-                <span className="font-medium text-white">
-                  {faq.question}
-                </span>
+                {faq.question}
+              </span>
+              <motion.div
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="shrink-0"
+              >
                 <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-gray-400 transition-transform ${
-                    openIndex === i ? "rotate-180" : ""
+                  className={`h-5 w-5 transition-colors duration-300 ${
+                    openIndex === index ? "text-[#b8f60d]" : "text-gray-500"
                   }`}
                 />
-              </button>
-              {openIndex === i && (
-                <div
-                  id={`faq-panel-${i}`}
+              </motion.div>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {openIndex === index && (
+                <motion.div
+                  id={`diplomado-faq-panel-${index}`}
                   role="region"
-                  className="border-t border-white/10 px-6 py-5"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
                 >
-                  <p className="leading-relaxed text-gray-400">
+                  <p className="pb-5 text-base leading-relaxed text-gray-400">
                     {faq.answer}
                   </p>
-                </div>
+                </motion.div>
               )}
-            </div>
-          ))}
-        </div>
+            </AnimatePresence>
+          </motion.div>
+        ))}
       </div>
     </section>
   )

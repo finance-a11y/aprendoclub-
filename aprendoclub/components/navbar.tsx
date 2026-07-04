@@ -5,7 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { siteNav, siteCta, footerMeta, type NavItem } from "@/content/site";
+import {
+  siteNav,
+  siteCta,
+  footerMeta,
+  programMenu,
+  type NavItem,
+} from "@/content/site";
 
 function isItemActive(item: NavItem, pathname: string): boolean {
   if (item.href === "/") return pathname === "/";
@@ -18,8 +24,18 @@ export function Navbar() {
   const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [programaOpen, setProgramaOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setProgramaOpen(true);
+  };
+  const closeMega = () => {
+    closeTimer.current = setTimeout(() => setProgramaOpen(false), 120);
+  };
 
   // Scroll listener for glass effect
   useEffect(() => {
@@ -107,6 +123,80 @@ export function Navbar() {
                   transition={underlineTransition}
                 />
               );
+
+              // Item "Programas": megamenú al hacer hover/focus.
+              if (item.href === "/programas") {
+                return (
+                  <div
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={openMega}
+                    onMouseLeave={closeMega}
+                  >
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      aria-haspopup="menu"
+                      aria-expanded={programaOpen}
+                      onFocus={openMega}
+                      onBlur={closeMega}
+                      className={className}
+                    >
+                      {item.label}
+                      {underline}
+                    </Link>
+
+                    <AnimatePresence>
+                      {programaOpen && (
+                        <motion.div
+                          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
+                          transition={{ duration: reduceMotion ? 0 : 0.18 }}
+                          role="menu"
+                          aria-label="Programas"
+                          className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4"
+                        >
+                          <div className="w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]/95 backdrop-blur-xl shadow-2xl">
+                            <div className="flex flex-col p-2">
+                              {programMenu.map((p) => (
+                                <Link
+                                  key={p.href}
+                                  href={p.href}
+                                  role="menuitem"
+                                  onClick={() => setProgramaOpen(false)}
+                                  className="group/mega flex items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-white/5"
+                                >
+                                  <div className="flex-1">
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-sm font-semibold text-white group-hover/mega:text-[var(--accent)] transition-colors">
+                                        {p.label}
+                                      </span>
+                                      <span className="rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--accent)]">
+                                        {p.badge}
+                                      </span>
+                                    </div>
+                                    <p className="mt-1 text-xs leading-relaxed text-gray-400">
+                                      {p.desc}
+                                    </p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                            <Link
+                              href="/programas"
+                              onClick={() => setProgramaOpen(false)}
+                              className="flex items-center justify-center border-t border-white/10 px-4 py-3 text-xs font-semibold text-gray-300 hover:text-white transition-colors"
+                            >
+                              Ver todos los programas
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
 
               return item.type === "route" ? (
                 <Link

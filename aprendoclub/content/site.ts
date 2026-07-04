@@ -55,6 +55,38 @@ export const siteCta: NavItem = {
 };
 
 /**
+ * Programas del megamenú del navbar (hover sobre "Programas").
+ * Payload-ready: mapea a un bloque `MenuProgram`.
+ */
+export interface MenuProgram {
+  label: string;
+  href: string;
+  desc: string;
+  badge: string;
+}
+
+export const programMenu: MenuProgram[] = [
+  {
+    label: "Diplomado de cero a SEO",
+    href: "/diplomado",
+    desc: "16 semanas para convertirte en especialista SEO.",
+    badge: "Programa estrella",
+  },
+  {
+    label: "Taller de SEO con IA",
+    href: "/programas/taller-seo-con-ia",
+    desc: "15 días para posicionar en Google, ChatGPT y Gemini.",
+    badge: "$49.99",
+  },
+  {
+    label: "Reto 7 días",
+    href: "/reto",
+    desc: "7 días para elegir tu especialidad y cobrar en dólares.",
+    badge: "$20",
+  },
+];
+
+/**
  * Columnas del footer, sin links muertos.
  * Los programas apuntan a sus páginas dedicadas (Fase 4).
  * Econía/SEOconía queda diferido (PROG-05, sin contenido); se agregará luego.

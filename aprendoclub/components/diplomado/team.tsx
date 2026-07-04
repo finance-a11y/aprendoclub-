@@ -3,6 +3,7 @@ const team = [
     name: "Arianna Lupi",
     role: "Consultora SEO | Fundadora aprendoclub",
     initials: "AL",
+    foto: "/coaches/arianna.avif",
   },
   {
     name: "Dana Aliaga",
@@ -13,16 +14,19 @@ const team = [
     name: "Ibraim Zayed",
     role: "Community Builder | SEO Coach",
     initials: "IZ",
+    foto: "/coaches/ibraim.avif",
   },
   {
     name: "Juan Carlos Angulo",
     role: "Senior Tech SEO Analyst",
     initials: "JA",
+    foto: "/coaches/juan.avif",
   },
   {
     name: "Verónica Romero",
     role: "SEO Manager",
     initials: "VR",
+    foto: "/coaches/veronica.avif",
   },
 ]
 
@@ -49,9 +53,17 @@ export function Team() {
               key={i}
               className="flex flex-col items-center rounded-2xl border border-white/10 bg-[#0d1117] p-6 text-center"
             >
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#012fd8]/10 text-lg font-bold text-[#0495f1]">
-                {member.initials}
-              </div>
+              {member.foto ? (
+                <img
+                  src={member.foto}
+                  alt={member.name}
+                  className="mb-4 h-16 w-16 shrink-0 rounded-full object-cover object-top"
+                />
+              ) : (
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#012fd8]/10 text-lg font-bold text-[#0495f1]">
+                  {member.initials}
+                </div>
+              )}
               <h3 className="font-semibold text-white">{member.name}</h3>
               <p className="mt-1 text-xs leading-relaxed text-gray-400">
                 {member.role}
@@ -63,9 +75,11 @@ export function Team() {
         {/* Mentor section */}
         <div className="mt-16 rounded-2xl border border-white/10 bg-[#0d1117] p-8 md:p-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-start">
-            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-[#b8f60d]/10 text-2xl font-bold text-[#b8f60d]">
-              AL
-            </div>
+            <img
+              src="/coaches/arianna.avif"
+              alt="Arianna Lupi"
+              className="h-24 w-24 shrink-0 rounded-2xl object-cover object-top"
+            />
             <div>
               <h3 className="mb-1 text-xl font-bold text-white">
                 Yo seré tu mentora

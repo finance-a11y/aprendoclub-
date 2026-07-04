@@ -152,6 +152,22 @@ export function programasGraph(
   };
 }
 
+/** FAQPage a partir de una lista de preguntas/respuestas. */
+export function faqGraph(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.answer,
+      },
+    })),
+  };
+}
+
 type ReviewInput = { nombre: string; quote: string; ubicacion?: string };
 
 /**
