@@ -40,7 +40,7 @@ export function HistoriaSection() {
           </p>
         ))}
 
-        <blockquote className="mt-4 border-l-2 border-[#b8f60d] pl-6">
+        <blockquote className="mt-4 border-l-2 border-white/15 pl-6">
           <p className="text-xl md:text-2xl text-white font-medium italic">
             &ldquo;{historia.quote.texto}&rdquo;
           </p>
