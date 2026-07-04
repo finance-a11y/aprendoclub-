@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { fundadora } from "@/content/quienes-somos";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -28,10 +29,12 @@ export function FundadoraSection() {
 
           {/* Photo */}
           <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl overflow-hidden">
-            <img
+            <Image
               src={fundadora.foto}
               alt={`${fundadora.nombre} - ${fundadora.rol}`}
-              className="w-full h-full object-cover object-top"
+              fill
+              sizes="(max-width: 768px) 280px, 350px"
+              className="object-cover object-top"
             />
           </div>
         </motion.div>

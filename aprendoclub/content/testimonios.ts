@@ -28,6 +28,9 @@ export interface Testimonio {
 export interface RetoImagen {
   src: string;
   alt: string;
+  /** Dimensiones intrínsecas reales del asset (para next/image, evita CLS). */
+  width: number;
+  height: number;
 }
 
 /** Empresa de la banda de logos. Payload-ready: item de `TrustedCompany`. */
@@ -260,10 +263,15 @@ export const testimonios: Testimonio[] = [
   },
 ];
 
+/** Alturas reales (px) de cada asset t1..t9, todos con ancho intrínseco 1000px. */
+const retoImagenesAltos = [414, 762, 836, 299, 270, 196, 638, 852, 740];
+
 /** Galería del Reto: t1..t9. Alt numerado 1-9 para unicidad. */
 export const retoImagenes: RetoImagen[] = Array.from({ length: 9 }, (_, i) => ({
   src: `/reto/testimonios/t${i + 1}.png`,
   alt: `Testimonio de participante ${i + 1} del Reto 7 días`,
+  width: 1000,
+  height: retoImagenesAltos[i],
 }));
 
 /** Banda de logos "empresas como" (reusada del home, sin duplicar inline). */

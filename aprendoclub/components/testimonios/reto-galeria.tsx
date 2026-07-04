@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -63,10 +64,12 @@ export function RetoGaleria() {
             className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[var(--surface-card)] transition-all duration-300 hover:border-white/25 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-label={`Ampliar: ${imagen.alt}`}
           >
-            <img
+            <Image
               src={imagen.src}
               alt={imagen.alt}
-              loading="lazy"
+              width={imagen.width}
+              height={imagen.height}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="w-full h-auto object-contain"
             />
           </motion.button>
@@ -95,17 +98,24 @@ export function RetoGaleria() {
             >
               <X className="h-6 w-6" />
             </button>
-            <motion.img
+            <motion.div
               key={imagenActiva.src}
-              src={imagenActiva.src}
-              alt={imagenActiva.alt}
               onClick={(e) => e.stopPropagation()}
               initial={reduceMotion ? false : { scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={reduceMotion ? undefined : { scale: 0.95, opacity: 0 }}
               transition={{ duration: reduceMotion ? 0 : 0.2 }}
-              className="max-h-[90vh] max-w-3xl w-auto rounded-lg border border-white/10 object-contain shadow-[var(--shadow-lg)]"
-            />
+              className="max-h-[90vh] max-w-3xl"
+            >
+              <Image
+                src={imagenActiva.src}
+                alt={imagenActiva.alt}
+                width={imagenActiva.width}
+                height={imagenActiva.height}
+                sizes="(max-width: 768px) 90vw, 768px"
+                className="max-h-[90vh] w-auto h-auto rounded-lg border border-white/10 object-contain shadow-[var(--shadow-lg)]"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
