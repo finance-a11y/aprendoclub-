@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -14,6 +14,7 @@ const stats = [
 export function InstructorSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -24,9 +25,9 @@ export function InstructorSection() {
       <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl items-center">
         {/* Photo */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={reduceMotion ? false : { opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.6 }}
           className="relative flex justify-center lg:justify-start"
         >
           {/* Decorative Frame - offset behind */}
@@ -44,9 +45,9 @@ export function InstructorSection() {
 
         {/* Bio */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, x: 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
           <div>
@@ -76,9 +77,9 @@ export function InstructorSection() {
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.4 + index * 0.1 }}
                 className="flex flex-col"
               >
                 <span className="text-3xl md:text-4xl font-extrabold text-white">
