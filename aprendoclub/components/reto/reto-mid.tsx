@@ -11,6 +11,7 @@ import {
   ganadores,
   ganadoresIntro,
 } from "@/content/reto";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function RetoMid() {
   const reduceMotion = useReducedMotion();
@@ -28,10 +29,8 @@ export function RetoMid() {
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex flex-col items-center gap-3 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-              AGENDA
-            </span>
-            <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+            <Eyebrow>AGENDA</Eyebrow>
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
               7 días para cambiar tu rumbo
             </h2>
           </div>
@@ -41,7 +40,7 @@ export function RetoMid() {
                 key={i}
                 {...reveal}
                 transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.05 }}
-                className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0d1117]"
+                className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]"
               >
                 <div className="relative aspect-video w-full">
                   <Image
@@ -52,9 +51,7 @@ export function RetoMid() {
                   />
                 </div>
                 <div className="flex flex-col gap-2 p-5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#b8f60d]">
-                    {d.dia}
-                  </span>
+                  <Eyebrow>{d.dia}</Eyebrow>
                   <h3 className="text-base font-semibold text-white">
                     {d.titulo}
                   </h3>
@@ -71,7 +68,7 @@ export function RetoMid() {
       {/* Comparación */}
       <section className="container-padding section-spacing max-w-6xl mx-auto">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-[#0d1117] p-8">
+          <div className="rounded-2xl border border-white/10 bg-[var(--surface-card)] p-8">
             <h3 className="mb-6 text-lg font-semibold text-gray-400">
               Lo de siempre
             </h3>
@@ -84,14 +81,14 @@ export function RetoMid() {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-[#b8f60d]/30 bg-[#0d1117] p-8">
-            <h3 className="mb-6 text-lg font-semibold text-[#b8f60d]">
+          <div className="rounded-2xl border border-[var(--accent)]/30 bg-[var(--surface-card)] p-8">
+            <h3 className="mb-6 text-lg font-semibold text-[var(--accent)]">
               El Reto 7 Días
             </h3>
             <ul className="flex flex-col gap-4">
               {comparacion.map((row, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-white">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#b8f60d]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" />
                   {row.elReto}
                 </li>
               ))}
@@ -103,16 +100,16 @@ export function RetoMid() {
       {/* Incluye */}
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-center text-2xl font-bold text-white sm:text-3xl">
+          <h2 className="mb-10 text-center text-2xl font-semibold text-white sm:text-3xl">
             Todo esto incluye tu cupo
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {incluye.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 rounded-xl border border-white/10 bg-[#0d1117] p-5"
+                className="flex items-start gap-3 rounded-xl border border-white/10 bg-[var(--surface-card)] p-5"
               >
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#b8f60d]" />
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" />
                 <span className="text-sm leading-relaxed text-gray-300">
                   {item}
                 </span>
@@ -125,10 +122,8 @@ export function RetoMid() {
       {/* Premios */}
       <section className="container-padding section-spacing max-w-6xl mx-auto">
         <div className="mb-10 flex flex-col items-center gap-3 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-            PREMIOS
-          </span>
-          <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          <Eyebrow>PREMIOS</Eyebrow>
+          <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
             No solo aprendes. También puedes ganar.
           </h2>
         </div>
@@ -136,7 +131,7 @@ export function RetoMid() {
           <motion.div
             {...reveal}
             transition={{ duration: 0.5 }}
-            className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]"
+            className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface-card)]"
           >
             <div className="relative aspect-video w-full">
               <Image
@@ -153,7 +148,7 @@ export function RetoMid() {
           <motion.div
             {...reveal}
             transition={{ duration: 0.5, delay: reduceMotion ? 0 : 0.05 }}
-            className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]"
+            className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface-card)]"
           >
             <div className="relative aspect-video w-full">
               <Image
@@ -168,7 +163,7 @@ export function RetoMid() {
             </p>
           </motion.div>
         </div>
-        <p className="mx-auto mt-8 max-w-2xl text-center leading-relaxed text-gray-400">
+        <p className="mx-auto mt-8 max-w-2xl text-center leading-relaxed text-gray-400 measure-prose">
           {premios.comoSeGana}
         </p>
       </section>
@@ -177,10 +172,8 @@ export function RetoMid() {
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex flex-col items-center gap-3 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-              GANADORES
-            </span>
-            <p className="max-w-2xl leading-relaxed text-gray-400">
+            <Eyebrow>GANADORES</Eyebrow>
+            <p className="max-w-2xl leading-relaxed text-gray-400 measure-prose">
               {ganadoresIntro}
             </p>
           </div>
@@ -190,7 +183,7 @@ export function RetoMid() {
                 key={i}
                 {...reveal}
                 transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.05 }}
-                className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0d1117]"
+                className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]"
               >
                 <div className="relative aspect-square w-full">
                   <Image

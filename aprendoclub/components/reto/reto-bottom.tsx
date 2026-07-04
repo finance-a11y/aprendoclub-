@@ -9,6 +9,8 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { pricing, faq, ctaFinal } from "@/content/reto";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 
 export function RetoBottom() {
   const ref = useRef(null);
@@ -24,9 +26,9 @@ export function RetoBottom() {
     <div ref={ref}>
       {/* Pricing */}
       <section className="container-padding section-spacing max-w-6xl mx-auto">
-        <div className="mx-auto flex max-w-md flex-col items-center gap-6 rounded-2xl border border-[#b8f60d]/30 bg-[#0d1117] p-8 text-center">
+        <div className="mx-auto flex max-w-md flex-col items-center gap-6 rounded-2xl border border-[var(--accent)]/30 bg-[var(--surface-card)] p-8 text-center">
           <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold text-white">{pricing.precio}</span>
+            <span className="text-5xl font-semibold text-white">{pricing.precio}</span>
             <span className="text-sm text-gray-400">{pricing.precioNota}</span>
           </div>
           <p className="text-sm leading-relaxed text-gray-400">
@@ -34,26 +36,21 @@ export function RetoBottom() {
           </p>
           <div className="flex w-full flex-col gap-3">
             {pricing.ctas.map((cta, i) => (
-              <a
+              <Button
                 key={i}
                 href={cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={
-                  i === 0
-                    ? "group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#b8f60d] px-6 py-3.5 text-sm font-semibold text-black transition-all hover:brightness-110"
-                    : "inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/10 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                }
+                variant={i === 0 ? "primary" : "ghost"}
+                icon={i === 0}
+                className="w-full"
               >
                 {cta.label}
-                {i === 0 && (
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                )}
-              </a>
+              </Button>
             ))}
           </div>
           <p className="flex items-center gap-2 text-xs text-gray-500">
-            <Check className="h-3.5 w-3.5 text-[#b8f60d]" />
+            <Check className="h-3.5 w-3.5 text-[var(--accent)]" />
             {pricing.nota}
           </p>
         </div>
@@ -63,10 +60,8 @@ export function RetoBottom() {
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-3 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#012fd8]">
-              FAQ
-            </span>
-            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+            <Eyebrow className="text-[var(--primary)]">FAQ</Eyebrow>
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
               Preguntas frecuentes
             </h2>
           </div>
@@ -89,8 +84,8 @@ export function RetoBottom() {
                   <span
                     className={`pr-4 text-lg font-semibold transition-colors duration-300 ${
                       openIndex === index
-                        ? "text-[#b8f60d]"
-                        : "text-white group-hover:text-[#b8f60d]"
+                        ? "text-[var(--accent)]"
+                        : "text-white group-hover:text-[var(--accent)]"
                     }`}
                   >
                     {item.pregunta}
@@ -102,7 +97,7 @@ export function RetoBottom() {
                   >
                     <ChevronDown
                       className={`h-5 w-5 transition-colors duration-300 ${
-                        openIndex === index ? "text-[#b8f60d]" : "text-gray-500"
+                        openIndex === index ? "text-[var(--accent)]" : "text-gray-500"
                       }`}
                     />
                   </motion.div>
@@ -132,15 +127,15 @@ export function RetoBottom() {
 
       {/* CTA final */}
       <section className="container-padding section-spacing max-w-6xl mx-auto">
-        <div className="flex flex-col items-center gap-6 rounded-2xl border border-white/10 bg-[#0d1117] px-6 py-14 text-center">
-          <h2 className="max-w-2xl text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+        <div className="flex flex-col items-center gap-6 rounded-2xl border border-white/10 bg-[var(--surface-card)] px-6 py-14 text-center">
+          <h2 className="max-w-2xl text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
             {ctaFinal.titulo}
           </h2>
           <a
             href={ctaFinal.botonHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-lg bg-[#b8f60d] px-8 py-4 text-base font-semibold text-black transition-all hover:brightness-110"
+            className="group inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-semibold text-black transition-all hover:brightness-110"
           >
             {ctaFinal.botonLabel}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

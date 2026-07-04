@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { fundadora } from "@/content/quienes-somos";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function FundadoraSection() {
   const ref = useRef(null);
@@ -23,7 +24,7 @@ export function FundadoraSection() {
           className="relative flex justify-center lg:justify-start"
         >
           {/* Decorative Frame - offset behind */}
-          <div className="absolute top-4 left-4 lg:left-0 w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl border-2 border-[#012fd8]/30" />
+          <div className="absolute top-4 left-4 lg:left-0 w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl border-2 border-[var(--primary)]/30" />
 
           {/* Photo */}
           <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-2xl overflow-hidden">
@@ -42,11 +43,9 @@ export function FundadoraSection() {
           transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
-          <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
-            {fundadora.eyebrow}
-          </span>
+          <Eyebrow>{fundadora.eyebrow}</Eyebrow>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             <a
               href="https://ariannalupi.com"
               target="_blank"
@@ -57,13 +56,15 @@ export function FundadoraSection() {
             </a>
           </h2>
 
-          <p className="text-lg text-[#012fd8] font-medium">{fundadora.rol}</p>
+          <p className="text-lg text-[var(--primary)] font-medium">{fundadora.rol}</p>
 
-          {fundadora.bio.map((parrafo, index) => (
-            <p key={index} className="text-gray-400 leading-relaxed">
-              {parrafo}
-            </p>
-          ))}
+          <div className="flex flex-col gap-6 measure-prose">
+            {fundadora.bio.map((parrafo, index) => (
+              <p key={index} className="text-gray-400 leading-relaxed">
+                {parrafo}
+              </p>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

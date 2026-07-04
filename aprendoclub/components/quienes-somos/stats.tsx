@@ -23,7 +23,7 @@ export function StatsSection() {
             transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
             className="flex flex-col items-center text-center"
           >
-            <span className="text-4xl md:text-5xl font-extrabold text-white">
+            <span className="text-4xl md:text-5xl font-semibold text-white">
               {stat.value}
             </span>
             <span className="text-sm text-gray-500">{stat.label}</span>

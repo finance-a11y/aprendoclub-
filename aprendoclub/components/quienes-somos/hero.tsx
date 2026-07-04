@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { hero } from "@/content/quienes-somos";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function QuienesSomosHero() {
   const reduceMotion = useReducedMotion();
@@ -14,10 +15,8 @@ export function QuienesSomosHero() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-3xl flex-col items-center gap-6 text-center"
       >
-        <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
-          {hero.eyebrow}
-        </span>
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
+        <Eyebrow>{hero.eyebrow}</Eyebrow>
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white">
           {hero.titulo}
         </h1>
         <p className="text-lg text-gray-400 leading-relaxed max-w-2xl">

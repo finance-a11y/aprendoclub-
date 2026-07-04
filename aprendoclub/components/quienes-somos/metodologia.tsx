@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { metodologia } from "@/content/quienes-somos";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function MetodologiaSection() {
   const ref = useRef(null);
@@ -20,10 +21,8 @@ export function MetodologiaSection() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
-        <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
-          {metodologia.eyebrow}
-        </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        <Eyebrow>{metodologia.eyebrow}</Eyebrow>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
           {metodologia.titulo}
         </h2>
       </motion.div>
@@ -35,12 +34,12 @@ export function MetodologiaSection() {
             initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : index * 0.1 }}
-            className="rounded-xl bg-[#0d1117] border border-white/10 p-6"
+            className="rounded-xl bg-[var(--surface-card)] border border-[var(--border-card)] p-6"
           >
-            <span className="text-sm font-bold text-white/40">
+            <span className="text-sm font-semibold text-white/40">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-2 font-bold text-white">{pilar.nombre}</h3>
+            <h3 className="mt-2 font-semibold text-white">{pilar.nombre}</h3>
             <p className="mt-2 text-gray-400 leading-relaxed">
               {pilar.descripcion}
             </p>

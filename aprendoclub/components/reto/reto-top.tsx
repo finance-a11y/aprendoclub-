@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { urgencia, hero, razonNoEscalas, mentora } from "@/content/reto";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 
 export function RetoTop() {
   const reduceMotion = useReducedMotion();
@@ -18,7 +19,7 @@ export function RetoTop() {
   return (
     <div>
       {/* Barra de urgencia */}
-      <div className="w-full border-b border-white/10 bg-[#0d1117]">
+      <div className="w-full border-b border-white/10 bg-[var(--surface-card)]">
         <p className="container-padding mx-auto max-w-6xl py-2.5 text-center text-xs font-medium text-gray-300 sm:text-sm">
           {urgencia}
         </p>
@@ -31,12 +32,10 @@ export function RetoTop() {
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-            {hero.eyebrow}
-          </span>
-          <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+          <Eyebrow>{hero.eyebrow}</Eyebrow>
+          <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl">
             {hero.titulo}{" "}
-            <span className="text-[#b8f60d]">{hero.destacado}</span>
+            <span className="text-[var(--accent)]">{hero.destacado}</span>
           </h1>
           <p className="text-lg leading-relaxed text-gray-400">{hero.texto}</p>
           <ul className="flex flex-col gap-3">
@@ -45,30 +44,30 @@ export function RetoTop() {
                 key={i}
                 className="flex items-start gap-3 text-left text-sm text-gray-300"
               >
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b8f60d]" />
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
                 {b}
               </li>
             ))}
           </ul>
           <p className="text-base font-semibold text-white">{hero.precioTexto}</p>
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-            <a
+            <Button
               href={hero.ctas[0].href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#b8f60d] px-6 py-3.5 text-sm font-semibold text-black transition-all hover:brightness-110"
+              variant="primary"
+              icon
             >
               {hero.ctas[0].label}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
+            </Button>
+            <Button
               href={hero.ctas[1].href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-[#0d1117] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              variant="secondary"
             >
               {hero.ctas[1].label}
-            </a>
+            </Button>
           </div>
         </motion.div>
 
@@ -95,7 +94,7 @@ export function RetoTop() {
           transition={{ duration: 0.6 }}
           className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center"
         >
-          <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
             {razonNoEscalas.titulo}
           </h2>
           <p className="text-lg leading-relaxed text-gray-400">
@@ -105,7 +104,7 @@ export function RetoTop() {
             {razonNoEscalas.frases.map((f, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-white/10 bg-[#0d1117] p-6 text-sm font-medium leading-relaxed text-white"
+                className="rounded-xl border border-white/10 bg-[var(--surface-card)] p-6 text-sm font-medium leading-relaxed text-white"
               >
                 {f}
               </div>
@@ -135,10 +134,8 @@ export function RetoTop() {
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
-              {mentora.rol}
-            </span>
-            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+            <Eyebrow>{mentora.rol}</Eyebrow>
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
               {mentora.nombre}
             </h2>
           </div>
@@ -146,18 +143,18 @@ export function RetoTop() {
             {mentora.stats.map((s, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-white/10 bg-[#0d1117] p-4"
+                className="rounded-xl border border-white/10 bg-[var(--surface-card)] p-4"
               >
-                <p className="text-xl font-bold text-white">{s.valor}</p>
+                <p className="text-xl font-semibold text-white">{s.valor}</p>
                 <p className="text-xs text-gray-400">{s.etiqueta}</p>
               </div>
             ))}
           </div>
-          <p className="leading-relaxed text-gray-400">{mentora.historia}</p>
-          <blockquote className="border-l-2 border-[#b8f60d] pl-4 text-lg font-medium italic text-white">
+          <p className="leading-relaxed text-gray-400 measure-prose">{mentora.historia}</p>
+          <blockquote className="border-l-2 border-[var(--accent)] pl-4 text-lg font-medium italic text-white">
             {mentora.quote}
           </blockquote>
-          <p className="leading-relaxed text-gray-400">{mentora.cierre}</p>
+          <p className="leading-relaxed text-gray-400 measure-prose">{mentora.cierre}</p>
         </motion.div>
       </section>
     </div>
