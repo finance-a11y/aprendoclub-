@@ -181,7 +181,7 @@ export const metodologia: MetodologiaContent = {
 
 /** Stats — sección "## Stats (reusar del home)". */
 export const stats: StatItem[] = [
-  { value: "2.000+", label: "estudiantes formados" },
+  { value: "2,000+", label: "estudiantes formados" },
   { value: "30+", label: "empresas ayudadas" },
   { value: "$2M+", label: "en ventas generadas" },
 ];
