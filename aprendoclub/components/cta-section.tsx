@@ -33,7 +33,7 @@ export function CtaSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white"
+          className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white"
         >
           Deja de aprender solo. Únete a la comunidad.
         </motion.h2>

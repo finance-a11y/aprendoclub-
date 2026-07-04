@@ -55,7 +55,7 @@ export function TestimoniosSection() {
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow className="tracking-wider">TESTIMONIOS</Eyebrow>
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Lo que dicen nuestros estudiantes
         </h2>
       </motion.div>

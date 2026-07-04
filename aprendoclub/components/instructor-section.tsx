@@ -55,7 +55,7 @@ export function InstructorSection() {
             <Eyebrow>TU INSTRUCTOR</Eyebrow>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             <a
               href="https://ariannalupi.com"
               target="_blank"

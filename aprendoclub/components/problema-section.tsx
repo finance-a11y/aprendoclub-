@@ -63,7 +63,7 @@ export function ProblemaSection() {
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>EL PROBLEMA</Eyebrow>
-        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           ¿Por qué necesitas aprendoclub?
         </h2>
         <p className="text-center text-lg text-gray-400">

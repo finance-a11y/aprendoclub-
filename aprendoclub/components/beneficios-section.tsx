@@ -47,7 +47,7 @@ export function BeneficiosSection() {
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>LA SOLUCIÓN</Eyebrow>
-        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Todo lo que necesitas para dominar el SEO
         </h2>
         <p className="text-center text-lg text-gray-400">

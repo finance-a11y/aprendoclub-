@@ -29,7 +29,7 @@ export function FaqSection() {
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>FAQ</Eyebrow>
-        <h2 className="text-center text-3xl md:text-4xl font-semibold text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Resolvemos tus dudas
         </h2>
       </motion.div>
