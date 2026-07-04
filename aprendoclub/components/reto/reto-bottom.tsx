@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 import {
   motion,
   AnimatePresence,
@@ -11,6 +11,7 @@ import {
 import { pricing, faq, ctaFinal } from "@/content/reto";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export function RetoBottom() {
   const ref = useRef(null);
@@ -26,7 +27,11 @@ export function RetoBottom() {
     <div ref={ref}>
       {/* Pricing */}
       <section className="container-padding section-spacing max-w-6xl mx-auto">
-        <div className="mx-auto flex max-w-md flex-col items-center gap-6 rounded-2xl border border-[var(--accent)]/30 bg-[var(--surface-card)] p-8 text-center">
+        <Card
+          padding="default"
+          hover="none"
+          className="border-[var(--accent)]/30 mx-auto flex max-w-md flex-col items-center gap-6 text-center"
+        >
           <div className="flex items-baseline gap-2">
             <span className="text-5xl font-semibold text-white">{pricing.precio}</span>
             <span className="text-sm text-gray-400">{pricing.precioNota}</span>
@@ -53,15 +58,15 @@ export function RetoBottom() {
             <Check className="h-3.5 w-3.5 text-[var(--accent)]" />
             {pricing.nota}
           </p>
-        </div>
+        </Card>
       </section>
 
       {/* FAQ */}
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-3 text-center">
-            <Eyebrow className="text-[var(--primary)]">FAQ</Eyebrow>
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
               Preguntas frecuentes
             </h2>
           </div>
@@ -82,10 +87,8 @@ export function RetoBottom() {
                   className="group flex w-full items-center justify-between py-5 text-left"
                 >
                   <span
-                    className={`pr-4 text-lg font-semibold transition-colors duration-300 ${
-                      openIndex === index
-                        ? "text-[var(--accent)]"
-                        : "text-white group-hover:text-[var(--accent)]"
+                    className={`pr-4 text-lg font-semibold text-white transition-colors duration-300 ${
+                      openIndex === index ? "" : "group-hover:text-[var(--accent)]"
                     }`}
                   >
                     {item.pregunta}
@@ -95,11 +98,7 @@ export function RetoBottom() {
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     className="shrink-0"
                   >
-                    <ChevronDown
-                      className={`h-5 w-5 transition-colors duration-300 ${
-                        openIndex === index ? "text-[var(--accent)]" : "text-gray-500"
-                      }`}
-                    />
+                    <ChevronDown className="h-5 w-5 text-gray-400 transition-colors duration-300" />
                   </motion.div>
                 </button>
                 <AnimatePresence initial={false}>
@@ -128,18 +127,19 @@ export function RetoBottom() {
       {/* CTA final */}
       <section className="container-padding section-spacing max-w-6xl mx-auto">
         <div className="flex flex-col items-center gap-6 rounded-2xl border border-white/10 bg-[var(--surface-card)] px-6 py-14 text-center">
-          <h2 className="max-w-2xl text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
+          <h2 className="max-w-2xl text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             {ctaFinal.titulo}
           </h2>
-          <a
+          <Button
             href={ctaFinal.botonHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-semibold text-black transition-all hover:brightness-110"
+            variant="primary"
+            size="lg"
+            icon
           >
             {ctaFinal.botonLabel}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Button>
         </div>
       </section>
     </div>
