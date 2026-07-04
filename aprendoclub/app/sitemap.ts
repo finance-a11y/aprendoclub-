@@ -35,11 +35,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://aprendoclub.com/programas/taller-seo-con-ia",
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://aprendoclub.com/reto",
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://aprendoclub.com/links",
       lastModified,
       changeFrequency: "monthly",
       priority: 0.5,
     },
-    // TODO Fase 4: taller-seo-con-ia, econia, reto (se añaden cuando resuelvan, para no publicar URLs rotas)
   ];
 }

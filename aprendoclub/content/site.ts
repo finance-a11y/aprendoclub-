@@ -56,19 +56,16 @@ export const siteCta: NavItem = {
 
 /**
  * Columnas del footer, sin links muertos.
- * Fase 4 repuntará los programas aún no construidos a sus páginas dedicadas
- * (/programas/taller-seo-con-ia, /reto, /programas/econia). Mientras tanto
- * apuntan al hub /programas (placeholder existente) para no publicar 404.
+ * Los programas apuntan a sus páginas dedicadas (Fase 4).
+ * Econía/SEOconía queda diferido (PROG-05, sin contenido); se agregará luego.
  */
 export const footerColumns: FooterColumn[] = [
   {
     title: "Programas",
     links: [
       { label: "Diplomado", href: "/diplomado" },
-      // Fase 4: repuntar a /programas/taller-seo-con-ia cuando exista.
-      { label: "Taller SEO con IA", href: "/programas" },
-      // Fase 4: repuntar a /reto cuando exista.
-      { label: "Reto 7 días", href: "/programas" },
+      { label: "Taller SEO con IA", href: "/programas/taller-seo-con-ia" },
+      { label: "Reto 7 días", href: "/reto" },
       // Econía/SEOconía diferido (PROG-05, sin contenido); se agregará luego.
     ],
   },
