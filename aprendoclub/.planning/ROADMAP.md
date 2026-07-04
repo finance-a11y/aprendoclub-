@@ -13,10 +13,10 @@ El home suelto de aprendoclub se convierte en un sitio navegable listo para Goog
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Fundaciones y navegación** - Shell compartido, navbar real, footer limpio, patrón data-driven y sitemap
+- [x] **Phase 1: Fundaciones y navegación** - Shell compartido, navbar real, footer limpio, patrón data-driven y sitemap
 - [x] **Phase 2: Quiénes somos** - Página `/quienes-somos` con historia y bio de la fundadora + teaser en el home (completed 2026-07-04)
 - [x] **Phase 3: Testimonios** - Página `/testimonios` migrada + sección visible desde el home (completed 2026-07-04)
-- [ ] **Phase 4: Programas** - Hub `/programas` + páginas individuales de los cuatro programas
+- [x] **Phase 4: Programas** - Hub `/programas` + páginas individuales de los cuatro programas
 - [x] **Phase 5: Enlazado interno** - Cross-linking coherente entre todas las páginas para navegación y SEO interno (completed 2026-07-04)
 
 ## Phase Details
@@ -36,9 +36,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Plans**: 3 plans
 
-  - [ ] 01-01-PLAN.md — Capa de contenido data-driven (content/site.ts) + sitemap
-  - [ ] 01-02-PLAN.md — Refactor navbar (rutas reales, ruta activa, reduced-motion) + footer limpio
-  - [ ] 01-03-PLAN.md — Route group (site) + mover home + placeholders + build
+  - [x] 01-01-PLAN.md — Capa de contenido data-driven (content/site.ts) + sitemap
+  - [x] 01-02-PLAN.md — Refactor navbar (rutas reales, ruta activa, reduced-motion) + footer limpio
+  - [x] 01-03-PLAN.md — Route group (site) + mover home + placeholders + build
 
 **UI hint**: yes
 
@@ -91,14 +91,14 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Plans**: 8 plans
 
-- [ ] 04-01-PLAN.md — Capa de contenido (programas, taller) + ProgramCard reutilizable
-- [ ] 04-02-PLAN.md — Capa de contenido del Reto (content/reto.ts, FAQ verbatim del export)
-- [ ] 04-03-PLAN.md — Hub /programas (hero + 3 cards + CTA)
-- [ ] 04-04-PLAN.md — Página Taller SEO con IA (/programas/taller-seo-con-ia)
-- [ ] 04-05-PLAN.md — Página Reto 7 días (/reto)
-- [ ] 04-06-PLAN.md — Diplomado: mover a (site) + reskin secciones 1/2
-- [ ] 04-07-PLAN.md — Diplomado: reskin secciones 2/2
-- [ ] 04-08-PLAN.md — Sección home + repunte footer + sitemap + build
+- [x] 04-01-PLAN.md — Capa de contenido (programas, taller) + ProgramCard reutilizable
+- [x] 04-02-PLAN.md — Capa de contenido del Reto (content/reto.ts, FAQ verbatim del export)
+- [x] 04-03-PLAN.md — Hub /programas (hero + 3 cards + CTA)
+- [x] 04-04-PLAN.md — Página Taller SEO con IA (/programas/taller-seo-con-ia)
+- [x] 04-05-PLAN.md — Página Reto 7 días (/reto)
+- [x] 04-06-PLAN.md — Diplomado: mover a (site) + reskin secciones 1/2
+- [x] 04-07-PLAN.md — Diplomado: reskin secciones 2/2
+- [x] 04-08-PLAN.md — Sección home + repunte footer + sitemap + build
 
 **UI hint**: yes
 **Scope note**: PROG-05 (Econía/SEOconía) se difirió fuera de v1.0 (sin fuente de contenido). Se retoma cuando Juan lo aporte. El Reto se construye en modo edición activa / próxima edición.
@@ -125,8 +125,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Fundaciones y navegación | 0/3 | Not started | - |
+| 1. Fundaciones y navegación | 3/3 | Complete   | 2026-07-04 |
 | 2. Quiénes somos | 2/2 | Complete   | 2026-07-04 |
 | 3. Testimonios | 1/1 | Complete   | 2026-07-04 |
-| 4. Programas | 0/8 | Not started | - |
+| 4. Programas | 8/8 | Complete   | 2026-07-04 |
 | 5. Enlazado interno | 1/1 | Complete   | 2026-07-04 |
