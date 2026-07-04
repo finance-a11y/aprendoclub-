@@ -13,10 +13,14 @@ import { Button } from "@/components/ui/button";
 export function ProgramCard({
   program,
   compact = false,
+  headingLevel = "h3",
 }: {
   program: Program;
   compact?: boolean;
+  /** Heading level for the card title; defaults to h3 (used under an h2 section title). Pass "h2" when the card is the first heading-bearing content after the page h1 (no h2 section title precedes it), to avoid a heading-level skip. */
+  headingLevel?: "h2" | "h3";
 }) {
+  const HeadingTag = headingLevel;
   return (
     <Card
       padding={compact ? "compact" : "default"}
@@ -25,7 +29,9 @@ export function ProgramCard({
     >
       <Eyebrow>{program.badge}</Eyebrow>
 
-      <h3 className="text-lg font-semibold text-white">{program.nombre}</h3>
+      <HeadingTag className="text-lg font-semibold text-white">
+        {program.nombre}
+      </HeadingTag>
 
       <p className="text-sm leading-relaxed text-gray-400">
         {program.descripcion}

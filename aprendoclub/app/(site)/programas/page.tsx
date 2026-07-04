@@ -45,7 +45,7 @@ export default function ProgramasPage() {
               Boolean(program),
             )
             .map((program) => (
-              <ProgramCard key={program.id} program={program} />
+              <ProgramCard key={program.id} program={program} headingLevel="h2" />
             ))}
         </div>
       </section>
