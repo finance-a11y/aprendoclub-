@@ -10,6 +10,7 @@ import {
   logosBanda,
 } from "@/content/testimonios";
 import { TestimonialAvatar } from "./testimonial-avatar";
+import { Card } from "@/components/ui/card";
 
 export function TestimoniosGrid() {
   const ref = useRef(null);
@@ -27,7 +28,7 @@ export function TestimoniosGrid() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
           {gridTitulo}
         </h2>
       </motion.div>
@@ -44,30 +45,34 @@ export function TestimoniosGrid() {
                 duration: reduceMotion ? 0 : 0.6,
                 delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.6),
               }}
-              className="group rounded-xl bg-[#0d1117] border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+              className="group"
             >
-              <div className="flex items-center gap-4 mb-4">
-                <TestimonialAvatar testimonio={testimonio} />
-                <div>
-                  <p className="font-bold text-white">{testimonio.nombre}</p>
-                  {subtitulo ? (
-                    <p className="text-sm text-gray-500">{subtitulo}</p>
-                  ) : null}
+              <Card padding="compact" hover="lift">
+                <div className="flex items-center gap-4 mb-4">
+                  <TestimonialAvatar testimonio={testimonio} />
+                  <div>
+                    <p className="font-semibold text-white">
+                      {testimonio.nombre}
+                    </p>
+                    {subtitulo ? (
+                      <p className="text-sm text-gray-500">{subtitulo}</p>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
-              </div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
 
-              <p className="text-gray-300 text-sm leading-relaxed">
-                &ldquo;{testimonio.quote}&rdquo;
-              </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  &ldquo;{testimonio.quote}&rdquo;
+                </p>
+              </Card>
             </motion.div>
           );
         })}

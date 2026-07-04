@@ -1,3 +1,5 @@
+import { Card } from "@/components/ui/card";
+
 const team = [
   {
     name: "Arianna Lupi",
@@ -36,11 +38,11 @@ export function Team() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1117] px-4 py-1.5 text-sm text-[#b8f60d]">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
           Equipo
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-bold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
           Aquí te hablamos de SEO a SEO
         </h2>
 
@@ -51,9 +53,11 @@ export function Team() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {team.map((member, i) => (
-            <div
+            <Card
               key={i}
-              className="flex flex-col items-center rounded-2xl border border-white/10 bg-[#0d1117] p-6 text-center"
+              padding="compact"
+              hover="none"
+              className="flex flex-col items-center text-center"
             >
               {member.foto ? (
                 <img
@@ -62,7 +66,7 @@ export function Team() {
                   className="mb-4 h-16 w-16 shrink-0 rounded-full object-cover object-top"
                 />
               ) : (
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#012fd8]/10 text-lg font-bold text-[#0495f1]">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--primary)]/10 text-lg font-semibold text-[var(--primary-light)]">
                   {member.initials}
                 </div>
               )}
@@ -71,7 +75,7 @@ export function Team() {
                   href={member.web}
                   target="_blank"
                   rel="noopener"
-                  className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-[#b8f60d] hover:decoration-[#b8f60d]"
+                  className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
                 >
                   {member.name}
                 </a>
@@ -81,12 +85,16 @@ export function Team() {
               <p className="mt-1 text-xs leading-relaxed text-gray-400">
                 {member.role}
               </p>
-            </div>
+            </Card>
           ))}
         </div>
 
         {/* Mentor section */}
-        <div className="mt-16 rounded-2xl border border-white/10 bg-[#0d1117] p-8 md:p-10">
+        <Card
+          padding="default"
+          hover="none"
+          className="mt-16 p-8 md:p-10"
+        >
           <div className="flex flex-col gap-8 md:flex-row md:items-start">
             <img
               src="/coaches/arianna.avif"
@@ -94,14 +102,14 @@ export function Team() {
               className="h-24 w-24 shrink-0 rounded-2xl object-cover object-top"
             />
             <div>
-              <h3 className="mb-1 text-xl font-bold text-white">
+              <h3 className="mb-1 text-xl font-semibold text-white">
                 Yo seré tu mentora
               </h3>
               <a
                 href="https://ariannalupi.com"
                 target="_blank"
                 rel="noopener"
-                className="mb-4 inline-block text-sm font-medium text-[#b8f60d] underline decoration-[#b8f60d]/30 underline-offset-4 hover:decoration-[#b8f60d]"
+                className="mb-4 inline-block text-sm font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 hover:decoration-[var(--accent)]"
               >
                 Arianna Lupi
               </a>
@@ -130,7 +138,7 @@ export function Team() {
               </div>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
     </section>
   )
