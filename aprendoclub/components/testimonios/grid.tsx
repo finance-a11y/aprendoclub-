@@ -28,7 +28,7 @@ export function TestimoniosGrid() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+        <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           {gridTitulo}
         </h2>
       </motion.div>

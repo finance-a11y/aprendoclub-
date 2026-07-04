@@ -42,7 +42,7 @@ export function RetoGaleria() {
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>{reto.eyebrow}</Eyebrow>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+        <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           {reto.titulo}
         </h2>
         <p className="text-lg text-gray-400">{reto.texto}</p>
