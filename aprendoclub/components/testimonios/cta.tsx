@@ -32,6 +32,12 @@ export function TestimoniosCta() {
         >
           {cta.botonLabel}
         </Link>
+        <Link
+          href="/quienes-somos"
+          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[#b8f60d]"
+        >
+          Conoce al equipo detrás de aprendoclub
+        </Link>
       </motion.div>
     </section>
   );

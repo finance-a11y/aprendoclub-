@@ -32,6 +32,12 @@ export function CtaFinalSection() {
         >
           {ctaFinal.botonLabel}
         </Link>
+        <Link
+          href="/testimonios"
+          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[#b8f60d]"
+        >
+          Mira las historias de nuestros estudiantes
+        </Link>
       </motion.div>
     </section>
   );
