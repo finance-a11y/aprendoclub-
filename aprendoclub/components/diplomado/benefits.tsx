@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react"
+import { Eyebrow } from "@/components/ui/eyebrow"
 
 const benefits = [
   {
@@ -31,11 +32,11 @@ export function Benefits() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
-          Beneficios
+        <div className="mb-4">
+          <Eyebrow>Beneficios</Eyebrow>
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           {'¿Qué recibes al inscribirte?'}
         </h2>
 

@@ -1,4 +1,5 @@
 import { GraduationCap, Wrench, Award, DollarSign } from "lucide-react"
+import { Eyebrow } from "@/components/ui/eyebrow"
 
 const pillars = [
   {
@@ -25,13 +26,13 @@ const pillars = [
 
 export function Methodology() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
-          Metodología EPAM
+        <div className="mb-4">
+          <Eyebrow>Metodología EPAM</Eyebrow>
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Aprende SEO con nuestra metodología: EPAM
         </h2>
 
@@ -45,7 +46,7 @@ export function Methodology() {
           {pillars.map((pillar, i) => (
             <div
               key={i}
-              className="group rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6 transition-colors hover:border-[var(--accent)]/30"
+              className="group rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6 transition-colors hover:border-white/20"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 transition-colors group-hover:bg-[var(--accent)]/10">
                 <pillar.icon className="h-6 w-6 text-[var(--primary-light)] transition-colors group-hover:text-[var(--accent)]" />

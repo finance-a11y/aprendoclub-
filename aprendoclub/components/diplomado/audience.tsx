@@ -18,9 +18,9 @@ const doubts = [
 
 export function Audience() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <h2 className="text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="text-balance text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           {'¿El diplomado de cero a SEO será para mí?'}
         </h2>
         <p className="mt-3 text-lg text-gray-400">
