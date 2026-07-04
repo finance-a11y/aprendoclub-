@@ -23,7 +23,7 @@ export function TestimonialAvatar({ testimonio }: { testimonio: Testimonio }) {
 
   if (showFallback) {
     return (
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-sm font-bold text-white">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-sm font-bold text-white">
         {getIniciales(testimonio.nombre)}
       </div>
     );
@@ -34,7 +34,7 @@ export function TestimonialAvatar({ testimonio }: { testimonio: Testimonio }) {
       src={testimonio.foto}
       alt={testimonio.nombre}
       onError={() => setShowFallback(true)}
-      className="h-12 w-12 rounded-full object-cover"
+      className="h-12 w-12 shrink-0 rounded-full object-cover object-top"
     />
   );
 }

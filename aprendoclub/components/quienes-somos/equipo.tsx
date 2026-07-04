@@ -9,7 +9,7 @@ function TeamAvatar({ member }: { member: TeamMember }) {
 
   if (showFallback) {
     return (
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-lg font-bold text-white">
+      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-lg font-bold text-white">
         {member.iniciales}
       </div>
     );
@@ -20,7 +20,7 @@ function TeamAvatar({ member }: { member: TeamMember }) {
       src={member.foto}
       alt={member.nombre}
       onError={() => setShowFallback(true)}
-      className="h-16 w-16 rounded-full object-cover"
+      className="h-16 w-16 shrink-0 rounded-full object-cover object-top"
     />
   );
 }
