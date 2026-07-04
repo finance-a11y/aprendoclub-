@@ -1,16 +1,16 @@
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function CTA() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0d1117] p-10 md:p-16">
+        <div className="relative overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--border-card)] bg-[var(--surface-card)] p-10 md:p-16">
           {/* Glow effects */}
-          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#012fd8]/10 blur-[80px]" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#b8f60d]/10 blur-[80px]" />
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[var(--primary)]/10 blur-[80px]" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[var(--accent)]/10 blur-[80px]" />
 
           <div className="relative text-center">
-            <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold text-white md:text-4xl">
+            <h2 className="mx-auto max-w-2xl text-balance text-3xl font-semibold text-white md:text-4xl">
               No es magia, es SEO. Y tú lo puedes aprender.
             </h2>
 
@@ -37,15 +37,16 @@ export function CTA() {
             </div>
 
             <div className="mt-8">
-              <a
+              <Button
                 href="https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-xl bg-[#b8f60d] px-8 py-4 text-base font-semibold text-black transition-all hover:brightness-110"
+                variant="primary"
+                size="lg"
+                icon
               >
                 Quiero aprender SEO
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>

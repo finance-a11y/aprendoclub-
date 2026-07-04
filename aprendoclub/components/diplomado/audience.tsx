@@ -20,7 +20,7 @@ export function Audience() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <h2 className="text-balance text-3xl font-bold text-white md:text-4xl">
+        <h2 className="text-balance text-3xl font-semibold text-white md:text-4xl">
           {'¿El diplomado de cero a SEO será para mí?'}
         </h2>
         <p className="mt-3 text-lg text-gray-400">
@@ -29,14 +29,14 @@ export function Audience() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {/* Who it's for */}
-          <div className="rounded-2xl border border-white/10 bg-[#0d1117] p-8">
+          <div className="rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-8">
             <h3 className="mb-6 text-xl font-semibold text-white">
               {'Está pensado para ti si...'}
             </h3>
             <ul className="flex flex-col gap-4">
               {profiles.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#b8f60d]" />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" />
                   <span className="leading-relaxed text-gray-400">{item}</span>
                 </li>
               ))}
@@ -44,7 +44,7 @@ export function Audience() {
           </div>
 
           {/* Common doubts */}
-          <div className="rounded-2xl border border-white/10 bg-[#0d1117] p-8">
+          <div className="rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-8">
             <h3 className="mb-6 text-xl font-semibold text-white">
               {'¿También te has preguntado esto?'}
             </h3>

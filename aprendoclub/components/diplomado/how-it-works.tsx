@@ -1,4 +1,5 @@
 import { Clock, BookOpen, Video, FolderOpen, Users } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const features = [
   {
@@ -37,11 +38,11 @@ export function HowItWorks() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1117] px-4 py-1.5 text-sm text-[#b8f60d]">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
           {'Cómo funciona'}
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-bold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
           {'¿Cómo funciona el diplomado de cero a SEO?'}
         </h2>
 
@@ -49,12 +50,12 @@ export function HowItWorks() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className={`rounded-2xl border border-white/10 bg-[#0d1117] p-6 ${
+              className={`rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6 ${
                 i >= 3 ? "lg:col-span-1" : ""
               }`}
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#012fd8]/10">
-                <feature.icon className="h-6 w-6 text-[#0495f1]" />
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
+                <feature.icon className="h-6 w-6 text-[var(--primary-light)]" />
               </div>
               <h3 className="mb-2 font-semibold text-white">
                 {feature.title}
@@ -67,14 +68,15 @@ export function HowItWorks() {
         </div>
 
         <div className="mt-10 text-center">
-          <a
+          <Button
             href="https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#b8f60d] px-8 py-4 text-base font-semibold text-black transition-all hover:brightness-110"
+            variant="primary"
+            size="lg"
           >
             Quiero inscribirme ahora
-          </a>
+          </Button>
         </div>
       </div>
     </section>

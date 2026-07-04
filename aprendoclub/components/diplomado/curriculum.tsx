@@ -28,11 +28,11 @@ export function Curriculum() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1117] px-4 py-1.5 text-sm text-[#b8f60d]">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
           16 semanas
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-bold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
           Pasa de no saber nada a optimizar tu primer sitio web en 16 semanas
         </h2>
 
@@ -40,7 +40,7 @@ export function Curriculum() {
           {weeks.map((w, i) => (
             <div
               key={i}
-              className="rounded-xl border border-white/10 bg-[#0d1117] transition-colors hover:border-white/20"
+              className="rounded-xl border border-[var(--border-card)] bg-[var(--surface-card)] transition-colors hover:border-white/20"
             >
               <button
                 onClick={() => setOpenWeek(openWeek === i ? null : i)}
@@ -48,7 +48,7 @@ export function Curriculum() {
                 aria-controls={`week-panel-${i}`}
                 className="flex w-full items-center gap-4 px-6 py-4 text-left"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#012fd8]/10 text-xs font-semibold text-[#0495f1]">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-xs font-semibold text-[var(--primary-light)]">
                   {w.week}
                 </span>
                 <span className="flex-1 text-sm font-medium text-white md:text-base">
@@ -64,7 +64,7 @@ export function Curriculum() {
                 <div
                   id={`week-panel-${i}`}
                   role="region"
-                  className="border-t border-white/10 px-6 py-4"
+                  className="border-t border-[var(--border-card)] px-6 py-4"
                 >
                   <p className="text-sm leading-relaxed text-gray-400">
                     {w.detail}

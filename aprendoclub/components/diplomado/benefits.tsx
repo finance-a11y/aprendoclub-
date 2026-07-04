@@ -31,11 +31,11 @@ export function Benefits() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1117] px-4 py-1.5 text-sm text-[#b8f60d]">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
           Beneficios
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-bold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
           {'¿Qué recibes al inscribirte?'}
         </h2>
 
@@ -48,9 +48,9 @@ export function Benefits() {
           {benefits.map((benefit, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-white/10 bg-[#0d1117] p-6"
+              className="rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6"
             >
-              <div className="mb-3 inline-flex rounded-full bg-[#b8f60d]/10 px-3 py-1 text-xs font-semibold text-[#b8f60d]">
+              <div className="mb-3 inline-flex rounded-full bg-[var(--accent)]/10 px-3 py-1 text-xs font-semibold text-[var(--accent)]">
                 VALORADO EN {benefit.value}
               </div>
               <p className="text-sm leading-relaxed text-gray-400">
@@ -60,14 +60,14 @@ export function Benefits() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-[#0d1117] p-8">
+        <div className="mt-8 rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-8">
           <h3 className="mb-4 text-lg font-semibold text-white">
             También incluye:
           </h3>
           <ul className="grid gap-3 sm:grid-cols-2">
             {extras.map((extra, i) => (
               <li key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#b8f60d]" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" />
                 <span className="text-sm leading-relaxed text-gray-400">
                   {extra}
                 </span>
