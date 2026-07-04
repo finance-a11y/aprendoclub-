@@ -4,6 +4,7 @@ const team = [
     role: "Consultora SEO | Fundadora aprendoclub",
     initials: "AL",
     foto: "/coaches/arianna.avif",
+    web: "https://ariannalupi.com",
   },
   {
     name: "Dana Aliaga",
@@ -21,6 +22,7 @@ const team = [
     role: "Senior Tech SEO Analyst",
     initials: "JA",
     foto: "/coaches/juan.avif",
+    web: "https://juan-tech.com",
   },
   {
     name: "Verónica Romero",
@@ -64,7 +66,18 @@ export function Team() {
                   {member.initials}
                 </div>
               )}
-              <h3 className="font-semibold text-white">{member.name}</h3>
+              {member.web ? (
+                <a
+                  href={member.web}
+                  target="_blank"
+                  rel="noopener"
+                  className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-[#b8f60d] hover:decoration-[#b8f60d]"
+                >
+                  {member.name}
+                </a>
+              ) : (
+                <h3 className="font-semibold text-white">{member.name}</h3>
+              )}
               <p className="mt-1 text-xs leading-relaxed text-gray-400">
                 {member.role}
               </p>
@@ -84,7 +97,14 @@ export function Team() {
               <h3 className="mb-1 text-xl font-bold text-white">
                 Yo seré tu mentora
               </h3>
-              <p className="mb-4 text-sm font-medium text-[#b8f60d]">Arianna Lupi</p>
+              <a
+                href="https://ariannalupi.com"
+                target="_blank"
+                rel="noopener"
+                className="mb-4 inline-block text-sm font-medium text-[#b8f60d] underline decoration-[#b8f60d]/30 underline-offset-4 hover:decoration-[#b8f60d]"
+              >
+                Arianna Lupi
+              </a>
               <div className="flex flex-col gap-3 text-sm leading-relaxed text-gray-400">
                 <p>
                   Soy Arianna Lupi, venezolana, egresada Magna Cum Laude en Negocios

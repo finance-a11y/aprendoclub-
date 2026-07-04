@@ -57,7 +57,14 @@ export function InstructorSection() {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            Arianna Lupi
+            <a
+              href="https://ariannalupi.com"
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-[#b8f60d] hover:decoration-[#b8f60d]"
+            >
+              Arianna Lupi
+            </a>
           </h2>
 
           <p className="text-lg text-[#012fd8] font-medium">

@@ -47,7 +47,14 @@ export function FundadoraSection() {
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            {fundadora.nombre}
+            <a
+              href="https://ariannalupi.com"
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+            >
+              {fundadora.nombre}
+            </a>
           </h2>
 
           <p className="text-lg text-[#012fd8] font-medium">{fundadora.rol}</p>

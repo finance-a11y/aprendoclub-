@@ -115,7 +115,7 @@ export const hero: RetoHero = {
   precioTexto: "Tu entrada hoy: solo $20",
   ctas: [
     { label: "Quiero mi cupo", href: "https://api.whatsapp.com/send?phone=13055728892" },
-    { label: "Pago en bolívares", href: "https://api.whatsapp.com/send?phone=13055728892" },
+    { label: "Pago en bolívares", href: "https://aprendoseo.apturio.com/metodos-de-pago-reto" },
   ],
   imagen: "/reto/arianna-hero.png",
 };
@@ -236,7 +236,7 @@ export const pricing: RetoPricing = {
     { label: "Quiero participar - Pago en $", href: "https://api.whatsapp.com/send?phone=13055728892" },
     {
       label: "Quiero participar - Pago en bolívares",
-      href: "https://api.whatsapp.com/send?phone=13055728892",
+      href: "https://aprendoseo.apturio.com/metodos-de-pago-reto",
     },
   ],
   nota: "Acceso inmediato · Cupos limitados",

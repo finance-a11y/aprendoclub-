@@ -47,6 +47,8 @@ export interface TeamMember {
   bio: string;
   foto?: string;
   iniciales: string;
+  /** Web personal opcional. Se enlaza dofollow desde el nombre. */
+  web?: string;
 }
 
 /** Pilar del método EPAM. Payload-ready: sub-bloque `Pilar`. */
@@ -120,6 +122,7 @@ export const equipo: TeamMember[] = [
     bio: "Más de 8 años posicionando webs en Europa, LATAM y Estados Unidos. Magíster en Data Analytics. Lidera al equipo.",
     foto: "/coaches/arianna.avif",
     iniciales: "AL",
+    web: "https://ariannalupi.com",
   },
   {
     nombre: "Diana Rodríguez",
@@ -141,6 +144,7 @@ export const equipo: TeamMember[] = [
     bio: "Analista senior de SEO técnico. Ha gestionado más de 18 clientes internacionales como MCC, Alchemy, Storybook App y Holafly. Se enfoca en la infraestructura técnica que hace rendir el SEO.",
     foto: "/coaches/juan.avif",
     iniciales: "JA",
+    web: "https://juan-tech.com",
   },
   {
     nombre: "Verónica Romero",

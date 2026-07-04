@@ -61,7 +61,18 @@ export function EquipoSection() {
             <div className="flex items-center gap-4 mb-4">
               <TeamAvatar member={member} />
               <div>
-                <p className="font-bold text-white">{member.nombre}</p>
+                {member.web ? (
+                  <a
+                    href={member.web}
+                    target="_blank"
+                    rel="noopener"
+                    className="font-bold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+                  >
+                    {member.nombre}
+                  </a>
+                ) : (
+                  <p className="font-bold text-white">{member.nombre}</p>
+                )}
                 <p className="text-sm text-[#012fd8]">{member.rol}</p>
               </div>
             </div>
