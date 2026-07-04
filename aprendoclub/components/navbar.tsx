@@ -7,18 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { siteNav, siteCta, footerMeta, type NavItem } from "@/content/site";
 
-// Secciones del home observadas por scroll (solo activo cuando pathname === "/").
-const homeSections = ["#problema", "#beneficios", "#precios", "#faq"];
-
-function isItemActive(
-  item: NavItem,
-  pathname: string,
-  activeSection: string
-): boolean {
-  // Anchors del home se resaltan por scroll (solo cuando estás en "/").
-  if (item.type === "anchor") {
-    return pathname === "/" && activeSection === item.href;
-  }
+function isItemActive(item: NavItem, pathname: string): boolean {
   if (item.href === "/") return pathname === "/";
   if (item.href === "/programas") return pathname.startsWith("/programas");
   return pathname === item.href;
@@ -29,7 +18,6 @@ export function Navbar() {
   const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
 
   // Scroll listener for glass effect
   useEffect(() => {
@@ -40,30 +28,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Intersection Observer for active section — SOLO en el home.
-  useEffect(() => {
-    if (pathname !== "/") return;
-
-    const sections = homeSections.map((sel) => document.querySelector(sel));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      },
-      { rootMargin: "-50% 0px -50% 0px" }
-    );
-
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, [pathname]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -102,7 +66,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {siteNav.map((item) => {
-              const active = isItemActive(item, pathname, activeSection);
+              const active = isItemActive(item, pathname);
               const className = `relative text-sm font-medium transition-colors ${
                 active ? "text-white" : "text-gray-400 hover:text-white"
               }`;
@@ -191,7 +155,7 @@ export function Navbar() {
                 {/* Mobile Nav Links */}
                 <div className="flex flex-col gap-2">
                   {siteNav.map((item, index) => {
-                    const active = isItemActive(item, pathname, activeSection);
+                    const active = isItemActive(item, pathname);
                     const className = `flex items-center px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       active
                         ? "bg-white/10 text-white"
