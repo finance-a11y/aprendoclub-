@@ -42,7 +42,7 @@ export function FundadoraSection() {
           transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
-          <span className="text-sm font-bold uppercase tracking-wider text-[#b8f60d]">
+          <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
             {fundadora.eyebrow}
           </span>
 

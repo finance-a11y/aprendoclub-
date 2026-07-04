@@ -28,7 +28,7 @@ export function CtaFinalSection() {
         {/* CTA primario → /programas (destino en ctaFinal.botonHref) */}
         <Link
           href={ctaFinal.botonHref}
-          className="bg-[#b8f60d] text-black px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_20px_rgba(184,246,13,0.3)] transition-all"
+          className="bg-[var(--accent)] text-black px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_20px_rgba(184,246,13,0.3)] transition-all"
         >
           {ctaFinal.botonLabel}
         </Link>

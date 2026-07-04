@@ -41,7 +41,7 @@ export function EquipoSection() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
-        <span className="text-sm font-bold uppercase tracking-wider text-[#b8f60d]">
+        <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
           NUESTRO EQUIPO
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">

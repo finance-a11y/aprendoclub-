@@ -14,7 +14,7 @@ export function QuienesSomosHero() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-3xl flex-col items-center gap-6 text-center"
       >
-        <span className="text-sm font-bold uppercase tracking-wider text-[#b8f60d]">
+        <span className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
           {hero.eyebrow}
         </span>
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
