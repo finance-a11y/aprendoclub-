@@ -1,13 +1,33 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
+import { X } from "lucide-react";
 import { reto, retoImagenes } from "@/content/testimonios";
 
 export function RetoGaleria() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const reduceMotion = useReducedMotion();
+  const [activo, setActivo] = useState<number | null>(null);
+
+  const cerrar = useCallback(() => setActivo(null), []);
+
+  // Cierre con Escape + bloqueo de scroll cuando el lightbox está abierto.
+  useEffect(() => {
+    if (activo === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") cerrar();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [activo, cerrar]);
+
+  const imagenActiva = activo !== null ? retoImagenes[activo] : null;
 
   return (
     <section
@@ -29,9 +49,11 @@ export function RetoGaleria() {
         <p className="text-lg text-gray-400">{reto.texto}</p>
       </motion.div>
 
-      <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl">
+      <div className="w-full max-w-5xl columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
         {retoImagenes.map((imagen, index) => (
-          <motion.div
+          <motion.button
+            type="button"
+            onClick={() => setActivo(index)}
             key={imagen.src}
             initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -39,17 +61,55 @@ export function RetoGaleria() {
               duration: reduceMotion ? 0 : 0.6,
               delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.4),
             }}
-            className="overflow-hidden rounded-lg border border-white/10 bg-[#0d1117]"
+            className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[#0d1117] transition-all duration-300 hover:border-[var(--accent)]/40 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            aria-label={`Ampliar: ${imagen.alt}`}
           >
             <img
               src={imagen.src}
               alt={imagen.alt}
               loading="lazy"
-              className="aspect-[4/3] w-full object-cover"
+              className="w-full h-auto object-contain"
             />
-          </motion.div>
+          </motion.button>
         ))}
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {imagenActiva && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
+            onClick={cerrar}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Testimonio ampliado"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8"
+          >
+            <button
+              type="button"
+              onClick={cerrar}
+              aria-label="Cerrar"
+              className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <motion.img
+              key={imagenActiva.src}
+              src={imagenActiva.src}
+              alt={imagenActiva.alt}
+              onClick={(e) => e.stopPropagation()}
+              initial={reduceMotion ? false : { scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={reduceMotion ? undefined : { scale: 0.95, opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.2 }}
+              className="max-h-[90vh] max-w-3xl w-auto rounded-lg border border-white/10 object-contain shadow-2xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

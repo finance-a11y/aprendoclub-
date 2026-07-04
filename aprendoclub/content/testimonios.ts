@@ -116,12 +116,14 @@ export const testimonios: Testimonio[] = [
   },
   {
     nombre: "Wilson Moros",
+    foto: "/testimonios/wilson-moros.avif",
     ubicacion: "Venezuela",
     quote:
       "En tres meses, las impresiones subieron de 8,000 a 11,000. Hemos ganado visibilidad, lo que ya es un gran paso.",
   },
   {
     nombre: "Fransheska Sánchez",
+    foto: "/testimonios/fransheska-sanchez.avif",
     ubicacion: "Perú",
     quote:
       "Este logro no habría sido posible sin el Diplomado de Cero a SEO de Ari, que me dio las herramientas.",
@@ -133,107 +135,125 @@ export const testimonios: Testimonio[] = [
   },
   {
     nombre: "María Tejera",
+    foto: "/testimonios/maria-tejera.avif",
     ubicacion: "Venezuela",
     quote:
       "La clave de su éxito fue no rendirse. Cada vez que tenía dudas, volvía a las clases.",
   },
   {
     nombre: "Rebeca Rodil",
+    foto: "/testimonios/rebeca-rodil.avif",
     ubicacion: "",
     quote:
       "Lo que más me gusta de esto es que siempre hay algo nuevo por aprender o mejorar.",
   },
   {
     nombre: "Luisana Rojas",
+    foto: "/testimonios/luisana-rojas.avif",
     ubicacion: "",
     quote:
       "Te permite rodearte de un círculo de personas con las mismas metas y que te apoyarán durante todo el camino.",
   },
   {
     nombre: "Daniela Viloria",
+    foto: "/testimonios/daniela-viloria.avif",
     ubicacion: "",
     quote:
       "Mi vida dio un cambio en todos los aspectos, tanto física como mentalmente.",
   },
   {
     nombre: "Mirle García",
+    foto: "/testimonios/mirle-garcia.avif",
     ubicacion: "",
     quote:
       "He visto aumento de tráfico en las páginas de los distintos clientes que manejo.",
   },
   {
     nombre: "María Dorado",
+    foto: "/testimonios/maria-dorado.avif",
     ubicacion: "",
     quote: "He logrado ver el progreso de mi sitio web.",
   },
   {
     nombre: "Alondra Contreras",
+    foto: "/testimonios/alondra-contreras.avif",
     ubicacion: "",
     quote:
       "Le he dado un plus a mis habilidades profesionales para aplicarlas en un nuevo ámbito.",
   },
   {
     nombre: "Thomas Rada",
+    foto: "/testimonios/thomas-rada.avif",
     ubicacion: "",
     quote:
       "Logré encontrar un trabajo virtual a tiempo completo que me paga 3X lo que ganaba antes.",
   },
   {
     nombre: "Nehomar Sánchez",
+    foto: "/testimonios/nehomar-sanchez.avif",
     ubicacion: "",
     quote:
       "La atención dedicada y personalizada de sus mentores distingue a esta academia.",
   },
   {
     nombre: "Blanca Mejías",
+    foto: "/testimonios/blanca-mejias.avif",
     ubicacion: "",
     quote:
       "He aprendido a pensar y ver las situaciones como un especialista SEO.",
   },
   {
     nombre: "Yolimar Medina",
+    foto: "/testimonios/yolimar-medina.avif",
     ubicacion: "USA",
     quote:
       "Se han traducido en conocimiento, herramientas y una nueva pasión: el Content SEO.",
   },
   {
     nombre: "Maria Belén Vallejo",
+    foto: "/testimonios/maria-belen-vallejo.avif",
     ubicacion: "Ecuador",
     quote:
       "Si estás considerando tomar este curso, yo lo recomiendo 100%.",
   },
   {
     nombre: "Karina Uban",
+    foto: "/testimonios/karina-uban.avif",
     ubicacion: "Perú",
     quote:
       "Siento que es un nuevo mundo de oportunidades y de herramientas que puedo implementar.",
   },
   {
     nombre: "Claudia Almado",
+    foto: "/testimonios/claudia-almado.avif",
     ubicacion: "Venezuela",
     quote:
       "No solo aprendí cosas técnicas acerca del SEO, sino que también hubo un aprendizaje inspiracional.",
   },
   {
     nombre: "Josef Bolaños",
+    foto: "/testimonios/josef-bolanos.avif",
     ubicacion: "Chile",
     quote:
       "aprendoclub para mí se volvió muy especial, ya que quiero y deseo crecer en el mundo SEO.",
   },
   {
     nombre: "Diyeli Camacho",
+    foto: "/testimonios/diyeli-camacho.avif",
     ubicacion: "Venezuela",
     quote:
       "A pesar de que no sabía absolutamente nada, puse empeño en aprender.",
   },
   {
     nombre: "Erika Galaviz",
+    foto: "/testimonios/erika-galaviz.avif",
     ubicacion: "España",
     quote:
       "aprendoclub ha superado mis expectativas por toda la calidad de contenido.",
   },
   {
     nombre: "Randy Barrera",
+    foto: "/testimonios/randy-barrera.avif",
     ubicacion: "Venezuela",
     quote:
       "Hay un mar de posibilidades, ya que hay mucha gente que desconoce lo que implica crear su página web.",
