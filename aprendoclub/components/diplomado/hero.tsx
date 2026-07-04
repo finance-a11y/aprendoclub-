@@ -3,15 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32">
-      {/* Gradient background glow */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[600px] w-[600px] rounded-full bg-[var(--primary)]/10 blur-[120px]" />
-      </div>
-      <div className="pointer-events-none absolute right-0 top-0">
-        <div className="h-[400px] w-[400px] rounded-full bg-[var(--accent)]/5 blur-[100px]" />
-      </div>
-
+    <section className="relative overflow-hidden section-spacing">
       <div className="relative mx-auto max-w-6xl container-padding text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-gray-400">
           <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" />

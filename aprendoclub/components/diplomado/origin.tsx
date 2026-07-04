@@ -1,14 +1,15 @@
 import { Users, Briefcase, Lightbulb } from "lucide-react"
+import { Eyebrow } from "@/components/ui/eyebrow"
 
 export function Origin() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--surface-card)] px-4 py-1.5 text-sm text-[var(--accent)]">
-          Nuestra historia
+        <div className="mb-4">
+          <Eyebrow>Nuestra historia</Eyebrow>
         </div>
 
-        <h2 className="max-w-3xl text-balance text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Una necesidad real. Una solución creada desde la experiencia.
         </h2>
 
