@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown, Calendar, Rocket, Star } from "lucide-react";
 import { trackSchedule } from "./meta-pixel";
@@ -118,10 +119,13 @@ export function HeroSection() {
           {/* Avatars */}
           <div className="flex items-center">
             {[1, 2, 3, 4, 5].map((num, i) => (
-              <img
+              <Image
                 key={num}
                 src={`/avatar-${num}.webp`}
                 alt=""
+                width={40}
+                height={40}
+                priority
                 className={`w-10 h-10 rounded-full object-cover border-2 border-[var(--bg-primary)] ${
                   i !== 0 ? "-ml-3" : ""
                 }`}
