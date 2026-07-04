@@ -5,24 +5,24 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "\u00bfDebo tener experiencia previa?",
+    question: "¿Debo tener experiencia previa?",
     answer:
-      "No te preocupes, \u00a1no necesitas experiencia previa! El curso est\u00e1 dise\u00f1ado para personas que reci\u00e9n est\u00e1n comenzando, as\u00ed que puedes empezar desde cero.",
+      "No te preocupes, ¡no necesitas experiencia previa! El curso está diseñado para personas que recién están comenzando, así que puedes empezar desde cero.",
   },
   {
-    question: "\u00bfCu\u00e1nto tiempo debo invertir para convertirme en un experto en SEO?",
+    question: "¿Cuánto tiempo debo invertir para convertirme en un experto en SEO?",
     answer:
-      "El diplomado se puede completar entre 3 y 6 meses. Con dedicaci\u00f3n constante, podr\u00e1s empezar a ver resultados desde las primeras semanas.",
+      "El diplomado se puede completar entre 3 y 6 meses. Con dedicación constante, podrás empezar a ver resultados desde las primeras semanas.",
   },
   {
-    question: "\u00bfCu\u00e1les son los tipos de SEO que existen?",
+    question: "¿Cuáles son los tipos de SEO que existen?",
     answer:
-      "Existen tres tipos principales: SEO On-Page (optimizaci\u00f3n del contenido), SEO Off-Page (construcci\u00f3n de autoridad) y SEO T\u00e9cnico (optimizaci\u00f3n de la infraestructura web). En el diplomado cubrir\u00e1s los tres.",
+      "Existen tres tipos principales: SEO On-Page (optimización del contenido), SEO Off-Page (construcción de autoridad) y SEO Técnico (optimización de la infraestructura web). En el diplomado cubrirás los tres.",
   },
   {
-    question: "\u00bfQu\u00e9 debo estudiar para ser SEO?",
+    question: "¿Qué debo estudiar para ser SEO?",
     answer:
-      "No necesitas estudios previos espec\u00edficos. Nuestro diplomado te lleva desde lo m\u00e1s b\u00e1sico hasta estrategias avanzadas, con todo lo necesario para convertirte en especialista SEO.",
+      "No necesitas estudios previos específicos. Nuestro diplomado te lleva desde lo más básico hasta estrategias avanzadas, con todo lo necesario para convertirte en especialista SEO.",
   },
 ]
 
@@ -31,33 +31,34 @@ export function FAQ() {
 
   return (
     <section className="py-20 md:py-28">
-      <div className="mx-auto max-w-3xl px-4">
-        <h2 className="text-center font-mono text-3xl font-bold text-foreground md:text-4xl">
-          Preguntas que suelen hacernos antes de dar el s&iacute;
+      <div className="mx-auto max-w-3xl container-padding">
+        <h2 className="text-center text-3xl font-bold text-white md:text-4xl">
+          Preguntas que suelen hacernos antes de dar el sí
         </h2>
 
         <div className="mt-10 flex flex-col gap-2">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="rounded-xl border border-border bg-secondary"
+              className="rounded-xl border border-white/10 bg-[#0d1117]"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                aria-expanded={openIndex === i}
                 className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
               >
-                <span className="font-medium text-foreground">
+                <span className="font-medium text-white">
                   {faq.question}
                 </span>
                 <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${
+                  className={`h-4 w-4 shrink-0 text-gray-400 transition-transform ${
                     openIndex === i ? "rotate-180" : ""
                   }`}
                 />
               </button>
               {openIndex === i && (
-                <div className="border-t border-border px-6 py-5">
-                  <p className="leading-relaxed text-muted-foreground">
+                <div className="border-t border-white/10 px-6 py-5">
+                  <p className="leading-relaxed text-gray-400">
                     {faq.answer}
                   </p>
                 </div>
