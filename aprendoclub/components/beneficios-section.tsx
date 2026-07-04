@@ -64,7 +64,7 @@ export function BeneficiosSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card hover="liftAccent" className="group flex flex-col items-center gap-5 text-center">
+            <Card hover="lift" className="group flex flex-col items-center gap-5 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--accent)]/10 transition-colors group-hover:bg-[var(--accent)]/20">
                 <benefit.icon className="h-6 w-6 text-[var(--accent)]" />
               </div>

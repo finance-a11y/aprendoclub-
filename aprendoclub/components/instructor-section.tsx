@@ -60,7 +60,7 @@ export function InstructorSection() {
               href="https://ariannalupi.com"
               target="_blank"
               rel="noopener"
-              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white/40"
             >
               Arianna Lupi
             </a>

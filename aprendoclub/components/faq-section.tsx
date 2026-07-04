@@ -52,8 +52,8 @@ export function FaqSection() {
               <span
                 className={`text-lg font-semibold pr-4 transition-colors duration-300 ${
                   openIndex === index
-                    ? "text-[var(--accent)]"
-                    : "text-white group-hover:text-[var(--accent)]"
+                    ? "text-white"
+                    : "text-white group-hover:text-white/80"
                 }`}
               >
                 {faq.question}
@@ -64,9 +64,7 @@ export function FaqSection() {
                 className="shrink-0"
               >
                 <ChevronDown
-                  className={`h-5 w-5 transition-colors duration-300 ${
-                    openIndex === index ? "text-[var(--accent)]" : "text-gray-500"
-                  }`}
+                  className="h-5 w-5 text-gray-500 transition-colors duration-300"
                 />
               </motion.div>
             </button>

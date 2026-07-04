@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const testimonials = [
   {
@@ -68,35 +69,37 @@ export function TestimoniosSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 + index * 0.15 }}
-            className="group rounded-xl bg-[var(--surface-card)] border border-[var(--border-card)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+            className="group"
           >
-            {/* Header: Avatar + Name */}
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src={testimonial.photo}
-                alt={testimonial.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-semibold text-white">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
-              </div>
-            </div>
-
-            {/* Stars */}
-            <div className="flex gap-1 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-4 h-4 fill-yellow-400 text-yellow-400"
+            <Card padding="compact" hover="lift">
+              {/* Header: Avatar + Name */}
+              <div className="flex items-center gap-4 mb-4">
+                <img
+                  src={testimonial.photo}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover"
                 />
-              ))}
-            </div>
+                <div>
+                  <p className="font-semibold text-white">{testimonial.name}</p>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
 
-            {/* Quote */}
-            <p className="text-gray-300 text-sm leading-relaxed">
-              &ldquo;{testimonial.quote}&rdquo;
-            </p>
+              {/* Stars */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+
+              {/* Quote */}
+              <p className="text-gray-300 text-sm leading-relaxed">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+            </Card>
           </motion.div>
         ))}
       </div>

@@ -11,7 +11,7 @@ export function CtaSection() {
   return (
     <section
       ref={ref}
-      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-[var(--bg-primary)] container-padding py-32"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-[var(--bg-primary)] container-padding section-spacing"
     >
       {/* Animated Background Blobs */}
       <div
@@ -19,7 +19,7 @@ export function CtaSection() {
         style={{ animation: "float-slow 20s ease-in-out infinite" }}
       />
       <div
-        className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-[var(--accent)]/20 blur-3xl"
+        className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-[var(--primary)]/10 blur-3xl"
         style={{ animation: "float-slow 20s ease-in-out infinite reverse" }}
       />
       <div
