@@ -2,13 +2,14 @@
 
 import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
 import { homeFaqs as faqs } from "@/content/faqs";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function FaqSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
@@ -23,9 +24,9 @@ export function FaqSection() {
     >
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>FAQ</Eyebrow>
@@ -39,9 +40,9 @@ export function FaqSection() {
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
             className={index !== faqs.length - 1 ? "border-b border-white/[0.06]" : ""}
           >
             <button
@@ -60,7 +61,7 @@ export function FaqSection() {
               </span>
               <motion.div
                 animate={{ rotate: openIndex === index ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="shrink-0"
               >
                 <ChevronDown
@@ -72,10 +73,10 @@ export function FaqSection() {
             <AnimatePresence initial={false}>
               {openIndex === index && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
+                  initial={reduceMotion ? false : { height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
                   <p className="pb-5 text-base leading-relaxed text-gray-400">

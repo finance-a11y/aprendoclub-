@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { BookOpen, MessageCircle, Video, Briefcase } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Card } from "@/components/ui/card";
@@ -32,6 +32,7 @@ const benefits = [
 export function BeneficiosSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -41,9 +42,9 @@ export function BeneficiosSection() {
     >
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>LA SOLUCIÓN</Eyebrow>
@@ -60,9 +61,9 @@ export function BeneficiosSection() {
         {benefits.map((benefit, index) => (
           <motion.div
             key={benefit.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
           >
             <Card hover="lift" className="group flex flex-col items-center gap-5 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--accent)]/10 transition-colors group-hover:bg-[var(--accent)]/20">

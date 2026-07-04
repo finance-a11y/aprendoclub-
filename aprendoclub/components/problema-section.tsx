@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
   Compass,
   Timer,
@@ -48,6 +48,7 @@ const problems = [
 export function ProblemaSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -57,9 +58,9 @@ export function ProblemaSection() {
     >
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>EL PROBLEMA</Eyebrow>
@@ -77,9 +78,9 @@ export function ProblemaSection() {
         {problems.map((problem, index) => (
           <motion.div
             key={problem.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
           >
             <ProblemCard {...problem} />
           </motion.div>

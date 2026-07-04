@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { ChevronDown, Calendar, Rocket, Star } from "lucide-react";
 import { trackSchedule } from "./meta-pixel";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 export function HeroSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -44,9 +45,9 @@ export function HeroSection() {
       <div className="relative z-10 flex flex-col items-center text-center gap-6 lg:gap-8 container-padding section-spacing max-w-5xl">
         {/* Social Proof Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           className="flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 px-4 py-1.5 backdrop-blur-sm"
         >
           <span className="flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]">
@@ -57,9 +58,9 @@ export function HeroSection() {
 
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
           className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white"
         >
          La única academia que te prepara {" "}
@@ -70,9 +71,9 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="text-lg md:text-xl text-gray-400 max-w-2xl"
         >
           Especialízate en SEO con la plataforma educativa que te lleva de cero
@@ -81,9 +82,9 @@ export function HeroSection() {
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full sm:w-auto"
         >
           <Button
@@ -111,9 +112,9 @@ export function HeroSection() {
 
         {/* Social Proof Bar */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={reduceMotion ? false : { opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 1, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-8"
         >
           {/* Avatars */}
@@ -142,14 +143,18 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={reduceMotion ? false : { opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 1.2, ease: "easeOut" }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={reduceMotion ? { y: 0 } : { y: [0, 8, 0] }}
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+          }
           className="flex flex-col items-center gap-2"
         >
           <span className="text-xs text-gray-400 uppercase tracking-wider">

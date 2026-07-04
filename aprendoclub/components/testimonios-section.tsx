@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
@@ -42,6 +42,7 @@ const trustedCompanies = [
 export function TestimoniosSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -51,9 +52,9 @@ export function TestimoniosSection() {
     >
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow className="tracking-wider">TESTIMONIOS</Eyebrow>
@@ -67,9 +68,9 @@ export function TestimoniosSection() {
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={testimonial.name}
-            initial={{ opacity: 0, y: 30 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 + index * 0.15 }}
+            transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.1 + index * 0.15 }}
             className="group"
           >
             <Card padding="compact" hover="lift">
@@ -109,9 +110,9 @@ export function TestimoniosSection() {
 
       {/* Ver todos los testimonios → /testimonios (TEST-02) */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.5 }}
       >
         <Button href="/testimonios" variant="ghost">
           Ver todos los testimonios
@@ -120,9 +121,9 @@ export function TestimoniosSection() {
 
       {/* Trusted By */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={reduceMotion ? false : { opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.6 }}
         className="flex flex-col items-center gap-6 pt-8"
       >
         <p className="text-sm text-gray-400 uppercase tracking-wider">

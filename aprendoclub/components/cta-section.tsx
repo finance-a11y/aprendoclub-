@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export function CtaSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -30,18 +31,18 @@ export function CtaSection() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center gap-8 max-w-3xl">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.6 }}
           className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white"
         >
           Deja de aprender solo. Únete a la comunidad.
         </motion.h2>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
         >
           <Button href="#precios" variant="primary" size="lg">
             Comenzar ahora

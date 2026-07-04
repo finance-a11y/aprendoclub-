@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export function StickyCTAMobile() {
   const [isVisible, setIsVisible] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const heroSection = document.querySelector("section");
@@ -27,10 +28,10 @@ export function StickyCTAMobile() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={reduceMotion ? false : { y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          exit={reduceMotion ? { opacity: 0 } : { y: 100, opacity: 0 }}
+          transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
         >
           <div className="bg-[var(--bg-primary)]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 safe-area-bottom">

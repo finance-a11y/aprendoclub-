@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, GraduationCap, CalendarCheck, BookOpen, Rocket } from "lucide-react";
 import { trackLinkClick } from "@/components/google-analytics";
 
@@ -63,6 +63,8 @@ const socials = [
 ];
 
 export default function LinksPage() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[var(--bg-primary)] py-20 px-6">
       {/* Dots Pattern Overlay */}
@@ -83,9 +85,9 @@ export default function LinksPage() {
         {/* Logo */}
         <motion.a
           href="/"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="mb-6"
         >
           <Image
@@ -100,9 +102,9 @@ export default function LinksPage() {
 
         {/* Avatar */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1, ease: "easeOut" }}
           className="mb-4 rounded-full p-[2px] bg-gradient-to-r from-[var(--primary)] via-[var(--primary-light)] to-[var(--accent)]"
         >
           <Image
@@ -117,18 +119,18 @@ export default function LinksPage() {
 
         {/* Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           className="text-2xl font-semibold text-white text-center"
         >
           Bienvenido a aprendoclub.
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.25, ease: "easeOut" }}
           className="mt-2 text-sm text-gray-400 text-center max-w-xs"
         >
           Somos una academia de marketing e IA que te ayuda a conseguir trabajo.
@@ -136,9 +138,9 @@ export default function LinksPage() {
 
         {/* Social proof badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
           className="mt-4 mb-8 flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 px-4 py-1.5"
         >
           <span className="flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]">
@@ -158,15 +160,15 @@ export default function LinksPage() {
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => trackLinkClick(link.id, link.label, link.href)}
-                initial={{ opacity: 0, y: 20 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.5,
-                  delay: 0.35 + i * 0.1,
+                  duration: reduceMotion ? 0 : 0.5,
+                  delay: reduceMotion ? 0 : 0.35 + i * 0.1,
                   ease: "easeOut",
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 className="group flex items-center gap-4 rounded-2xl border border-[var(--border-glass)] bg-[var(--bg-secondary)]/60 px-5 py-4 backdrop-blur-sm transition-colors hover:border-[var(--accent)]/50 hover:bg-[var(--bg-tertiary)]/60"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/15 text-[var(--primary-light)] transition-colors group-hover:bg-[var(--accent)]/15 group-hover:text-[var(--accent)]">
@@ -183,9 +185,9 @@ export default function LinksPage() {
 
         {/* Socials */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.7, ease: "easeOut" }}
           className="mt-10 flex items-center gap-4"
         >
           {socials.map((social) => (
@@ -205,9 +207,9 @@ export default function LinksPage() {
 
         {/* Footer */}
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.8 }}
           className="mt-8 text-xs text-gray-400"
         >
           © {new Date().getFullYear()} aprendoclub
