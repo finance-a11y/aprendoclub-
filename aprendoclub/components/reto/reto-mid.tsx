@@ -100,7 +100,7 @@ export function RetoMid() {
       {/* Incluye */}
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-center text-2xl font-semibold text-white sm:text-3xl">
+          <h2 className="mb-10 text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             Todo esto incluye tu cupo
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
