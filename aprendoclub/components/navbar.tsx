@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -18,6 +18,8 @@ export function Navbar() {
   const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Scroll listener for glass effect
   useEffect(() => {
@@ -38,6 +40,34 @@ export function Navbar() {
     }
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  // Cerrar el menú al pasar a desktop (>=768px) para que el scroll-lock
+  // no quede pegado tras un resize/rotación con el panel abierto.
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (e.matches) setIsMobileMenuOpen(false);
+    };
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
+
+  // Accesibilidad del panel modal mobile: cerrar con Escape, mover el foco
+  // al panel al abrir y devolverlo al botón hamburguesa al cerrar.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    panelRef.current?.focus();
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      toggleRef.current?.focus();
     };
   }, [isMobileMenuOpen]);
 
@@ -112,9 +142,12 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
+            ref={toggleRef}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu-panel"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -141,6 +174,12 @@ export function Navbar() {
 
             {/* Slide-in Panel */}
             <motion.div
+              ref={panelRef}
+              id="mobile-menu-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menú de navegación"
+              tabIndex={-1}
               initial={reduceMotion ? false : { x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -149,7 +188,7 @@ export function Navbar() {
                   ? { duration: 0 }
                   : { type: "spring", damping: 25, stiffness: 200 }
               }
-              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-[var(--bg-primary)] border-l border-white/10 md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-[var(--bg-primary)] border-l border-white/10 md:hidden focus:outline-none"
             >
               <div className="flex flex-col h-full p-6 pt-20">
                 {/* Mobile Nav Links */}
