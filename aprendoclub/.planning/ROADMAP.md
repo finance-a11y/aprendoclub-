@@ -71,7 +71,9 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. La sección de testimonios del home es visible y enlaza a la página completa `/testimonios`.
   3. La página usa el shell compartido y su contenido vive en objetos/consts (data-driven).
 
-**Plans**: TBD
+**Plans**: 1 plan
+
+  - [ ] 03-01-PLAN.md — content/testimonios.ts (verbatim) + página /testimonios (hero, grid, banda de logos, galería del Reto, CTA) + botón "Ver todos" en el home
 **UI hint**: yes
 
 ### Phase 4: Programas
@@ -113,6 +115,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Fundaciones y navegación | 0/3 | Not started | - |
 | 2. Quiénes somos | 2/2 | Complete   | 2026-07-04 |
-| 3. Testimonios | 0/TBD | Not started | - |
+| 3. Testimonios | 0/1 | Not started | - |
 | 4. Programas | 0/TBD | Not started | - |
 | 5. Enlazado interno | 0/TBD | Not started | - |
