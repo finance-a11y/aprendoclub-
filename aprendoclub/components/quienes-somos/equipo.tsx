@@ -44,7 +44,7 @@ export function EquipoSection() {
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>NUESTRO EQUIPO</Eyebrow>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+        <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           Las personas detrás de aprendoclub
         </h2>
       </motion.div>
@@ -67,7 +67,7 @@ export function EquipoSection() {
                       href={member.web}
                       target="_blank"
                       rel="noopener"
-                      className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+                      className="font-semibold text-white underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white/40"
                     >
                       {member.nombre}
                     </a>

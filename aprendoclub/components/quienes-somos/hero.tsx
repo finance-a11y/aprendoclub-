@@ -16,7 +16,7 @@ export function QuienesSomosHero() {
         className="flex max-w-3xl flex-col items-center gap-6 text-center"
       >
         <Eyebrow>{hero.eyebrow}</Eyebrow>
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white">
           {hero.titulo}
         </h1>
         <p className="text-lg text-gray-400 leading-relaxed max-w-2xl">

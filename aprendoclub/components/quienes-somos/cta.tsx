@@ -22,7 +22,7 @@ export function CtaFinalSection() {
         transition={{ duration: reduceMotion ? 0 : 0.6 }}
         className="flex max-w-2xl flex-col items-center gap-6 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-semibold text-white">
+        <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
           {ctaFinal.titulo}
         </h2>
         <p className="text-lg text-gray-400">{ctaFinal.texto}</p>
@@ -32,7 +32,7 @@ export function CtaFinalSection() {
         </Button>
         <Link
           href="/testimonios"
-          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-[var(--accent)]"
+          className="text-gray-300 underline underline-offset-4 decoration-white/30 transition-colors hover:text-white"
         >
           Mira las historias de nuestros estudiantes
         </Link>

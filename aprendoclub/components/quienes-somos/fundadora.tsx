@@ -45,12 +45,12 @@ export function FundadoraSection() {
         >
           <Eyebrow>{fundadora.eyebrow}</Eyebrow>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
             <a
               href="https://ariannalupi.com"
               target="_blank"
               rel="noopener"
-              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+              className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white/40"
             >
               {fundadora.nombre}
             </a>
