@@ -17,8 +17,8 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 
 ### Quiénes somos (ABOUT)
 
-- [ ] **ABOUT-01**: Existe la página `/quienes-somos` con la historia, misión y propuesta de aprendoclub (contenido migrado de aprendoseo.com) y la bio de la fundadora Arianna Lupi.
-- [ ] **ABOUT-02**: El home muestra una sección/teaser de "quiénes somos" que enlaza a la página completa.
+- [x] **ABOUT-01**: Existe la página `/quienes-somos` con la historia, misión y propuesta de aprendoclub (contenido migrado de aprendoseo.com) y la bio de la fundadora Arianna Lupi.
+- [x] **ABOUT-02**: El home muestra una sección/teaser de "quiénes somos" que enlaza a la página completa.
 
 ### Testimonios (TEST)
 
@@ -76,8 +76,8 @@ Mapeo completo a fases del roadmap v1.0.
 | NAV-03 | Phase 1 | Pending |
 | NAV-04 | Phase 1 | Pending |
 | NAV-05 | Phase 1 | Pending |
-| ABOUT-01 | Phase 2 | Pending |
-| ABOUT-02 | Phase 2 | Pending |
+| ABOUT-01 | Phase 2 | Complete |
+| ABOUT-02 | Phase 2 | Complete |
 | TEST-01 | Phase 3 | Pending |
 | TEST-02 | Phase 3 | Pending |
 | PROG-01 | Phase 4 | Pending |
@@ -90,6 +90,7 @@ Mapeo completo a fases del roadmap v1.0.
 | LINK-01 | Phase 5 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 17 total
 - Mapped to phases: 17 ✓
 - Unmapped: 0 ✓
