@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown, Calendar, Rocket, Star } from "lucide-react";
 import { trackSchedule } from "./meta-pixel";
+import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   const ref = useRef(null);
@@ -39,7 +40,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/80 via-black/60 to-[var(--bg-primary)]" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center gap-6 lg:gap-8 container-padding py-24 md:py-32 max-w-5xl">
+      <div className="relative z-10 flex flex-col items-center text-center gap-6 lg:gap-8 container-padding section-spacing max-w-5xl">
         {/* Social Proof Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -58,7 +59,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight text-white"
+          className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white"
         >
          La única academia que te prepara {" "}
           <span className="bg-gradient-to-r from-white via-[var(--accent)] to-[var(--primary)] bg-clip-text text-transparent">
@@ -84,24 +85,27 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full sm:w-auto"
         >
-          <a
+          <Button
             href="#precios"
-            aria-label="Ver planes y precios"
-            className="w-full sm:w-auto flex items-center justify-center rounded-xl bg-[var(--primary)] px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-[var(--primary-medium)] hover:shadow-[0_0_40px_rgba(1,47,216,0.5)]"
+            variant="primary"
+            size="lg"
+            className="w-full sm:w-auto"
           >
             Únete a aprendoclub
-          </a>
-          <a
+          </Button>
+          <Button
             href="https://calendar.app.google/pRxa4Jd24YZMhVNE7"
+            variant="secondary"
+            size="lg"
+            icon={false}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Agenda una llamada con un asesor"
             onClick={() => trackSchedule("Hero - Agenda llamada")}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+            className="w-full sm:w-auto"
           >
             <Calendar className="h-5 w-5" aria-hidden="true" />
             Agenda una llamada
-          </a>
+          </Button>
         </motion.div>
 
         {/* Social Proof Bar */}

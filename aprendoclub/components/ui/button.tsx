@@ -40,6 +40,7 @@ export function Button({
   className,
   target,
   rel,
+  onClick,
 }: {
   href: string;
   variant?: ButtonVariant;
@@ -49,6 +50,7 @@ export function Button({
   className?: string;
   target?: string;
   rel?: string;
+  onClick?: () => void;
 }) {
   const classes = [
     baseClasses,
@@ -71,14 +73,14 @@ export function Button({
 
   if (EXTERNAL_HREF_PATTERN.test(href)) {
     return (
-      <a href={href} className={classes} target={target} rel={rel}>
+      <a href={href} className={classes} target={target} rel={rel} onClick={onClick}>
         {content}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={classes} target={target} rel={rel}>
+    <Link href={href} className={classes} target={target} rel={rel} onClick={onClick}>
       {content}
     </Link>
   );
