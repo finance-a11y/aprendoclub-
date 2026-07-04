@@ -1,21 +1,22 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { urgencia, hero, razonNoEscalas, mentora } from "@/content/reto";
 
 export function RetoTop() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const reduceMotion = useReducedMotion();
-  const rise = reduceMotion
+  const reveal = reduceMotion
     ? {}
-    : { initial: { opacity: 0, y: 20 }, animate: isInView ? { opacity: 1, y: 0 } : {} };
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-100px" },
+      };
 
   return (
-    <div ref={ref}>
+    <div>
       {/* Barra de urgencia */}
       <div className="w-full border-b border-white/10 bg-[#0d1117]">
         <p className="container-padding mx-auto max-w-6xl py-2.5 text-center text-xs font-medium text-gray-300 sm:text-sm">
@@ -26,7 +27,7 @@ export function RetoTop() {
       {/* Hero */}
       <section className="container-padding max-w-6xl mx-auto grid grid-cols-1 items-center gap-10 pt-16 pb-20 lg:grid-cols-2 lg:gap-14 lg:pt-20">
         <motion.div
-          {...rise}
+          {...reveal}
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
@@ -72,8 +73,8 @@ export function RetoTop() {
         </motion.div>
 
         <motion.div
-          {...rise}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          {...reveal}
+          transition={{ duration: 0.6, delay: reduceMotion ? 0 : 0.1 }}
           className="relative mx-auto w-full max-w-md"
         >
           <Image
@@ -89,7 +90,11 @@ export function RetoTop() {
 
       {/* Razón por la cual no escalas */}
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
+        <motion.div
+          {...reveal}
+          transition={{ duration: 0.6 }}
+          className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center"
+        >
           <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
             {razonNoEscalas.titulo}
           </h2>
@@ -106,12 +111,16 @@ export function RetoTop() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Mentora */}
       <section className="container-padding section-spacing max-w-6xl mx-auto grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
-        <div className="relative mx-auto w-full max-w-sm">
+        <motion.div
+          {...reveal}
+          transition={{ duration: 0.6 }}
+          className="relative mx-auto w-full max-w-sm"
+        >
           <Image
             src={mentora.foto}
             alt="Arianna Lupi"
@@ -119,8 +128,12 @@ export function RetoTop() {
             height={640}
             className="h-auto w-full rounded-2xl object-cover"
           />
-        </div>
-        <div className="flex flex-col gap-6">
+        </motion.div>
+        <motion.div
+          {...reveal}
+          transition={{ duration: 0.6, delay: reduceMotion ? 0 : 0.1 }}
+          className="flex flex-col gap-6"
+        >
           <div className="flex flex-col gap-1">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b8f60d]">
               {mentora.rol}
@@ -145,7 +158,7 @@ export function RetoTop() {
             {mentora.quote}
           </blockquote>
           <p className="leading-relaxed text-gray-400">{mentora.cierre}</p>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

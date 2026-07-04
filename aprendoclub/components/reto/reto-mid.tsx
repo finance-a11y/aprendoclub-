@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import {
   agenda,
@@ -14,15 +13,17 @@ import {
 } from "@/content/reto";
 
 export function RetoMid() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const reduceMotion = useReducedMotion();
-  const rise = reduceMotion
+  const reveal = reduceMotion
     ? {}
-    : { initial: { opacity: 0, y: 20 }, animate: isInView ? { opacity: 1, y: 0 } : {} };
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-100px" },
+      };
 
   return (
-    <div ref={ref}>
+    <div>
       {/* Agenda 7 días */}
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <div className="mx-auto max-w-6xl">
@@ -38,7 +39,7 @@ export function RetoMid() {
             {agenda.map((d, i) => (
               <motion.div
                 key={i}
-                {...rise}
+                {...reveal}
                 transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.05 }}
                 className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0d1117]"
               >
@@ -132,7 +133,11 @@ export function RetoMid() {
           </h2>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]">
+          <motion.div
+            {...reveal}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]"
+          >
             <div className="relative aspect-video w-full">
               <Image
                 src={premios.mayor.imagen}
@@ -144,8 +149,12 @@ export function RetoMid() {
             <p className="p-6 text-lg font-semibold text-white">
               {premios.mayor.titulo}
             </p>
-          </div>
-          <div className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]">
+          </motion.div>
+          <motion.div
+            {...reveal}
+            transition={{ duration: 0.5, delay: reduceMotion ? 0 : 0.05 }}
+            className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]"
+          >
             <div className="relative aspect-video w-full">
               <Image
                 src={premios.becas.imagen}
@@ -157,7 +166,7 @@ export function RetoMid() {
             <p className="p-6 text-lg font-semibold text-white">
               {premios.becas.titulo}
             </p>
-          </div>
+          </motion.div>
         </div>
         <p className="mx-auto mt-8 max-w-2xl text-center leading-relaxed text-gray-400">
           {premios.comoSeGana}
@@ -177,8 +186,10 @@ export function RetoMid() {
           </div>
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {ganadores.map((g, i) => (
-              <div
+              <motion.div
                 key={i}
+                {...reveal}
+                transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.05 }}
                 className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0d1117]"
               >
                 <div className="relative aspect-square w-full">
@@ -193,7 +204,7 @@ export function RetoMid() {
                   <h3 className="text-sm font-semibold text-white">{g.nombre}</h3>
                   <span className="text-xs text-gray-500">{g.edicion}</span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
