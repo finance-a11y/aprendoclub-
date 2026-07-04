@@ -9,11 +9,11 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 
 ### Fundaciones y navegación (NAV)
 
-- [ ] **NAV-01**: Todas las páginas nuevas usan un shell compartido con el mismo navbar y footer, coherente con el diseño del home.
-- [ ] **NAV-02**: El navbar ofrece navegación real entre páginas (Inicio, Quiénes somos, Programas, Testimonios) además del CTA, funcionando en desktop y mobile con el estilo glass actual.
-- [ ] **NAV-03**: El footer queda limpio: se eliminan los links muertos (Precios, Blog, Guías SEO, Herramientas, Testimonios roto, Comunidad) y solo apunta a páginas/secciones existentes.
-- [ ] **NAV-04**: `app/sitemap.ts` incluye todas las rutas nuevas del sitio.
-- [ ] **NAV-05**: Los componentes de sección se construyen data-driven (contenido separado de la presentación, en objetos/consts) para permitir la migración a bloques Payload en v1.1.
+- [x] **NAV-01**: Todas las páginas nuevas usan un shell compartido con el mismo navbar y footer, coherente con el diseño del home.
+- [x] **NAV-02**: El navbar ofrece navegación real entre páginas (Inicio, Quiénes somos, Programas, Testimonios) además del CTA, funcionando en desktop y mobile con el estilo glass actual.
+- [x] **NAV-03**: El footer queda limpio: se eliminan los links muertos (Precios, Blog, Guías SEO, Herramientas, Testimonios roto, Comunidad) y solo apunta a páginas/secciones existentes.
+- [x] **NAV-04**: `app/sitemap.ts` incluye todas las rutas nuevas del sitio.
+- [x] **NAV-05**: Los componentes de sección se construyen data-driven (contenido separado de la presentación, en objetos/consts) para permitir la migración a bloques Payload en v1.1.
 
 ### Quiénes somos (ABOUT)
 
@@ -27,12 +27,12 @@ Requisitos del milestone v1.0 (Web lista para Google Ads). Cada uno mapea a una 
 
 ### Programas (PROG)
 
-- [ ] **PROG-01**: Existe la página hub `/programas` que presenta y enlaza los programas.
-- [ ] **PROG-02**: El Diplomado (ruta `/diplomado` existente) queda enlazado desde el hub y la navegación.
-- [ ] **PROG-03**: Existe la página del Taller de SEO con IA con su contenido migrado de aprendoseo.com.
-- [ ] **PROG-04**: Existe la página del Reto de 7 días como ruta Next.js, editable para reflejar si el reto no está activo.
-- [ ] **PROG-06**: El home muestra/enlaza la sección de programas (visible desde el home).
-- [ ] **PROG-08**: El Diplomado (`/diplomado`) se integra al shell compartido `(site)` y adopta por completo el diseño de aprendoclub (mismo navbar/footer, Montserrat, tokens `var(--bg-primary)`/`#b8f60d`/`#012fd8`, `container-padding`/`section-spacing`), conservando su contenido (16 semanas, EPAM, pricing, equipo, FAQ). Reemplaza su navbar/footer/tokens propios (shadcn `bg-background`/`bg-primary`, `#b8ff2b`, `font-mono`).
+- [x] **PROG-01**: Existe la página hub `/programas` que presenta y enlaza los programas.
+- [x] **PROG-02**: El Diplomado (ruta `/diplomado` existente) queda enlazado desde el hub y la navegación.
+- [x] **PROG-03**: Existe la página del Taller de SEO con IA con su contenido migrado de aprendoseo.com.
+- [x] **PROG-04**: Existe la página del Reto de 7 días como ruta Next.js, editable para reflejar si el reto no está activo.
+- [x] **PROG-06**: El home muestra/enlaza la sección de programas (visible desde el home).
+- [x] **PROG-08**: El Diplomado (`/diplomado`) se integra al shell compartido `(site)` y adopta por completo el diseño de aprendoclub (mismo navbar/footer, Montserrat, tokens `var(--bg-primary)`/`#b8f60d`/`#012fd8`, `container-padding`/`section-spacing`), conservando su contenido (16 semanas, EPAM, pricing, equipo, FAQ). Reemplaza su navbar/footer/tokens propios (shadcn `bg-background`/`bg-primary`, `#b8ff2b`, `font-mono`).
 
 ### Enlazado interno (LINK)
 
@@ -71,21 +71,21 @@ Mapeo completo a fases del roadmap v1.0.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | Phase 1 | Pending |
-| NAV-02 | Phase 1 | Pending |
-| NAV-03 | Phase 1 | Pending |
-| NAV-04 | Phase 1 | Pending |
-| NAV-05 | Phase 1 | Pending |
+| NAV-01 | Phase 1 | Complete |
+| NAV-02 | Phase 1 | Complete |
+| NAV-03 | Phase 1 | Complete |
+| NAV-04 | Phase 1 | Complete |
+| NAV-05 | Phase 1 | Complete |
 | ABOUT-01 | Phase 2 | Complete |
 | ABOUT-02 | Phase 2 | Complete |
 | TEST-01 | Phase 3 | Complete |
 | TEST-02 | Phase 3 | Complete |
-| PROG-01 | Phase 4 | Pending |
-| PROG-02 | Phase 4 | Pending |
-| PROG-03 | Phase 4 | Pending |
-| PROG-04 | Phase 4 | Pending |
-| PROG-06 | Phase 4 | Pending |
-| PROG-08 | Phase 4 | Pending |
+| PROG-01 | Phase 4 | Complete |
+| PROG-02 | Phase 4 | Complete |
+| PROG-03 | Phase 4 | Complete |
+| PROG-04 | Phase 4 | Complete |
+| PROG-06 | Phase 4 | Complete |
+| PROG-08 | Phase 4 | Complete |
 | LINK-01 | Phase 5 | Complete |
 
 **Coverage:**
