@@ -164,7 +164,7 @@ export default function LinksPage() {
                 <span className="flex-1 text-sm font-semibold text-white">
                   {link.label}
                 </span>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-gray-500 transition-colors group-hover:text-[var(--accent)]" />
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-gray-400 transition-colors group-hover:text-[var(--accent)]" />
               </motion.a>
             );
           })}
@@ -197,7 +197,7 @@ export default function LinksPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-8 text-xs text-gray-600"
+          className="mt-8 text-xs text-gray-400"
         >
           © {new Date().getFullYear()} aprendoclub
         </motion.p>

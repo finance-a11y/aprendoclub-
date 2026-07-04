@@ -43,7 +43,7 @@ export function HistoriaSection() {
           <p className="text-xl md:text-2xl text-white font-medium italic">
             &ldquo;{historia.quote.texto}&rdquo;
           </p>
-          <cite className="mt-3 block text-sm text-gray-500 not-italic">
+          <cite className="mt-3 block text-sm text-gray-400 not-italic">
             {historia.quote.autor}
           </cite>
         </blockquote>

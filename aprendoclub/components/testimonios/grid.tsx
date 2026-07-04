@@ -55,7 +55,7 @@ export function TestimoniosGrid() {
                       {testimonio.nombre}
                     </p>
                     {subtitulo ? (
-                      <p className="text-sm text-gray-500">{subtitulo}</p>
+                      <p className="text-sm text-gray-400">{subtitulo}</p>
                     ) : null}
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export function TestimoniosGrid() {
         transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.4 }}
         className="flex flex-col items-center gap-6 pt-8"
       >
-        <p className="text-sm text-gray-500 uppercase tracking-wider">
+        <p className="text-sm text-gray-400 uppercase tracking-wider">
           {logosBanda}
         </p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">

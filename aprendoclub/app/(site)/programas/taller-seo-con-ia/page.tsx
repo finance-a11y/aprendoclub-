@@ -59,7 +59,7 @@ export default function TallerSeoConIaPage() {
                   {item.texto}
                 </p>
                 {item.valor && (
-                  <span className="text-xs text-gray-500">{item.valor}</span>
+                  <span className="text-xs text-gray-400">{item.valor}</span>
                 )}
               </div>
             </Card>

@@ -54,7 +54,7 @@ export function RetoBottom() {
               </Button>
             ))}
           </div>
-          <p className="flex items-center gap-2 text-xs text-gray-500">
+          <p className="flex items-center gap-2 text-xs text-gray-400">
             <Check className="h-3.5 w-3.5 text-[var(--accent)]" />
             {pricing.nota}
           </p>

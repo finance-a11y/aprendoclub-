@@ -81,7 +81,7 @@ export function TestimoniosSection() {
                 />
                 <div>
                   <p className="font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  <p className="text-sm text-gray-400">{testimonial.role}</p>
                 </div>
               </div>
 
@@ -122,7 +122,7 @@ export function TestimoniosSection() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="flex flex-col items-center gap-6 pt-8"
       >
-        <p className="text-sm text-gray-500 uppercase tracking-wider">
+        <p className="text-sm text-gray-400 uppercase tracking-wider">
           Profesionales de empresas como
         </p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">

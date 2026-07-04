@@ -75,7 +75,7 @@ export function RetoMid() {
             <ul className="flex flex-col gap-4">
               {comparacion.map((row, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-gray-400">
-                  <X className="mt-0.5 h-4 w-4 shrink-0 text-gray-500" />
+                  <X className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" />
                   {row.deSiempre}
                 </li>
               ))}
@@ -195,7 +195,7 @@ export function RetoMid() {
                 </div>
                 <div className="flex flex-col gap-1 p-4">
                   <h3 className="text-sm font-semibold text-white">{g.nombre}</h3>
-                  <span className="text-xs text-gray-500">{g.edicion}</span>
+                  <span className="text-xs text-gray-400">{g.edicion}</span>
                 </div>
               </motion.div>
             ))}

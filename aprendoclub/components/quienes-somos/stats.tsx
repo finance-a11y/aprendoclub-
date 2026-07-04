@@ -26,7 +26,7 @@ export function StatsSection() {
             <span className="text-4xl md:text-5xl font-semibold text-white">
               {stat.value}
             </span>
-            <span className="text-sm text-gray-500">{stat.label}</span>
+            <span className="text-sm text-gray-400">{stat.label}</span>
           </motion.div>
         ))}
       </div>
