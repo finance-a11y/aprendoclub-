@@ -38,7 +38,7 @@ export function PricingSection() {
           </p>
           <p className="text-white text-2xl font-semibold">Empieza hoy en cuotas</p>
           <div className="flex items-baseline gap-1 mt-4 mb-1">
-            <span className="text-white text-6xl font-black leading-none">$210</span>
+            <span className="text-white text-6xl font-semibold leading-none">$210</span>
           </div>
           <p className="text-gray-500 text-sm mb-5 font-medium">
             4 cuotas mensuales
@@ -62,7 +62,7 @@ export function PricingSection() {
 
         {/* Card 2: Pago único */}
         <div className="relative bg-[var(--bg-primary)] border-2 border-[var(--primary-light)] rounded-2xl p-9 flex flex-col shadow-[0_0_40px_rgba(61,92,245,0.12)]">
-          <span className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[var(--accent)] text-[var(--bg-primary)] text-[11px] font-black px-5 py-1.5 rounded-full whitespace-nowrap tracking-wide">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[var(--accent)] text-[var(--bg-primary)] text-[11px] font-semibold px-5 py-1.5 rounded-full whitespace-nowrap tracking-wide">
             <Trophy className="h-3.5 w-3.5" />
             Más elegido
           </span>
@@ -74,7 +74,7 @@ export function PricingSection() {
           </p>
           <p className="text-white text-2xl font-semibold">Pago único sin cuotas</p>
           <div className="flex items-baseline gap-1 mt-4 mb-1">
-            <span className="text-white text-6xl font-black leading-none">$780</span>
+            <span className="text-white text-6xl font-semibold leading-none">$780</span>
           </div>
           <p className="text-gray-500 text-sm mb-5 font-medium">
             Pago único · Sin cuotas · Sin sorpresas
