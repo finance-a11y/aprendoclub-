@@ -11,6 +11,7 @@ import * as migration_20260705_052627_p14_footer_social_id_fix from './20260705_
 import * as migration_20260705_062355_rework_pages_pagebuilder from './20260705_062355_rework_pages_pagebuilder';
 import * as migration_20260705_174520_blog_collections from './20260705_174520_blog_collections';
 import * as migration_20260705_175349_blog_excerpt_rename from './20260705_175349_blog_excerpt_rename';
+import * as migration_20260705_194938_author_socials from './20260705_194938_author_socials';
 
 export const migrations = [
   {
@@ -76,6 +77,11 @@ export const migrations = [
   {
     up: migration_20260705_175349_blog_excerpt_rename.up,
     down: migration_20260705_175349_blog_excerpt_rename.down,
-    name: '20260705_175349_blog_excerpt_rename'
+    name: '20260705_175349_blog_excerpt_rename',
+  },
+  {
+    up: migration_20260705_194938_author_socials.up,
+    down: migration_20260705_194938_author_socials.down,
+    name: '20260705_194938_author_socials'
   },
 ];

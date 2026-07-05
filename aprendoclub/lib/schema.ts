@@ -258,6 +258,7 @@ export function authorGraph({
   role,
   bio,
   imageUrl,
+  sameAs,
   posts,
 }: {
   name: string;
@@ -265,6 +266,7 @@ export function authorGraph({
   role?: string;
   bio?: string;
   imageUrl?: string;
+  sameAs?: string[];
   posts: BlogListItem[];
 }) {
   const person: Record<string, unknown> = {
@@ -279,6 +281,7 @@ export function authorGraph({
   if (imageUrl) {
     person.image = imageUrl.startsWith("http") ? imageUrl : `${SITE_URL}${imageUrl}`;
   }
+  if (sameAs && sameAs.length) person.sameAs = sameAs;
 
   return [
     {

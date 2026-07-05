@@ -1177,6 +1177,16 @@ export interface Author {
   role?: string | null;
   bio?: string | null;
   avatar?: (number | null) | Media;
+  /**
+   * Perfiles del autor. Se muestran como iconos en su página.
+   */
+  socials?:
+    | {
+        platform: 'linkedin' | 'instagram' | 'youtube' | 'tiktok' | 'twitter' | 'facebook' | 'whatsapp' | 'website';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -2372,6 +2382,13 @@ export interface AuthorsSelect<T extends boolean = true> {
   role?: T;
   bio?: T;
   avatar?: T;
+  socials?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -5,6 +5,7 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { JsonLd } from '@/components/json-ld'
 import { authorGraph } from '@/lib/schema'
 import { PostGrid } from '@/components/blog/post-grid'
+import { AuthorSocials } from '@/components/blog/author-socials'
 import { mediaUrl, postHref } from '@/lib/blog/format'
 
 /** Página de autor: bio + grid paginado de sus posts. */
@@ -21,12 +22,17 @@ export function AuthorView({
 }) {
   const avatar = mediaUrl(author.avatar)
 
+  const sameAs = (author.socials ?? [])
+    .map((s) => s.url)
+    .filter((u): u is string => typeof u === 'string' && /^https?:\/\//.test(u))
+
   const graph = authorGraph({
     name: author.name,
     path: `/autor/${author.slug}`,
     role: author.role ?? undefined,
     bio: author.bio ?? undefined,
     imageUrl: avatar ?? undefined,
+    sameAs,
     posts: posts.map((p) => ({ name: p.title, path: postHref(p) })),
   })
 
@@ -53,6 +59,7 @@ export function AuthorView({
             {author.bio}
           </p>
         )}
+        <AuthorSocials socials={author.socials} />
       </header>
       <div className="container-padding section-spacing mx-auto max-w-6xl">
         <PostGrid

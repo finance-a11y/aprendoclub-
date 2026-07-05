@@ -53,6 +53,34 @@ export const Author: CollectionConfig = {
       relationTo: 'media',
       label: 'Foto',
     },
+    {
+      name: 'socials',
+      type: 'array',
+      label: 'Redes sociales',
+      labels: { singular: 'Red', plural: 'Redes' },
+      admin: {
+        description: 'Perfiles del autor. Se muestran como iconos en su página.',
+      },
+      fields: [
+        {
+          name: 'platform',
+          type: 'select',
+          required: true,
+          label: 'Plataforma',
+          options: [
+            { label: 'LinkedIn', value: 'linkedin' },
+            { label: 'Instagram', value: 'instagram' },
+            { label: 'YouTube', value: 'youtube' },
+            { label: 'TikTok', value: 'tiktok' },
+            { label: 'X / Twitter', value: 'twitter' },
+            { label: 'Facebook', value: 'facebook' },
+            { label: 'WhatsApp', value: 'whatsapp' },
+            { label: 'Sitio web', value: 'website' },
+          ],
+        },
+        { name: 'url', type: 'text', required: true, label: 'URL' },
+      ],
+    },
   ],
 }
 
