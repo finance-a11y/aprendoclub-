@@ -501,6 +501,8 @@ function buildProgramasHub(maps: CollectionMaps): PageSeed {
       },
       {
         blockType: 'programGridRef',
+        titulo: 'Nuestros programas',
+        boton: { label: 'Ver todos los programas', href: '/programas' },
         items: idsFor(maps.programas, PROGRAMAS_HUB_ORDER, 'programas-hub.programas'),
       },
       {
