@@ -1,13 +1,8 @@
 /**
- * Capa de contenido data-driven de la página Quiénes somos (Fase 2).
- *
- * ABOUT-01 / ABOUT-02: el contenido vive separado de la presentación en objetos
- * tipados. Cada interface espeja la forma de un futuro bloque/colección de Payload
- * (v1.1), de modo que la migración sea 1:1. Los componentes de sección consumen
- * estos exports; no redefinen copy inline.
- *
- * REGLA: toda la copia proviene VERBATIM de 02-CONTENT-SOURCE.md (ya humanizada:
- * español neutro, sin em/en dashes, sin AI tells). No parafrasear ni reescribir.
+ * Datos históricos del extinto content/quienes-somos.ts (eliminado en Phase 15
+ * Plan 03 al pasar /quienes-somos a servirse desde su Pages doc). Se conservan
+ * aquí solo como fuente de seed, verbatim; ningún componente vivo lee de
+ * content/quienes-somos.ts.
  */
 
 /** Hero de la página. Payload-ready: bloque `Hero` (eyebrow, titulo, subtitulo). */

@@ -12,7 +12,7 @@ import {
   historia,
   metodologia,
   stats,
-} from '../../content/quienes-somos'
+} from './seed-data/quienes-somos'
 import * as reto from '../../content/reto'
 import {
   tallerCta,

@@ -19,7 +19,6 @@ export const dynamic = 'force-dynamic'
 const RESERVED_SLUGS = new Set<string>([
   '',
   'home',
-  'quienes-somos',
   'programas/taller-seo-con-ia',
   'reto',
   'diplomado',
