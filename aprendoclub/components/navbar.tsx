@@ -171,38 +171,50 @@ export function Navbar() {
                     <AnimatePresence>
                       {programaOpen && (
                         <motion.div
-                          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
+                          initial={reduceMotion ? false : { opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95 }}
                           transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }}
                           role="menu"
                           aria-label="Programas"
-                          className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4"
+                          className="absolute left-1/2 top-full z-50 origin-top -translate-x-1/2 pt-4"
                         >
                           <div className="w-[360px] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--border-card)] bg-[var(--surface-card)]/95 backdrop-blur-xl shadow-[var(--shadow-lg)]">
                             <div className="flex flex-col p-2">
-                              {programMenu.map((p) => (
-                                <Link
+                              {programMenu.map((p, index) => (
+                                <motion.div
                                   key={p.href}
-                                  href={p.href}
-                                  role="menuitem"
-                                  onClick={() => setProgramaOpen(false)}
-                                  className="group/mega flex items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-white/5"
+                                  initial={
+                                    reduceMotion ? false : { opacity: 0, y: 8 }
+                                  }
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{
+                                    duration: 0.2,
+                                    delay: reduceMotion ? 0 : index * 0.04,
+                                    ease: "easeOut",
+                                  }}
                                 >
-                                  <div className="flex-1">
-                                    <div className="flex items-center gap-2">
-                                      <span className="text-sm font-semibold text-white group-hover/mega:text-[var(--accent)] transition-colors">
-                                        {p.label}
-                                      </span>
-                                      <span className="rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--accent)]">
-                                        {p.badge}
-                                      </span>
+                                  <Link
+                                    href={p.href}
+                                    role="menuitem"
+                                    onClick={() => setProgramaOpen(false)}
+                                    className="group/mega flex items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-white/5"
+                                  >
+                                    <div className="flex-1">
+                                      <div className="flex items-center gap-2">
+                                        <span className="text-sm font-semibold text-white group-hover/mega:text-[var(--accent)] transition-colors">
+                                          {p.label}
+                                        </span>
+                                        <span className="rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--accent)]">
+                                          {p.badge}
+                                        </span>
+                                      </div>
+                                      <p className="mt-1 text-xs leading-relaxed text-gray-400">
+                                        {p.desc}
+                                      </p>
                                     </div>
-                                    <p className="mt-1 text-xs leading-relaxed text-gray-400">
-                                      {p.desc}
-                                    </p>
-                                  </div>
-                                </Link>
+                                  </Link>
+                                </motion.div>
                               ))}
                             </div>
                             <Link
