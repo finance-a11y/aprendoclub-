@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 export const TeamMembers: CollectionConfig = {
   slug: 'team-members',
@@ -7,6 +8,20 @@ export const TeamMembers: CollectionConfig = {
     defaultColumns: ['nombre', 'rol', 'mostrarEnQuienesSomos', 'mostrarEnDiplomado', 'orden'],
   },
   defaultSort: 'orden',
+  hooks: {
+    afterChange: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/quienes-somos')
+      },
+    ],
+    afterDelete: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/quienes-somos')
+      },
+    ],
+  },
   fields: [
     {
       name: 'nombre',

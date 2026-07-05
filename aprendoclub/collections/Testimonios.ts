@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 export const Testimonios: CollectionConfig = {
   slug: 'testimonios',
@@ -7,6 +8,22 @@ export const Testimonios: CollectionConfig = {
     defaultColumns: ['nombre', 'rol', 'featuredOnHome', 'orden'],
   },
   defaultSort: 'orden',
+  hooks: {
+    afterChange: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/testimonios')
+        revalidatePath('/')
+      },
+    ],
+    afterDelete: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/testimonios')
+        revalidatePath('/')
+      },
+    ],
+  },
   fields: [
     {
       name: 'nombre',

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 export const Faq: CollectionConfig = {
   slug: 'faq',
@@ -7,6 +8,22 @@ export const Faq: CollectionConfig = {
     defaultColumns: ['question', 'page', 'orden'],
   },
   defaultSort: 'orden',
+  hooks: {
+    afterChange: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/diplomado')
+        revalidatePath('/')
+      },
+    ],
+    afterDelete: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/diplomado')
+        revalidatePath('/')
+      },
+    ],
+  },
   fields: [
     {
       name: 'question',
