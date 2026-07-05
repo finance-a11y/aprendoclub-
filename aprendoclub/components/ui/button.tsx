@@ -8,7 +8,7 @@ export type ButtonSize = "default" | "lg";
 const EXTERNAL_HREF_PATTERN = /^(https?:|tel:|mailto:)/;
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300";
+  "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.97]";
 
 const sizeClasses: Record<ButtonSize, string> = {
   default: "",
