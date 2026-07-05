@@ -107,6 +107,7 @@ export interface Config {
     'testimonios-page': TestimoniosPage;
     reto: Reto;
     home: Home;
+    diplomado: Diplomado;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
@@ -116,6 +117,7 @@ export interface Config {
     'testimonios-page': TestimoniosPageSelect<false> | TestimoniosPageSelect<true>;
     reto: RetoSelect<false> | RetoSelect<true>;
     home: HomeSelect<false> | HomeSelect<true>;
+    diplomado: DiplomadoSelect<false> | DiplomadoSelect<true>;
   };
   locale: null;
   widgets: {
@@ -1158,6 +1160,222 @@ export interface Home {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "diplomado".
+ */
+export interface Diplomado {
+  id: number;
+  hero: {
+    badgeText?: string | null;
+    eyebrow?: string | null;
+    tituloPre?: string | null;
+    tituloAccent?: string | null;
+    tituloPost?: string | null;
+    subtitulo?: string | null;
+    texto?: string | null;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    imagen?: (number | null) | Media;
+    ctaPrimario: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+    ctaSecundario: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+    microcopy?: string | null;
+  };
+  origin: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    items?:
+      | {
+          /**
+           * Nombre de icono lucide (e.g. "rocket", "target")
+           */
+          icon?: string | null;
+          titulo: string;
+          descripcion?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  audience: {
+    titulo: string;
+    subtitulo?: string | null;
+    tituloPerfiles?: string | null;
+    perfiles?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    tituloDudas?: string | null;
+    dudas?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    notaFinal?: string | null;
+  };
+  /**
+   * Copy propia del diplomado (EPAM). No reusar el copy de quienes-somos.metodologia.
+   */
+  methodology: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    items?:
+      | {
+          /**
+           * Nombre de icono lucide (e.g. "rocket", "target")
+           */
+          icon?: string | null;
+          titulo: string;
+          descripcion?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  curriculum: {
+    eyebrow?: string | null;
+    titulo: string;
+    semanas: {
+      numero: number;
+      titulo: string;
+      detalle: string;
+      id?: string | null;
+    }[];
+  };
+  howItWorks: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    items?:
+      | {
+          /**
+           * Nombre de icono lucide (e.g. "rocket", "target")
+           */
+          icon?: string | null;
+          titulo: string;
+          descripcion?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    ctaLabel?: string | null;
+    ctaHref?: string | null;
+  };
+  team: {
+    teamIntro: {
+      eyebrow?: string | null;
+      titulo: string;
+      subtitulo?: string | null;
+    };
+    equipo?: {
+      eyebrow?: string | null;
+      titulo?: string | null;
+      subtitulo?: string | null;
+      items?: (number | TeamMember)[] | null;
+    };
+    mentorSection: {
+      titulo: string;
+      nombre: string;
+      web?: string | null;
+      bio: {
+        texto: string;
+        id?: string | null;
+      }[];
+      quote?: string | null;
+    };
+  };
+  benefits: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    items?:
+      | {
+          texto: string;
+          valor?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    extras?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  pricing: {
+    titulo: string;
+    subtitulo?: string | null;
+    planNombre: string;
+    badgeText?: string | null;
+    precio: string;
+    precioTachado?: string | null;
+    precioNota?: string | null;
+    descripcion?: string | null;
+    features?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    ctaLabel?: string | null;
+    ctaHref?: string | null;
+    garantiaTexto?: string | null;
+  };
+  faq?: {
+    eyebrow?: string | null;
+    titulo?: string | null;
+    items?: (number | Faq)[] | null;
+  };
+  ctaFinal: {
+    titulo: string;
+    texto?: string | null;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    boton: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+  };
+  relatedLinks?:
+    | {
+        label: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  courseMeta?: {
+    price?: string | null;
+    /**
+     * Duración ISO 8601, ej. "P16W" (16 semanas).
+     */
+    courseWorkload?: string | null;
+    /**
+     * YYYY-MM-DD. Vacío si el curso es rolling/on-demand.
+     */
+    startDate?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings_select".
  */
 export interface SiteSettingsSelect<T extends boolean = true> {
@@ -1811,6 +2029,244 @@ export interface HomeSelect<T extends boolean = true> {
               href?: T;
               id?: T;
             };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "diplomado_select".
+ */
+export interface DiplomadoSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badgeText?: T;
+        eyebrow?: T;
+        tituloPre?: T;
+        tituloAccent?: T;
+        tituloPost?: T;
+        subtitulo?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        imagen?: T;
+        ctaPrimario?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        ctaSecundario?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        microcopy?: T;
+      };
+  origin?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?:
+          | T
+          | {
+              icon?: T;
+              titulo?: T;
+              descripcion?: T;
+              id?: T;
+            };
+      };
+  audience?:
+    | T
+    | {
+        titulo?: T;
+        subtitulo?: T;
+        tituloPerfiles?: T;
+        perfiles?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        tituloDudas?: T;
+        dudas?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        notaFinal?: T;
+      };
+  methodology?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?:
+          | T
+          | {
+              icon?: T;
+              titulo?: T;
+              descripcion?: T;
+              id?: T;
+            };
+      };
+  curriculum?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        semanas?:
+          | T
+          | {
+              numero?: T;
+              titulo?: T;
+              detalle?: T;
+              id?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?:
+          | T
+          | {
+              icon?: T;
+              titulo?: T;
+              descripcion?: T;
+              id?: T;
+            };
+        ctaLabel?: T;
+        ctaHref?: T;
+      };
+  team?:
+    | T
+    | {
+        teamIntro?:
+          | T
+          | {
+              eyebrow?: T;
+              titulo?: T;
+              subtitulo?: T;
+            };
+        equipo?:
+          | T
+          | {
+              eyebrow?: T;
+              titulo?: T;
+              subtitulo?: T;
+              items?: T;
+            };
+        mentorSection?:
+          | T
+          | {
+              titulo?: T;
+              nombre?: T;
+              web?: T;
+              bio?:
+                | T
+                | {
+                    texto?: T;
+                    id?: T;
+                  };
+              quote?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?:
+          | T
+          | {
+              texto?: T;
+              valor?: T;
+              id?: T;
+            };
+        extras?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+      };
+  pricing?:
+    | T
+    | {
+        titulo?: T;
+        subtitulo?: T;
+        planNombre?: T;
+        badgeText?: T;
+        precio?: T;
+        precioTachado?: T;
+        precioNota?: T;
+        descripcion?: T;
+        features?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        ctaLabel?: T;
+        ctaHref?: T;
+        garantiaTexto?: T;
+      };
+  faq?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        items?: T;
+      };
+  ctaFinal?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  relatedLinks?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  courseMeta?:
+    | T
+    | {
+        price?: T;
+        courseWorkload?: T;
+        startDate?: T;
       };
   updatedAt?: T;
   createdAt?: T;
