@@ -16,6 +16,10 @@ import { Pricing } from './Pricing'
 import { HeroHome } from './HeroHome'
 import { Instructor } from './Instructor'
 import { StickyCta } from './StickyCta'
+import { Historia } from './Historia'
+import { Fundadora } from './Fundadora'
+import { Metodologia } from './Metodologia'
+import { RetoGaleria } from './RetoGaleria'
 
 /**
  * Registry blockType -> componente de render.
@@ -44,4 +48,8 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   heroHome: HeroHome,
   instructor: Instructor,
   stickyCta: StickyCta,
+  historia: Historia,
+  fundadora: Fundadora,
+  metodologia: Metodologia,
+  retoGaleria: RetoGaleria,
 }
