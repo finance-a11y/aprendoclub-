@@ -20,6 +20,10 @@ import { Historia } from './Historia'
 import { Fundadora } from './Fundadora'
 import { Metodologia } from './Metodologia'
 import { RetoGaleria } from './RetoGaleria'
+import { TallerHero } from './TallerHero'
+import { TallerIncluye } from './TallerIncluye'
+import { TallerParaQuien } from './TallerParaQuien'
+import { TallerPricing } from './TallerPricing'
 
 /**
  * Registry blockType -> componente de render.
@@ -52,4 +56,8 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   fundadora: Fundadora,
   metodologia: Metodologia,
   retoGaleria: RetoGaleria,
+  tallerHero: TallerHero,
+  tallerIncluye: TallerIncluye,
+  tallerParaQuien: TallerParaQuien,
+  tallerPricing: TallerPricing,
 }
