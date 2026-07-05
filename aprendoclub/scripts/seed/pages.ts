@@ -13,7 +13,7 @@ import {
   metodologia,
   stats,
 } from './seed-data/quienes-somos'
-import * as reto from '../../content/reto'
+import * as reto from './seed-data/reto'
 import {
   tallerCta,
   tallerHero,
