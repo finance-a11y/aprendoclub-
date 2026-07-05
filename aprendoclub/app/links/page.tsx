@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, GraduationCap, CalendarCheck, BookOpen, Rocket } from "lucide-react";
@@ -62,8 +63,23 @@ const socials = [
   },
 ];
 
+function useCanHover() {
+  const [canHover, setCanHover] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(hover: hover) and (pointer: fine)");
+    setCanHover(query.matches);
+    const handleChange = (event: MediaQueryListEvent) => setCanHover(event.matches);
+    query.addEventListener("change", handleChange);
+    return () => query.removeEventListener("change", handleChange);
+  }, []);
+
+  return canHover;
+}
+
 export default function LinksPage() {
   const reduceMotion = useReducedMotion();
+  const canHover = useCanHover();
 
   return (
     <main className="relative min-h-dvh w-full flex flex-col items-center justify-center overflow-hidden bg-[var(--bg-primary)] py-20 px-6">
@@ -167,7 +183,7 @@ export default function LinksPage() {
                   delay: reduceMotion ? 0 : 0.35 + i * 0.1,
                   ease: "easeOut",
                 }}
-                whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                whileHover={reduceMotion || !canHover ? undefined : { scale: 1.02 }}
                 whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 className="group flex items-center gap-4 rounded-2xl border border-[var(--border-glass)] bg-[var(--bg-secondary)]/60 px-5 py-4 backdrop-blur-sm transition-colors hover:border-[var(--accent)]/50 hover:bg-[var(--bg-tertiary)]/60"
               >
