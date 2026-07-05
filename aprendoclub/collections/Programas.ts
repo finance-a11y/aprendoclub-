@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 export const Programas: CollectionConfig = {
   slug: 'programas',
@@ -7,6 +8,22 @@ export const Programas: CollectionConfig = {
     defaultColumns: ['nombre', 'slug', 'badge', 'orden'],
   },
   defaultSort: 'orden',
+  hooks: {
+    afterChange: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/programas')
+        revalidatePath('/', 'layout')
+      },
+    ],
+    afterDelete: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/programas')
+        revalidatePath('/', 'layout')
+      },
+    ],
+  },
   fields: [
     {
       name: 'slug',

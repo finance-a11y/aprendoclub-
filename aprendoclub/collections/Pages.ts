@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 import { allBlocks } from '../blocks'
 
@@ -12,6 +13,20 @@ export const Pages: CollectionConfig = {
   access: {
     // Lectura pública: el render catch-all (Plan R03+) resuelve páginas sin auth.
     read: () => true,
+  },
+  hooks: {
+    afterChange: [
+      ({ doc, req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath(`/${doc.slug === 'home' ? '' : doc.slug}`)
+      },
+    ],
+    afterDelete: [
+      ({ doc, req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath(`/${doc.slug === 'home' ? '' : doc.slug}`)
+      },
+    ],
   },
   fields: [
     {

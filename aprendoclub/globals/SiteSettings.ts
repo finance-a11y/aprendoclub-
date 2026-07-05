@@ -1,4 +1,5 @@
 import type { GlobalConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 import { linkGroup } from '../fields/link'
 
@@ -11,6 +12,14 @@ export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   admin: {
     group: 'Sitio',
+  },
+  hooks: {
+    afterChange: [
+      ({ req }) => {
+        if (req?.context?.disableRevalidate) return
+        revalidatePath('/', 'layout')
+      },
+    ],
   },
   fields: [
     {
