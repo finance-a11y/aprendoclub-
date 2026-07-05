@@ -7,13 +7,28 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  siteNav,
-  siteCta,
-  footerMeta,
-  programMenu,
-  type NavItem,
-} from "@/content/site";
+
+type NavItemType = "route" | "anchor";
+
+interface NavItem {
+  label: string;
+  href: string;
+  type: NavItemType;
+}
+
+interface MenuProgram {
+  label: string;
+  href: string;
+  desc: string;
+  badge: string;
+}
+
+interface NavbarProps {
+  siteNav: NavItem[];
+  siteCta: { label: string; href: string };
+  mobilePanelBlurb: string;
+  programMenu: MenuProgram[];
+}
 
 function isItemActive(item: NavItem, pathname: string): boolean {
   if (item.href === "/") return pathname === "/";
@@ -21,7 +36,12 @@ function isItemActive(item: NavItem, pathname: string): boolean {
   return pathname === item.href;
 }
 
-export function Navbar() {
+export function Navbar({
+  siteNav,
+  siteCta,
+  mobilePanelBlurb,
+  programMenu,
+}: NavbarProps) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -389,7 +409,7 @@ export function Navbar() {
                 {/* Footer info */}
                 <div className="mt-auto pt-6 border-t border-white/10">
                   <p className="text-sm text-gray-400">
-                    {footerMeta.mobilePanelBlurb}
+                    {mobilePanelBlurb}
                   </p>
                 </div>
               </div>

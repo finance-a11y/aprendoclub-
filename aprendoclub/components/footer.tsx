@@ -1,7 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Youtube } from "lucide-react";
-import { footerColumns, footerSocials, footerMeta } from "@/content/site";
+
+interface FooterColumn {
+  title: string;
+  links: { label: string; href: string; external?: boolean | null }[];
+}
+
+interface FooterSocial {
+  socialId: "youtube" | "tiktok" | "whatsapp" | "instagram" | "linkedin";
+  label: string;
+  href: string;
+}
+
+interface FooterMeta {
+  blurb: string;
+  copyrightLeft: string;
+  copyrightRight: string;
+  mobilePanelBlurb: string;
+}
+
+interface FooterProps {
+  footerColumns: FooterColumn[];
+  footerSocials: FooterSocial[];
+  footerMeta: FooterMeta;
+}
 
 // SVGs de marca (lucide no trae TikTok/WhatsApp). Paths copiados de app/links/page.tsx.
 const socialIcons: Record<string, React.ReactNode> = {
@@ -28,7 +51,11 @@ const socialIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-export function Footer() {
+export function Footer({
+  footerColumns,
+  footerSocials,
+  footerMeta,
+}: FooterProps) {
   return (
     <footer className="w-full bg-[var(--bg-primary)] border-t border-white/[0.06]">
       {/* Main Grid */}
@@ -53,14 +80,14 @@ export function Footer() {
             <div className="flex items-center gap-3 mt-2">
               {footerSocials.map((social) => (
                 <a
-                  key={social.id}
+                  key={social.socialId}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  {socialIcons[social.id]}
+                  {socialIcons[social.socialId]}
                 </a>
               ))}
             </div>

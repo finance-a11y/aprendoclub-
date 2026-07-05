@@ -1,11 +1,37 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { getPayloadClient } from "@/lib/payload";
 
-export default function SiteLayout({
+export default async function SiteLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const payload = await getPayloadClient();
+
+  const [settings, programas] = await Promise.all([
+    payload.findGlobal({ slug: "site-settings" }),
+    payload.find({ collection: "programas", sort: "orden", depth: 0 }),
+  ]);
+
+  const navbarProps = {
+    siteNav: settings.navbar.siteNav,
+    siteCta: settings.navbar.siteCta,
+    mobilePanelBlurb: settings.footer.footerMeta.mobilePanelBlurb,
+    programMenu: programas.docs.map((p) => ({
+      label: p.nombre,
+      href: p.ctaHref,
+      desc: p.menuDesc ?? "",
+      badge: p.menuBadge ?? "",
+    })),
+  };
+
+  const footerProps = {
+    footerColumns: settings.footer.footerColumns,
+    footerSocials: settings.footer.footerSocials,
+    footerMeta: settings.footer.footerMeta,
+  };
+
   return (
     <>
       <a
@@ -14,14 +40,14 @@ export default function SiteLayout({
       >
         Ir al contenido principal
       </a>
-      <Navbar />
+      <Navbar {...navbarProps} />
       <main
         id="main"
         className="flex min-h-dvh w-full flex-col scroll-mt-[72px]"
       >
         {children}
       </main>
-      <Footer />
+      <Footer {...footerProps} />
     </>
   );
 }
