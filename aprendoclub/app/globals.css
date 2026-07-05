@@ -147,3 +147,64 @@ a:focus-visible {
 @utility measure-prose {
   max-width: 65ch;
 }
+
+/* Tipografía del cuerpo de artículos del blog (body Lexical de BlogPost). */
+.blog-prose {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.blog-prose > * + * {
+  margin-top: 1.25rem;
+}
+.blog-prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+}
+.blog-prose h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+.blog-prose a {
+  color: var(--primary-light, #6b8cff);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.blog-prose a:hover {
+  color: #fff;
+}
+.blog-prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.blog-prose ul {
+  list-style: disc;
+}
+.blog-prose ol {
+  list-style: decimal;
+}
+.blog-prose li::marker {
+  color: var(--accent, #f5a623);
+}
+.blog-prose blockquote {
+  border-left: 3px solid var(--accent, #f5a623);
+  padding-left: 1rem;
+  font-style: italic;
+  color: #cbd5e1;
+}
+.blog-prose img {
+  border-radius: 0.75rem;
+}
