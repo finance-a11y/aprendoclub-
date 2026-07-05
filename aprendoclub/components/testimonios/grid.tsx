@@ -26,7 +26,7 @@ export function TestimoniosGrid() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
@@ -43,8 +43,9 @@ export function TestimoniosGrid() {
               initial={reduceMotion ? false : { opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: reduceMotion ? 0 : 0.6,
+                duration: reduceMotion ? 0 : 0.5,
                 delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.6),
+                ease: "easeOut",
               }}
               className="group"
             >
@@ -82,7 +83,7 @@ export function TestimoniosGrid() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.4 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
         className="flex flex-col items-center gap-6 pt-8"
       >
         <p className="text-sm text-gray-400 uppercase tracking-wider">

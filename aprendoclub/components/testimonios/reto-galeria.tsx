@@ -39,7 +39,7 @@ export function RetoGaleria() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>{reto.eyebrow}</Eyebrow>
@@ -58,8 +58,9 @@ export function RetoGaleria() {
             initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{
-              duration: reduceMotion ? 0 : 0.6,
+              duration: reduceMotion ? 0 : 0.5,
               delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.4),
+              ease: "easeOut",
             }}
             className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[var(--surface-card)] transition-all duration-300 hover:border-white/25 hover:-translate-y-0.5 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-label={`Ampliar: ${imagen.alt}`}
@@ -80,10 +81,10 @@ export function RetoGaleria() {
       <AnimatePresence>
         {imagenActiva && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0 : 0.2 }}
+            exit={reduceMotion ? undefined : { opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
             onClick={cerrar}
             role="dialog"
             aria-modal="true"
@@ -104,7 +105,7 @@ export function RetoGaleria() {
               initial={reduceMotion ? false : { scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={reduceMotion ? undefined : { scale: 0.95, opacity: 0 }}
-              transition={{ duration: reduceMotion ? 0 : 0.2 }}
+              transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
               className="max-h-[90vh] max-w-3xl"
             >
               <Image

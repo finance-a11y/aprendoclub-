@@ -18,7 +18,7 @@ export function TestimoniosHero() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[800px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>{hero.eyebrow}</Eyebrow>
