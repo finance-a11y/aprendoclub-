@@ -2,6 +2,7 @@ import * as migration_20260705_023446_initial from './20260705_023446_initial';
 import * as migration_20260705_024404_media_plugins from './20260705_024404_media_plugins';
 import * as migration_20260705_033500_p14_collections from './20260705_033500_p14_collections';
 import * as migration_20260705_042418_p14_globals_shell from './20260705_042418_p14_globals_shell';
+import * as migration_20260705_044720_p14_globals_about_testimonios from './20260705_044720_p14_globals_about_testimonios';
 
 export const migrations = [
   {
@@ -22,6 +23,11 @@ export const migrations = [
   {
     up: migration_20260705_042418_p14_globals_shell.up,
     down: migration_20260705_042418_p14_globals_shell.down,
-    name: '20260705_042418_p14_globals_shell'
+    name: '20260705_042418_p14_globals_shell',
+  },
+  {
+    up: migration_20260705_044720_p14_globals_about_testimonios.up,
+    down: migration_20260705_044720_p14_globals_about_testimonios.down,
+    name: '20260705_044720_p14_globals_about_testimonios'
   },
 ];

@@ -103,11 +103,15 @@ export interface Config {
     'site-settings': SiteSetting;
     'programas-hub': ProgramasHub;
     'taller-seo-con-ia': TallerSeoConIa;
+    'quienes-somos': QuienesSomo;
+    'testimonios-page': TestimoniosPage;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
     'programas-hub': ProgramasHubSelect<false> | ProgramasHubSelect<true>;
     'taller-seo-con-ia': TallerSeoConIaSelect<false> | TallerSeoConIaSelect<true>;
+    'quienes-somos': QuienesSomosSelect<false> | QuienesSomosSelect<true>;
+    'testimonios-page': TestimoniosPageSelect<false> | TestimoniosPageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -740,6 +744,122 @@ export interface TallerSeoConIa {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quienes-somos".
+ */
+export interface QuienesSomo {
+  id: number;
+  hero: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+  };
+  historia: {
+    eyebrow: string;
+    titulo: string;
+    parrafos: {
+      texto: string;
+      id?: string | null;
+    }[];
+    quote: {
+      texto: string;
+      autor: string;
+    };
+  };
+  fundadora: {
+    eyebrow: string;
+    nombre: string;
+    rol: string;
+    bio: {
+      texto: string;
+      id?: string | null;
+    }[];
+    foto: number | Media;
+  };
+  equipo?: {
+    eyebrow?: string | null;
+    titulo?: string | null;
+    subtitulo?: string | null;
+    items?: (number | TeamMember)[] | null;
+  };
+  metodologia: {
+    eyebrow: string;
+    titulo: string;
+    pilares: {
+      nombre: string;
+      descripcion: string;
+      id?: string | null;
+    }[];
+  };
+  stats?: {
+    items?:
+      | {
+          value: string;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  ctaFinal: {
+    titulo: string;
+    texto?: string | null;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    boton: {
+      label: string;
+      href: string;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonios-page".
+ */
+export interface TestimoniosPage {
+  id: number;
+  hero: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+  };
+  gridTitulo: string;
+  logos?: {
+    /**
+     * Ej. "Profesionales de empresas como"
+     */
+    texto?: string | null;
+    items?: (number | ClientesTrabajado)[] | null;
+  };
+  reto: {
+    eyebrow: string;
+    titulo: string;
+    texto: string;
+  };
+  retoGaleria?: (number | Media)[] | null;
+  cta: {
+    titulo: string;
+    texto?: string | null;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    boton: {
+      label: string;
+      href: string;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings_select".
  */
 export interface SiteSettingsSelect<T extends boolean = true> {
@@ -903,6 +1023,153 @@ export interface TallerSeoConIaSelect<T extends boolean = true> {
     | {
         label?: T;
         href?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quienes-somos_select".
+ */
+export interface QuienesSomosSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+      };
+  historia?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        parrafos?:
+          | T
+          | {
+              texto?: T;
+              id?: T;
+            };
+        quote?:
+          | T
+          | {
+              texto?: T;
+              autor?: T;
+            };
+      };
+  fundadora?:
+    | T
+    | {
+        eyebrow?: T;
+        nombre?: T;
+        rol?: T;
+        bio?:
+          | T
+          | {
+              texto?: T;
+              id?: T;
+            };
+        foto?: T;
+      };
+  equipo?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?: T;
+      };
+  metodologia?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        pilares?:
+          | T
+          | {
+              nombre?: T;
+              descripcion?: T;
+              id?: T;
+            };
+      };
+  stats?:
+    | T
+    | {
+        items?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  ctaFinal?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonios-page_select".
+ */
+export interface TestimoniosPageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+      };
+  gridTitulo?: T;
+  logos?:
+    | T
+    | {
+        texto?: T;
+        items?: T;
+      };
+  reto?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        texto?: T;
+      };
+  retoGaleria?: T;
+  cta?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
