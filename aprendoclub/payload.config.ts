@@ -40,6 +40,10 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI,
     },
+    // Producción: las migraciones son la única fuente de cambios de schema.
+    // Evita el auto-push de dev (y su prompt interactivo y/N en `payload migrate`),
+    // que colgaría el build en Vercel. Correr `payload migrate:create` tras cambios de schema.
+    push: false,
   }),
   plugins: [
     vercelBlobStorage({
