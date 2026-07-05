@@ -105,6 +105,7 @@ export interface Config {
     'taller-seo-con-ia': TallerSeoConIa;
     'quienes-somos': QuienesSomo;
     'testimonios-page': TestimoniosPage;
+    reto: Reto;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
@@ -112,6 +113,7 @@ export interface Config {
     'taller-seo-con-ia': TallerSeoConIaSelect<false> | TallerSeoConIaSelect<true>;
     'quienes-somos': QuienesSomosSelect<false> | QuienesSomosSelect<true>;
     'testimonios-page': TestimoniosPageSelect<false> | TestimoniosPageSelect<true>;
+    reto: RetoSelect<false> | RetoSelect<true>;
   };
   locale: null;
   widgets: {
@@ -860,6 +862,124 @@ export interface TestimoniosPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reto".
+ */
+export interface Reto {
+  id: number;
+  urgencia: string;
+  hero: {
+    eyebrow: string;
+    titulo: string;
+    destacado: string;
+    texto: string;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    precioTexto: string;
+    ctas?:
+      | {
+          label: string;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+    imagen?: (number | null) | Media;
+  };
+  razonNoEscalas: {
+    titulo: string;
+    parrafo: string;
+    frases?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  mentora: {
+    nombre: string;
+    rol: string;
+    stats?:
+      | {
+          valor: string;
+          etiqueta: string;
+          id?: string | null;
+        }[]
+      | null;
+    historia: string;
+    quote: string;
+    cierre: string;
+    foto?: (number | null) | Media;
+  };
+  agenda?:
+    | {
+        dia: string;
+        titulo: string;
+        descripcion: string;
+        imagen?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  comparacion?:
+    | {
+        deSiempre: string;
+        elReto: string;
+        id?: string | null;
+      }[]
+    | null;
+  incluye?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  premios: {
+    mayor: {
+      titulo: string;
+      imagen?: (number | null) | Media;
+    };
+    becas: {
+      titulo: string;
+      imagen?: (number | null) | Media;
+    };
+    comoSeGana: string;
+  };
+  pricing: {
+    precio: string;
+    precioNota: string;
+    incluyeTexto: string;
+    ctas?:
+      | {
+          label: string;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+    nota: string;
+    whatsapp: string;
+  };
+  ganadoresIntro: string;
+  ganadores?:
+    | {
+        nombre: string;
+        edicion: string;
+        imagen?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  faq?: (number | Faq)[] | null;
+  ctaFinal: {
+    titulo: string;
+    botonLabel: string;
+    botonHref: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings_select".
  */
 export interface SiteSettingsSelect<T extends boolean = true> {
@@ -1170,6 +1290,140 @@ export interface TestimoniosPageSelect<T extends boolean = true> {
               label?: T;
               href?: T;
             };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reto_select".
+ */
+export interface RetoSelect<T extends boolean = true> {
+  urgencia?: T;
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        destacado?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        precioTexto?: T;
+        ctas?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        imagen?: T;
+      };
+  razonNoEscalas?:
+    | T
+    | {
+        titulo?: T;
+        parrafo?: T;
+        frases?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+      };
+  mentora?:
+    | T
+    | {
+        nombre?: T;
+        rol?: T;
+        stats?:
+          | T
+          | {
+              valor?: T;
+              etiqueta?: T;
+              id?: T;
+            };
+        historia?: T;
+        quote?: T;
+        cierre?: T;
+        foto?: T;
+      };
+  agenda?:
+    | T
+    | {
+        dia?: T;
+        titulo?: T;
+        descripcion?: T;
+        imagen?: T;
+        id?: T;
+      };
+  comparacion?:
+    | T
+    | {
+        deSiempre?: T;
+        elReto?: T;
+        id?: T;
+      };
+  incluye?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  premios?:
+    | T
+    | {
+        mayor?:
+          | T
+          | {
+              titulo?: T;
+              imagen?: T;
+            };
+        becas?:
+          | T
+          | {
+              titulo?: T;
+              imagen?: T;
+            };
+        comoSeGana?: T;
+      };
+  pricing?:
+    | T
+    | {
+        precio?: T;
+        precioNota?: T;
+        incluyeTexto?: T;
+        ctas?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        nota?: T;
+        whatsapp?: T;
+      };
+  ganadoresIntro?: T;
+  ganadores?:
+    | T
+    | {
+        nombre?: T;
+        edicion?: T;
+        imagen?: T;
+        id?: T;
+      };
+  faq?: T;
+  ctaFinal?:
+    | T
+    | {
+        titulo?: T;
+        botonLabel?: T;
+        botonHref?: T;
       };
   updatedAt?: T;
   createdAt?: T;

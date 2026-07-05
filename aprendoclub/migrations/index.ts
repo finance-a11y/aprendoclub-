@@ -3,6 +3,7 @@ import * as migration_20260705_024404_media_plugins from './20260705_024404_medi
 import * as migration_20260705_033500_p14_collections from './20260705_033500_p14_collections';
 import * as migration_20260705_042418_p14_globals_shell from './20260705_042418_p14_globals_shell';
 import * as migration_20260705_044720_p14_globals_about_testimonios from './20260705_044720_p14_globals_about_testimonios';
+import * as migration_20260705_045406_p14_global_reto from './20260705_045406_p14_global_reto';
 
 export const migrations = [
   {
@@ -28,6 +29,11 @@ export const migrations = [
   {
     up: migration_20260705_044720_p14_globals_about_testimonios.up,
     down: migration_20260705_044720_p14_globals_about_testimonios.down,
-    name: '20260705_044720_p14_globals_about_testimonios'
+    name: '20260705_044720_p14_globals_about_testimonios',
+  },
+  {
+    up: migration_20260705_045406_p14_global_reto.up,
+    down: migration_20260705_045406_p14_global_reto.down,
+    name: '20260705_045406_p14_global_reto'
   },
 ];

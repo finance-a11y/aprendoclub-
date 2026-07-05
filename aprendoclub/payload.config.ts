@@ -18,6 +18,7 @@ import { TeamMembers } from './collections/TeamMembers'
 import { Testimonios } from './collections/Testimonios'
 import { ProgramasHub } from './globals/ProgramasHub'
 import { QuienesSomos } from './globals/QuienesSomos'
+import { Reto } from './globals/Reto'
 import { SiteSettings } from './globals/SiteSettings'
 import { Taller } from './globals/Taller'
 import { TestimoniosPage } from './globals/TestimoniosPage'
@@ -39,7 +40,7 @@ export default buildConfig({
     user: 'users',
   },
   collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq],
-  globals: [SiteSettings, ProgramasHub, Taller, QuienesSomos, TestimoniosPage],
+  globals: [SiteSettings, ProgramasHub, Taller, QuienesSomos, TestimoniosPage, Reto],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({
