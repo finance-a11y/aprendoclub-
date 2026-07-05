@@ -176,9 +176,17 @@ export function Footer({
           <span className="text-sm text-gray-400">
             © {new Date().getFullYear()} {footerMeta.copyrightLeft}
           </span>
-          <span className="text-sm text-gray-400">
-            {footerMeta.copyrightRight}
-          </span>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/sitemap"
+              className="text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              Mapa del sitio
+            </Link>
+            <span className="text-sm text-gray-400">
+              {footerMeta.copyrightRight}
+            </span>
+          </div>
         </div>
       </div>
     </footer>
