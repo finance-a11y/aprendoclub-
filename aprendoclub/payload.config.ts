@@ -2,6 +2,9 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
+import { redirectsPlugin } from '@payloadcms/plugin-redirects'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { buildConfig } from 'payload'
@@ -40,6 +43,19 @@ export default buildConfig({
         media: true,
       },
       token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
+    // Collections/globals target sets are finalized in Phase 14 once content
+    // collections (BlogPost, Category, etc.) exist. Loaded here empty so the
+    // plugins register and their schema is ready to extend.
+    seoPlugin({
+      collections: [],
+      uploadsCollection: 'media',
+    }),
+    redirectsPlugin({
+      collections: [],
+    }),
+    nestedDocsPlugin({
+      collections: [],
     }),
   ],
   sharp,
