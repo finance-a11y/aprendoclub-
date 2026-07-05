@@ -10,6 +10,9 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { Author } from './collections/Author'
+import { BlogPost } from './collections/BlogPost'
+import { Category } from './collections/Category'
 import { ClientesTrabajados } from './collections/ClientesTrabajados'
 import { Faq } from './collections/Faq'
 import { Media } from './collections/Media'
@@ -35,7 +38,7 @@ export default buildConfig({
   admin: {
     user: 'users',
   },
-  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages],
+  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost],
   globals: [SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -58,7 +61,7 @@ export default buildConfig({
     }),
     // SEO tab por página: attach a la colección `pages` (page-builder, Plan R02).
     seoPlugin({
-      collections: ['pages'],
+      collections: ['pages', 'blogposts'],
       uploadsCollection: 'media',
       tabbedUI: true,
     }),
