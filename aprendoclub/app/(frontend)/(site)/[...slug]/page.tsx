@@ -16,14 +16,7 @@ export const dynamic = 'force-dynamic'
  * notFound() en vez de renderizar, para que el sitio actual (content/*.ts)
  * siga siendo la única fuente de verdad hasta el cutover (Phases 15-17).
  */
-const RESERVED_SLUGS = new Set<string>([
-  '',
-  'home',
-  'programas/taller-seo-con-ia',
-  'links',
-  'admin',
-  'api',
-])
+const RESERVED_SLUGS = new Set<string>(['', 'home', 'links', 'admin', 'api'])
 
 export default async function CatchAllPage({
   params,
