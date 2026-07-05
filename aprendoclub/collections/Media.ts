@@ -2,6 +2,12 @@ import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  access: {
+    // Sitio público: las imágenes deben ser legibles sin login (si no,
+    // /api/media/file/* devuelve 403 y next/image rompe). Crear/editar/borrar
+    // quedan restringidos al admin por el default de Payload.
+    read: () => true,
+  },
   upload: {
     mimeTypes: ['image/*', 'video/mp4'],
     imageSizes: [
