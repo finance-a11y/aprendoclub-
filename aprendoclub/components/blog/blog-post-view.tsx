@@ -4,7 +4,8 @@ import Link from 'next/link'
 import type { Blogpost } from '@/payload-types'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { JsonLd } from '@/components/json-ld'
-import { blogPostingGraph } from '@/lib/schema'
+import { blogPostingGraph, breadcrumbGraph } from '@/lib/schema'
+import { Breadcrumbs, type Crumb } from '@/components/blog/breadcrumbs'
 import { RichBody } from '@/components/blog/rich-body'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { PostCta } from '@/components/blog/post-cta'
@@ -44,11 +45,19 @@ export function BlogPostView({
     section: cat?.name,
   })
 
+  const crumbs: Crumb[] = [
+    { name: 'Inicio', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    ...(cat ? [{ name: cat.name, path: `/${cat.slug}` }] : []),
+    { name: post.title },
+  ]
+
   return (
     <article className="w-full bg-[var(--bg-primary)] text-white">
-      <JsonLd data={graph} />
+      <JsonLd data={[graph, breadcrumbGraph(crumbs)]} />
+      <Breadcrumbs items={crumbs} />
       {/* Header */}
-      <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-5 pt-28 pb-10 text-center">
+      <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-5 pt-6 pb-10 text-center">
         {cat && (
           <Link href={`/${cat.slug}`}>
             <Eyebrow>{cat.name}</Eyebrow>

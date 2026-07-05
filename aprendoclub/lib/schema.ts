@@ -215,6 +215,28 @@ export function blogPostingGraph({
   return node;
 }
 
+type Crumb = { name: string; path?: string };
+
+/**
+ * BreadcrumbList (rich results). El último item es la página actual y puede ir
+ * sin `path` (Google admite el último sin URL).
+ */
+export function breadcrumbGraph(items: Crumb[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => {
+      const el: Record<string, unknown> = {
+        "@type": "ListItem",
+        position: i + 1,
+        name: it.name,
+      };
+      if (it.path) el.item = `${SITE_URL}${it.path}`;
+      return el;
+    }),
+  };
+}
+
 type BlogListItem = { name: string; path: string };
 
 /** CollectionPage + ItemList para el índice del blog y las páginas de categoría. */

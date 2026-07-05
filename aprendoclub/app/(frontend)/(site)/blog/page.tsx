@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { getPayloadClient } from "@/lib/payload";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { JsonLd } from "@/components/json-ld";
-import { blogListGraph } from "@/lib/schema";
+import { blogListGraph, breadcrumbGraph } from "@/lib/schema";
+import { Breadcrumbs, type Crumb } from "@/components/blog/breadcrumbs";
 import { PostGrid } from "@/components/blog/post-grid";
 import { listPosts } from "@/lib/blog/queries";
 import { postHref } from "@/lib/blog/format";
@@ -36,10 +37,16 @@ export default async function BlogIndexPage({
     items: docs.map((p) => ({ name: p.title, path: postHref(p) })),
   });
 
+  const crumbs: Crumb[] = [
+    { name: "Inicio", path: "/" },
+    { name: "Blog" },
+  ];
+
   return (
     <div className="w-full bg-[var(--bg-primary)] text-white">
-      <JsonLd data={graph} />
-      <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-4 pt-28 pb-12 text-center">
+      <JsonLd data={[graph, breadcrumbGraph(crumbs)]} />
+      <Breadcrumbs items={crumbs} />
+      <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-4 pt-6 pb-12 text-center">
         <Eyebrow>Blog</Eyebrow>
         <h1 className="text-3xl font-semibold leading-tight md:text-5xl">
           Aprende SEO e IA, artículo por artículo
