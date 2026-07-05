@@ -16,6 +16,7 @@ import { Media } from './collections/Media'
 import { Programas } from './collections/Programas'
 import { TeamMembers } from './collections/TeamMembers'
 import { Testimonios } from './collections/Testimonios'
+import { Home } from './globals/Home'
 import { ProgramasHub } from './globals/ProgramasHub'
 import { QuienesSomos } from './globals/QuienesSomos'
 import { Reto } from './globals/Reto'
@@ -40,7 +41,7 @@ export default buildConfig({
     user: 'users',
   },
   collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq],
-  globals: [SiteSettings, ProgramasHub, Taller, QuienesSomos, TestimoniosPage, Reto],
+  globals: [SiteSettings, ProgramasHub, Taller, QuienesSomos, TestimoniosPage, Reto, Home],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({

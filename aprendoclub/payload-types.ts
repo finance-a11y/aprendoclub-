@@ -106,6 +106,7 @@ export interface Config {
     'quienes-somos': QuienesSomo;
     'testimonios-page': TestimoniosPage;
     reto: Reto;
+    home: Home;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
@@ -114,6 +115,7 @@ export interface Config {
     'quienes-somos': QuienesSomosSelect<false> | QuienesSomosSelect<true>;
     'testimonios-page': TestimoniosPageSelect<false> | TestimoniosPageSelect<true>;
     reto: RetoSelect<false> | RetoSelect<true>;
+    home: HomeSelect<false> | HomeSelect<true>;
   };
   locale: null;
   widgets: {
@@ -980,6 +982,182 @@ export interface Reto {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home".
+ */
+export interface Home {
+  id: number;
+  hero: {
+    badgeText?: string | null;
+    eyebrow?: string | null;
+    tituloPre?: string | null;
+    tituloAccent?: string | null;
+    tituloPost?: string | null;
+    subtitulo?: string | null;
+    texto?: string | null;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    imagen?: (number | null) | Media;
+    ctaPrimario: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+    ctaSecundario: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+    microcopy?: string | null;
+  };
+  problema: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    items?:
+      | {
+          /**
+           * Nombre de icono lucide (e.g. "rocket", "target")
+           */
+          icon?: string | null;
+          titulo: string;
+          descripcion?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  beneficios: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    items?:
+      | {
+          /**
+           * Nombre de icono lucide (e.g. "rocket", "target")
+           */
+          icon?: string | null;
+          titulo: string;
+          descripcion?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  programas: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    boton: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+    items?: (number | Programa)[] | null;
+  };
+  pricing: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+    planes?:
+      | {
+          nombre: string;
+          badge?: string | null;
+          precio: string;
+          precioTachado?: string | null;
+          precioNota?: string | null;
+          cuotasTexto?: string | null;
+          features?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          cta: {
+            label: string;
+            href: string;
+            id?: string | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    ctaAsesoria: {
+      titulo?: string | null;
+      texto?: string | null;
+      cta: {
+        label: string;
+        href: string;
+        id?: string | null;
+      };
+    };
+  };
+  instructor: {
+    eyebrow: string;
+    nombre: string;
+    rol: string;
+    bioCorta1: string;
+    bioCorta2: string;
+    stats?: {
+      items?:
+        | {
+            value: string;
+            label: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    foto?: (number | null) | Media;
+    teaser: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+  };
+  testimonios?: {
+    eyebrow?: string | null;
+    titulo?: string | null;
+    items?: (number | Testimonio)[] | null;
+  };
+  logos?: {
+    /**
+     * Ej. "Profesionales de empresas como"
+     */
+    texto?: string | null;
+    items?: (number | ClientesTrabajado)[] | null;
+  };
+  faq?: {
+    eyebrow?: string | null;
+    titulo?: string | null;
+    items?: (number | Faq)[] | null;
+  };
+  ctaFinal: {
+    titulo: string;
+    texto?: string | null;
+    bullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    boton: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+  };
+  stickyCta: {
+    boton: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings_select".
  */
 export interface SiteSettingsSelect<T extends boolean = true> {
@@ -1424,6 +1602,215 @@ export interface RetoSelect<T extends boolean = true> {
         titulo?: T;
         botonLabel?: T;
         botonHref?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home_select".
+ */
+export interface HomeSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badgeText?: T;
+        eyebrow?: T;
+        tituloPre?: T;
+        tituloAccent?: T;
+        tituloPost?: T;
+        subtitulo?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        imagen?: T;
+        ctaPrimario?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        ctaSecundario?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        microcopy?: T;
+      };
+  problema?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?:
+          | T
+          | {
+              icon?: T;
+              titulo?: T;
+              descripcion?: T;
+              id?: T;
+            };
+      };
+  beneficios?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?:
+          | T
+          | {
+              icon?: T;
+              titulo?: T;
+              descripcion?: T;
+              id?: T;
+            };
+      };
+  programas?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        items?: T;
+      };
+  pricing?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        planes?:
+          | T
+          | {
+              nombre?: T;
+              badge?: T;
+              precio?: T;
+              precioTachado?: T;
+              precioNota?: T;
+              cuotasTexto?: T;
+              features?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        ctaAsesoria?:
+          | T
+          | {
+              titulo?: T;
+              texto?: T;
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+            };
+      };
+  instructor?:
+    | T
+    | {
+        eyebrow?: T;
+        nombre?: T;
+        rol?: T;
+        bioCorta1?: T;
+        bioCorta2?: T;
+        stats?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
+            };
+        foto?: T;
+        teaser?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  testimonios?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        items?: T;
+      };
+  logos?:
+    | T
+    | {
+        texto?: T;
+        items?: T;
+      };
+  faq?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        items?: T;
+      };
+  ctaFinal?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  stickyCta?:
+    | T
+    | {
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
