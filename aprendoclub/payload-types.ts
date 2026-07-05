@@ -99,8 +99,16 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-settings': SiteSetting;
+    'programas-hub': ProgramasHub;
+    'taller-seo-con-ia': TallerSeoConIa;
+  };
+  globalsSelect: {
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    'programas-hub': ProgramasHubSelect<false> | ProgramasHubSelect<true>;
+    'taller-seo-con-ia': TallerSeoConIaSelect<false> | TallerSeoConIaSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -599,6 +607,306 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  navbar: {
+    siteNav: {
+      label: string;
+      href: string;
+      type: 'route' | 'anchor';
+      id?: string | null;
+    }[];
+    siteCta: {
+      label: string;
+      href: string;
+    };
+    programMenu: {
+      label: string;
+      href: string;
+      desc: string;
+      badge: string;
+      id?: string | null;
+    }[];
+  };
+  footer: {
+    footerColumns: {
+      title: string;
+      links: {
+        label: string;
+        href: string;
+        external?: boolean | null;
+        id?: string | null;
+      }[];
+      id?: string | null;
+    }[];
+    footerSocials: {
+      id: 'youtube' | 'tiktok' | 'whatsapp' | 'instagram' | 'linkedin';
+      label: string;
+      href: string;
+    }[];
+    footerMeta: {
+      blurb: string;
+      copyrightLeft: string;
+      copyrightRight: string;
+      mobilePanelBlurb: string;
+    };
+  };
+  seo: {
+    siteUrl: string;
+    orgName: string;
+    orgAlternateName?: string | null;
+    orgLogo?: (number | null) | Media;
+    orgDescription: string;
+    orgFoundingDate: string;
+    founderName: string;
+    founderJobTitle: string;
+    sameAs: {
+      url: string;
+      id?: string | null;
+    }[];
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "programas-hub".
+ */
+export interface ProgramasHub {
+  id: number;
+  hero: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+  };
+  ctaFinal: {
+    titulo: string;
+    texto: string;
+    boton: {
+      label: string;
+      href: string;
+    };
+  };
+  programas: (number | Programa)[];
+  relatedLinks?: {
+    title?: string | null;
+    links?:
+      | {
+          label: string;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "taller-seo-con-ia".
+ */
+export interface TallerSeoConIa {
+  id: number;
+  hero: {
+    eyebrow: string;
+    titulo: string;
+    subtitulo: string;
+    duracion: string;
+  };
+  incluye: {
+    texto: string;
+    valor?: string | null;
+    id?: string | null;
+  }[];
+  paraQuien: string;
+  precio: {
+    monto: string;
+    opciones: {
+      texto: string;
+      id?: string | null;
+    }[];
+  };
+  cta: {
+    label: string;
+    href: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  navbar?:
+    | T
+    | {
+        siteNav?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              type?: T;
+              id?: T;
+            };
+        siteCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        programMenu?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              desc?: T;
+              badge?: T;
+              id?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        footerColumns?:
+          | T
+          | {
+              title?: T;
+              links?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    external?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        footerSocials?:
+          | T
+          | {
+              id?: T;
+              label?: T;
+              href?: T;
+            };
+        footerMeta?:
+          | T
+          | {
+              blurb?: T;
+              copyrightLeft?: T;
+              copyrightRight?: T;
+              mobilePanelBlurb?: T;
+            };
+      };
+  seo?:
+    | T
+    | {
+        siteUrl?: T;
+        orgName?: T;
+        orgAlternateName?: T;
+        orgLogo?: T;
+        orgDescription?: T;
+        orgFoundingDate?: T;
+        founderName?: T;
+        founderJobTitle?: T;
+        sameAs?:
+          | T
+          | {
+              url?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "programas-hub_select".
+ */
+export interface ProgramasHubSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+      };
+  ctaFinal?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        boton?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+      };
+  programas?: T;
+  relatedLinks?:
+    | T
+    | {
+        title?: T;
+        links?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "taller-seo-con-ia_select".
+ */
+export interface TallerSeoConIaSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        duracion?: T;
+      };
+  incluye?:
+    | T
+    | {
+        texto?: T;
+        valor?: T;
+        id?: T;
+      };
+  paraQuien?: T;
+  precio?:
+    | T
+    | {
+        monto?: T;
+        opciones?:
+          | T
+          | {
+              texto?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

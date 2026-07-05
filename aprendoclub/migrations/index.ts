@@ -1,6 +1,7 @@
 import * as migration_20260705_023446_initial from './20260705_023446_initial';
 import * as migration_20260705_024404_media_plugins from './20260705_024404_media_plugins';
 import * as migration_20260705_033500_p14_collections from './20260705_033500_p14_collections';
+import * as migration_20260705_042418_p14_globals_shell from './20260705_042418_p14_globals_shell';
 
 export const migrations = [
   {
@@ -16,6 +17,11 @@ export const migrations = [
   {
     up: migration_20260705_033500_p14_collections.up,
     down: migration_20260705_033500_p14_collections.down,
-    name: '20260705_033500_p14_collections'
+    name: '20260705_033500_p14_collections',
+  },
+  {
+    up: migration_20260705_042418_p14_globals_shell.up,
+    down: migration_20260705_042418_p14_globals_shell.down,
+    name: '20260705_042418_p14_globals_shell'
   },
 ];
