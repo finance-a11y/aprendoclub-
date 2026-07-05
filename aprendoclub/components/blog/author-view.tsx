@@ -2,8 +2,10 @@ import Image from 'next/image'
 
 import type { Author, Blogpost } from '@/payload-types'
 import { Eyebrow } from '@/components/ui/eyebrow'
+import { JsonLd } from '@/components/json-ld'
+import { authorGraph } from '@/lib/schema'
 import { PostGrid } from '@/components/blog/post-grid'
-import { mediaUrl } from '@/lib/blog/format'
+import { mediaUrl, postHref } from '@/lib/blog/format'
 
 /** Página de autor: bio + grid paginado de sus posts. */
 export function AuthorView({
@@ -19,8 +21,18 @@ export function AuthorView({
 }) {
   const avatar = mediaUrl(author.avatar)
 
+  const graph = authorGraph({
+    name: author.name,
+    path: `/autor/${author.slug}`,
+    role: author.role ?? undefined,
+    bio: author.bio ?? undefined,
+    imageUrl: avatar ?? undefined,
+    posts: posts.map((p) => ({ name: p.title, path: postHref(p) })),
+  })
+
   return (
     <div className="w-full bg-[var(--bg-primary)] text-white">
+      <JsonLd data={graph} />
       <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-5 pt-28 pb-12 text-center">
         <Eyebrow>Autor</Eyebrow>
         {avatar && (

@@ -215,6 +215,89 @@ export function blogPostingGraph({
   return node;
 }
 
+type BlogListItem = { name: string; path: string };
+
+/** CollectionPage + ItemList para el índice del blog y las páginas de categoría. */
+export function blogListGraph({
+  name,
+  path,
+  description,
+  items,
+}: {
+  name: string;
+  path: string;
+  description?: string;
+  items: BlogListItem[];
+}) {
+  const node: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}${path}`,
+    url: `${SITE_URL}${path}`,
+    name,
+    inLanguage: "es",
+    isPartOf: { "@id": WEBSITE_ID },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: items.map((it, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}${it.path}`,
+        name: it.name,
+      })),
+    },
+  };
+  if (description) node.description = description;
+  return node;
+}
+
+/** ProfilePage + Person para las páginas de autor, con sus artículos. */
+export function authorGraph({
+  name,
+  path,
+  role,
+  bio,
+  imageUrl,
+  posts,
+}: {
+  name: string;
+  path: string;
+  role?: string;
+  bio?: string;
+  imageUrl?: string;
+  posts: BlogListItem[];
+}) {
+  const person: Record<string, unknown> = {
+    "@type": "Person",
+    "@id": `${SITE_URL}${path}#person`,
+    name,
+    url: `${SITE_URL}${path}`,
+    worksFor: { "@id": ORG_ID },
+  };
+  if (role) person.jobTitle = role;
+  if (bio) person.description = bio;
+  if (imageUrl) {
+    person.image = imageUrl.startsWith("http") ? imageUrl : `${SITE_URL}${imageUrl}`;
+  }
+
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      url: `${SITE_URL}${path}`,
+      inLanguage: "es",
+      mainEntity: { "@id": `${SITE_URL}${path}#person` },
+      isPartOf: { "@id": WEBSITE_ID },
+      hasPart: posts.map((it) => ({
+        "@type": "BlogPosting",
+        headline: it.name,
+        url: `${SITE_URL}${it.path}`,
+      })),
+    },
+    { ...ctx, ...person },
+  ];
+}
+
 type ReviewInput = { nombre: string; quote: string; ubicacion?: string };
 
 /**

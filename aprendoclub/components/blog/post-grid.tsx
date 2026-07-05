@@ -27,7 +27,7 @@ export function PostGrid({
     <div className="flex w-full flex-col gap-12">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard key={post.id} post={post} headingLevel="h2" />
         ))}
       </div>
 

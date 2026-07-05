@@ -1,6 +1,9 @@
 import type { Blogpost, Category } from '@/payload-types'
 import { Eyebrow } from '@/components/ui/eyebrow'
+import { JsonLd } from '@/components/json-ld'
+import { blogListGraph } from '@/lib/schema'
 import { PostGrid } from '@/components/blog/post-grid'
+import { postHref } from '@/lib/blog/format'
 
 /** Índice de una categoría: cabecera + grid paginado de sus posts. */
 export function CategoryView({
@@ -14,8 +17,16 @@ export function CategoryView({
   page: number
   totalPages: number
 }) {
+  const graph = blogListGraph({
+    name: `${category.name} | Blog aprendoclub`,
+    path: `/${category.slug}`,
+    description: category.description ?? undefined,
+    items: posts.map((p) => ({ name: p.title, path: postHref(p) })),
+  })
+
   return (
     <div className="w-full bg-[var(--bg-primary)] text-white">
+      <JsonLd data={graph} />
       <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-4 pt-28 pb-12 text-center">
         <Eyebrow>Blog</Eyebrow>
         <h1 className="text-3xl font-semibold leading-tight md:text-5xl">

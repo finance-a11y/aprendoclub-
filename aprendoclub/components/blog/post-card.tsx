@@ -12,11 +12,22 @@ import {
   postHref,
 } from '@/lib/blog/format'
 
-/** Tarjeta de post para listados (índice, categoría, autor, relacionados). */
-export function PostCard({ post }: { post: Blogpost }) {
+/**
+ * Tarjeta de post para listados. `headingLevel` mantiene la jerarquía correcta:
+ * h2 en grids que cuelgan directo del h1 de la página (índice/categoría/autor),
+ * h3 en la sección "Sigue leyendo" (que ya tiene su propio h2).
+ */
+export function PostCard({
+  post,
+  headingLevel = 'h3',
+}: {
+  post: Blogpost
+  headingLevel?: 'h2' | 'h3'
+}) {
   const cat = categoryOf(post)
   const author = authorOf(post)
   const hero = mediaUrl(post.heroImage)
+  const Heading = headingLevel
 
   return (
     <Link
@@ -40,9 +51,9 @@ export function PostCard({ post }: { post: Blogpost }) {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
         {cat && <Eyebrow>{cat.name}</Eyebrow>}
-        <h3 className="text-lg font-semibold leading-snug text-white transition-colors group-hover:text-white/80">
+        <Heading className="text-lg font-semibold leading-snug text-white transition-colors group-hover:text-white/80">
           {post.title}
-        </h3>
+        </Heading>
         {post.excerpt && (
           <p className="line-clamp-3 text-sm leading-relaxed text-gray-400">
             {post.excerpt}
