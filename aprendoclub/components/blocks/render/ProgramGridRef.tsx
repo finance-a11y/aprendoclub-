@@ -7,7 +7,7 @@ import type { Programa, ProgramGridRefBlock as ProgramGridRefBlockType } from '@
  * Render de 'programGridRef': sectionHeader + botón + grid de `items`
  * (docs `programas`). Espeja components/programas-section.tsx usando
  * components/program-card.tsx como referencia (duplicado aquí porque
- * ProgramCard tipa contra content/programas.ts, no contra payload-types).
+ * ProgramCard tipa contra lib/programas.ts, no contra payload-types).
  */
 export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
   const items = (block.items ?? []).filter(

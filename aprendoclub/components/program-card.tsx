@@ -1,4 +1,4 @@
-import type { Program } from "@/content/programas";
+import type { Program } from "@/lib/programas";
 import { Card } from "@/components/ui/card";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";

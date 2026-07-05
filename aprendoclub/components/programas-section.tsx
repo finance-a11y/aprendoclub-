@@ -5,9 +5,10 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { ProgramCard } from "@/components/program-card";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
-import { programas, homeProgramas } from "@/content/programas";
+import type { Program } from "@/lib/programas";
+import { homeProgramas } from "@/lib/programas";
 
-export function ProgramasSection() {
+export function ProgramasSection({ programas }: { programas: Program[] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const reduceMotion = useReducedMotion();
