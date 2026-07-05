@@ -21,7 +21,6 @@ const RESERVED_SLUGS = new Set<string>([
   'home',
   'programas/taller-seo-con-ia',
   'reto',
-  'diplomado',
   'links',
   'admin',
   'api',
