@@ -1,15 +1,8 @@
 /**
- * Capa de contenido data-driven de la página Testimonios (Fase 3).
- *
- * TEST-01 / TEST-02: el contenido vive separado de la presentación en objetos
- * tipados. Cada interface espeja la forma de un futuro bloque/colección de Payload
- * (v1.1), de modo que la migración sea 1:1. Los componentes de sección consumen
- * estos exports; no redefinen copy inline.
- *
- * REGLA: los quotes son de personas reales y van VERBATIM de 03-CONTENT-SOURCE.md
- * (no reescribir). El copy propio de la página (hero, títulos, CTA) ya está
- * humanizado: español neutro, sin em/en dashes, sin AI tells. La marca ya viene
- * rebrandeada a "aprendoclub" en el source donde el quote la nombra.
+ * Datos históricos del extinto content/testimonios.ts (eliminado en Phase 15
+ * Plan 03 al pasar /testimonios a servirse desde su Pages doc). Se conservan
+ * aquí solo como fuente de seed, verbatim; ningún componente vivo lee de
+ * content/testimonios.ts.
  */
 
 /** Testimonio individual. Payload-ready: item de la colección `Testimonio`. */

@@ -29,7 +29,7 @@ import {
   reto as testimoniosReto,
   retoImagenes,
   trustedCompanies,
-} from '../../content/testimonios'
+} from './seed-data/testimonios'
 
 import type { CollectionMaps } from './collections'
 import { idsFor, mediaId } from './globals'

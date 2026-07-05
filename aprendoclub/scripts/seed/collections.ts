@@ -1,9 +1,9 @@
 import type { Payload } from 'payload'
 
 import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
-import { equipo, fundadora } from '../../content/quienes-somos'
+import { equipo, fundadora } from './seed-data/quienes-somos'
 import { faq as retoFaqSource } from '../../content/reto'
-import { testimonios as testimoniosSource, trustedCompanies } from '../../content/testimonios'
+import { testimonios as testimoniosSource, trustedCompanies } from './seed-data/testimonios'
 
 /**
  * Datos históricos del extinto content/programas.ts (eliminado en Phase 15

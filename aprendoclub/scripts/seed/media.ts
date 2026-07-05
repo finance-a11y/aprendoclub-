@@ -7,7 +7,7 @@ import type { Payload } from 'payload'
 import { equipo, fundadora } from '../../content/quienes-somos'
 import * as home from '../../content/home'
 import * as reto from '../../content/reto'
-import { retoImagenes, testimonios as testimoniosSource, trustedCompanies } from '../../content/testimonios'
+import { retoImagenes, testimonios as testimoniosSource, trustedCompanies } from './seed-data/testimonios'
 
 /**
  * Subida idempotente de imágenes/video de public/ a la colección Media (Vercel
