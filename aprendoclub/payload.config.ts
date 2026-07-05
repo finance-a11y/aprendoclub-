@@ -65,10 +65,11 @@ export default buildConfig({
       uploadsCollection: 'media',
       tabbedUI: true,
     }),
-    // redirectsPlugin's `to.reference` relationship field targets `programas`
-    // (colección de datos con slug) y `pages` (page-builder, Plan R02).
+    // El campo `to.reference` apunta a cualquiera de estas colecciones con URL
+    // pública. Los hooks de auto-redirect (lib/redirects) crean entradas de tipo
+    // reference contra pages/blogposts/categories cuando cambia un slug.
     redirectsPlugin({
-      collections: ['programas', 'pages'],
+      collections: ['programas', 'pages', 'blogposts', 'categories', 'authors'],
     }),
     nestedDocsPlugin({
       collections: [],

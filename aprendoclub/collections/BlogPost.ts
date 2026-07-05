@@ -1,6 +1,8 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 
+import { blogpostRedirectHook } from '../lib/redirects'
+
 const slugField = {
   name: 'slug',
   type: 'text' as const,
@@ -30,6 +32,7 @@ export const BlogPost: CollectionConfig = {
   },
   hooks: {
     afterChange: [
+      blogpostRedirectHook,
       ({ req }) => {
         if (req?.context?.disableRevalidate) return
         // La ruta exacta del post (/{categoria}/{slug}) se revalida por path en

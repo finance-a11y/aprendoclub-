@@ -1249,6 +1249,18 @@ export interface Redirect {
       | ({
           relationTo: 'pages';
           value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'blogposts';
+          value: number | Blogpost;
+        } | null)
+      | ({
+          relationTo: 'categories';
+          value: number | Category;
+        } | null)
+      | ({
+          relationTo: 'authors';
+          value: number | Author;
         } | null);
     url?: string | null;
   };

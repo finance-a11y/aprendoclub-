@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 
 import { allBlocks } from '../blocks'
+import { pageRedirectHook } from '../lib/redirects'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -16,6 +17,7 @@ export const Pages: CollectionConfig = {
   },
   hooks: {
     afterChange: [
+      pageRedirectHook,
       ({ doc, req }) => {
         if (req?.context?.disableRevalidate) return
         revalidatePath(`/${doc.slug === 'home' ? '' : doc.slug}`)

@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { getPayload } from 'payload'
 import type { Payload } from 'payload'
 
 import config from '@/payload.config'
 import { RenderBlocks } from '@/components/blocks/RenderBlocks'
 import { JsonLd } from '@/components/json-ld'
+import { resolveRedirect } from '@/lib/redirects'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { getGraphsForSlug } from '@/lib/schema-mappers'
 import { BlogPostView } from '@/components/blog/blog-post-view'
@@ -146,6 +147,12 @@ export default async function CatchAllPage({
 
   const doc = docs[0]
   if (!doc) {
+    // 3. Redirects gestionados (plugin-redirects): la ruta ya no resuelve a
+    //    contenido vivo; si hay un redirect, 308 al destino actual.
+    const dest = await resolveRedirect(payload, `/${slug}`)
+    if (dest && dest !== `/${slug}`) {
+      permanentRedirect(dest)
+    }
     notFound()
   }
 
