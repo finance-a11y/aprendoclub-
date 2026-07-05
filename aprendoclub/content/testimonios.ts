@@ -268,7 +268,7 @@ const retoImagenesAltos = [414, 762, 836, 299, 270, 196, 638, 852, 740];
 
 /** Galería del Reto: t1..t9. Alt numerado 1-9 para unicidad. */
 export const retoImagenes: RetoImagen[] = Array.from({ length: 9 }, (_, i) => ({
-  src: `/reto/testimonios/t${i + 1}.png`,
+  src: `/reto/testimonios/t${i + 1}.avif`,
   alt: `Testimonio de participante ${i + 1} del Reto 7 días`,
   width: 1000,
   height: retoImagenesAltos[i],

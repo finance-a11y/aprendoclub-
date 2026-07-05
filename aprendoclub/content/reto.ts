@@ -117,7 +117,7 @@ export const hero: RetoHero = {
     { label: "Quiero mi cupo", href: "https://api.whatsapp.com/send?phone=13055728892" },
     { label: "Pago en bolívares", href: "https://aprendoseo.apturio.com/metodos-de-pago-reto" },
   ],
-  imagen: "/reto/arianna-hero.png",
+  imagen: "/reto/arianna-hero.avif",
 };
 
 /** La razón por la cual no escalas. */
@@ -147,7 +147,7 @@ export const mentora: Mentora = {
   quote: "Deja de hacer todo. Si quieres posicionarte, enfócate en una sola cosa.",
   cierre:
     "Hoy dirijo aprendoclub, la plataforma #1 en LATAM para aprender esta especialidad en español: +10,000 estudiantes formados y una comunidad de +150K en TikTok, +75K en Instagram y 5K en YouTube.",
-  foto: "/reto/arianna-mentora.jpg",
+  foto: "/reto/arianna-mentora.avif",
 };
 
 /** Agenda de los 7 días (fiel al export). */
@@ -157,47 +157,47 @@ export const agenda: AgendaDia[] = [
     titulo: "Encuentra tu especialidad",
     descripcion:
       "Sales sabiendo en cuál de las habilidades mejor pagadas enfocarte, según tu perfil y el mercado.",
-    imagen: "/reto/dias/1.jpg",
+    imagen: "/reto/dias/1.avif",
   },
   {
     dia: "Día 2",
     titulo: "Adapta tu experiencia y tu nicho",
     descripcion: "Todo lo que ya viviste se vuelve tu ventaja. Sin empezar de cero.",
-    imagen: "/reto/dias/2.jpg",
+    imagen: "/reto/dias/2.avif",
   },
   {
     dia: "Día 3",
     titulo: "Aprende nuevas habilidades",
     descripcion:
       "Cómo dominar lo que necesitas para especializarte en las habilidades mejor pagadas.",
-    imagen: "/reto/dias/3.jpg",
+    imagen: "/reto/dias/3.avif",
   },
   {
     dia: "Día 4",
     titulo: "SEO con IA",
     descripcion:
       "La habilidad mejor pagada del marketing digital. Atrae tráfico sin pagar anuncios y aparece en Google, redes y en la IA: ChatGPT y Gemini.",
-    imagen: "/reto/dias/4.jpg",
+    imagen: "/reto/dias/4.avif",
   },
   {
     dia: "Día 5",
     titulo: "Marketing con IA",
     descripcion:
       "Usa la IA para generar estrategias, hooks, guiones, calendarios y análisis de competencia 3x más rápido.",
-    imagen: "/reto/dias/5.jpg",
+    imagen: "/reto/dias/5.avif",
   },
   {
     dia: "Día 6",
     titulo: "Empaqueta tu servicio + Plan SMART",
     descripcion:
       "Conviertes tu especialidad en una oferta concreta y construyes el plan SMART para monetizarla.",
-    imagen: "/reto/dias/6.jpg",
+    imagen: "/reto/dias/6.avif",
   },
   {
     dia: "Día 7",
     titulo: "Cierre, plan final y ganadores",
     descripcion: "Tu camino claro hacia tus primeros $1,000/mes y la premiación.",
-    imagen: "/reto/dias/7.jpg",
+    imagen: "/reto/dias/7.avif",
   },
 ];
 
@@ -221,8 +221,8 @@ export const incluye: string[] = [
 
 /** Premios del Reto. */
 export const premios: Premios = {
-  mayor: { titulo: "Premio mayor: una MacBook nueva", imagen: "/reto/premios/macbook.jpg" },
-  becas: { titulo: "Becas para certificarte", imagen: "/reto/premios/beca.jpg" },
+  mayor: { titulo: "Premio mayor: una MacBook nueva", imagen: "/reto/premios/macbook.avif" },
+  becas: { titulo: "Becas para certificarte", imagen: "/reto/premios/beca.avif" },
   comoSeGana:
     "No es sorteo al azar. Premiamos el compromiso: las mejores tareas y los planes mejor construidos durante el reto.",
 };
@@ -248,10 +248,10 @@ export const ganadoresIntro =
   "En cada edición, alguien se va a casa con una MacBook. Personas reales, como tú, que entraron por $20 y se tomaron el reto en serio.";
 
 export const ganadores: Ganador[] = [
-  { nombre: "Bregner Herrera", edicion: "Edición Enero 2026", imagen: "/reto/ganadores/g1.jpg" },
-  { nombre: "Germán Andrade", edicion: "Edición 2024", imagen: "/reto/ganadores/g2.jpg" },
-  { nombre: "Maiberth", edicion: "Edición 2024", imagen: "/reto/ganadores/g3.jpg" },
-  { nombre: "Stephany Vivas", edicion: "Edición 2025", imagen: "/reto/ganadores/g4.jpg" },
+  { nombre: "Bregner Herrera", edicion: "Edición Enero 2026", imagen: "/reto/ganadores/g1.avif" },
+  { nombre: "Germán Andrade", edicion: "Edición 2024", imagen: "/reto/ganadores/g2.avif" },
+  { nombre: "Maiberth", edicion: "Edición 2024", imagen: "/reto/ganadores/g3.avif" },
+  { nombre: "Stephany Vivas", edicion: "Edición 2025", imagen: "/reto/ganadores/g4.avif" },
 ];
 
 /** FAQ. Respuestas VERBATIM del export (index.txt); el em-dash de la primera se
