@@ -93,7 +93,7 @@
 
 - [x] 14-R01-PLAN.md — 29 bloques bespoke (un tipo por sección única) + barrel allBlocks[] (SCH-01)
 - [x] 14-R02-PLAN.md — Colección Pages (slug+layout+SEO) + eliminar 7 page-globals + migración + seoPlugin→pages (SCH-01)
-- [ ] 14-R03-PLAN.md — RenderBlocks + ruta catch-all segura/aditiva + adaptadores + render de bloques de referencia (SCH-01)
+- [x] 14-R03-PLAN.md — RenderBlocks + ruta catch-all segura/aditiva + adaptadores + render de bloques de referencia (SCH-01)
 - [ ] 14-R04-PLAN.md — Render home + quienes-somos + testimonios + taller + genéricos Hero/FeatureGrid/Pricing (SCH-01)
 - [ ] 14-R05-PLAN.md — Render diplomado (audience, curriculum 16 semanas, howItWorks, team, benefits, pricing) (SCH-01)
 - [ ] 14-R06-PLAN.md — Render reto (barra urgencia, hero, mentora, agenda, premios, ganadores, etc.) (SCH-01)
@@ -200,7 +200,7 @@ Phase 13 → Phase 14 → Phase 15 → Phase 16 → Phase 17 → Phase 18 (estri
 | 11. Microinteracciones pulidas + FAQ accordion | 2/2 | Complete | 2026-07-05 |
 | 12. Polish, performance y pase visual pixel | 3/3 | Complete | 2026-07-05 |
 | 13. Fundación — Next.js 16.2.6+ y Payload instalado | 4/5 | In Progress|  |
-| 14. Modelo de contenido — Globals, colecciones, blocks y seed | 10/15 | In Progress|  |
+| 14. Modelo de contenido — Globals, colecciones, blocks y seed | 11/15 | In Progress|  |
 | 15. Shell + primeros cutovers (Programas, Testimonios, Quiénes somos) | 0/TBD | Not started | - |
 | 16. Cutovers restantes (Diplomado, Reto, Taller) | 0/TBD | Not started | - |
 | 17. Cutover de Home + SEO/JSON-LD | 0/TBD | Not started | - |
