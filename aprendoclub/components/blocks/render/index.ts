@@ -30,6 +30,10 @@ import { HowItWorks } from './HowItWorks'
 import { DiplomadoTeam } from './DiplomadoTeam'
 import { DiplomadoBenefits } from './DiplomadoBenefits'
 import { DiplomadoPricing } from './DiplomadoPricing'
+import { BarraUrgencia } from './BarraUrgencia'
+import { RetoHero } from './RetoHero'
+import { RazonNoEscalas } from './RazonNoEscalas'
+import { Mentora } from './Mentora'
 
 /**
  * Registry blockType -> componente de render.
@@ -38,7 +42,9 @@ import { DiplomadoPricing } from './DiplomadoPricing'
  * los genéricos Hero/FeatureGrid/Pricing y los bespoke de home (heroHome,
  * instructor, stickyCta); R05 añade los bespoke del diplomado (audience,
  * curriculum16Semanas, howItWorks, diplomadoTeam, diplomadoBenefits,
- * diplomadoPricing). R06 sigue añadiendo entradas
+ * diplomadoPricing). R06 añade los bespoke del reto (barraUrgencia,
+ * retoHero, razonNoEscalas, mentora, agenda, comparacion, incluye, premios,
+ * retoPricing, ganadores), completando la cobertura total de blockTypes. R06 sigue añadiendo entradas
  * a este mismo objeto sin tocar las ya registradas. `RenderBlocks` tolera
  * blockType ausente de este registry (ver components/blocks/RenderBlocks.tsx),
  * así que agregar entradas incrementalmente nunca rompe el build.
@@ -74,4 +80,8 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   diplomadoTeam: DiplomadoTeam,
   diplomadoBenefits: DiplomadoBenefits,
   diplomadoPricing: DiplomadoPricing,
+  barraUrgencia: BarraUrgencia,
+  retoHero: RetoHero,
+  razonNoEscalas: RazonNoEscalas,
+  mentora: Mentora,
 }
