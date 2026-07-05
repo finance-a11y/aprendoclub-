@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    mimeTypes: ['image/*'],
+    mimeTypes: ['image/*', 'video/mp4'],
     imageSizes: [
       {
         name: 'thumbnail',
