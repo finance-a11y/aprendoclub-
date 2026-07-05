@@ -1,6 +1,8 @@
+import type { Page } from '@/payload-types'
+
 import { blockRenderers } from './render'
 
-type LayoutBlock = { blockType: string; id?: string | null; [key: string]: unknown }
+type LayoutBlock = Page['layout'][number]
 
 /**
  * Dispatcher server component: recorre `blocks` (Page.layout) y renderiza el
