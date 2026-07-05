@@ -1,1 +1,44 @@
-/* Estilos custom del admin de Payload — scoped al grupo (payload). Vacío por ahora. */
+/*
+ * Branding del admin de Payload con la identidad de aprendoclub.
+ * Solo estilos (colores, tipografía) + logo — sin tocar layouts ni vistas.
+ * Scoped al grupo (payload); no afecta al frontend.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Tipografía de marca */
+  --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+/*
+ * Paleta aprendoclub sobre el tema oscuro del admin.
+ * Se retintan las elevaciones bajas (fondos, superficies, bordes); el resto
+ * de la rampa de Payload (texto, elevaciones altas) se mantiene para no
+ * romper el contraste.
+ */
+html[data-theme='dark'] {
+  --theme-elevation-0: #0a0f14; /* fondo base */
+  --theme-elevation-50: #0d1117; /* superficies: cards, inputs, sidebar */
+  --theme-elevation-100: #111827; /* elevación secundaria */
+  --theme-elevation-150: #1f2937; /* bordes / divisores */
+
+  --theme-bg: #0a0f14;
+  --theme-input-bg: #0d1117;
+}
+
+/* Botón primario (login, guardar, publicar) con el azul de marca. */
+.btn--style-primary {
+  --bg-color: #012fd8;
+  --color: #ffffff;
+
+  &:hover,
+  &:focus {
+    --bg-color: #0360e5;
+  }
+}
+
+/* Acento en enlaces del admin. */
+a:not(.btn):not([class*='pill']) {
+  color: #0495f1;
+}

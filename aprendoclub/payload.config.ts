@@ -37,6 +37,15 @@ const Users = {
 export default buildConfig({
   admin: {
     user: 'users',
+    // Branding aprendoclub: tema oscuro fijo + logo/icono de marca. Los estilos
+    // (paleta, tipografía) viven en app/(payload)/custom.scss.
+    theme: 'dark',
+    components: {
+      graphics: {
+        Logo: '/components/admin/Logo#Logo',
+        Icon: '/components/admin/Icon#Icon',
+      },
+    },
   },
   collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost],
   globals: [SiteSettings],
