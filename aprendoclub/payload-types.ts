@@ -69,6 +69,11 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    testimonios: Testimonio;
+    'clientes-trabajados': ClientesTrabajado;
+    programas: Programa;
+    'team-members': TeamMember;
+    faq: Faq;
     redirects: Redirect;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -79,6 +84,11 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    testimonios: TestimoniosSelect<false> | TestimoniosSelect<true>;
+    'clientes-trabajados': ClientesTrabajadosSelect<false> | ClientesTrabajadosSelect<true>;
+    programas: ProgramasSelect<false> | ProgramasSelect<true>;
+    'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
+    faq: FaqSelect<false> | FaqSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -191,6 +201,86 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonios".
+ */
+export interface Testimonio {
+  id: number;
+  nombre: string;
+  rol?: string | null;
+  ubicacion?: string | null;
+  quote: string;
+  foto?: (number | null) | Media;
+  featuredOnHome?: boolean | null;
+  orden?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clientes-trabajados".
+ */
+export interface ClientesTrabajado {
+  id: number;
+  nombre: string;
+  logo: number | Media;
+  orden?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "programas".
+ */
+export interface Programa {
+  id: number;
+  slug: string;
+  badge: string;
+  nombre: string;
+  descripcion: string;
+  precio: string;
+  precioNota?: string | null;
+  ctaLabel: string;
+  ctaHref: string;
+  orden?: number | null;
+  menuDesc?: string | null;
+  menuBadge?: string | null;
+  testimonios?: (number | Testimonio)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members".
+ */
+export interface TeamMember {
+  id: number;
+  nombre: string;
+  rol: string;
+  bio: string;
+  foto?: (number | null) | Media;
+  iniciales: string;
+  web?: string | null;
+  mostrarEnQuienesSomos?: boolean | null;
+  mostrarEnDiplomado?: boolean | null;
+  orden?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faq".
+ */
+export interface Faq {
+  id: number;
+  question: string;
+  answer: string;
+  page: 'home' | 'diplomado' | 'reto' | 'taller-seo-con-ia';
+  orden?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -199,8 +289,8 @@ export interface Redirect {
   to?: {
     type?: ('reference' | 'custom') | null;
     reference?: {
-      relationTo: 'media';
-      value: number | Media;
+      relationTo: 'programas';
+      value: number | Programa;
     } | null;
     url?: string | null;
   };
@@ -238,6 +328,26 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'testimonios';
+        value: number | Testimonio;
+      } | null)
+    | ({
+        relationTo: 'clientes-trabajados';
+        value: number | ClientesTrabajado;
+      } | null)
+    | ({
+        relationTo: 'programas';
+        value: number | Programa;
+      } | null)
+    | ({
+        relationTo: 'team-members';
+        value: number | TeamMember;
+      } | null)
+    | ({
+        relationTo: 'faq';
+        value: number | Faq;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -358,6 +468,81 @@ export interface MediaSelect<T extends boolean = true> {
               filename?: T;
             };
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonios_select".
+ */
+export interface TestimoniosSelect<T extends boolean = true> {
+  nombre?: T;
+  rol?: T;
+  ubicacion?: T;
+  quote?: T;
+  foto?: T;
+  featuredOnHome?: T;
+  orden?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clientes-trabajados_select".
+ */
+export interface ClientesTrabajadosSelect<T extends boolean = true> {
+  nombre?: T;
+  logo?: T;
+  orden?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "programas_select".
+ */
+export interface ProgramasSelect<T extends boolean = true> {
+  slug?: T;
+  badge?: T;
+  nombre?: T;
+  descripcion?: T;
+  precio?: T;
+  precioNota?: T;
+  ctaLabel?: T;
+  ctaHref?: T;
+  orden?: T;
+  menuDesc?: T;
+  menuBadge?: T;
+  testimonios?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members_select".
+ */
+export interface TeamMembersSelect<T extends boolean = true> {
+  nombre?: T;
+  rol?: T;
+  bio?: T;
+  foto?: T;
+  iniciales?: T;
+  web?: T;
+  mostrarEnQuienesSomos?: T;
+  mostrarEnDiplomado?: T;
+  orden?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faq_select".
+ */
+export interface FaqSelect<T extends boolean = true> {
+  question?: T;
+  answer?: T;
+  page?: T;
+  orden?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

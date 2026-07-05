@@ -10,7 +10,12 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { ClientesTrabajados } from './collections/ClientesTrabajados'
+import { Faq } from './collections/Faq'
 import { Media } from './collections/Media'
+import { Programas } from './collections/Programas'
+import { TeamMembers } from './collections/TeamMembers'
+import { Testimonios } from './collections/Testimonios'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,7 +33,7 @@ export default buildConfig({
   admin: {
     user: 'users',
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({
@@ -51,11 +56,11 @@ export default buildConfig({
       collections: [],
       uploadsCollection: 'media',
     }),
-    // redirectsPlugin's `to.reference` relationship field requires at least
-    // one target collection; `media` is a placeholder until content
-    // collections (pages/blog-posts) land in Phase 14.
+    // redirectsPlugin's `to.reference` relationship field targets the
+    // `programas` collection: the only slug-based content collection that
+    // represents standalone pages today.
     redirectsPlugin({
-      collections: ['media'],
+      collections: ['programas'],
     }),
     nestedDocsPlugin({
       collections: [],
