@@ -29,7 +29,7 @@ export function RetoTop() {
       <section className="container-padding section-spacing max-w-6xl mx-auto grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <motion.div
           {...reveal}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
           <Eyebrow>{hero.eyebrow}</Eyebrow>
@@ -73,7 +73,7 @@ export function RetoTop() {
 
         <motion.div
           {...reveal}
-          transition={{ duration: 0.6, delay: reduceMotion ? 0 : 0.1 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-md"
         >
           <Image
@@ -91,7 +91,7 @@ export function RetoTop() {
       <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
         <motion.div
           {...reveal}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center"
         >
           <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
@@ -117,7 +117,7 @@ export function RetoTop() {
       <section className="container-padding section-spacing max-w-6xl mx-auto grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
         <motion.div
           {...reveal}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-sm"
         >
           <Image
@@ -130,7 +130,7 @@ export function RetoTop() {
         </motion.div>
         <motion.div
           {...reveal}
-          transition={{ duration: 0.6, delay: reduceMotion ? 0 : 0.1 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1, ease: "easeOut" }}
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-1">

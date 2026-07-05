@@ -75,7 +75,7 @@ export function RetoBottom() {
               <motion.div
                 key={index}
                 {...rise}
-                transition={{ duration: 0.5, delay: reduceMotion ? 0 : index * 0.05 }}
+                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.05, ease: "easeOut" }}
                 className={
                   index !== faq.length - 1 ? "border-b border-white/[0.06]" : ""
                 }
@@ -91,7 +91,7 @@ export function RetoBottom() {
                   </span>
                   <motion.div
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
                     className="shrink-0"
                   >
                     <ChevronDown className="h-5 w-5 text-gray-400 transition-colors duration-300" />
@@ -105,7 +105,7 @@ export function RetoBottom() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
                       <p className="pb-5 text-base leading-relaxed text-gray-400">

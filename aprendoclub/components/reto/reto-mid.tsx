@@ -39,7 +39,7 @@ export function RetoMid() {
               <motion.div
                 key={i}
                 {...reveal}
-                transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.05 }}
+                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : i * 0.05, ease: "easeOut" }}
                 className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]"
               >
                 <div className="relative aspect-video w-full">
@@ -130,7 +130,7 @@ export function RetoMid() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <motion.div
             {...reveal}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
             className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface-card)]"
           >
             <div className="relative aspect-video w-full">
@@ -147,7 +147,7 @@ export function RetoMid() {
           </motion.div>
           <motion.div
             {...reveal}
-            transition={{ duration: 0.5, delay: reduceMotion ? 0 : 0.05 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.05, ease: "easeOut" }}
             className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface-card)]"
           >
             <div className="relative aspect-video w-full">
@@ -182,7 +182,7 @@ export function RetoMid() {
               <motion.div
                 key={i}
                 {...reveal}
-                transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.05 }}
+                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : i * 0.05, ease: "easeOut" }}
                 className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]"
               >
                 <div className="relative aspect-square w-full">
