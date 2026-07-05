@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { ChevronDown } from "lucide-react"
-import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion"
+import { motion, useInView, useReducedMotion } from "framer-motion"
 import { diplomadoFaqs as faqs } from "@/content/faqs"
 import { Eyebrow } from "@/components/ui/eyebrow"
 
@@ -62,23 +62,19 @@ export function FAQ() {
               </motion.div>
             </button>
 
-            <AnimatePresence initial={false}>
-              {openIndex === index && (
-                <motion.div
-                  id={`diplomado-faq-panel-${index}`}
-                  role="region"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <p className="pb-5 text-base leading-relaxed text-gray-400">
-                    {faq.answer}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div
+              id={`diplomado-faq-panel-${index}`}
+              role="region"
+              className={`grid ${reduceMotion ? "" : "transition-[grid-template-rows] duration-300 ease-out"} ${
+                openIndex === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
+              <div className="overflow-hidden min-h-0">
+                <p className="pb-5 text-base leading-relaxed text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>

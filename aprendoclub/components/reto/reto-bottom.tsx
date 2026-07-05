@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import {
   motion,
-  AnimatePresence,
   useInView,
   useReducedMotion,
 } from "framer-motion";
@@ -97,23 +96,19 @@ export function RetoBottom() {
                     <ChevronDown className="h-5 w-5 text-gray-400 transition-colors duration-300" />
                   </motion.div>
                 </button>
-                <AnimatePresence initial={false}>
-                  {openIndex === index && (
-                    <motion.div
-                      id={`reto-faq-panel-${index}`}
-                      role="region"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-5 text-base leading-relaxed text-gray-400">
-                        {item.respuesta}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div
+                  id={`reto-faq-panel-${index}`}
+                  role="region"
+                  className={`grid ${reduceMotion ? "" : "transition-[grid-template-rows] duration-300 ease-out"} ${
+                    openIndex === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden min-h-0">
+                    <p className="pb-5 text-base leading-relaxed text-gray-400">
+                      {item.respuesta}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
