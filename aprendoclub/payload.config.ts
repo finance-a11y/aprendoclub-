@@ -51,8 +51,11 @@ export default buildConfig({
       collections: [],
       uploadsCollection: 'media',
     }),
+    // redirectsPlugin's `to.reference` relationship field requires at least
+    // one target collection; `media` is a placeholder until content
+    // collections (pages/blog-posts) land in Phase 14.
     redirectsPlugin({
-      collections: [],
+      collections: ['media'],
     }),
     nestedDocsPlugin({
       collections: [],
