@@ -9,11 +9,20 @@ import sharp from 'sharp'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const Users = {
+  slug: 'users',
+  auth: true,
+  admin: {
+    useAsTitle: 'email',
+  },
+  fields: [],
+}
+
 export default buildConfig({
   admin: {
     user: 'users',
   },
-  collections: [],
+  collections: [Users],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({
