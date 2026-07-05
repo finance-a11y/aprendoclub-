@@ -29,7 +29,7 @@ export function InstructorSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-start"
         >
           {/* Decorative Frame - offset behind */}
@@ -51,7 +51,7 @@ export function InstructorSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, x: 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
           <div>
@@ -88,7 +88,7 @@ export function InstructorSection() {
                 key={stat.label}
                 initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.4 + index * 0.1 }}
+                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.4 + index * 0.1, ease: "easeOut" }}
                 className="flex flex-col"
               >
                 <span className="text-3xl md:text-4xl font-semibold text-white">

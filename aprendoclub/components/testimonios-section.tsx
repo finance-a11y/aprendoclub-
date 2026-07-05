@@ -54,7 +54,7 @@ export function TestimoniosSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow className="tracking-wider">TESTIMONIOS</Eyebrow>
@@ -70,7 +70,7 @@ export function TestimoniosSection() {
             key={testimonial.name}
             initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.1 + index * 0.15 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1 + index * 0.15, ease: "easeOut" }}
             className="group"
           >
             <Card padding="compact" hover="lift">
@@ -112,7 +112,7 @@ export function TestimoniosSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.5 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
       >
         <Button href="/testimonios" variant="ghost">
           Ver todos los testimonios
@@ -123,7 +123,7 @@ export function TestimoniosSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.6, ease: "easeOut" }}
         className="flex flex-col items-center gap-6 pt-8"
       >
         <p className="text-sm text-gray-400 uppercase tracking-wider">

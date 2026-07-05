@@ -33,7 +33,7 @@ export function CtaSection() {
         <motion.h2
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white"
         >
           Deja de aprender solo. Únete a la comunidad.
@@ -42,7 +42,7 @@ export function CtaSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
         >
           <Button href="#precios" variant="primary" size="lg">
             Comenzar ahora
