@@ -34,6 +34,12 @@ import { BarraUrgencia } from './BarraUrgencia'
 import { RetoHero } from './RetoHero'
 import { RazonNoEscalas } from './RazonNoEscalas'
 import { Mentora } from './Mentora'
+import { Agenda } from './Agenda'
+import { Comparacion } from './Comparacion'
+import { Incluye } from './Incluye'
+import { Premios } from './Premios'
+import { RetoPricing } from './RetoPricing'
+import { Ganadores } from './Ganadores'
 
 /**
  * Registry blockType -> componente de render.
@@ -84,4 +90,10 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   retoHero: RetoHero,
   razonNoEscalas: RazonNoEscalas,
   mentora: Mentora,
+  agenda: Agenda,
+  comparacion: Comparacion,
+  incluye: Incluye,
+  premios: Premios,
+  retoPricing: RetoPricing,
+  ganadores: Ganadores,
 }
