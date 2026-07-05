@@ -48,9 +48,13 @@ export const BlogPost: CollectionConfig = {
     { name: 'title', type: 'text', required: true, label: 'Título' },
     slugField,
     {
-      name: 'metaDescription',
+      name: 'excerpt',
       type: 'textarea',
-      label: 'Meta descripción / extracto',
+      label: 'Extracto',
+      admin: {
+        description:
+          'Teaser para las tarjetas de listado. La meta description SEO vive en la pestaña SEO.',
+      },
     },
     {
       name: 'heroImage',

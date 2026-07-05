@@ -1188,7 +1188,10 @@ export interface Blogpost {
   id: number;
   title: string;
   slug: string;
-  metaDescription?: string | null;
+  /**
+   * Teaser para las tarjetas de listado. La meta description SEO vive en la pestaña SEO.
+   */
+  excerpt?: string | null;
   heroImage?: (number | null) | Media;
   category: number | Category;
   author: number | Author;
@@ -2379,7 +2382,7 @@ export interface AuthorsSelect<T extends boolean = true> {
 export interface BlogpostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  metaDescription?: T;
+  excerpt?: T;
   heroImage?: T;
   category?: T;
   author?: T;
