@@ -1,8 +1,72 @@
 import type { Payload } from 'payload'
 
-import { footerColumns, footerMeta, footerSocials, programMenu, siteCta, siteNav } from '../../content/site'
-
 import type { CollectionMaps } from './collections'
+
+/**
+ * Datos históricos del shell (antes en content/site.ts, eliminado en Phase 15
+ * al migrar navbar/footer a Payload — ver 15-01). Se conservan aquí solo como
+ * fuente de este seed one-off; el shell en vivo ya lee de site-settings/programas.
+ */
+const siteNav = [
+  { label: 'Inicio', href: '/', type: 'route' as const },
+  { label: 'Quiénes somos', href: '/quienes-somos', type: 'route' as const },
+  { label: 'Programas', href: '/programas', type: 'route' as const },
+  { label: 'Testimonios', href: '/testimonios', type: 'route' as const },
+]
+
+const siteCta = { label: 'Únete ahora', href: '/programas' }
+
+const programMenu = [
+  {
+    label: 'Diplomado de cero a SEO',
+    href: '/diplomado',
+    desc: '16 semanas para convertirte en especialista SEO.',
+    badge: 'Programa estrella',
+  },
+  {
+    label: 'Taller de SEO con IA',
+    href: '/programas/taller-seo-con-ia',
+    desc: '15 días para posicionar en Google, ChatGPT y Gemini.',
+    badge: '$49.99',
+  },
+  {
+    label: 'Reto 7 días',
+    href: '/reto',
+    desc: '7 días para elegir tu especialidad y cobrar en dólares.',
+    badge: '$20',
+  },
+]
+
+const footerColumns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
+  {
+    title: 'Programas',
+    links: [
+      { label: 'Diplomado', href: '/diplomado' },
+      { label: 'Taller SEO con IA', href: '/programas/taller-seo-con-ia' },
+      { label: 'Reto 7 días', href: '/reto' },
+    ],
+  },
+  {
+    title: 'aprendoclub',
+    links: [
+      { label: 'Quiénes somos', href: '/quienes-somos' },
+      { label: 'Testimonios', href: '/testimonios' },
+    ],
+  },
+]
+
+const footerSocials = [
+  { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@aprendoclub' },
+  { id: 'tiktok', label: 'TikTok', href: 'https://tiktok.com/@aprendo.club' },
+  { id: 'whatsapp', label: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=13055728892' },
+]
+
+const footerMeta = {
+  blurb: 'Academia de SEO + IA. Formación, comunidad y acompañamiento para especialistas.',
+  copyrightLeft: 'aprendoclub. Todos los derechos reservados.',
+  copyrightRight: 'Hecho con 💚 para la comunidad SEO',
+  mobilePanelBlurb: 'Membresía profesional SEO + IA',
+}
 
 /**
  * Helpers de shaping compartidos con scripts/seed/pages.ts (R07). Se

@@ -4,8 +4,34 @@ import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
 import { programas } from '../../content/programas'
 import { equipo, fundadora } from '../../content/quienes-somos'
 import { faq as retoFaqSource } from '../../content/reto'
-import { programMenu } from '../../content/site'
 import { testimonios as testimoniosSource, trustedCompanies } from '../../content/testimonios'
+
+/**
+ * Datos históricos del megamenú de navbar (antes en content/site.ts, eliminado
+ * en Phase 15 al migrar el shell a Payload). Se conservan aquí solo como
+ * fuente para poblar `menuDesc`/`menuBadge` de la colección `programas` en
+ * este seed; el shell ya no lee de este archivo (lee de la colección).
+ */
+const programMenu = [
+  {
+    label: 'Diplomado de cero a SEO',
+    href: '/diplomado',
+    desc: '16 semanas para convertirte en especialista SEO.',
+    badge: 'Programa estrella',
+  },
+  {
+    label: 'Taller de SEO con IA',
+    href: '/programas/taller-seo-con-ia',
+    desc: '15 días para posicionar en Google, ChatGPT y Gemini.',
+    badge: '$49.99',
+  },
+  {
+    label: 'Reto 7 días',
+    href: '/reto',
+    desc: '7 días para elegir tu especialidad y cobrar en dólares.',
+    badge: '$20',
+  },
+]
 
 /**
  * IDs/maps devueltos tras poblar las 5 colecciones, para que globals.ts
