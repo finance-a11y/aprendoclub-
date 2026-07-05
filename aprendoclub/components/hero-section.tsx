@@ -60,7 +60,7 @@ export function HeroSection() {
         <motion.h1
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
           className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white"
         >
          La única academia que te prepara {" "}
@@ -73,7 +73,7 @@ export function HeroSection() {
         <motion.p
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="text-lg md:text-xl text-gray-400 max-w-2xl"
         >
           Especialízate en SEO con la plataforma educativa que te lleva de cero
@@ -84,7 +84,7 @@ export function HeroSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.6, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full sm:w-auto"
         >
           <Button
@@ -114,7 +114,7 @@ export function HeroSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 1, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 1, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-8"
         >
           {/* Avatars */}
@@ -145,7 +145,7 @@ export function HeroSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 1.2, ease: "easeOut" }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 1.2, ease: "easeOut" }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div

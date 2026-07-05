@@ -44,7 +44,7 @@ export function BeneficiosSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow>LA SOLUCIÓN</Eyebrow>
@@ -63,7 +63,7 @@ export function BeneficiosSection() {
             key={benefit.title}
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1, ease: "easeOut" }}
           >
             <Card hover="lift" className="group flex flex-col items-center gap-5 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--accent)]/10 transition-colors group-hover:bg-[var(--accent)]/20">

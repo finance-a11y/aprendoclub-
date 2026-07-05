@@ -23,7 +23,7 @@ export function ProgramasSection() {
     >
       <motion.div
         {...rise}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4"
       >
         <Eyebrow className="tracking-[0.2em]">{homeProgramas.eyebrow}</Eyebrow>
@@ -40,7 +40,7 @@ export function ProgramasSection() {
           <motion.div
             key={program.id}
             {...rise}
-            transition={{ duration: 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1, ease: "easeOut" }}
           >
             <ProgramCard program={program} compact />
           </motion.div>
