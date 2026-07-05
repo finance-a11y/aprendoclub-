@@ -655,9 +655,10 @@ export interface SiteSetting {
       id?: string | null;
     }[];
     footerSocials: {
-      id: 'youtube' | 'tiktok' | 'whatsapp' | 'instagram' | 'linkedin';
+      socialId: 'youtube' | 'tiktok' | 'whatsapp' | 'instagram' | 'linkedin';
       label: string;
       href: string;
+      id?: string | null;
     }[];
     footerMeta: {
       blurb: string;
@@ -1014,6 +1015,9 @@ export interface Home {
       id?: string | null;
     };
     microcopy?: string | null;
+    avatares?: (number | Media)[] | null;
+    ratingTexto?: string | null;
+    videoBackground?: (number | null) | Media;
   };
   problema: {
     eyebrow?: string | null;
@@ -1426,9 +1430,10 @@ export interface SiteSettingsSelect<T extends boolean = true> {
         footerSocials?:
           | T
           | {
-              id?: T;
+              socialId?: T;
               label?: T;
               href?: T;
+              id?: T;
             };
         footerMeta?:
           | T
@@ -1862,6 +1867,9 @@ export interface HomeSelect<T extends boolean = true> {
               id?: T;
             };
         microcopy?: T;
+        avatares?: T;
+        ratingTexto?: T;
+        videoBackground?: T;
       };
   problema?:
     | T

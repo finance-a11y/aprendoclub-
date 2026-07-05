@@ -36,7 +36,28 @@ export const Home: GlobalConfig = {
     {
       name: 'hero',
       type: 'group',
-      fields: heroFields,
+      fields: [
+        ...heroFields,
+        // Campos propios del hero del home (no compartidos con heroFields):
+        // avatares de estudiantes, texto de rating y video de fondo.
+        {
+          name: 'avatares',
+          type: 'relationship',
+          relationTo: 'media',
+          hasMany: true,
+          label: 'Avatares de estudiantes',
+        },
+        {
+          name: 'ratingTexto',
+          type: 'text',
+        },
+        {
+          name: 'videoBackground',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Video de fondo',
+        },
+      ],
     },
     {
       name: 'problema',

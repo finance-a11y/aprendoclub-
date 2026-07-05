@@ -118,7 +118,10 @@ export const SiteSettings: GlobalConfig = {
           required: true,
           fields: [
             {
-              name: 'id',
+              // Nota: NO se llama "id" — cada fila de un array de Payload ya
+              // trae su propio campo `id` autogenerado; un field llamado
+              // igual colisiona con esa columna en Postgres (T-14, seed).
+              name: 'socialId',
               type: 'select',
               required: true,
               options: [

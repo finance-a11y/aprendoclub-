@@ -6,6 +6,8 @@ import * as migration_20260705_044720_p14_globals_about_testimonios from './2026
 import * as migration_20260705_045406_p14_global_reto from './20260705_045406_p14_global_reto';
 import * as migration_20260705_050208_p14_global_home from './20260705_050208_p14_global_home';
 import * as migration_20260705_050811_p14_global_diplomado from './20260705_050811_p14_global_diplomado';
+import * as migration_20260705_051721_p14_home_hero_media_fields from './20260705_051721_p14_home_hero_media_fields';
+import * as migration_20260705_052627_p14_footer_social_id_fix from './20260705_052627_p14_footer_social_id_fix';
 
 export const migrations = [
   {
@@ -46,6 +48,16 @@ export const migrations = [
   {
     up: migration_20260705_050811_p14_global_diplomado.up,
     down: migration_20260705_050811_p14_global_diplomado.down,
-    name: '20260705_050811_p14_global_diplomado'
+    name: '20260705_050811_p14_global_diplomado',
+  },
+  {
+    up: migration_20260705_051721_p14_home_hero_media_fields.up,
+    down: migration_20260705_051721_p14_home_hero_media_fields.down,
+    name: '20260705_051721_p14_home_hero_media_fields',
+  },
+  {
+    up: migration_20260705_052627_p14_footer_social_id_fix.up,
+    down: migration_20260705_052627_p14_footer_social_id_fix.down,
+    name: '20260705_052627_p14_footer_social_id_fix'
   },
 ];
