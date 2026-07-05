@@ -174,7 +174,7 @@ export function Navbar() {
                           initial={reduceMotion ? false : { opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
-                          transition={{ duration: reduceMotion ? 0 : 0.18 }}
+                          transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }}
                           role="menu"
                           aria-label="Programas"
                           className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4"
@@ -280,7 +280,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
               className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
@@ -321,7 +321,7 @@ export function Navbar() {
                       : {
                           initial: { opacity: 0, x: 20 },
                           animate: { opacity: 1, x: 0 },
-                          transition: { delay: index * 0.1 },
+                          transition: { duration: 0.3, delay: index * 0.1, ease: "easeOut" },
                         };
 
                     return item.type === "route" ? (
@@ -356,7 +356,7 @@ export function Navbar() {
                 <motion.div
                   initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: reduceMotion ? 0 : 0.4 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
                   className="mt-6"
                 >
                   <div onClick={() => setIsMobileMenuOpen(false)}>
