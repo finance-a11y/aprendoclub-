@@ -10,17 +10,22 @@ import { TestimonialRef } from './TestimonialRef'
 import { TeamGridRef } from './TeamGridRef'
 import { ProgramGridRef } from './ProgramGridRef'
 import { LogosRef } from './LogosRef'
+import { Hero } from './Hero'
+import { FeatureGrid } from './FeatureGrid'
+import { Pricing } from './Pricing'
+import { HeroHome } from './HeroHome'
+import { Instructor } from './Instructor'
+import { StickyCta } from './StickyCta'
 
 /**
  * Registry blockType -> componente de render.
  *
- * Plan R03 registra los 10 bloques de referencia/primitivos. Los Planes
- * R04-R06 AÑADEN sus propias entradas a este mismo objeto (uno por bloque
- * bespoke: hero, pricing, featureGrid, y los ~29 bloques bespoke de
- * home/quienes-somos/diplomado/reto/taller) sin tocar las ya registradas
- * aquí. `RenderBlocks` tolera blockType ausente de este registry (ver
- * components/blocks/RenderBlocks.tsx), así que agregar entradas
- * incrementalmente en R04-R06 nunca rompe el build.
+ * Plan R03 registró los 10 bloques de referencia/primitivos. Plan R04 AÑADE
+ * los genéricos Hero/FeatureGrid/Pricing y los bespoke de home (heroHome,
+ * instructor, stickyCta); R04 (tasks 2-3) y R05-R06 siguen añadiendo entradas
+ * a este mismo objeto sin tocar las ya registradas. `RenderBlocks` tolera
+ * blockType ausente de este registry (ver components/blocks/RenderBlocks.tsx),
+ * así que agregar entradas incrementalmente nunca rompe el build.
  */
 export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   sectionHeader: SectionHeader,
@@ -33,4 +38,10 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   teamGridRef: TeamGridRef,
   programGridRef: ProgramGridRef,
   logosRef: LogosRef,
+  hero: Hero,
+  featureGrid: FeatureGrid,
+  pricing: Pricing,
+  heroHome: HeroHome,
+  instructor: Instructor,
+  stickyCta: StickyCta,
 }
