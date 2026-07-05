@@ -4,8 +4,7 @@ import { hero as diplomadoHero } from '../../content/diplomado'
 import * as diplomado from '../../content/diplomado'
 import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
 import * as home from '../../content/home'
-import { homeProgramas } from '../../content/programas'
-import { hubCtaFinal, hubHero } from '../../content/programas'
+import { homeProgramas } from '../../lib/programas'
 import {
   ctaFinal as quienesSomosCtaFinal,
   fundadora,
@@ -52,6 +51,26 @@ const DIPLOMADO_TEAM_ORDER = [
   'Juan Carlos Angulo',
   'Verónica Romero',
 ]
+
+/**
+ * Hero y CTA final del hub /programas (históricamente en el extinto
+ * content/programas.ts, eliminado en Phase 15 Plan 02 al pasar el hub a
+ * servirse desde este Pages doc). Se conservan aquí solo como fuente de
+ * seed, verbatim; el hub ya no lee de content/programas.ts.
+ */
+const hubHero = {
+  eyebrow: 'PROGRAMAS',
+  titulo: 'Elige el camino que va con tu momento',
+  subtitulo:
+    'Desde un reto de 7 días hasta el diplomado completo. Todos con proyectos reales y acompañamiento de cerca.',
+}
+
+const hubCtaFinal = {
+  titulo: '¿No sabes por dónde empezar?',
+  texto: 'Escríbenos y te ayudamos a elegir el programa ideal para ti.',
+  botonLabel: 'Habla con nosotros',
+  botonHref: 'https://api.whatsapp.com/send?phone=13055728892',
+}
 
 /** Orden de display del hub /programas (page.tsx: baja -> alta implicación). */
 const PROGRAMAS_HUB_ORDER = ['reto', 'taller-seo-con-ia', 'diplomado']

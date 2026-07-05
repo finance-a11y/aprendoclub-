@@ -1,10 +1,51 @@
 import type { Payload } from 'payload'
 
 import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
-import { programas } from '../../content/programas'
 import { equipo, fundadora } from '../../content/quienes-somos'
 import { faq as retoFaqSource } from '../../content/reto'
 import { testimonios as testimoniosSource, trustedCompanies } from '../../content/testimonios'
+
+/**
+ * Datos históricos del extinto content/programas.ts (eliminado en Phase 15
+ * Plan 02 al pasar el hub /programas y la sección de programas del home a
+ * leer de esta colección). Se conservan aquí solo como fuente de seed,
+ * verbatim; ningún componente vivo lee de content/programas.ts.
+ */
+const programas = [
+  {
+    id: 'diplomado',
+    badge: 'Programa estrella',
+    nombre: 'Diplomado de cero a SEO',
+    descripcion:
+      '16 semanas para convertirte en especialista SEO, sin experiencia previa. Práctica real, coaching en vivo y certificación.',
+    precio: 'Desde $700 USD',
+    precioNota: '4 cuotas',
+    ctaLabel: 'Ver diplomado',
+    ctaHref: '/diplomado',
+  },
+  {
+    id: 'taller-seo-con-ia',
+    badge: 'Rápido e intensivo',
+    nombre: 'Taller de SEO con IA',
+    descripcion:
+      '15 días para aprender a posicionar en Google, ChatGPT y Gemini. 16 módulos con prompts listos para usar.',
+    precio: '$49.99',
+    precioNota: undefined as string | undefined,
+    ctaLabel: 'Ver taller',
+    ctaHref: '/programas/taller-seo-con-ia',
+  },
+  {
+    id: 'reto',
+    badge: 'Empieza el 13 de julio',
+    nombre: 'Reto 7 días',
+    descripcion:
+      '7 días para elegir tu especialidad y salir con un plan para cobrar en dólares. Concursa por una MacBook.',
+    precio: '$20',
+    precioNota: undefined as string | undefined,
+    ctaLabel: 'Ver reto',
+    ctaHref: '/reto',
+  },
+]
 
 /**
  * Datos históricos del megamenú de navbar (antes en content/site.ts, eliminado

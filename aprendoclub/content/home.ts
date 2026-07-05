@@ -15,7 +15,7 @@
  * componentes del home conservan su copy inline hasta la Fase 17.
  */
 
-import { homeProgramas } from "./programas";
+import { homeProgramas } from "@/lib/programas";
 
 /** Payload-ready: mapea al bloque `Hero` (heroFields en blocks/Hero.ts). */
 export interface HomeHero {
@@ -147,9 +147,10 @@ export const beneficios: FeatureGridSection = {
 };
 
 /**
- * Programas (sección del home). Reusa `homeProgramas` de content/programas.ts
- * (ya existente, PROG-06) sin duplicar valores. Las cards de programas vienen
- * de la colección `programas` (relationship en globals/Home.ts).
+ * Programas (sección del home). Reusa `homeProgramas` de lib/programas.ts
+ * (movido ahí en Phase 15 Plan 02 al borrar content/programas.ts) sin
+ * duplicar valores. Las cards de programas vienen de la colección
+ * `programas` (Phase 15 Plan 02: home page.tsx la fetchea directo).
  */
 export { homeProgramas };
 

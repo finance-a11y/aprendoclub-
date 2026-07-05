@@ -11,15 +11,25 @@ import { FaqSection } from "@/components/faq-section";
 import { JsonLd } from "@/components/json-ld";
 import { homeGraph, faqGraph } from "@/lib/schema";
 import { homeFaqs } from "@/content/faqs";
+import { getPayloadClient } from "@/lib/payload";
+import { mapProgramaDoc } from "@/lib/programas";
 
-export default function Home() {
+export default async function Home() {
+  const payload = await getPayloadClient();
+  const { docs: programaDocs } = await payload.find({
+    collection: "programas",
+    sort: "orden",
+    depth: 0,
+  });
+  const programas = programaDocs.map(mapProgramaDoc);
+
   return (
     <>
       <JsonLd data={[...homeGraph(), faqGraph(homeFaqs)]} />
       <HeroSection />
       <ProblemaSection />
       <BeneficiosSection />
-      <ProgramasSection />
+      <ProgramasSection programas={programas} />
       <PricingSection />
       <TestimoniosSection />
       <InstructorSection />
