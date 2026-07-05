@@ -13,17 +13,11 @@ import sharp from 'sharp'
 import { ClientesTrabajados } from './collections/ClientesTrabajados'
 import { Faq } from './collections/Faq'
 import { Media } from './collections/Media'
+import { Pages } from './collections/Pages'
 import { Programas } from './collections/Programas'
 import { TeamMembers } from './collections/TeamMembers'
 import { Testimonios } from './collections/Testimonios'
-import { Diplomado } from './globals/Diplomado'
-import { Home } from './globals/Home'
-import { ProgramasHub } from './globals/ProgramasHub'
-import { QuienesSomos } from './globals/QuienesSomos'
-import { Reto } from './globals/Reto'
 import { SiteSettings } from './globals/SiteSettings'
-import { Taller } from './globals/Taller'
-import { TestimoniosPage } from './globals/TestimoniosPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -41,8 +35,8 @@ export default buildConfig({
   admin: {
     user: 'users',
   },
-  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq],
-  globals: [SiteSettings, ProgramasHub, Taller, QuienesSomos, TestimoniosPage, Reto, Home, Diplomado],
+  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages],
+  globals: [SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({
@@ -62,18 +56,16 @@ export default buildConfig({
       },
       token: process.env.BLOB_READ_WRITE_TOKEN,
     }),
-    // Collections/globals target sets are finalized in Phase 14 once content
-    // collections (BlogPost, Category, etc.) exist. Loaded here empty so the
-    // plugins register and their schema is ready to extend.
+    // SEO tab por página: attach a la colección `pages` (page-builder, Plan R02).
     seoPlugin({
-      collections: [],
+      collections: ['pages'],
       uploadsCollection: 'media',
+      tabbedUI: true,
     }),
-    // redirectsPlugin's `to.reference` relationship field targets the
-    // `programas` collection: the only slug-based content collection that
-    // represents standalone pages today.
+    // redirectsPlugin's `to.reference` relationship field targets `programas`
+    // (colección de datos con slug) y `pages` (page-builder, Plan R02).
     redirectsPlugin({
-      collections: ['programas'],
+      collections: ['programas', 'pages'],
     }),
     nestedDocsPlugin({
       collections: [],
