@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 
 import { getPayloadClient } from "@/lib/payload";
 import { RenderBlocks } from "@/components/blocks/RenderBlocks";
+import { JsonLd } from "@/components/json-ld";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { getGraphsForSlug } from "@/lib/schema-mappers";
 
 // El home se sirve desde el Page slug='home' de Payload (los bloques se
 // crean/editan desde /admin y deben reflejarse sin rebuild). El catch-all
@@ -38,5 +40,12 @@ export default async function Home() {
     notFound();
   }
 
-  return <RenderBlocks blocks={doc.layout ?? []} />;
+  const graphs = await getGraphsForSlug("", payload, doc);
+
+  return (
+    <>
+      {graphs && <JsonLd data={graphs} />}
+      <RenderBlocks blocks={doc.layout ?? []} />
+    </>
+  );
 }
