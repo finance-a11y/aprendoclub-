@@ -185,15 +185,15 @@ export default function LinksPage() {
                 }}
                 whileHover={reduceMotion || !canHover ? undefined : { scale: 1.02 }}
                 whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-                className="group flex items-center gap-4 rounded-2xl border border-[var(--border-glass)] bg-[var(--bg-secondary)]/60 px-5 py-4 backdrop-blur-sm transition-colors hover:border-[var(--accent)]/50 hover:bg-[var(--bg-tertiary)]/60"
+                className="group flex items-center gap-4 rounded-2xl border border-[var(--border-glass)] bg-[var(--bg-secondary)]/60 px-5 py-4 backdrop-blur-sm transition-colors hover:border-white/20 hover:bg-[var(--bg-tertiary)]/60"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/15 text-[var(--primary-light)] transition-colors group-hover:bg-[var(--accent)]/15 group-hover:text-[var(--accent)]">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/15 text-[var(--primary-light)] transition-colors">
                   <Icon className="h-5 w-5" />
                 </span>
                 <span className="flex-1 text-sm font-semibold text-white">
                   {link.label}
                 </span>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-gray-400 transition-colors group-hover:text-[var(--accent)]" />
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-gray-400 transition-colors group-hover:text-white" />
               </motion.a>
             );
           })}
@@ -214,7 +214,7 @@ export default function LinksPage() {
               rel="noopener noreferrer"
               aria-label={social.label}
               onClick={() => trackLinkClick(social.id, social.label, social.href)}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-glass)] bg-[var(--bg-secondary)]/60 text-gray-300 backdrop-blur-sm transition-colors hover:border-[var(--accent)]/50 hover:text-[var(--accent)]"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-glass)] bg-[var(--bg-secondary)]/60 text-gray-300 backdrop-blur-sm transition-colors hover:border-white/20 hover:text-white"
             >
               {social.icon}
             </a>
