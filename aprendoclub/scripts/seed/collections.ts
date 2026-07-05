@@ -1,6 +1,6 @@
 import type { Payload } from 'payload'
 
-import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
+import { diplomadoFaqs, homeFaqs } from './seed-data/faqs'
 import { equipo, fundadora } from './seed-data/quienes-somos'
 import { faq as retoFaqSource } from './seed-data/reto'
 import { testimonios as testimoniosSource, trustedCompanies } from './seed-data/testimonios'

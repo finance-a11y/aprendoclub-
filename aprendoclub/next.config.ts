@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // El índice se sirve en `/`; /home (slug del Page en Payload) redirige a la raíz.
+      { source: "/home", destination: "/", permanent: true },
+    ];
+  },
 };
 
 export default withPayload(nextConfig, { devBundleServerPackages: false });

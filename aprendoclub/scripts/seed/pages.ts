@@ -2,8 +2,8 @@ import type { Payload } from 'payload'
 
 import { hero as diplomadoHero } from './seed-data/diplomado'
 import * as diplomado from './seed-data/diplomado'
-import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
-import * as home from '../../content/home'
+import { diplomadoFaqs, homeFaqs } from './seed-data/faqs'
+import * as home from './seed-data/home'
 import { homeProgramas } from '../../lib/programas'
 import {
   ctaFinal as quienesSomosCtaFinal,

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import type { Payload } from 'payload'
 
 import { equipo, fundadora } from './seed-data/quienes-somos'
-import * as home from '../../content/home'
+import * as home from './seed-data/home'
 import * as reto from './seed-data/reto'
 import { retoImagenes, testimonios as testimoniosSource, trustedCompanies } from './seed-data/testimonios'
 
