@@ -1,7 +1,7 @@
 import type { Payload } from 'payload'
 
-import { hero as diplomadoHero } from '../../content/diplomado'
-import * as diplomado from '../../content/diplomado'
+import { hero as diplomadoHero } from './seed-data/diplomado'
+import * as diplomado from './seed-data/diplomado'
 import { diplomadoFaqs, homeFaqs } from '../../content/faqs'
 import * as home from '../../content/home'
 import { homeProgramas } from '../../lib/programas'
