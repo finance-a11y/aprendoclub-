@@ -35,44 +35,74 @@ export function Curriculum() {
           Pasa de no saber nada a optimizar tu primer sitio web en 16 semanas
         </h2>
 
-        <div className="mt-10 flex flex-col gap-2">
-          {weeks.map((w, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-[var(--border-card)] bg-[var(--surface-card)] transition-colors hover:border-white/20"
-            >
-              <button
-                onClick={() => setOpenWeek(openWeek === i ? null : i)}
-                aria-expanded={openWeek === i}
-                aria-controls={`week-panel-${i}`}
-                className="flex w-full items-center gap-4 px-6 py-4 text-left"
-              >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-xs font-semibold text-[var(--primary-light)]">
-                  {w.week}
-                </span>
-                <span className="flex-1 text-sm font-medium text-white md:text-base">
-                  SEMANA {w.week}: {w.title}
-                </span>
-                <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-gray-400 transition-transform ${
-                    openWeek === i ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {openWeek === i && (
-                <div
-                  id={`week-panel-${i}`}
-                  role="region"
-                  className="border-t border-[var(--border-card)] px-6 py-4"
-                >
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    {w.detail}
-                  </p>
+        <ol className="mt-12 max-w-3xl">
+          {weeks.map((w, i) => {
+            const open = openWeek === i
+            const last = i === weeks.length - 1
+            return (
+              <li key={i} className="flex gap-4 md:gap-5">
+                {/* Node + connecting line */}
+                <div className="flex flex-col items-center">
+                  <span
+                    aria-hidden="true"
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-sm font-semibold transition-colors duration-200 ${
+                      open
+                        ? "border-[var(--primary)] bg-[var(--primary)] text-white"
+                        : "border-[var(--border-card)] bg-[var(--surface-card)] text-[var(--primary-light)]"
+                    }`}
+                  >
+                    {w.week}
+                  </span>
+                  {!last && (
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 w-px flex-1 bg-[var(--border-card)]"
+                    />
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
+
+                {/* Content */}
+                <div className={last ? "flex-1" : "flex-1 pb-6"}>
+                  <button
+                    onClick={() => setOpenWeek(open ? null : i)}
+                    aria-expanded={open}
+                    aria-controls={`week-panel-${i}`}
+                    className="group flex w-full items-start gap-3 pt-1.5 text-left"
+                  >
+                    <span className="flex-1">
+                      <span className="block text-xs font-medium uppercase tracking-[0.12em] text-[var(--primary-light)]">
+                        Semana {w.week}
+                      </span>
+                      <span className="mt-0.5 block text-sm font-semibold text-white transition-colors group-hover:text-white/90 md:text-base">
+                        {w.title}
+                      </span>
+                    </span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={`mt-1 h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 ${
+                        open ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <div
+                    id={`week-panel-${i}`}
+                    role="region"
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                      open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <p className="pt-2 text-sm leading-relaxed text-gray-400">
+                        {w.detail}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            )
+          })}
+        </ol>
       </div>
     </section>
   )
