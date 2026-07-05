@@ -6,6 +6,7 @@ import {
 } from '@payloadcms/richtext-lexical'
 
 import config from '../payload.config'
+import { rewriteBodyLinks } from './seed/rewrite-links'
 
 /**
  * Migración del blog de aprendoseo.com (Webflow) → colecciones Payload
@@ -370,7 +371,28 @@ async function run() {
     }
   }
 
-  console.log(`\n[blog] LISTO — posts ok=${ok} fail=${fail}, categorías=${catId.size}, autores=${authorId.size}`)
+  // 6. Reescribir links internos aprendoseo.com → rutas de aprendoclub.
+  const all = await payload.find({ collection: 'blogposts', depth: 1, limit: 1000 })
+  const slugToPath = new Map<string, number | string>()
+  for (const post of all.docs as any[]) {
+    const c = typeof post.category === 'object' ? post.category?.slug : null
+    if (c) slugToPath.set(post.slug, `/${c}/${post.slug}`)
+  }
+  let relinked = 0
+  for (const post of all.docs as any[]) {
+    const n = rewriteBodyLinks(post.body, slugToPath as Map<string, string>)
+    if (n > 0) {
+      await payload.update({
+        collection: 'blogposts',
+        id: post.id,
+        data: { body: post.body },
+        context: { disableRevalidate: true },
+      })
+      relinked += n
+    }
+  }
+
+  console.log(`\n[blog] LISTO — posts ok=${ok} fail=${fail}, categorías=${catId.size}, autores=${authorId.size}, links reescritos=${relinked}`)
   process.exit(0)
 }
 
