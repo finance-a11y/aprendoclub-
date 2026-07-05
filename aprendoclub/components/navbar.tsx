@@ -92,7 +92,7 @@ export function Navbar() {
 
   const underlineTransition = reduceMotion
     ? { duration: 0 }
-    : ({ type: "spring", stiffness: 380, damping: 30 } as const);
+    : ({ duration: 0.2, ease: "easeInOut" } as const);
 
   return (
     <>
@@ -299,7 +299,7 @@ export function Navbar() {
               transition={
                 reduceMotion
                   ? { duration: 0 }
-                  : { type: "spring", damping: 25, stiffness: 200 }
+                  : { duration: 0.25, ease: "easeOut" }
               }
               className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-[var(--bg-primary)] border-l border-white/10 md:hidden focus:outline-none"
             >

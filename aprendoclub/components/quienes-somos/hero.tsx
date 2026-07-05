@@ -12,7 +12,7 @@ export function QuienesSomosHero() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-3xl flex-col items-center gap-6 text-center"
       >
         <Eyebrow>{hero.eyebrow}</Eyebrow>

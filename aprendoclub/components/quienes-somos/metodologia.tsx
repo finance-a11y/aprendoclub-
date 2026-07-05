@@ -18,7 +18,7 @@ export function MetodologiaSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>{metodologia.eyebrow}</Eyebrow>
@@ -33,7 +33,7 @@ export function MetodologiaSection() {
             key={pilar.nombre}
             initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1, ease: "easeOut" }}
             className="rounded-xl bg-[var(--surface-card)] border border-[var(--border-card)] p-6"
           >
             <span className="text-sm font-semibold text-white/40">

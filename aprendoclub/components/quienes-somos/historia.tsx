@@ -18,7 +18,7 @@ export function HistoriaSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>{historia.eyebrow}</Eyebrow>
@@ -30,7 +30,7 @@ export function HistoriaSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.15 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.15, ease: "easeOut" }}
         className="flex w-full max-w-3xl flex-col gap-6 measure-prose"
       >
         {historia.parrafos.map((parrafo, index) => (

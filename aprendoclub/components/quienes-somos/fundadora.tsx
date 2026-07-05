@@ -21,7 +21,7 @@ export function FundadoraSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-start"
         >
           {/* Decorative Frame - offset behind */}
@@ -43,7 +43,7 @@ export function FundadoraSection() {
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, x: 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           className="flex flex-col gap-6 text-center lg:text-left"
         >
           <Eyebrow>{fundadora.eyebrow}</Eyebrow>
