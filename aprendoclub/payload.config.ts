@@ -21,6 +21,7 @@ import { Programas } from './collections/Programas'
 import { TeamMembers } from './collections/TeamMembers'
 import { Testimonios } from './collections/Testimonios'
 import { SiteSettings } from './globals/SiteSettings'
+import { Llms } from './globals/Llms'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -48,7 +49,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost],
-  globals: [SiteSettings],
+  globals: [SiteSettings, Llms],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({

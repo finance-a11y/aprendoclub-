@@ -109,9 +109,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'site-settings': SiteSetting;
+    llms: Llm;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    llms: LlmsSelect<false> | LlmsSelect<true>;
   };
   locale: null;
   widgets: {
@@ -2551,6 +2553,25 @@ export interface SiteSetting {
   createdAt?: string | null;
 }
 /**
+ * Archivos para agentes de IA (estándar llms.txt). Editables acá; se publican en /llms.txt y /llms-full.txt.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "llms".
+ */
+export interface Llm {
+  id: number;
+  /**
+   * Se publica en /llms.txt — resumen y enlaces clave en Markdown.
+   */
+  llmsTxt: string;
+  /**
+   * Se publica en /llms-full.txt — índice extendido con todos los artículos y extractos.
+   */
+  llmsFull: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings_select".
  */
@@ -2635,6 +2656,17 @@ export interface SiteSettingsSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "llms_select".
+ */
+export interface LlmsSelect<T extends boolean = true> {
+  llmsTxt?: T;
+  llmsFull?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
