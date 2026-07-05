@@ -20,10 +20,17 @@ interface FooterMeta {
   mobilePanelBlurb: string;
 }
 
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
 interface FooterProps {
   footerColumns: FooterColumn[];
   footerSocials: FooterSocial[];
   footerMeta: FooterMeta;
+  blogCategories?: FooterLink[];
+  recentPosts?: FooterLink[];
 }
 
 // SVGs de marca (lucide no trae TikTok/WhatsApp). Paths copiados de app/links/page.tsx.
@@ -55,12 +62,14 @@ export function Footer({
   footerColumns,
   footerSocials,
   footerMeta,
+  blogCategories = [],
+  recentPosts = [],
 }: FooterProps) {
   return (
     <footer className="w-full bg-[var(--bg-primary)] border-t border-white/[0.06]">
       {/* Main Grid */}
       <div className="container-padding py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-12 max-w-6xl mx-auto">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <Link href="/" className="flex items-center w-fit">
@@ -114,6 +123,50 @@ export function Footer({
               </div>
             </div>
           ))}
+
+          {/* Blog: categorías */}
+          {blogCategories.length > 0 && (
+            <div className="flex flex-col gap-4">
+              <span className="text-sm font-semibold text-white">Blog</span>
+              <div className="flex flex-col gap-3">
+                {blogCategories.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Link
+                  href="/blog"
+                  className="text-sm font-medium text-[var(--accent)] hover:text-white transition-colors"
+                >
+                  Ver todo el blog
+                </Link>
+              </div>
+            </div>
+          )}
+
+          {/* Blog: últimos artículos */}
+          {recentPosts.length > 0 && (
+            <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
+              <span className="text-sm font-semibold text-white">
+                Últimos artículos
+              </span>
+              <div className="flex flex-col gap-3">
+                {recentPosts.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="line-clamp-2 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

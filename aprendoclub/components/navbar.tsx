@@ -23,11 +23,18 @@ interface MenuProgram {
   badge: string;
 }
 
+interface MenuCategory {
+  label: string;
+  href: string;
+  desc: string;
+}
+
 interface NavbarProps {
   siteNav: NavItem[];
   siteCta: { label: string; href: string };
   mobilePanelBlurb: string;
   programMenu: MenuProgram[];
+  blogMenu: MenuCategory[];
 }
 
 function isItemActive(item: NavItem, pathname: string): boolean {
@@ -41,16 +48,20 @@ export function Navbar({
   siteCta,
   mobilePanelBlurb,
   programMenu,
+  blogMenu,
 }: NavbarProps) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [programaOpen, setProgramaOpen] = useState(false);
+  const [blogOpen, setBlogOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const blogCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const programaTriggerRef = useRef<HTMLAnchorElement>(null);
+  const blogTriggerRef = useRef<HTMLAnchorElement>(null);
 
   const openMega = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -59,6 +70,18 @@ export function Navbar({
   const closeMega = () => {
     closeTimer.current = setTimeout(() => setProgramaOpen(false), 120);
   };
+
+  const openBlog = () => {
+    if (blogCloseTimer.current) clearTimeout(blogCloseTimer.current);
+    setBlogOpen(true);
+  };
+  const closeBlog = () => {
+    blogCloseTimer.current = setTimeout(() => setBlogOpen(false), 120);
+  };
+
+  const blogActive = blogMenu.some(
+    (c) => pathname === c.href || pathname.startsWith(c.href + "/"),
+  ) || pathname === "/blog";
 
   // Scroll listener for glass effect
   useEffect(() => {
@@ -274,6 +297,102 @@ export function Navbar({
                 </a>
               );
             })}
+
+            {/* Blog: dropdown/megamenú de categorías (colecciones) */}
+            {blogMenu.length > 0 && (
+              <div
+                className="relative"
+                onMouseEnter={openBlog}
+                onMouseLeave={closeBlog}
+                onFocus={openBlog}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                    closeBlog();
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape" && blogOpen) {
+                    if (blogCloseTimer.current) clearTimeout(blogCloseTimer.current);
+                    setBlogOpen(false);
+                    blogTriggerRef.current?.focus();
+                  }
+                }}
+              >
+                <Link
+                  ref={blogTriggerRef}
+                  href="/blog"
+                  aria-current={blogActive ? "page" : undefined}
+                  aria-haspopup="menu"
+                  aria-expanded={blogOpen}
+                  className={`relative text-sm font-medium transition-colors ${
+                    blogActive ? "text-white" : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  Blog
+                  {blogActive && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent)]"
+                      transition={underlineTransition}
+                    />
+                  )}
+                </Link>
+
+                <AnimatePresence>
+                  {blogOpen && (
+                    <motion.div
+                      initial={reduceMotion ? false : { opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95 }}
+                      transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }}
+                      role="menu"
+                      aria-label="Blog"
+                      className="absolute left-1/2 top-full z-50 origin-top -translate-x-1/2 pt-4"
+                    >
+                      <div className="w-[560px] overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--border-card)] bg-[var(--surface-card)]/95 backdrop-blur-xl shadow-[var(--shadow-lg)]">
+                        <div className="grid grid-cols-2 gap-1 p-2">
+                          {blogMenu.map((c, index) => (
+                            <motion.div
+                              key={c.href}
+                              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{
+                                duration: 0.2,
+                                delay: reduceMotion ? 0 : index * 0.04,
+                                ease: "easeOut",
+                              }}
+                            >
+                              <Link
+                                href={c.href}
+                                role="menuitem"
+                                onClick={() => setBlogOpen(false)}
+                                className="group/mega flex flex-col gap-1 rounded-xl px-3 py-3 transition-colors hover:bg-white/5"
+                              >
+                                <span className="text-sm font-semibold text-white group-hover/mega:text-[var(--accent)] transition-colors">
+                                  {c.label}
+                                </span>
+                                {c.desc && (
+                                  <p className="line-clamp-2 text-xs leading-relaxed text-gray-400">
+                                    {c.desc}
+                                  </p>
+                                )}
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </div>
+                        <Link
+                          href="/blog"
+                          onClick={() => setBlogOpen(false)}
+                          className="flex items-center justify-center border-t border-white/10 px-4 py-3 text-xs font-semibold text-gray-300 hover:text-white transition-colors"
+                        >
+                          Ver todo el blog
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
           </div>
 
           {/* Desktop CTA */}
@@ -387,6 +506,29 @@ export function Navbar({
                     );
                   })}
                 </div>
+
+                {/* Mobile: Blog (categorías) */}
+                {blogMenu.length > 0 && (
+                  <div className="mt-4 flex flex-col gap-1 border-t border-white/10 pt-4">
+                    <Link
+                      href="/blog"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="px-4 pb-1 text-xs font-semibold uppercase tracking-[0.15em] text-gray-500"
+                    >
+                      Blog
+                    </Link>
+                    {blogMenu.map((c) => (
+                      <Link
+                        key={c.href}
+                        href={c.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
 
                 {/* Mobile CTA */}
                 <motion.div
