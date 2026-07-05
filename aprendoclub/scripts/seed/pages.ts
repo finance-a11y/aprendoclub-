@@ -20,7 +20,7 @@ import {
   tallerIncluye,
   tallerParaQuien,
   tallerPrecio,
-} from '../../content/taller-seo-con-ia'
+} from './seed-data/taller-seo-con-ia'
 import {
   cta as testimoniosCta,
   gridTitulo,
