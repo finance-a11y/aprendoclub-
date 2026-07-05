@@ -19,7 +19,7 @@ export function CtaFinalSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-2xl flex-col items-center gap-6 text-center"
       >
         <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">

@@ -43,7 +43,7 @@ export function EquipoSection() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: reduceMotion ? 0 : 0.6 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="flex max-w-[700px] flex-col items-center gap-4 text-center"
       >
         <Eyebrow>NUESTRO EQUIPO</Eyebrow>
@@ -58,7 +58,7 @@ export function EquipoSection() {
             key={member.nombre}
             initial={reduceMotion ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1, ease: "easeOut" }}
             className="group"
           >
             <Card padding="compact" hover="lift">

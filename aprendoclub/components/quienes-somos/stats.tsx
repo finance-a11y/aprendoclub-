@@ -20,7 +20,7 @@ export function StatsSection() {
             key={stat.label}
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.1, ease: "easeOut" }}
             className="flex flex-col items-center text-center"
           >
             <span className="text-4xl md:text-5xl font-semibold text-white">
