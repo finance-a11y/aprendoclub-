@@ -16,9 +16,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
   const payload = await getPayloadClient();
 
-  const [{ docs: pages }, { docs: programas }] = await Promise.all([
+  const [
+    { docs: pages },
+    { docs: programas },
+    { docs: posts },
+    { docs: categories },
+    { docs: authors },
+  ] = await Promise.all([
     payload.find({ collection: "pages", depth: 0, limit: 1000 }),
     payload.find({ collection: "programas", depth: 0, limit: 1000 }),
+    payload.find({ collection: "blogposts", depth: 1, limit: 1000 }),
+    payload.find({ collection: "categories", depth: 0, limit: 1000 }),
+    payload.find({ collection: "authors", depth: 0, limit: 1000 }),
   ]);
 
   const seen = new Set<string>();
@@ -48,6 +57,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ? `${SITE_URL}${programa.ctaHref}`
       : null;
     if (href) push(href, 0.8, "monthly");
+  }
+
+  // Blog: índice, categorías, posts (/{categoria}/{slug}) y autores.
+  push(`${SITE_URL}/blog`, 0.7, "weekly");
+  for (const c of categories) {
+    push(`${SITE_URL}/${c.slug}`, 0.6, "weekly");
+  }
+  for (const post of posts) {
+    const cat = post.category;
+    const catSlug = typeof cat === "object" && cat ? cat.slug : null;
+    if (catSlug) push(`${SITE_URL}/${catSlug}/${post.slug}`, 0.6, "monthly");
+  }
+  for (const a of authors) {
+    push(`${SITE_URL}/autor/${a.slug}`, 0.4, "monthly");
   }
 
   // Ruta estática propia.

@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import type { Blogpost } from '@/payload-types'
 import { Eyebrow } from '@/components/ui/eyebrow'
+import { JsonLd } from '@/components/json-ld'
+import { blogPostingGraph } from '@/lib/schema'
 import { RichBody } from '@/components/blog/rich-body'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { PostCta } from '@/components/blog/post-cta'
@@ -31,8 +33,20 @@ export function BlogPostView({
   const toc = extractToc(post.body)
   const readingTime = readingTimeMinutes(post.body)
 
+  const graph = blogPostingGraph({
+    title: post.title,
+    description: post.excerpt ?? undefined,
+    path: `/${cat?.slug ?? 'blog'}/${post.slug}`,
+    imageUrl: hero ?? undefined,
+    authorName: author?.name,
+    authorPath: author ? `/autor/${author.slug}` : undefined,
+    datePublished: post.publishedAt ?? undefined,
+    section: cat?.name,
+  })
+
   return (
     <article className="w-full bg-[var(--bg-primary)] text-white">
+      <JsonLd data={graph} />
       {/* Header */}
       <header className="container-padding mx-auto flex max-w-3xl flex-col items-center gap-5 pt-28 pb-10 text-center">
         {cat && (

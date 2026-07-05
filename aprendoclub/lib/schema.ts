@@ -168,6 +168,53 @@ export function faqGraph(items: { question: string; answer: string }[]) {
   };
 }
 
+type BlogPostingInput = {
+  title: string;
+  description?: string;
+  path: string; // /{categoria}/{slug}
+  imageUrl?: string;
+  authorName?: string;
+  authorPath?: string; // /autor/{slug}
+  datePublished?: string;
+  section?: string;
+};
+
+/** BlogPosting de un artículo del blog (rich results). */
+export function blogPostingGraph({
+  title,
+  description,
+  path,
+  imageUrl,
+  authorName,
+  authorPath,
+  datePublished,
+  section,
+}: BlogPostingInput) {
+  const node: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    url: `${SITE_URL}${path}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${path}` },
+    inLanguage: "es",
+    publisher: { "@id": ORG_ID },
+  };
+  if (description) node.description = description;
+  if (imageUrl) {
+    node.image = imageUrl.startsWith("http") ? imageUrl : `${SITE_URL}${imageUrl}`;
+  }
+  if (datePublished) node.datePublished = datePublished;
+  if (section) node.articleSection = section;
+  if (authorName) {
+    node.author = {
+      "@type": "Person",
+      name: authorName,
+      ...(authorPath ? { url: `${SITE_URL}${authorPath}` } : {}),
+    };
+  }
+  return node;
+}
+
 type ReviewInput = { nombre: string; quote: string; ubicacion?: string };
 
 /**
