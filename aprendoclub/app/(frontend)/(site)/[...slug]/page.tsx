@@ -1,8 +1,10 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 
 import config from '@/payload.config'
 import { RenderBlocks } from '@/components/blocks/RenderBlocks'
+import { buildMetadata } from '@/lib/seo/metadata'
 
 // Página nunca cacheada estáticamente: los slugs nuevos se crean/editan desde
 // /admin y deben reflejarse sin rebuild.
@@ -17,6 +19,27 @@ export const dynamic = 'force-dynamic'
  * siga siendo la única fuente de verdad hasta el cutover (Phases 15-17).
  */
 const RESERVED_SLUGS = new Set<string>(['', 'home', 'links', 'admin', 'api'])
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>
+}): Promise<Metadata> {
+  const { slug: slugParts } = await params
+  const slug = slugParts.join('/')
+
+  if (RESERVED_SLUGS.has(slug)) return {}
+
+  const payload = await getPayload({ config })
+  const { docs } = await payload.find({
+    collection: 'pages',
+    where: { slug: { equals: slug } },
+    depth: 1,
+    limit: 1,
+  })
+
+  return buildMetadata(docs[0]?.meta, slug)
+}
 
 export default async function CatchAllPage({
   params,
@@ -43,8 +66,6 @@ export default async function CatchAllPage({
   if (!doc) {
     notFound()
   }
-
-  // TODO Phase 17: generateMetadata desde doc.meta (SEO tab de Pages)
 
   return <RenderBlocks blocks={doc.layout ?? []} />
 }
