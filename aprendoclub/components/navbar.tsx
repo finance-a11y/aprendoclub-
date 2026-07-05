@@ -375,16 +375,15 @@ export function Navbar() {
                   transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
                   className="mt-6"
                 >
-                  <div onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button
-                      href={siteCta.href}
-                      variant="primary"
-                      size="lg"
-                      className="w-full"
-                    >
-                      {siteCta.label}
-                    </Button>
-                  </div>
+                  <Button
+                    href={siteCta.href}
+                    variant="primary"
+                    size="lg"
+                    className="w-full"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {siteCta.label}
+                  </Button>
                 </motion.div>
 
                 {/* Footer info */}
