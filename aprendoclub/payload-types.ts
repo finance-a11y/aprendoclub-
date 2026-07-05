@@ -74,6 +74,7 @@ export interface Config {
     programas: Programa;
     'team-members': TeamMember;
     faq: Faq;
+    pages: Page;
     redirects: Redirect;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -89,6 +90,7 @@ export interface Config {
     programas: ProgramasSelect<false> | ProgramasSelect<true>;
     'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
     faq: FaqSelect<false> | FaqSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -101,23 +103,9 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'site-settings': SiteSetting;
-    'programas-hub': ProgramasHub;
-    'taller-seo-con-ia': TallerSeoConIa;
-    'quienes-somos': QuienesSomo;
-    'testimonios-page': TestimoniosPage;
-    reto: Reto;
-    home: Home;
-    diplomado: Diplomado;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
-    'programas-hub': ProgramasHubSelect<false> | ProgramasHubSelect<true>;
-    'taller-seo-con-ia': TallerSeoConIaSelect<false> | TallerSeoConIaSelect<true>;
-    'quienes-somos': QuienesSomosSelect<false> | QuienesSomosSelect<true>;
-    'testimonios-page': TestimoniosPageSelect<false> | TestimoniosPageSelect<true>;
-    reto: RetoSelect<false> | RetoSelect<true>;
-    home: HomeSelect<false> | HomeSelect<true>;
-    diplomado: DiplomadoSelect<false> | DiplomadoSelect<true>;
   };
   locale: null;
   widgets: {
@@ -299,6 +287,866 @@ export interface Faq {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  /**
+   * Ruta de la página sin barra inicial. La home usa 'home' (la raíz se cablea en el cutover, Phase 17). Ej: 'nueva-landing', 'promos/verano'.
+   */
+  slug: string;
+  /**
+   * Agrega, reordena y quita bloques para construir la página.
+   */
+  layout: (
+    | HeroBlock
+    | PricingBlock
+    | CtaBannerBlock
+    | FeatureGridBlock
+    | StatsBlock
+    | ProseBlock
+    | FaqRefBlock
+    | TestimonialRefBlock
+    | TeamGridRefBlock
+    | ProgramGridRefBlock
+    | LogosRefBlock
+    | SectionHeaderBlock
+    | RelatedLinksBlock
+    | HeroHomeBlock
+    | InstructorBlock
+    | StickyCtaBlock
+    | HistoriaBlock
+    | FundadoraBlock
+    | MetodologiaBlock
+    | RetoGaleriaBlock
+    | TallerHeroBlock
+    | TallerIncluyeBlock
+    | TallerParaQuienBlock
+    | TallerPricingBlock
+    | AudienceBlock
+    | Curriculum16SemanasBlock
+    | HowItWorksBlock
+    | DiplomadoTeamBlock
+    | DiplomadoBenefitsBlock
+    | DiplomadoPricingBlock
+    | BarraUrgenciaBlock
+    | RetoHeroBlock
+    | RazonNoEscalasBlock
+    | MentoraBlock
+    | AgendaBlock
+    | ComparacionBlock
+    | IncluyeBlock
+    | PremiosBlock
+    | RetoPricingBlock
+    | GanadoresBlock
+  )[];
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  badgeText?: string | null;
+  eyebrow?: string | null;
+  tituloPre?: string | null;
+  tituloAccent?: string | null;
+  tituloPost?: string | null;
+  subtitulo?: string | null;
+  texto?: string | null;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  imagen?: (number | null) | Media;
+  ctaPrimario: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  ctaSecundario: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  microcopy?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PricingBlock".
+ */
+export interface PricingBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  planes?:
+    | {
+        nombre: string;
+        badge?: string | null;
+        precio: string;
+        precioTachado?: string | null;
+        precioNota?: string | null;
+        cuotasTexto?: string | null;
+        features?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        cta: {
+          label: string;
+          href: string;
+          id?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  ctaAsesoria: {
+    titulo?: string | null;
+    texto?: string | null;
+    cta: {
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBannerBlock".
+ */
+export interface CtaBannerBlock {
+  titulo: string;
+  texto?: string | null;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  boton: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ctaBanner';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureGridBlock".
+ */
+export interface FeatureGridBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  items?:
+    | {
+        /**
+         * Nombre de icono lucide (e.g. "rocket", "target")
+         */
+        icon?: string | null;
+        titulo: string;
+        descripcion?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'featureGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatsBlock".
+ */
+export interface StatsBlock {
+  items?:
+    | {
+        value: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stats';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProseBlock".
+ */
+export interface ProseBlock {
+  contenido?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'prose';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqRefBlock".
+ */
+export interface FaqRefBlock {
+  eyebrow?: string | null;
+  titulo?: string | null;
+  items?: (number | Faq)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faqRef';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialRefBlock".
+ */
+export interface TestimonialRefBlock {
+  eyebrow?: string | null;
+  titulo?: string | null;
+  items?: (number | Testimonio)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonialRef';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamGridRefBlock".
+ */
+export interface TeamGridRefBlock {
+  eyebrow?: string | null;
+  titulo?: string | null;
+  subtitulo?: string | null;
+  items?: (number | TeamMember)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'teamGridRef';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProgramGridRefBlock".
+ */
+export interface ProgramGridRefBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  boton: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  items?: (number | Programa)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'programGridRef';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogosRefBlock".
+ */
+export interface LogosRefBlock {
+  /**
+   * Ej. "Profesionales de empresas como"
+   */
+  texto?: string | null;
+  items?: (number | ClientesTrabajado)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logosRef';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionHeaderBlock".
+ */
+export interface SectionHeaderBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sectionHeader';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RelatedLinksBlock".
+ */
+export interface RelatedLinksBlock {
+  title?: string | null;
+  links?:
+    | {
+        label: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'relatedLinks';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroHomeBlock".
+ */
+export interface HeroHomeBlock {
+  badgeText?: string | null;
+  eyebrow?: string | null;
+  tituloPre?: string | null;
+  tituloAccent?: string | null;
+  tituloPost?: string | null;
+  subtitulo?: string | null;
+  texto?: string | null;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  imagen?: (number | null) | Media;
+  ctaPrimario: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  ctaSecundario: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  microcopy?: string | null;
+  avatares?: (number | Media)[] | null;
+  ratingTexto?: string | null;
+  videoBackground?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroHome';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InstructorBlock".
+ */
+export interface InstructorBlock {
+  eyebrow: string;
+  nombre: string;
+  rol: string;
+  bioCorta1: string;
+  bioCorta2: string;
+  stats?: {
+    items?:
+      | {
+          value: string;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  foto?: (number | null) | Media;
+  teaser: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'instructor';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StickyCtaBlock".
+ */
+export interface StickyCtaBlock {
+  boton: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stickyCta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HistoriaBlock".
+ */
+export interface HistoriaBlock {
+  eyebrow: string;
+  titulo: string;
+  parrafos: {
+    texto: string;
+    id?: string | null;
+  }[];
+  quote: {
+    texto: string;
+    autor: string;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'historia';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FundadoraBlock".
+ */
+export interface FundadoraBlock {
+  eyebrow: string;
+  nombre: string;
+  rol: string;
+  bio: {
+    texto: string;
+    id?: string | null;
+  }[];
+  foto: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'fundadora';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MetodologiaBlock".
+ */
+export interface MetodologiaBlock {
+  eyebrow: string;
+  titulo: string;
+  pilares: {
+    nombre: string;
+    descripcion: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'metodologia';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RetoGaleriaBlock".
+ */
+export interface RetoGaleriaBlock {
+  eyebrow: string;
+  titulo: string;
+  texto: string;
+  imagenes?: (number | Media)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'retoGaleria';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerHeroBlock".
+ */
+export interface TallerHeroBlock {
+  eyebrow: string;
+  titulo: string;
+  subtitulo: string;
+  duracion: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'tallerHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerIncluyeBlock".
+ */
+export interface TallerIncluyeBlock {
+  items: {
+    texto: string;
+    valor?: string | null;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'tallerIncluye';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerParaQuienBlock".
+ */
+export interface TallerParaQuienBlock {
+  texto: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'tallerParaQuien';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerPricingBlock".
+ */
+export interface TallerPricingBlock {
+  monto: string;
+  opciones: {
+    texto: string;
+    id?: string | null;
+  }[];
+  cta: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'tallerPricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AudienceBlock".
+ */
+export interface AudienceBlock {
+  titulo: string;
+  subtitulo?: string | null;
+  tituloPerfiles?: string | null;
+  perfiles?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  tituloDudas?: string | null;
+  dudas?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  notaFinal?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'audience';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Curriculum16SemanasBlock".
+ */
+export interface Curriculum16SemanasBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  semanas: {
+    numero: number;
+    titulo: string;
+    detalle: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'curriculum16Semanas';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HowItWorksBlock".
+ */
+export interface HowItWorksBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  items?:
+    | {
+        /**
+         * Nombre de icono lucide (e.g. "rocket", "target")
+         */
+        icon?: string | null;
+        titulo: string;
+        descripcion?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel?: string | null;
+  ctaHref?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'howItWorks';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoTeamBlock".
+ */
+export interface DiplomadoTeamBlock {
+  teamIntro: {
+    eyebrow?: string | null;
+    titulo: string;
+    subtitulo?: string | null;
+  };
+  equipo?: {
+    eyebrow?: string | null;
+    titulo?: string | null;
+    subtitulo?: string | null;
+    items?: (number | TeamMember)[] | null;
+  };
+  mentorSection: {
+    titulo: string;
+    nombre: string;
+    web?: string | null;
+    bio: {
+      texto: string;
+      id?: string | null;
+    }[];
+    quote?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'diplomadoTeam';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoBenefitsBlock".
+ */
+export interface DiplomadoBenefitsBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  items?:
+    | {
+        texto: string;
+        valor?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  extras?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'diplomadoBenefits';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoPricingBlock".
+ */
+export interface DiplomadoPricingBlock {
+  titulo: string;
+  subtitulo?: string | null;
+  planNombre: string;
+  badgeText?: string | null;
+  precio: string;
+  precioTachado?: string | null;
+  precioNota?: string | null;
+  descripcion?: string | null;
+  features?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel?: string | null;
+  ctaHref?: string | null;
+  garantiaTexto?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'diplomadoPricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BarraUrgenciaBlock".
+ */
+export interface BarraUrgenciaBlock {
+  texto: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'barraUrgencia';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RetoHeroBlock".
+ */
+export interface RetoHeroBlock {
+  eyebrow: string;
+  titulo: string;
+  destacado: string;
+  texto: string;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  precioTexto: string;
+  ctas?:
+    | {
+        label: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  imagen?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'retoHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RazonNoEscalasBlock".
+ */
+export interface RazonNoEscalasBlock {
+  titulo: string;
+  parrafo: string;
+  frases?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'razonNoEscalas';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MentoraBlock".
+ */
+export interface MentoraBlock {
+  nombre: string;
+  rol: string;
+  stats?:
+    | {
+        valor: string;
+        etiqueta: string;
+        id?: string | null;
+      }[]
+    | null;
+  historia: string;
+  quote: string;
+  cierre: string;
+  foto?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mentora';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AgendaBlock".
+ */
+export interface AgendaBlock {
+  items?:
+    | {
+        dia: string;
+        titulo: string;
+        descripcion: string;
+        imagen?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'agenda';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ComparacionBlock".
+ */
+export interface ComparacionBlock {
+  items?:
+    | {
+        deSiempre: string;
+        elReto: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'comparacion';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IncluyeBlock".
+ */
+export interface IncluyeBlock {
+  items?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'incluye';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PremiosBlock".
+ */
+export interface PremiosBlock {
+  mayor: {
+    titulo: string;
+    imagen?: (number | null) | Media;
+  };
+  becas: {
+    titulo: string;
+    imagen?: (number | null) | Media;
+  };
+  comoSeGana: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'premios';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RetoPricingBlock".
+ */
+export interface RetoPricingBlock {
+  precio: string;
+  precioNota: string;
+  incluyeTexto: string;
+  ctas?:
+    | {
+        label: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  nota: string;
+  whatsapp: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'retoPricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GanadoresBlock".
+ */
+export interface GanadoresBlock {
+  ganadoresIntro: string;
+  ganadores?:
+    | {
+        nombre: string;
+        edicion: string;
+        imagen?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ganadores';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -306,10 +1154,15 @@ export interface Redirect {
   from: string;
   to?: {
     type?: ('reference' | 'custom') | null;
-    reference?: {
-      relationTo: 'programas';
-      value: number | Programa;
-    } | null;
+    reference?:
+      | ({
+          relationTo: 'programas';
+          value: number | Programa;
+        } | null)
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null);
     url?: string | null;
   };
   updatedAt: string;
@@ -366,6 +1219,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'faq';
         value: number | Faq;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -564,6 +1421,849 @@ export interface FaqSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  layout?:
+    | T
+    | {
+        hero?: T | HeroBlockSelect<T>;
+        pricing?: T | PricingBlockSelect<T>;
+        ctaBanner?: T | CtaBannerBlockSelect<T>;
+        featureGrid?: T | FeatureGridBlockSelect<T>;
+        stats?: T | StatsBlockSelect<T>;
+        prose?: T | ProseBlockSelect<T>;
+        faqRef?: T | FaqRefBlockSelect<T>;
+        testimonialRef?: T | TestimonialRefBlockSelect<T>;
+        teamGridRef?: T | TeamGridRefBlockSelect<T>;
+        programGridRef?: T | ProgramGridRefBlockSelect<T>;
+        logosRef?: T | LogosRefBlockSelect<T>;
+        sectionHeader?: T | SectionHeaderBlockSelect<T>;
+        relatedLinks?: T | RelatedLinksBlockSelect<T>;
+        heroHome?: T | HeroHomeBlockSelect<T>;
+        instructor?: T | InstructorBlockSelect<T>;
+        stickyCta?: T | StickyCtaBlockSelect<T>;
+        historia?: T | HistoriaBlockSelect<T>;
+        fundadora?: T | FundadoraBlockSelect<T>;
+        metodologia?: T | MetodologiaBlockSelect<T>;
+        retoGaleria?: T | RetoGaleriaBlockSelect<T>;
+        tallerHero?: T | TallerHeroBlockSelect<T>;
+        tallerIncluye?: T | TallerIncluyeBlockSelect<T>;
+        tallerParaQuien?: T | TallerParaQuienBlockSelect<T>;
+        tallerPricing?: T | TallerPricingBlockSelect<T>;
+        audience?: T | AudienceBlockSelect<T>;
+        curriculum16Semanas?: T | Curriculum16SemanasBlockSelect<T>;
+        howItWorks?: T | HowItWorksBlockSelect<T>;
+        diplomadoTeam?: T | DiplomadoTeamBlockSelect<T>;
+        diplomadoBenefits?: T | DiplomadoBenefitsBlockSelect<T>;
+        diplomadoPricing?: T | DiplomadoPricingBlockSelect<T>;
+        barraUrgencia?: T | BarraUrgenciaBlockSelect<T>;
+        retoHero?: T | RetoHeroBlockSelect<T>;
+        razonNoEscalas?: T | RazonNoEscalasBlockSelect<T>;
+        mentora?: T | MentoraBlockSelect<T>;
+        agenda?: T | AgendaBlockSelect<T>;
+        comparacion?: T | ComparacionBlockSelect<T>;
+        incluye?: T | IncluyeBlockSelect<T>;
+        premios?: T | PremiosBlockSelect<T>;
+        retoPricing?: T | RetoPricingBlockSelect<T>;
+        ganadores?: T | GanadoresBlockSelect<T>;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock_select".
+ */
+export interface HeroBlockSelect<T extends boolean = true> {
+  badgeText?: T;
+  eyebrow?: T;
+  tituloPre?: T;
+  tituloAccent?: T;
+  tituloPost?: T;
+  subtitulo?: T;
+  texto?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  imagen?: T;
+  ctaPrimario?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  ctaSecundario?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  microcopy?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PricingBlock_select".
+ */
+export interface PricingBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  planes?:
+    | T
+    | {
+        nombre?: T;
+        badge?: T;
+        precio?: T;
+        precioTachado?: T;
+        precioNota?: T;
+        cuotasTexto?: T;
+        features?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        cta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  ctaAsesoria?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        cta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBannerBlock_select".
+ */
+export interface CtaBannerBlockSelect<T extends boolean = true> {
+  titulo?: T;
+  texto?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  boton?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureGridBlock_select".
+ */
+export interface FeatureGridBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  items?:
+    | T
+    | {
+        icon?: T;
+        titulo?: T;
+        descripcion?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatsBlock_select".
+ */
+export interface StatsBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProseBlock_select".
+ */
+export interface ProseBlockSelect<T extends boolean = true> {
+  contenido?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqRefBlock_select".
+ */
+export interface FaqRefBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  items?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialRefBlock_select".
+ */
+export interface TestimonialRefBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  items?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamGridRefBlock_select".
+ */
+export interface TeamGridRefBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  items?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProgramGridRefBlock_select".
+ */
+export interface ProgramGridRefBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  boton?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  items?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogosRefBlock_select".
+ */
+export interface LogosRefBlockSelect<T extends boolean = true> {
+  texto?: T;
+  items?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionHeaderBlock_select".
+ */
+export interface SectionHeaderBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RelatedLinksBlock_select".
+ */
+export interface RelatedLinksBlockSelect<T extends boolean = true> {
+  title?: T;
+  links?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroHomeBlock_select".
+ */
+export interface HeroHomeBlockSelect<T extends boolean = true> {
+  badgeText?: T;
+  eyebrow?: T;
+  tituloPre?: T;
+  tituloAccent?: T;
+  tituloPost?: T;
+  subtitulo?: T;
+  texto?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  imagen?: T;
+  ctaPrimario?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  ctaSecundario?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  microcopy?: T;
+  avatares?: T;
+  ratingTexto?: T;
+  videoBackground?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InstructorBlock_select".
+ */
+export interface InstructorBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  nombre?: T;
+  rol?: T;
+  bioCorta1?: T;
+  bioCorta2?: T;
+  stats?:
+    | T
+    | {
+        items?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  foto?: T;
+  teaser?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StickyCtaBlock_select".
+ */
+export interface StickyCtaBlockSelect<T extends boolean = true> {
+  boton?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HistoriaBlock_select".
+ */
+export interface HistoriaBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  parrafos?:
+    | T
+    | {
+        texto?: T;
+        id?: T;
+      };
+  quote?:
+    | T
+    | {
+        texto?: T;
+        autor?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FundadoraBlock_select".
+ */
+export interface FundadoraBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  nombre?: T;
+  rol?: T;
+  bio?:
+    | T
+    | {
+        texto?: T;
+        id?: T;
+      };
+  foto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MetodologiaBlock_select".
+ */
+export interface MetodologiaBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  pilares?:
+    | T
+    | {
+        nombre?: T;
+        descripcion?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RetoGaleriaBlock_select".
+ */
+export interface RetoGaleriaBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  texto?: T;
+  imagenes?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerHeroBlock_select".
+ */
+export interface TallerHeroBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  duracion?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerIncluyeBlock_select".
+ */
+export interface TallerIncluyeBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        texto?: T;
+        valor?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerParaQuienBlock_select".
+ */
+export interface TallerParaQuienBlockSelect<T extends boolean = true> {
+  texto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TallerPricingBlock_select".
+ */
+export interface TallerPricingBlockSelect<T extends boolean = true> {
+  monto?: T;
+  opciones?:
+    | T
+    | {
+        texto?: T;
+        id?: T;
+      };
+  cta?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AudienceBlock_select".
+ */
+export interface AudienceBlockSelect<T extends boolean = true> {
+  titulo?: T;
+  subtitulo?: T;
+  tituloPerfiles?: T;
+  perfiles?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  tituloDudas?: T;
+  dudas?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  notaFinal?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Curriculum16SemanasBlock_select".
+ */
+export interface Curriculum16SemanasBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  semanas?:
+    | T
+    | {
+        numero?: T;
+        titulo?: T;
+        detalle?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HowItWorksBlock_select".
+ */
+export interface HowItWorksBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  items?:
+    | T
+    | {
+        icon?: T;
+        titulo?: T;
+        descripcion?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  ctaHref?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoTeamBlock_select".
+ */
+export interface DiplomadoTeamBlockSelect<T extends boolean = true> {
+  teamIntro?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+      };
+  equipo?:
+    | T
+    | {
+        eyebrow?: T;
+        titulo?: T;
+        subtitulo?: T;
+        items?: T;
+      };
+  mentorSection?:
+    | T
+    | {
+        titulo?: T;
+        nombre?: T;
+        web?: T;
+        bio?:
+          | T
+          | {
+              texto?: T;
+              id?: T;
+            };
+        quote?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoBenefitsBlock_select".
+ */
+export interface DiplomadoBenefitsBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  items?:
+    | T
+    | {
+        texto?: T;
+        valor?: T;
+        id?: T;
+      };
+  extras?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoPricingBlock_select".
+ */
+export interface DiplomadoPricingBlockSelect<T extends boolean = true> {
+  titulo?: T;
+  subtitulo?: T;
+  planNombre?: T;
+  badgeText?: T;
+  precio?: T;
+  precioTachado?: T;
+  precioNota?: T;
+  descripcion?: T;
+  features?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  ctaHref?: T;
+  garantiaTexto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BarraUrgenciaBlock_select".
+ */
+export interface BarraUrgenciaBlockSelect<T extends boolean = true> {
+  texto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RetoHeroBlock_select".
+ */
+export interface RetoHeroBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  destacado?: T;
+  texto?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  precioTexto?: T;
+  ctas?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  imagen?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RazonNoEscalasBlock_select".
+ */
+export interface RazonNoEscalasBlockSelect<T extends boolean = true> {
+  titulo?: T;
+  parrafo?: T;
+  frases?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MentoraBlock_select".
+ */
+export interface MentoraBlockSelect<T extends boolean = true> {
+  nombre?: T;
+  rol?: T;
+  stats?:
+    | T
+    | {
+        valor?: T;
+        etiqueta?: T;
+        id?: T;
+      };
+  historia?: T;
+  quote?: T;
+  cierre?: T;
+  foto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AgendaBlock_select".
+ */
+export interface AgendaBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        dia?: T;
+        titulo?: T;
+        descripcion?: T;
+        imagen?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ComparacionBlock_select".
+ */
+export interface ComparacionBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        deSiempre?: T;
+        elReto?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IncluyeBlock_select".
+ */
+export interface IncluyeBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PremiosBlock_select".
+ */
+export interface PremiosBlockSelect<T extends boolean = true> {
+  mayor?:
+    | T
+    | {
+        titulo?: T;
+        imagen?: T;
+      };
+  becas?:
+    | T
+    | {
+        titulo?: T;
+        imagen?: T;
+      };
+  comoSeGana?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RetoPricingBlock_select".
+ */
+export interface RetoPricingBlockSelect<T extends boolean = true> {
+  precio?: T;
+  precioNota?: T;
+  incluyeTexto?: T;
+  ctas?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  nota?: T;
+  whatsapp?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GanadoresBlock_select".
+ */
+export interface GanadoresBlockSelect<T extends boolean = true> {
+  ganadoresIntro?: T;
+  ganadores?:
+    | T
+    | {
+        nombre?: T;
+        edicion?: T;
+        imagen?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects_select".
  */
 export interface RedirectsSelect<T extends boolean = true> {
@@ -634,6 +2334,7 @@ export interface SiteSetting {
     siteCta: {
       label: string;
       href: string;
+      id?: string | null;
     };
     programMenu: {
       label: string;
@@ -686,700 +2387,6 @@ export interface SiteSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "programas-hub".
- */
-export interface ProgramasHub {
-  id: number;
-  hero: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-  };
-  ctaFinal: {
-    titulo: string;
-    texto: string;
-    boton: {
-      label: string;
-      href: string;
-    };
-  };
-  programas: (number | Programa)[];
-  relatedLinks?: {
-    title?: string | null;
-    links?:
-      | {
-          label: string;
-          href: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "taller-seo-con-ia".
- */
-export interface TallerSeoConIa {
-  id: number;
-  hero: {
-    eyebrow: string;
-    titulo: string;
-    subtitulo: string;
-    duracion: string;
-  };
-  incluye: {
-    texto: string;
-    valor?: string | null;
-    id?: string | null;
-  }[];
-  paraQuien: string;
-  precio: {
-    monto: string;
-    opciones: {
-      texto: string;
-      id?: string | null;
-    }[];
-  };
-  cta: {
-    label: string;
-    href: string;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "quienes-somos".
- */
-export interface QuienesSomo {
-  id: number;
-  hero: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-  };
-  historia: {
-    eyebrow: string;
-    titulo: string;
-    parrafos: {
-      texto: string;
-      id?: string | null;
-    }[];
-    quote: {
-      texto: string;
-      autor: string;
-    };
-  };
-  fundadora: {
-    eyebrow: string;
-    nombre: string;
-    rol: string;
-    bio: {
-      texto: string;
-      id?: string | null;
-    }[];
-    foto: number | Media;
-  };
-  equipo?: {
-    eyebrow?: string | null;
-    titulo?: string | null;
-    subtitulo?: string | null;
-    items?: (number | TeamMember)[] | null;
-  };
-  metodologia: {
-    eyebrow: string;
-    titulo: string;
-    pilares: {
-      nombre: string;
-      descripcion: string;
-      id?: string | null;
-    }[];
-  };
-  stats?: {
-    items?:
-      | {
-          value: string;
-          label: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  ctaFinal: {
-    titulo: string;
-    texto?: string | null;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    boton: {
-      label: string;
-      href: string;
-    };
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonios-page".
- */
-export interface TestimoniosPage {
-  id: number;
-  hero: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-  };
-  gridTitulo: string;
-  logos?: {
-    /**
-     * Ej. "Profesionales de empresas como"
-     */
-    texto?: string | null;
-    items?: (number | ClientesTrabajado)[] | null;
-  };
-  reto: {
-    eyebrow: string;
-    titulo: string;
-    texto: string;
-  };
-  retoGaleria?: (number | Media)[] | null;
-  cta: {
-    titulo: string;
-    texto?: string | null;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    boton: {
-      label: string;
-      href: string;
-    };
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reto".
- */
-export interface Reto {
-  id: number;
-  urgencia: string;
-  hero: {
-    eyebrow: string;
-    titulo: string;
-    destacado: string;
-    texto: string;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    precioTexto: string;
-    ctas?:
-      | {
-          label: string;
-          href: string;
-          id?: string | null;
-        }[]
-      | null;
-    imagen?: (number | null) | Media;
-  };
-  razonNoEscalas: {
-    titulo: string;
-    parrafo: string;
-    frases?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  mentora: {
-    nombre: string;
-    rol: string;
-    stats?:
-      | {
-          valor: string;
-          etiqueta: string;
-          id?: string | null;
-        }[]
-      | null;
-    historia: string;
-    quote: string;
-    cierre: string;
-    foto?: (number | null) | Media;
-  };
-  agenda?:
-    | {
-        dia: string;
-        titulo: string;
-        descripcion: string;
-        imagen?: (number | null) | Media;
-        id?: string | null;
-      }[]
-    | null;
-  comparacion?:
-    | {
-        deSiempre: string;
-        elReto: string;
-        id?: string | null;
-      }[]
-    | null;
-  incluye?:
-    | {
-        text: string;
-        id?: string | null;
-      }[]
-    | null;
-  premios: {
-    mayor: {
-      titulo: string;
-      imagen?: (number | null) | Media;
-    };
-    becas: {
-      titulo: string;
-      imagen?: (number | null) | Media;
-    };
-    comoSeGana: string;
-  };
-  pricing: {
-    precio: string;
-    precioNota: string;
-    incluyeTexto: string;
-    ctas?:
-      | {
-          label: string;
-          href: string;
-          id?: string | null;
-        }[]
-      | null;
-    nota: string;
-    whatsapp: string;
-  };
-  ganadoresIntro: string;
-  ganadores?:
-    | {
-        nombre: string;
-        edicion: string;
-        imagen?: (number | null) | Media;
-        id?: string | null;
-      }[]
-    | null;
-  faq?: (number | Faq)[] | null;
-  ctaFinal: {
-    titulo: string;
-    botonLabel: string;
-    botonHref: string;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home".
- */
-export interface Home {
-  id: number;
-  hero: {
-    badgeText?: string | null;
-    eyebrow?: string | null;
-    tituloPre?: string | null;
-    tituloAccent?: string | null;
-    tituloPost?: string | null;
-    subtitulo?: string | null;
-    texto?: string | null;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    imagen?: (number | null) | Media;
-    ctaPrimario: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-    ctaSecundario: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-    microcopy?: string | null;
-    avatares?: (number | Media)[] | null;
-    ratingTexto?: string | null;
-    videoBackground?: (number | null) | Media;
-  };
-  problema: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    items?:
-      | {
-          /**
-           * Nombre de icono lucide (e.g. "rocket", "target")
-           */
-          icon?: string | null;
-          titulo: string;
-          descripcion?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  beneficios: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    items?:
-      | {
-          /**
-           * Nombre de icono lucide (e.g. "rocket", "target")
-           */
-          icon?: string | null;
-          titulo: string;
-          descripcion?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  programas: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    boton: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-    items?: (number | Programa)[] | null;
-  };
-  pricing: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    planes?:
-      | {
-          nombre: string;
-          badge?: string | null;
-          precio: string;
-          precioTachado?: string | null;
-          precioNota?: string | null;
-          cuotasTexto?: string | null;
-          features?:
-            | {
-                text: string;
-                id?: string | null;
-              }[]
-            | null;
-          cta: {
-            label: string;
-            href: string;
-            id?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    ctaAsesoria: {
-      titulo?: string | null;
-      texto?: string | null;
-      cta: {
-        label: string;
-        href: string;
-        id?: string | null;
-      };
-    };
-  };
-  instructor: {
-    eyebrow: string;
-    nombre: string;
-    rol: string;
-    bioCorta1: string;
-    bioCorta2: string;
-    stats?: {
-      items?:
-        | {
-            value: string;
-            label: string;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    foto?: (number | null) | Media;
-    teaser: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-  };
-  testimonios?: {
-    eyebrow?: string | null;
-    titulo?: string | null;
-    items?: (number | Testimonio)[] | null;
-  };
-  logos?: {
-    /**
-     * Ej. "Profesionales de empresas como"
-     */
-    texto?: string | null;
-    items?: (number | ClientesTrabajado)[] | null;
-  };
-  faq?: {
-    eyebrow?: string | null;
-    titulo?: string | null;
-    items?: (number | Faq)[] | null;
-  };
-  ctaFinal: {
-    titulo: string;
-    texto?: string | null;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    boton: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-  };
-  stickyCta: {
-    boton: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "diplomado".
- */
-export interface Diplomado {
-  id: number;
-  hero: {
-    badgeText?: string | null;
-    eyebrow?: string | null;
-    tituloPre?: string | null;
-    tituloAccent?: string | null;
-    tituloPost?: string | null;
-    subtitulo?: string | null;
-    texto?: string | null;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    imagen?: (number | null) | Media;
-    ctaPrimario: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-    ctaSecundario: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-    microcopy?: string | null;
-  };
-  origin: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    items?:
-      | {
-          /**
-           * Nombre de icono lucide (e.g. "rocket", "target")
-           */
-          icon?: string | null;
-          titulo: string;
-          descripcion?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  audience: {
-    titulo: string;
-    subtitulo?: string | null;
-    tituloPerfiles?: string | null;
-    perfiles?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    tituloDudas?: string | null;
-    dudas?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    notaFinal?: string | null;
-  };
-  /**
-   * Copy propia del diplomado (EPAM). No reusar el copy de quienes-somos.metodologia.
-   */
-  methodology: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    items?:
-      | {
-          /**
-           * Nombre de icono lucide (e.g. "rocket", "target")
-           */
-          icon?: string | null;
-          titulo: string;
-          descripcion?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  curriculum: {
-    eyebrow?: string | null;
-    titulo: string;
-    semanas: {
-      numero: number;
-      titulo: string;
-      detalle: string;
-      id?: string | null;
-    }[];
-  };
-  howItWorks: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    items?:
-      | {
-          /**
-           * Nombre de icono lucide (e.g. "rocket", "target")
-           */
-          icon?: string | null;
-          titulo: string;
-          descripcion?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    ctaLabel?: string | null;
-    ctaHref?: string | null;
-  };
-  team: {
-    teamIntro: {
-      eyebrow?: string | null;
-      titulo: string;
-      subtitulo?: string | null;
-    };
-    equipo?: {
-      eyebrow?: string | null;
-      titulo?: string | null;
-      subtitulo?: string | null;
-      items?: (number | TeamMember)[] | null;
-    };
-    mentorSection: {
-      titulo: string;
-      nombre: string;
-      web?: string | null;
-      bio: {
-        texto: string;
-        id?: string | null;
-      }[];
-      quote?: string | null;
-    };
-  };
-  benefits: {
-    eyebrow?: string | null;
-    titulo: string;
-    subtitulo?: string | null;
-    items?:
-      | {
-          texto: string;
-          valor?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    extras?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  pricing: {
-    titulo: string;
-    subtitulo?: string | null;
-    planNombre: string;
-    badgeText?: string | null;
-    precio: string;
-    precioTachado?: string | null;
-    precioNota?: string | null;
-    descripcion?: string | null;
-    features?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    ctaLabel?: string | null;
-    ctaHref?: string | null;
-    garantiaTexto?: string | null;
-  };
-  faq?: {
-    eyebrow?: string | null;
-    titulo?: string | null;
-    items?: (number | Faq)[] | null;
-  };
-  ctaFinal: {
-    titulo: string;
-    texto?: string | null;
-    bullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    boton: {
-      label: string;
-      href: string;
-      id?: string | null;
-    };
-  };
-  relatedLinks?:
-    | {
-        label: string;
-        href: string;
-        id?: string | null;
-      }[]
-    | null;
-  courseMeta?: {
-    price?: string | null;
-    /**
-     * Duración ISO 8601, ej. "P16W" (16 semanas).
-     */
-    courseWorkload?: string | null;
-    /**
-     * YYYY-MM-DD. Vacío si el curso es rolling/on-demand.
-     */
-    startDate?: string | null;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings_select".
  */
 export interface SiteSettingsSelect<T extends boolean = true> {
@@ -1399,6 +2406,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
           | {
               label?: T;
               href?: T;
+              id?: T;
             };
         programMenu?:
           | T
@@ -1461,820 +2469,6 @@ export interface SiteSettingsSelect<T extends boolean = true> {
               url?: T;
               id?: T;
             };
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "programas-hub_select".
- */
-export interface ProgramasHubSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-      };
-  ctaFinal?:
-    | T
-    | {
-        titulo?: T;
-        texto?: T;
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-            };
-      };
-  programas?: T;
-  relatedLinks?:
-    | T
-    | {
-        title?: T;
-        links?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "taller-seo-con-ia_select".
- */
-export interface TallerSeoConIaSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        duracion?: T;
-      };
-  incluye?:
-    | T
-    | {
-        texto?: T;
-        valor?: T;
-        id?: T;
-      };
-  paraQuien?: T;
-  precio?:
-    | T
-    | {
-        monto?: T;
-        opciones?:
-          | T
-          | {
-              texto?: T;
-              id?: T;
-            };
-      };
-  cta?:
-    | T
-    | {
-        label?: T;
-        href?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "quienes-somos_select".
- */
-export interface QuienesSomosSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-      };
-  historia?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        parrafos?:
-          | T
-          | {
-              texto?: T;
-              id?: T;
-            };
-        quote?:
-          | T
-          | {
-              texto?: T;
-              autor?: T;
-            };
-      };
-  fundadora?:
-    | T
-    | {
-        eyebrow?: T;
-        nombre?: T;
-        rol?: T;
-        bio?:
-          | T
-          | {
-              texto?: T;
-              id?: T;
-            };
-        foto?: T;
-      };
-  equipo?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?: T;
-      };
-  metodologia?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        pilares?:
-          | T
-          | {
-              nombre?: T;
-              descripcion?: T;
-              id?: T;
-            };
-      };
-  stats?:
-    | T
-    | {
-        items?:
-          | T
-          | {
-              value?: T;
-              label?: T;
-              id?: T;
-            };
-      };
-  ctaFinal?:
-    | T
-    | {
-        titulo?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-            };
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonios-page_select".
- */
-export interface TestimoniosPageSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-      };
-  gridTitulo?: T;
-  logos?:
-    | T
-    | {
-        texto?: T;
-        items?: T;
-      };
-  reto?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        texto?: T;
-      };
-  retoGaleria?: T;
-  cta?:
-    | T
-    | {
-        titulo?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-            };
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reto_select".
- */
-export interface RetoSelect<T extends boolean = true> {
-  urgencia?: T;
-  hero?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        destacado?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        precioTexto?: T;
-        ctas?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        imagen?: T;
-      };
-  razonNoEscalas?:
-    | T
-    | {
-        titulo?: T;
-        parrafo?: T;
-        frases?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-      };
-  mentora?:
-    | T
-    | {
-        nombre?: T;
-        rol?: T;
-        stats?:
-          | T
-          | {
-              valor?: T;
-              etiqueta?: T;
-              id?: T;
-            };
-        historia?: T;
-        quote?: T;
-        cierre?: T;
-        foto?: T;
-      };
-  agenda?:
-    | T
-    | {
-        dia?: T;
-        titulo?: T;
-        descripcion?: T;
-        imagen?: T;
-        id?: T;
-      };
-  comparacion?:
-    | T
-    | {
-        deSiempre?: T;
-        elReto?: T;
-        id?: T;
-      };
-  incluye?:
-    | T
-    | {
-        text?: T;
-        id?: T;
-      };
-  premios?:
-    | T
-    | {
-        mayor?:
-          | T
-          | {
-              titulo?: T;
-              imagen?: T;
-            };
-        becas?:
-          | T
-          | {
-              titulo?: T;
-              imagen?: T;
-            };
-        comoSeGana?: T;
-      };
-  pricing?:
-    | T
-    | {
-        precio?: T;
-        precioNota?: T;
-        incluyeTexto?: T;
-        ctas?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        nota?: T;
-        whatsapp?: T;
-      };
-  ganadoresIntro?: T;
-  ganadores?:
-    | T
-    | {
-        nombre?: T;
-        edicion?: T;
-        imagen?: T;
-        id?: T;
-      };
-  faq?: T;
-  ctaFinal?:
-    | T
-    | {
-        titulo?: T;
-        botonLabel?: T;
-        botonHref?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home_select".
- */
-export interface HomeSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        badgeText?: T;
-        eyebrow?: T;
-        tituloPre?: T;
-        tituloAccent?: T;
-        tituloPost?: T;
-        subtitulo?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        imagen?: T;
-        ctaPrimario?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        ctaSecundario?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        microcopy?: T;
-        avatares?: T;
-        ratingTexto?: T;
-        videoBackground?: T;
-      };
-  problema?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?:
-          | T
-          | {
-              icon?: T;
-              titulo?: T;
-              descripcion?: T;
-              id?: T;
-            };
-      };
-  beneficios?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?:
-          | T
-          | {
-              icon?: T;
-              titulo?: T;
-              descripcion?: T;
-              id?: T;
-            };
-      };
-  programas?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        items?: T;
-      };
-  pricing?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        planes?:
-          | T
-          | {
-              nombre?: T;
-              badge?: T;
-              precio?: T;
-              precioTachado?: T;
-              precioNota?: T;
-              cuotasTexto?: T;
-              features?:
-                | T
-                | {
-                    text?: T;
-                    id?: T;
-                  };
-              cta?:
-                | T
-                | {
-                    label?: T;
-                    href?: T;
-                    id?: T;
-                  };
-              id?: T;
-            };
-        ctaAsesoria?:
-          | T
-          | {
-              titulo?: T;
-              texto?: T;
-              cta?:
-                | T
-                | {
-                    label?: T;
-                    href?: T;
-                    id?: T;
-                  };
-            };
-      };
-  instructor?:
-    | T
-    | {
-        eyebrow?: T;
-        nombre?: T;
-        rol?: T;
-        bioCorta1?: T;
-        bioCorta2?: T;
-        stats?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    value?: T;
-                    label?: T;
-                    id?: T;
-                  };
-            };
-        foto?: T;
-        teaser?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-      };
-  testimonios?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        items?: T;
-      };
-  logos?:
-    | T
-    | {
-        texto?: T;
-        items?: T;
-      };
-  faq?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        items?: T;
-      };
-  ctaFinal?:
-    | T
-    | {
-        titulo?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-      };
-  stickyCta?:
-    | T
-    | {
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "diplomado_select".
- */
-export interface DiplomadoSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        badgeText?: T;
-        eyebrow?: T;
-        tituloPre?: T;
-        tituloAccent?: T;
-        tituloPost?: T;
-        subtitulo?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        imagen?: T;
-        ctaPrimario?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        ctaSecundario?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-        microcopy?: T;
-      };
-  origin?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?:
-          | T
-          | {
-              icon?: T;
-              titulo?: T;
-              descripcion?: T;
-              id?: T;
-            };
-      };
-  audience?:
-    | T
-    | {
-        titulo?: T;
-        subtitulo?: T;
-        tituloPerfiles?: T;
-        perfiles?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        tituloDudas?: T;
-        dudas?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        notaFinal?: T;
-      };
-  methodology?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?:
-          | T
-          | {
-              icon?: T;
-              titulo?: T;
-              descripcion?: T;
-              id?: T;
-            };
-      };
-  curriculum?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        semanas?:
-          | T
-          | {
-              numero?: T;
-              titulo?: T;
-              detalle?: T;
-              id?: T;
-            };
-      };
-  howItWorks?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?:
-          | T
-          | {
-              icon?: T;
-              titulo?: T;
-              descripcion?: T;
-              id?: T;
-            };
-        ctaLabel?: T;
-        ctaHref?: T;
-      };
-  team?:
-    | T
-    | {
-        teamIntro?:
-          | T
-          | {
-              eyebrow?: T;
-              titulo?: T;
-              subtitulo?: T;
-            };
-        equipo?:
-          | T
-          | {
-              eyebrow?: T;
-              titulo?: T;
-              subtitulo?: T;
-              items?: T;
-            };
-        mentorSection?:
-          | T
-          | {
-              titulo?: T;
-              nombre?: T;
-              web?: T;
-              bio?:
-                | T
-                | {
-                    texto?: T;
-                    id?: T;
-                  };
-              quote?: T;
-            };
-      };
-  benefits?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        subtitulo?: T;
-        items?:
-          | T
-          | {
-              texto?: T;
-              valor?: T;
-              id?: T;
-            };
-        extras?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-      };
-  pricing?:
-    | T
-    | {
-        titulo?: T;
-        subtitulo?: T;
-        planNombre?: T;
-        badgeText?: T;
-        precio?: T;
-        precioTachado?: T;
-        precioNota?: T;
-        descripcion?: T;
-        features?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        ctaLabel?: T;
-        ctaHref?: T;
-        garantiaTexto?: T;
-      };
-  faq?:
-    | T
-    | {
-        eyebrow?: T;
-        titulo?: T;
-        items?: T;
-      };
-  ctaFinal?:
-    | T
-    | {
-        titulo?: T;
-        texto?: T;
-        bullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        boton?:
-          | T
-          | {
-              label?: T;
-              href?: T;
-              id?: T;
-            };
-      };
-  relatedLinks?:
-    | T
-    | {
-        label?: T;
-        href?: T;
-        id?: T;
-      };
-  courseMeta?:
-    | T
-    | {
-        price?: T;
-        courseWorkload?: T;
-        startDate?: T;
       };
   updatedAt?: T;
   createdAt?: T;
