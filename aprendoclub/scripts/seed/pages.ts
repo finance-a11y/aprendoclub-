@@ -29,6 +29,9 @@ import {
   reto as testimoniosReto,
   retoImagenes,
   trustedCompanies,
+  videosEyebrow,
+  videosTitulo,
+  videoTestimonios,
 } from './seed-data/testimonios'
 
 import type { CollectionMaps } from './collections'
@@ -475,6 +478,12 @@ function buildTestimonios(mediaMap: Map<string, number>, maps: CollectionMaps): 
         subtitulo: testimoniosHero.subtitulo,
       },
       {
+        blockType: 'youtubeTestimonials',
+        eyebrow: videosEyebrow,
+        titulo: videosTitulo,
+        videos: videoTestimonios.map((v) => ({ nombre: v.nombre, youtube: v.youtube })),
+      },
+      {
         blockType: 'testimonialRef',
         titulo: gridTitulo,
         items: Array.from(maps.testimonios.values()),
@@ -600,9 +609,9 @@ export async function seedPages(payload: Payload, mediaMap: Map<string, number>,
 
     if (existing.docs.length > 0) {
       const id = Number(existing.docs[0].id)
-      await pld.update({ collection: 'pages', id, data: { title: page.title, slug: page.slug, layout: page.layout } })
+      await pld.update({ collection: 'pages', id, data: { title: page.title, slug: page.slug, layout: page.layout }, context: { disableRevalidate: true } })
     } else {
-      await pld.create({ collection: 'pages', data: { title: page.title, slug: page.slug, layout: page.layout } })
+      await pld.create({ collection: 'pages', data: { title: page.title, slug: page.slug, layout: page.layout }, context: { disableRevalidate: true } })
     }
 
     console.log(`[seed:pages] ${page.slug}: ${page.layout.length} bloques`)

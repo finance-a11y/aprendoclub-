@@ -36,6 +36,7 @@ export { tallerHeroFields, TallerHeroBlock } from './TallerHero'
 export { tallerIncluyeFields, TallerIncluyeBlock } from './TallerIncluye'
 export { tallerParaQuienFields, TallerParaQuienBlock } from './TallerParaQuien'
 export { tallerPricingFields, TallerPricingBlock } from './TallerPricing'
+export { youtubeTestimonialsFields, YoutubeTestimonialsBlock } from './YoutubeTestimonials'
 
 // Diplomado
 export { audienceFields, AudienceBlock } from './Audience'
@@ -83,6 +84,7 @@ import { TallerHeroBlock } from './TallerHero'
 import { TallerIncluyeBlock } from './TallerIncluye'
 import { TallerParaQuienBlock } from './TallerParaQuien'
 import { TallerPricingBlock } from './TallerPricing'
+import { YoutubeTestimonialsBlock } from './YoutubeTestimonials'
 
 import { AudienceBlock } from './Audience'
 import { Curriculum16SemanasBlock } from './Curriculum16Semanas'
@@ -133,6 +135,7 @@ export const allBlocks: Block[] = [
   TallerIncluyeBlock,
   TallerParaQuienBlock,
   TallerPricingBlock,
+  YoutubeTestimonialsBlock,
   // Bespoke: diplomado
   AudienceBlock,
   Curriculum16SemanasBlock,

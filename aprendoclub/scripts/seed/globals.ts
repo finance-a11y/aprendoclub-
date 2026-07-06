@@ -140,6 +140,7 @@ export async function seedGlobals(
         ],
       },
     },
+    context: { disableRevalidate: true },
   })
   console.log('[seed:globals] site-settings OK')
 }

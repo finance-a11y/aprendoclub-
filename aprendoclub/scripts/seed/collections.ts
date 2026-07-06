@@ -143,11 +143,11 @@ async function upsertByField(
 
   if (existing.docs.length > 0) {
     const id = Number(existing.docs[0].id)
-    await p.update({ collection, id, data })
+    await p.update({ collection, id, data, context: { disableRevalidate: true } })
     return id
   }
 
-  const created = await p.create({ collection, data })
+  const created = await p.create({ collection, data, context: { disableRevalidate: true } })
   return Number(created.id)
 }
 

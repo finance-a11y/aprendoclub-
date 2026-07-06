@@ -332,6 +332,7 @@ export interface Page {
     | TallerIncluyeBlock
     | TallerParaQuienBlock
     | TallerPricingBlock
+    | YoutubeTestimonialsBlock
     | AudienceBlock
     | Curriculum16SemanasBlock
     | HowItWorksBlock
@@ -820,6 +821,27 @@ export interface TallerPricingBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'tallerPricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "YoutubeTestimonialsBlock".
+ */
+export interface YoutubeTestimonialsBlock {
+  eyebrow?: string | null;
+  titulo?: string | null;
+  videos?:
+    | {
+        nombre: string;
+        /**
+         * Pega la URL completa (youtube.com/watch?v=..., youtu.be/..., /shorts/...) o solo el ID del video.
+         */
+        youtube: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'youtubeTestimonials';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1566,6 +1588,7 @@ export interface PagesSelect<T extends boolean = true> {
         tallerIncluye?: T | TallerIncluyeBlockSelect<T>;
         tallerParaQuien?: T | TallerParaQuienBlockSelect<T>;
         tallerPricing?: T | TallerPricingBlockSelect<T>;
+        youtubeTestimonials?: T | YoutubeTestimonialsBlockSelect<T>;
         audience?: T | AudienceBlockSelect<T>;
         curriculum16Semanas?: T | Curriculum16SemanasBlockSelect<T>;
         howItWorks?: T | HowItWorksBlockSelect<T>;
@@ -2043,6 +2066,23 @@ export interface TallerPricingBlockSelect<T extends boolean = true> {
     | {
         label?: T;
         href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "YoutubeTestimonialsBlock_select".
+ */
+export interface YoutubeTestimonialsBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  videos?:
+    | T
+    | {
+        nombre?: T;
+        youtube?: T;
         id?: T;
       };
   id?: T;

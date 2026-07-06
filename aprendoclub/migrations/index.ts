@@ -14,6 +14,7 @@ import * as migration_20260705_175349_blog_excerpt_rename from './20260705_17534
 import * as migration_20260705_194938_author_socials from './20260705_194938_author_socials';
 import * as migration_20260705_212118_add_blog_redirect_targets from './20260705_212118_add_blog_redirect_targets';
 import * as migration_20260705_221614_llms_global from './20260705_221614_llms_global';
+import * as migration_20260706_220700_youtube_testimonials_block from './20260706_220700_youtube_testimonials_block';
 
 export const migrations = [
   {
@@ -94,6 +95,11 @@ export const migrations = [
   {
     up: migration_20260705_221614_llms_global.up,
     down: migration_20260705_221614_llms_global.down,
-    name: '20260705_221614_llms_global'
+    name: '20260705_221614_llms_global',
+  },
+  {
+    up: migration_20260706_220700_youtube_testimonials_block.up,
+    down: migration_20260706_220700_youtube_testimonials_block.down,
+    name: '20260706_220700_youtube_testimonials_block'
   },
 ];

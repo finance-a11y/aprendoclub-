@@ -65,6 +65,27 @@ export const hero: HeroContent = {
 /** Título del grid de testimonios. */
 export const gridTitulo = "Lo que dicen nuestros estudiantes";
 
+/** Testimonio en video. Payload-ready: item del bloque `youtubeTestimonials`. */
+export interface VideoTestimonio {
+  nombre: string;
+  /** URL completa de YouTube (o ID pelado); el render extrae el ID. */
+  youtube: string;
+}
+
+/** Encabezado del bloque de testimonios en video. */
+export const videosEyebrow = "EN SUS PALABRAS";
+export const videosTitulo = "Testimonios en video";
+
+/** Los 6 testimonios en video sembrados (Phase 19, VID-02). */
+export const videoTestimonios: VideoTestimonio[] = [
+  { nombre: "Christian", youtube: "https://youtu.be/F5CPFlZ0UnM" },
+  { nombre: "Angel", youtube: "https://youtu.be/KRkTa9r4qOc" },
+  { nombre: "Gabriela", youtube: "https://youtu.be/wyDF494GcF0" },
+  { nombre: "Claudia", youtube: "https://youtu.be/tRhxo-MQeo4" },
+  { nombre: "Daniel", youtube: "https://youtu.be/LKJn3F4kzMs" },
+  { nombre: "Venezia", youtube: "https://youtu.be/eTZUpCWZJtA" },
+];
+
 /** Texto de la banda de logos "empresas como". */
 export const logosBanda = "Profesionales de empresas como";
 
