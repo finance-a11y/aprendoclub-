@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Enlaces | aprendoclub",
   description: "Todos los enlaces importantes de aprendoclub en un solo lugar.",
   alternates: {
-    canonical: "https://aprendoclub.com/links",
+    canonical: "https://www.aprendoclub.com/links",
   },
 };
 

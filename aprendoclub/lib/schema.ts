@@ -6,7 +6,7 @@
  * contenido se vuelva dinámico (v1.1), estos builders se alimentan del CMS.
  */
 
-export const SITE_URL = "https://aprendoclub.com";
+export const SITE_URL = "https://www.aprendoclub.com";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;

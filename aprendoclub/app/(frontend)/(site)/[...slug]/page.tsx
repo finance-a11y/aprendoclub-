@@ -55,7 +55,7 @@ async function blogMetadata(
     return {
       title: `${author.name} | aprendoclub`,
       description: author.bio || undefined,
-      alternates: { canonical: `https://aprendoclub.com/${slug}` },
+      alternates: { canonical: `https://www.aprendoclub.com/${slug}` },
     }
   }
   if (slugParts.length === 1) {
@@ -65,7 +65,7 @@ async function blogMetadata(
       return {
         title: `${cat.name} | Blog aprendoclub`,
         description: cat.description || undefined,
-        alternates: { canonical: `https://aprendoclub.com/${slug}` },
+        alternates: { canonical: `https://www.aprendoclub.com/${slug}` },
       }
     }
   }

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     "Guías, tutoriales y estrategias de SEO y AIO en español para posicionar en Google, ChatGPT y Gemini.",
   alternates: {
-    canonical: "https://aprendoclub.com/blog",
+    canonical: "https://www.aprendoclub.com/blog",
   },
 };
 

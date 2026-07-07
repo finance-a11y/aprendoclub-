@@ -38,7 +38,7 @@ export function buildMetadata(meta: PageMeta, slug: string): Metadata {
   }
 
   // Canonical tag self-referencing (excepto si hay query params, que se ignoran acá).
-  const canonicalUrl = slug ? `https://aprendoclub.com/${slug}` : "https://aprendoclub.com";
+  const canonicalUrl = slug ? `https://www.aprendoclub.com/${slug}` : "https://www.aprendoclub.com";
   result.alternates = { canonical: canonicalUrl };
 
   return result;
