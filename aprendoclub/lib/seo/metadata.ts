@@ -37,5 +37,9 @@ export function buildMetadata(meta: PageMeta, slug: string): Metadata {
     result.openGraph = { images: [{ url: image.url }] };
   }
 
+  // Canonical tag self-referencing (excepto si hay query params, que se ignoran acá).
+  const canonicalUrl = slug ? `https://aprendoclub.com/${slug}` : "https://aprendoclub.com";
+  result.alternates = { canonical: canonicalUrl };
+
   return result;
 }

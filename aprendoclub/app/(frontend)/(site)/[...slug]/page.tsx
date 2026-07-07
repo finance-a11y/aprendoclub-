@@ -51,15 +51,27 @@ async function blogMetadata(
   if (slugParts[0] === 'autor' && slugParts.length === 2) {
     const author = await findAuthorBySlug(payload, slugParts[1])
     if (!author) return null
-    return { title: `${author.name} | aprendoclub`, description: author.bio || undefined }
+    const slug = `autor/${author.slug}`
+    return {
+      title: `${author.name} | aprendoclub`,
+      description: author.bio || undefined,
+      alternates: { canonical: `https://aprendoclub.com/${slug}` },
+    }
   }
   if (slugParts.length === 1) {
     const cat = await findCategoryBySlug(payload, slugParts[0])
-    if (cat) return { title: `${cat.name} | Blog aprendoclub`, description: cat.description || undefined }
+    if (cat) {
+      const slug = cat.slug
+      return {
+        title: `${cat.name} | Blog aprendoclub`,
+        description: cat.description || undefined,
+        alternates: { canonical: `https://aprendoclub.com/${slug}` },
+      }
+    }
   }
   if (slugParts.length === 2) {
     const post = await findPostBySlug(payload, slugParts[0], slugParts[1])
-    if (post) return buildMetadata(post.meta, `blog/${post.slug}`)
+    if (post) return buildMetadata(post.meta, `${slugParts[0]}/${post.slug}`)
   }
   return null
 }

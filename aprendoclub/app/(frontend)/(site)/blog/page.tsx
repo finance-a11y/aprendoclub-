@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: "Blog de SEO e IA | aprendoclub",
   description:
     "Guías, tutoriales y estrategias de SEO y AIO en español para posicionar en Google, ChatGPT y Gemini.",
+  alternates: {
+    canonical: "https://aprendoclub.com/blog",
+  },
 };
 
 export default async function BlogIndexPage({
