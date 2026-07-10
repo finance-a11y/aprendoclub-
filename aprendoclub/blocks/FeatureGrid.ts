@@ -16,7 +16,10 @@ export const featureGridFields: Field[] = [
         name: 'icon',
         type: 'text',
         admin: {
-          description: 'Nombre de icono lucide (e.g. "rocket", "target")',
+          description: 'Icono lucide seleccionado visualmente',
+          components: {
+            Field: '/components/admin/IconPicker#IconPicker',
+          },
         },
       },
       {
@@ -39,5 +42,7 @@ export const FeatureGridBlock: Block = {
     singular: 'Feature Grid',
     plural: 'Feature Grids',
   },
+  imageURL: '/block-previews/grid-cards.svg',
+  imageAltText: 'Grid de tarjetas con ícono y dos líneas de texto cada una',
   fields: featureGridFields,
 }
