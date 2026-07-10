@@ -1,5 +1,5 @@
 import { Eyebrow } from '@/components/ui/eyebrow'
-import { lucideIcon } from '@/lib/blocks/icons'
+import { LucideIcon } from '@/lib/blocks/icons'
 import type { FeatureGridBlock as FeatureGridBlockType } from '@/payload-types'
 
 /**
@@ -28,14 +28,13 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
       {items.length > 0 && (
         <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
           {items.map((item, index) => {
-            const Icon = lucideIcon(item.icon)
             return (
               <div
                 key={item.id ?? index}
                 className="group h-full flex flex-col gap-4 rounded-xl bg-white/[0.03] border border-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30 hover:-translate-y-1"
               >
                 <div className="w-fit rounded-xl bg-[var(--primary)]/10 p-3">
-                  <Icon className="h-6 w-6 text-[var(--primary)]" />
+                  <LucideIcon name={item.icon} className="h-6 w-6 text-[var(--primary)]" />
                 </div>
                 <h3 className="text-lg font-semibold text-white">{item.titulo}</h3>
                 {item.descripcion && (

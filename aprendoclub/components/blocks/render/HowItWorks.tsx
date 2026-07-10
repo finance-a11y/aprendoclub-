@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button'
 import { Eyebrow } from '@/components/ui/eyebrow'
-import { lucideIcon } from '@/lib/blocks/icons'
+import { LucideIcon } from '@/lib/blocks/icons'
 import type { HowItWorksBlock as HowItWorksBlockType } from '@/payload-types'
 
 /**
  * Render de 'howItWorks': eyebrow/título + items[]{icon,titulo,descripcion}
- * (lucideIcon) + ctaLabel/ctaHref. Espeja components/diplomado/how-it-works.tsx
+ * (LucideIcon) + ctaLabel/ctaHref. Espeja components/diplomado/how-it-works.tsx
  * (grid de tarjetas 2/3 columnas + CTA final).
  */
 export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
@@ -27,7 +27,6 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => {
-            const Icon = lucideIcon(item.icon)
             return (
               <div
                 key={item.id ?? i}
@@ -36,7 +35,7 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
                 }`}
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
-                  <Icon className="h-6 w-6 text-[var(--primary-light)]" />
+                  <LucideIcon name={item.icon} className="h-6 w-6 text-[var(--primary-light)]" />
                 </div>
                 <h3 className="mb-2 font-semibold text-white">{item.titulo}</h3>
                 {item.descripcion && (

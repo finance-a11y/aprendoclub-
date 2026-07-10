@@ -1,8 +1,6 @@
+import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { lucideIcon } from '@/lib/blocks/icons'
 import type { CtaBannerBlock as CtaBannerBlockType } from '@/payload-types'
-
-const CheckIcon = lucideIcon('check')
 
 /**
  * Render de 'ctaBanner': título + texto + bullets[] + botón.
@@ -43,7 +41,7 @@ export function CtaBanner({ block }: { block: CtaBannerBlockType }) {
                 key={bullet.id ?? i}
                 className="flex items-center gap-2 text-gray-300"
               >
-                <CheckIcon className="h-4 w-4 shrink-0 text-[var(--accent)]" />
+                <Check className="h-4 w-4 shrink-0 text-[var(--accent)]" />
                 {bullet.text}
               </li>
             ))}

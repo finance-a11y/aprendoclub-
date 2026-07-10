@@ -73,17 +73,17 @@ export const origin: OriginContent = {
     "Una necesidad real. Una solución creada desde la experiencia.",
   tarjetas: [
     {
-      icon: "Briefcase",
+      icon: "briefcase",
       texto:
         "En 2022, nuestra fundadora Arianna Lupi, entonces gerente de una agencia SEO, no encontraba talento hispanohablante capacitado.",
     },
     {
-      icon: "Lightbulb",
+      icon: "lightbulb",
       texto:
         "Su comunidad digital preguntaba cómo ella había logrado trabajar en SEO 100% remoto. Arianna conectó los puntos: había empresas que necesitaban especialistas y personas que querían aprender.",
     },
     {
-      icon: "Users",
+      icon: "users",
       texto:
         "Así nació aprendoclub, la primera academia especializada en SEO para el mercado hispano. Hoy, más de 750 personas se han formado con nosotros.",
     },
@@ -150,22 +150,22 @@ export const methodology: MethodologyContent = {
     "El diplomado está diseñado para cualquier persona que quiera aprender SEO y aprovechar esta poderosa habilidad para transformar su carrera o negocio.",
   pilares: [
     {
-      icon: "GraduationCap",
+      icon: "graduation-cap",
       titulo: "Especialización",
       descripcion: "Aprendes lo básico hasta lo avanzado, con foco 100% en SEO.",
     },
     {
-      icon: "Wrench",
+      icon: "wrench",
       titulo: "Práctica aplicada",
       descripcion: "Aplicas desde la semana 1 en un proyecto real.",
     },
     {
-      icon: "Award",
+      icon: "award",
       titulo: "Autoridad digital",
       descripcion: "Construyes tu presencia profesional con tu portafolio.",
     },
     {
-      icon: "DollarSign",
+      icon: "dollar-sign",
       titulo: "Monetización",
       descripcion: "Atraes oportunidades, trabajes como freelance o en una empresa.",
     },
@@ -295,31 +295,31 @@ export const howItWorks: HowItWorksContent = {
   titulo: "¿Cómo funciona el diplomado de cero a SEO?",
   features: [
     {
-      icon: "Clock",
+      icon: "clock",
       titulo: "Duración flexible",
       descripcion:
         "El diplomado se adapta a tu ritmo. Puedes completarlo entre 3 y 6 meses, pero tendrás acceso completo al contenido durante 6 meses.",
     },
     {
-      icon: "BookOpen",
+      icon: "book-open",
       titulo: "Aprendizaje estructurado y aplicable",
       descripcion:
         "Cada módulo te lleva desde lo más básico hasta estrategias avanzadas, con lecciones que puedes aplicar en proyectos reales desde el inicio.",
     },
     {
-      icon: "Video",
+      icon: "video",
       titulo: "Llamadas en vivo semanales",
       descripcion:
         "Tendrás 3 sesiones grupales a la semana con nuestros coaches SEO. Resolverás dudas, recibirás feedback y avanzarás con claridad.",
     },
     {
-      icon: "FolderOpen",
+      icon: "folder-open",
       titulo: "Proyecto real para tu portafolio",
       descripcion:
         "Culmina el diplomado aplicando todo lo aprendido en un proyecto SEO completo. Este será tu mejor carta de presentación.",
     },
     {
-      icon: "Users",
+      icon: "users",
       titulo: "Comunidad activa que te acompaña",
       descripcion:
         "Forma parte de un grupo donde podrás compartir tus avances, recibir apoyo y conectarte con otros que también están en el camino SEO.",

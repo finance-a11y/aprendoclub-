@@ -1,11 +1,9 @@
 import Image from 'next/image'
+import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { resolveMedia } from '@/lib/blocks/media'
-import { lucideIcon } from '@/lib/blocks/icons'
 import type { HeroBlock as HeroBlockType } from '@/payload-types'
-
-const CheckIcon = lucideIcon('check')
 
 /**
  * Render de 'hero' (genérico): badge + eyebrow + título compuesto
@@ -60,7 +58,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
                 key={bullet.id ?? i}
                 className="flex items-center gap-2 text-gray-300"
               >
-                <CheckIcon className="h-4 w-4 shrink-0 text-[var(--accent)]" />
+                <Check className="h-4 w-4 shrink-0 text-[var(--accent)]" />
                 {bullet.text}
               </li>
             ))}
