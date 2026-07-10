@@ -83,7 +83,7 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
             delay: reduceMotion ? 0 : 0.4,
             ease: 'easeOut',
           }}
-          className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white"
         >
           {block.tituloPre}{' '}
           {block.tituloAccent && (

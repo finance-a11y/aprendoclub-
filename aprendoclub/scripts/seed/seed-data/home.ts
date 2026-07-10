@@ -22,6 +22,7 @@ export interface HomeHero {
   badgeText: string;
   tituloPre: string;
   tituloAccent: string;
+  tituloPost: string;
   subtitulo: string;
   ctaPrimario: { label: string; href: string };
   ctaSecundario: { label: string; href: string };
@@ -33,8 +34,9 @@ export interface HomeHero {
 /** Hero (hero-section.tsx). */
 export const hero: HomeHero = {
   badgeText: "+500 estudiantes ya aprenden SEO con IA",
-  tituloPre: "La única academia que te prepara",
-  tituloAccent: "para conseguir un trabajo real.",
+  tituloPre: "La única academia de",
+  tituloAccent: "marketing e IA",
+  tituloPost: "que te ayuda a encontrar trabajo",
   subtitulo:
     "Especialízate en SEO con la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
   ctaPrimario: { label: "Únete a aprendoclub", href: "#precios" },

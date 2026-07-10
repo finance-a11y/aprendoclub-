@@ -97,6 +97,7 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
         badgeText: home.hero.badgeText,
         tituloPre: home.hero.tituloPre,
         tituloAccent: home.hero.tituloAccent,
+        tituloPost: home.hero.tituloPost,
         subtitulo: home.hero.subtitulo,
         ctaPrimario: { label: home.hero.ctaPrimario.label, href: home.hero.ctaPrimario.href },
         ctaSecundario: { label: home.hero.ctaSecundario.label, href: home.hero.ctaSecundario.href },
