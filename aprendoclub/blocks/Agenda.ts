@@ -39,5 +39,7 @@ export const AgendaBlock: Block = {
     singular: 'Agenda',
     plural: 'Agenda',
   },
+  imageURL: '/block-previews/grid-cards.svg',
+  imageAltText: 'Grid de tarjetas con ícono y dos líneas de texto cada una',
   fields: agendaFields,
 }

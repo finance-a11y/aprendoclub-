@@ -34,5 +34,7 @@ export const RazonNoEscalasBlock: Block = {
     singular: 'Razón no escalas',
     plural: 'Razón no escalas',
   },
+  imageURL: '/block-previews/grid-cards.svg',
+  imageAltText: 'Grid de tarjetas con ícono y dos líneas de texto cada una',
   fields: razonNoEscalasFields,
 }
