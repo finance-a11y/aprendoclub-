@@ -471,7 +471,7 @@ export interface FeatureGridBlock {
   items?:
     | {
         /**
-         * Nombre de icono lucide (e.g. "rocket", "target")
+         * Icono lucide seleccionado visualmente
          */
         icon?: string | null;
         titulo: string;
@@ -897,7 +897,7 @@ export interface HowItWorksBlock {
   items?:
     | {
         /**
-         * Nombre de icono lucide (e.g. "rocket", "target")
+         * Icono lucide seleccionado visualmente
          */
         icon?: string | null;
         titulo: string;
