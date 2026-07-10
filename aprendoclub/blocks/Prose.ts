@@ -18,5 +18,7 @@ export const ProseBlock: Block = {
     singular: 'Prose',
     plural: 'Prose',
   },
+  imageURL: '/block-previews/prose-block.svg',
+  imageAltText: 'Bloque de texto largo tipo párrafo',
   fields: proseFields,
 }

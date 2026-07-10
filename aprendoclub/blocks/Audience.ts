@@ -56,5 +56,7 @@ export const AudienceBlock: Block = {
     singular: 'Audiencia',
     plural: 'Audiencia',
   },
+  imageURL: '/block-previews/prose-block.svg',
+  imageAltText: 'Bloque de texto largo tipo párrafo',
   fields: audienceFields,
 }
