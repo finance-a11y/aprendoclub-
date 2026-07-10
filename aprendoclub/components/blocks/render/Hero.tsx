@@ -79,7 +79,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
           </div>
         )}
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-nowrap">
           <Button
             href={block.ctaPrimario.href}
             target="_blank"
@@ -87,6 +87,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
             variant="primary"
             size="lg"
             icon
+            className="whitespace-nowrap"
           >
             {block.ctaPrimario.label}
           </Button>
@@ -96,7 +97,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
             rel="noopener noreferrer"
             variant="secondary"
             size="lg"
-            className="hover:bg-white/10"
+            className="hover:bg-white/10 whitespace-nowrap"
           >
             {block.ctaSecundario.label}
           </Button>

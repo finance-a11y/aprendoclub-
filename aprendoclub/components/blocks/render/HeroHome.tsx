@@ -119,13 +119,13 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
             delay: reduceMotion ? 0 : 0.6,
             ease: 'easeOut',
           }}
-          className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row sm:flex-nowrap items-center gap-4 mt-2 w-full sm:w-auto"
         >
           <Button
             href={block.ctaPrimario.href}
             variant="primary"
             size="lg"
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto whitespace-nowrap"
           >
             {block.ctaPrimario.label}
           </Button>
@@ -136,7 +136,7 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
             icon={false}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto whitespace-nowrap"
           >
             <Calendar className="h-5 w-5" aria-hidden="true" />
             {block.ctaSecundario.label}
