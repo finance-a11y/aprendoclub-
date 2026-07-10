@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <rect x="0" y="0" width="300" height="200" fill="#0d1117"/>
+  <g>
+    <circle cx="30" cy="30" r="10" fill="none" stroke="#9ca3af" stroke-width="2"/>
+    <rect x="50" y="27" width="180" height="3" rx="1.5" fill="#9ca3af"/>
+    <path d="M264 26 L272 30 L264 34" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  </g>
+  <g>
+    <circle cx="30" cy="66" r="10" fill="none" stroke="#9ca3af" stroke-width="2"/>
+    <rect x="50" y="63" width="180" height="3" rx="1.5" fill="#9ca3af"/>
+    <path d="M264 62 L272 66 L264 70" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  </g>
+  <g>
+    <circle cx="30" cy="102" r="10" fill="none" stroke="#9ca3af" stroke-width="2"/>
+    <rect x="50" y="99" width="180" height="3" rx="1.5" fill="#9ca3af"/>
+    <path d="M264 98 L272 102 L264 106" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  </g>
+  <g>
+    <circle cx="30" cy="138" r="10" fill="none" stroke="#9ca3af" stroke-width="2"/>
+    <rect x="50" y="135" width="180" height="3" rx="1.5" fill="#9ca3af"/>
+    <path d="M264 134 L272 138 L264 142" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  </g>
+  <g>
+    <circle cx="30" cy="174" r="10" fill="none" stroke="#9ca3af" stroke-width="2"/>
+    <rect x="50" y="171" width="180" height="3" rx="1.5" fill="#9ca3af"/>
+    <path d="M264 170 L272 174 L264 178" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  </g>
+</svg>
