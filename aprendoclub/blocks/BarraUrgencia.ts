@@ -18,5 +18,7 @@ export const BarraUrgenciaBlock: Block = {
     singular: 'Barra de urgencia',
     plural: 'Barra de urgencia',
   },
+  imageURL: '/block-previews/banner-urgencia.svg',
+  imageAltText: 'Barra delgada de urgencia con texto centrado',
   fields: barraUrgenciaFields,
 }
