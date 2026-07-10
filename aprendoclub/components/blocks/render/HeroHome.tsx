@@ -85,11 +85,14 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
           }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white"
         >
-          {block.tituloPre}{' '}
+          {block.tituloPre}
           {block.tituloAccent && (
-            <span className="bg-gradient-to-r from-white via-[var(--accent)] to-[var(--primary)] bg-clip-text text-transparent">
-              {block.tituloAccent}
-            </span>
+            <>
+              {' '}
+              <span className="bg-gradient-to-r from-white via-[var(--accent)] to-[var(--primary)] bg-clip-text text-transparent">
+                {block.tituloAccent}
+              </span>
+            </>
           )}
           {block.tituloPost && <> {block.tituloPost}</>}
         </motion.h1>
