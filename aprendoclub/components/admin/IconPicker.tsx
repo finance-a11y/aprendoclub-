@@ -83,10 +83,21 @@ export function IconPicker({ path, field }: { path: string; field?: { label?: st
 
       <Modal slug={modalSlug} className="icon-picker__modal">
         <div className="icon-picker__modal-content">
-          <h2 className="icon-picker__modal-title">Elegir ícono</h2>
+          <div className="icon-picker__modal-header">
+            <h2 className="icon-picker__modal-title">Elegir ícono</h2>
+            <button
+              type="button"
+              aria-label="Cerrar"
+              className="icon-picker__modal-close"
+              onClick={() => closeModal(modalSlug)}
+            >
+              ×
+            </button>
+          </div>
 
           <input
             type="text"
+            aria-label="Buscar ícono"
             className="icon-picker__search"
             placeholder="Buscar ícono (ej. rocket, target, arrow-right)…"
             value={query}
@@ -110,8 +121,6 @@ export function IconPicker({ path, field }: { path: string; field?: { label?: st
                 <button
                   key={key}
                   type="button"
-                  role="button"
-                  tabIndex={0}
                   aria-label={key}
                   className="icon-picker__cell"
                   onClick={() => handleSelect(key)}
