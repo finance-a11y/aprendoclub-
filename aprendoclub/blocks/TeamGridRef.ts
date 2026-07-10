@@ -33,5 +33,7 @@ export const TeamGridRefBlock: Block = {
     singular: 'Equipo (referencia)',
     plural: 'Equipo (referencia)',
   },
+  imageURL: '/block-previews/team-grid.svg',
+  imageAltText: 'Grid de avatares circulares con nombre debajo',
   fields: teamGridRefFields,
 }
