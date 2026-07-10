@@ -67,5 +67,7 @@ export const HeroBlock: Block = {
     singular: 'Hero',
     plural: 'Heroes',
   },
+  imageURL: '/block-previews/hero-split.svg',
+  imageAltText: 'Hero con insignia, título en dos líneas, subtítulo y dos botones',
   fields: heroFields,
 }

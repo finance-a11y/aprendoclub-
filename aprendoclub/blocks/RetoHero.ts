@@ -61,5 +61,7 @@ export const RetoHeroBlock: Block = {
     singular: 'Hero Reto',
     plural: 'Heroes Reto',
   },
+  imageURL: '/block-previews/hero-split.svg',
+  imageAltText: 'Hero con insignia, título en dos líneas, subtítulo y dos botones',
   fields: retoHeroFields,
 }

@@ -34,5 +34,7 @@ export const HeroHomeBlock: Block = {
     singular: 'Hero Home',
     plural: 'Heroes Home',
   },
+  imageURL: '/block-previews/hero-split.svg',
+  imageAltText: 'Hero con insignia, título en dos líneas, subtítulo y dos botones',
   fields: heroHomeFields,
 }
