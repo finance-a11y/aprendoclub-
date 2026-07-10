@@ -25,9 +25,15 @@ import dynamicIconImports from 'lucide-react/dynamicIconImports'
  */
 export function normalizeIconName(name?: string | null): string | null {
   if (!name) return null
+  if (name in dynamicIconImports) return name // ya es una key canónica, no normalizar
   return name
-    .replace(/([a-zA-Z])([0-9])/g, '$1-$2')
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    // Inserta guion antes de un grupo de dígitos, salvo que la letra previa
+    // ya esté precedida por un dígito (evita partir compuestos tipo "2x2"
+    // o "3d" en un segundo salto letra→dígito).
+    .replace(/(?<!\d)([a-zA-Z])([0-9]+)/g, '$1-$2')
+    // Inserta guion en transiciones minúscula→mayúscula (camelCase/PascalCase
+    // estándar); no incluye dígitos aquí para no partir compuestos tipo "2X2".
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
     .toLowerCase()
 }
 
@@ -51,8 +57,9 @@ export async function LucideIcon({
       const mod = await dynamicIconImports[key as keyof typeof dynamicIconImports]()
       const Cmp = mod.default
       return <Cmp className={className} />
-    } catch {
+    } catch (err) {
       // Import dinámico falló (chunk inexistente/roto): cae al fallback.
+      console.error(`[LucideIcon] falló al cargar el ícono "${key}"`, err)
     }
   }
 
