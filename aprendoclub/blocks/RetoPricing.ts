@@ -45,5 +45,7 @@ export const RetoPricingBlock: Block = {
     singular: 'Pricing (Reto)',
     plural: 'Pricing (Reto)',
   },
+  imageURL: '/block-previews/pricing-columns.svg',
+  imageAltText: 'Columnas de precios con lista de beneficios y botón de acción',
   fields: retoPricingFields,
 }

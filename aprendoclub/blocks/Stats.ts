@@ -29,5 +29,7 @@ export const StatsBlock: Block = {
     singular: 'Stats',
     plural: 'Stats',
   },
+  imageURL: '/block-previews/stats-row.svg',
+  imageAltText: 'Fila de números grandes con etiqueta debajo de cada uno',
   fields: statsFields,
 }
