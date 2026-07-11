@@ -512,7 +512,7 @@ export const pricing: PricingContent = {
     "Para quienes quieren dominar SEO con el diplomado completo, sesiones semanales y ruta profesional.",
   features: [
     "Todo lo de Aprendiz",
-    "Diplomado CERO A SEO completo",
+    "Diplomado de SEO + AIO completo",
     "3 sesiones semanales",
     "Proyectos aplicados",
     "Ruta profesional guiada",
