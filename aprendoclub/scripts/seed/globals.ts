@@ -65,7 +65,7 @@ const footerMeta = {
   blurb: 'Academia de marketing con IA. Formación, comunidad y acompañamiento para especialistas.',
   copyrightLeft: 'aprendoclub. Todos los derechos reservados.',
   copyrightRight: 'Hecho con 💚 para la comunidad SEO',
-  mobilePanelBlurb: 'Membresía profesional SEO + IA',
+  mobilePanelBlurb: 'Membresía profesional de marketing con IA',
 }
 
 /**
