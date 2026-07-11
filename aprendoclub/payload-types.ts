@@ -471,9 +471,21 @@ export interface FeatureGridBlock {
   items?:
     | {
         /**
+         * Tipo de ícono
+         */
+        iconMode?: ('icon' | 'image') | null;
+        /**
          * Icono lucide seleccionado visualmente
          */
         icon?: string | null;
+        /**
+         * Si no elegís uno, se usa el color de mayor contraste del sistema
+         */
+        iconColor?: ('auto' | 'accent' | 'white' | 'primary') | null;
+        /**
+         * Sube una imagen chica o ilustración en vez de un ícono lucide
+         */
+        image?: (number | null) | Media;
         titulo: string;
         descripcion?: string | null;
         id?: string | null;
@@ -897,9 +909,21 @@ export interface HowItWorksBlock {
   items?:
     | {
         /**
+         * Tipo de ícono
+         */
+        iconMode?: ('icon' | 'image') | null;
+        /**
          * Icono lucide seleccionado visualmente
          */
         icon?: string | null;
+        /**
+         * Si no elegís uno, se usa el color de mayor contraste del sistema
+         */
+        iconColor?: ('auto' | 'accent' | 'white' | 'primary') | null;
+        /**
+         * Sube una imagen chica o ilustración en vez de un ícono lucide
+         */
+        image?: (number | null) | Media;
         titulo: string;
         descripcion?: string | null;
         id?: string | null;
@@ -1735,7 +1759,10 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
   items?:
     | T
     | {
+        iconMode?: T;
         icon?: T;
+        iconColor?: T;
+        image?: T;
         titulo?: T;
         descripcion?: T;
         id?: T;
@@ -2142,7 +2169,10 @@ export interface HowItWorksBlockSelect<T extends boolean = true> {
   items?:
     | T
     | {
+        iconMode?: T;
         icon?: T;
+        iconColor?: T;
+        image?: T;
         titulo?: T;
         descripcion?: T;
         id?: T;
