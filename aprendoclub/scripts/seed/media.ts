@@ -33,7 +33,16 @@ function collectMediaAssets(): MediaAsset[] {
   const assets: MediaAsset[] = []
   const seen = new Set<string>()
   const add = (p: string | undefined, alt: string) => {
-    if (!p || seen.has(p)) return
+    if (!p) return
+    if (seen.has(p)) {
+      // Path ya registrado por otro caller (asset reusado entre secciones, p.ej.
+      // diplomado-mentorias.avif / diplomado-comunidad.avif entre galería y
+      // howItWorks). El Media doc es único por path, así que el primer alt en
+      // registrarse gana y los siguientes se descartan a propósito: se deja
+      // constancia acá para que no parezca código muerto silencioso.
+      console.warn(`[seed:media] alt duplicado ignorado para ${p}: "${alt}"`)
+      return
+    }
     seen.add(p)
     assets.push({ path: p, alt })
   }
@@ -63,6 +72,11 @@ function collectMediaAssets(): MediaAsset[] {
   // Diplomado: hero + galería con assets reales (IMG-01, Phase 24; fotos reales desde 24-02)
   add(diplomadoHero.imagen, 'Estudiante del Diplomado de Cero a SEO trabajando en su laptop')
   for (const img of diplomadoGaleria.imagenes) add(img.src, img.alt)
+  // diplomado-mentorias.avif y diplomado-comunidad.avif se reusan del bloque
+  // anterior (diplomadoGaleria.imagenes): el Media doc para esos dos paths ya
+  // quedó registrado arriba con el alt de la galería, así que el add() de acá
+  // es un no-op intencional para esos dos (ver warning en collectMediaAssets/add).
+  // Solo diplomado-modulos2.avif (único de howItWorks) toma el alt calculado aquí.
   for (const f of diplomado.howItWorks.features) {
     if (f.iconMode === 'image' && f.imagen) add(f.imagen, `${f.titulo} - Diplomado de Cero a SEO`)
   }
