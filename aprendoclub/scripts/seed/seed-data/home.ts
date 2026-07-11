@@ -33,12 +33,12 @@ export interface HomeHero {
 
 /** Hero (hero-section.tsx). */
 export const hero: HomeHero = {
-  badgeText: "+500 estudiantes ya aprenden SEO con IA",
+  badgeText: "+10.000 estudiantes ya se unieron",
   tituloPre: "La única academia de",
   tituloAccent: "marketing e IA",
   tituloPost: "que te ayuda a encontrar trabajo",
   subtitulo:
-    "Especialízate en SEO con la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
+    "Especialízate en marketing con IA en la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
   ctaPrimario: { label: "Únete a aprendoclub", href: "#asesoria" },
   ctaSecundario: {
     label: "Agenda una llamada",
@@ -51,7 +51,7 @@ export const hero: HomeHero = {
     "/avatar-4.webp",
     "/avatar-5.webp",
   ],
-  ratingTexto: "4.9/5 de +500 estudiantes",
+  ratingTexto: "4.9/5 de +10.000 estudiantes",
   videoBackground: "/hero-video.mp4",
 };
 
