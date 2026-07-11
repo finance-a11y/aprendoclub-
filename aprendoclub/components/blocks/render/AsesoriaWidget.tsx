@@ -1,4 +1,10 @@
+'use client'
+
+import { useRef } from 'react'
 import { Check } from 'lucide-react'
+import { useInView } from 'framer-motion'
+import { BlurFade } from '@/components/ui/blur-fade'
+import { BorderBeam } from '@/components/ui/border-beam'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Eyebrow } from '@/components/ui/eyebrow'
@@ -14,13 +20,19 @@ export function AsesoriaWidget({ block }: { block: AsesoriaWidgetBlockType }) {
   const href = block.boton?.href ?? '#'
   const label = block.boton?.label ?? ''
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
+
   return (
     <section
+      ref={ref}
       id="asesoria"
       className="relative bg-[var(--bg-primary)] container-padding section-spacing"
     >
       <div className="mx-auto max-w-3xl">
-        <Card padding="default" hover="none">
+        <BlurFade isInView={isInView}>
+        <Card padding="default" hover="none" className="relative overflow-hidden">
+          <BorderBeam />
           <div className="flex flex-col items-center gap-8 text-center">
             {block.eyebrow && <Eyebrow as="p">{block.eyebrow}</Eyebrow>}
 
@@ -55,12 +67,14 @@ export function AsesoriaWidget({ block }: { block: AsesoriaWidgetBlockType }) {
                 size="lg"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="cta-shimmer"
               >
                 {label}
               </Button>
             )}
           </div>
         </Card>
+        </BlurFade>
       </div>
     </section>
   )

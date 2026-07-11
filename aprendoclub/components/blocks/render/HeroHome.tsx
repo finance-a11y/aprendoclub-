@@ -128,7 +128,7 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
             href={block.ctaPrimario.href}
             variant="primary"
             size="lg"
-            className="w-full sm:w-auto whitespace-nowrap"
+            className="w-full sm:w-auto whitespace-nowrap cta-shimmer"
           >
             {block.ctaPrimario.label}
           </Button>
