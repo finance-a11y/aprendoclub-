@@ -32,6 +32,7 @@ export { historiaFields, HistoriaBlock } from './Historia'
 export { fundadoraFields, FundadoraBlock } from './Fundadora'
 export { metodologiaFields, MetodologiaBlock } from './Metodologia'
 export { retoGaleriaFields, RetoGaleriaBlock } from './RetoGaleria'
+export { diplomadoGaleriaFields, DiplomadoGaleriaBlock } from './DiplomadoGaleria'
 export { tallerHeroFields, TallerHeroBlock } from './TallerHero'
 export { tallerIncluyeFields, TallerIncluyeBlock } from './TallerIncluye'
 export { tallerParaQuienFields, TallerParaQuienBlock } from './TallerParaQuien'
@@ -95,6 +96,7 @@ import { HowItWorksBlock } from './HowItWorks'
 import { DiplomadoTeamBlock } from './DiplomadoTeam'
 import { DiplomadoBenefitsBlock } from './DiplomadoBenefits'
 import { DiplomadoPricingBlock } from './DiplomadoPricing'
+import { DiplomadoGaleriaBlock } from './DiplomadoGaleria'
 
 import { BarraUrgenciaBlock } from './BarraUrgencia'
 import { RetoHeroBlock } from './RetoHero'
@@ -110,7 +112,7 @@ import { AsesoriaWidgetBlock } from './AsesoriaWidget'
 
 /**
  * Todos los Block configs disponibles para Pages.layout.blocks (Plan R02):
- * 11 genéricos (14-02) + 31 bespoke (14-R01 + Fase 22) = 42, sin slugs duplicados.
+ * 11 genéricos (14-02) + 32 bespoke (14-R01 + Fase 22 + Fase 24) = 43, sin slugs duplicados.
  */
 export const allBlocks: Block[] = [
   // Genéricos
@@ -147,6 +149,7 @@ export const allBlocks: Block[] = [
   DiplomadoTeamBlock,
   DiplomadoBenefitsBlock,
   DiplomadoPricingBlock,
+  DiplomadoGaleriaBlock,
   // Bespoke: reto
   BarraUrgenciaBlock,
   RetoHeroBlock,
