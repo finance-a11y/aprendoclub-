@@ -14,5 +14,7 @@ export const SectionHeaderBlock: Block = {
     singular: 'Section Header',
     plural: 'Section Headers',
   },
+  imageURL: '/block-previews/section-header.svg',
+  imageAltText: 'Encabezado de sección con eyebrow y título',
   fields: sectionHeaderFields,
 }

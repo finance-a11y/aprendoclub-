@@ -1,6 +1,11 @@
+'use client'
+
+import { useRef } from 'react'
 import Image from 'next/image'
+import { useInView } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Eyebrow } from '@/components/ui/eyebrow'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { resolveMedia } from '@/lib/blocks/media'
 import type { DiplomadoTeamBlock as DiplomadoTeamBlockType, TeamMember } from '@/payload-types'
 
@@ -18,9 +23,11 @@ export function DiplomadoTeam({ block }: { block: DiplomadoTeamBlockType }) {
   const mentor = block.mentorSection
   const mentorMember = members.find((m) => m.nombre === mentor?.nombre) ?? members[0]
   const mentorFoto = resolveMedia(mentorMember?.foto)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section className="section-spacing">
+    <section ref={ref} className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         {block.teamIntro?.eyebrow && (
           <Eyebrow className="mb-4 block">{block.teamIntro.eyebrow}</Eyebrow>
@@ -38,11 +45,11 @@ export function DiplomadoTeam({ block }: { block: DiplomadoTeamBlockType }) {
 
         {members.length > 0 && (
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {members.map((member) => {
+            {members.map((member, index) => {
               const foto = resolveMedia(member.foto)
               return (
+                <BlurFade key={member.id} delay={index * 0.08} isInView={isInView}>
                 <Card
-                  key={member.id}
                   padding="compact"
                   hover="none"
                   className="flex flex-col items-center text-center"
@@ -74,6 +81,7 @@ export function DiplomadoTeam({ block }: { block: DiplomadoTeamBlockType }) {
                   )}
                   <p className="mt-1 text-xs leading-relaxed text-gray-400">{member.rol}</p>
                 </Card>
+                </BlurFade>
               )
             })}
           </div>

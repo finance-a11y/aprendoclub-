@@ -1,5 +1,10 @@
+'use client'
+
+import { useRef } from 'react'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
+import { useInView } from 'framer-motion'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { Card } from '@/components/ui/card'
 import { resolveMedia } from '@/lib/blocks/media'
@@ -25,8 +30,14 @@ export function TestimonialRef({ block }: { block: TestimonialRefBlockType }) {
   )
   if (items.length === 0) return null
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
+
   return (
-    <section className="flex w-full flex-col items-center gap-12 lg:gap-16 bg-[var(--bg-primary)] container-padding section-spacing">
+    <section
+      ref={ref}
+      className="flex w-full flex-col items-center gap-12 lg:gap-16 bg-[var(--bg-primary)] container-padding section-spacing"
+    >
       <div className="flex max-w-[700px] flex-col items-center gap-4">
         {block.eyebrow && <Eyebrow className="tracking-wider">{block.eyebrow}</Eyebrow>}
         {block.titulo && (
@@ -37,10 +48,11 @@ export function TestimonialRef({ block }: { block: TestimonialRefBlockType }) {
       </div>
 
       <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
-        {items.map((testimonial) => {
+        {items.map((testimonial, index) => {
           const foto = resolveMedia(testimonial.foto)
           return (
-            <Card key={testimonial.id} padding="compact" hover="lift" className="group">
+            <BlurFade key={testimonial.id} delay={index * 0.08} isInView={isInView}>
+            <Card padding="compact" hover="lift" className="group">
               <div className="flex items-center gap-4 mb-4">
                 {foto ? (
                   <Image
@@ -73,6 +85,7 @@ export function TestimonialRef({ block }: { block: TestimonialRefBlockType }) {
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
             </Card>
+            </BlurFade>
           )
         })}
       </div>

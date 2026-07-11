@@ -24,5 +24,7 @@ export const IncluyeBlock: Block = {
     singular: 'Incluye',
     plural: 'Incluye',
   },
+  imageURL: '/block-previews/grid-cards.svg',
+  imageAltText: 'Grid de tarjetas con ícono y dos líneas de texto cada una',
   fields: incluyeFields,
 }

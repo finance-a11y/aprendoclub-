@@ -59,5 +59,7 @@ export const MentoraBlock: Block = {
     singular: 'Mentora',
     plural: 'Mentora',
   },
+  imageURL: '/block-previews/testimonial-quote.svg',
+  imageAltText: 'Cita de testimonio con avatar circular y texto',
   fields: mentoraFields,
 }

@@ -32,6 +32,7 @@ export { historiaFields, HistoriaBlock } from './Historia'
 export { fundadoraFields, FundadoraBlock } from './Fundadora'
 export { metodologiaFields, MetodologiaBlock } from './Metodologia'
 export { retoGaleriaFields, RetoGaleriaBlock } from './RetoGaleria'
+export { diplomadoGaleriaFields, DiplomadoGaleriaBlock } from './DiplomadoGaleria'
 export { tallerHeroFields, TallerHeroBlock } from './TallerHero'
 export { tallerIncluyeFields, TallerIncluyeBlock } from './TallerIncluye'
 export { tallerParaQuienFields, TallerParaQuienBlock } from './TallerParaQuien'
@@ -57,6 +58,9 @@ export { incluyeFields, IncluyeBlock } from './Incluye'
 export { premiosFields, PremiosBlock } from './Premios'
 export { retoPricingFields, RetoPricingBlock } from './RetoPricing'
 export { ganadoresFields, GanadoresBlock } from './Ganadores'
+
+// Widget de asesoría gratuita (Phase 22)
+export { asesoriaWidgetFields, AsesoriaWidgetBlock } from './AsesoriaWidget'
 
 // --- Imports locales solo para construir allBlocks[] (Pages.layout.blocks, Plan R02) ---
 import { HeroBlock } from './Hero'
@@ -92,6 +96,7 @@ import { HowItWorksBlock } from './HowItWorks'
 import { DiplomadoTeamBlock } from './DiplomadoTeam'
 import { DiplomadoBenefitsBlock } from './DiplomadoBenefits'
 import { DiplomadoPricingBlock } from './DiplomadoPricing'
+import { DiplomadoGaleriaBlock } from './DiplomadoGaleria'
 
 import { BarraUrgenciaBlock } from './BarraUrgencia'
 import { RetoHeroBlock } from './RetoHero'
@@ -103,10 +108,11 @@ import { IncluyeBlock } from './Incluye'
 import { PremiosBlock } from './Premios'
 import { RetoPricingBlock } from './RetoPricing'
 import { GanadoresBlock } from './Ganadores'
+import { AsesoriaWidgetBlock } from './AsesoriaWidget'
 
 /**
  * Todos los Block configs disponibles para Pages.layout.blocks (Plan R02):
- * 11 genéricos (14-02) + 29 bespoke (14-R01) = 40, sin slugs duplicados.
+ * 11 genéricos (14-02) + 32 bespoke (14-R01 + Fase 22 + Fase 24) = 43, sin slugs duplicados.
  */
 export const allBlocks: Block[] = [
   // Genéricos
@@ -143,6 +149,7 @@ export const allBlocks: Block[] = [
   DiplomadoTeamBlock,
   DiplomadoBenefitsBlock,
   DiplomadoPricingBlock,
+  DiplomadoGaleriaBlock,
   // Bespoke: reto
   BarraUrgenciaBlock,
   RetoHeroBlock,
@@ -154,4 +161,6 @@ export const allBlocks: Block[] = [
   PremiosBlock,
   RetoPricingBlock,
   GanadoresBlock,
+  // Widget de asesoría gratuita
+  AsesoriaWidgetBlock,
 ]

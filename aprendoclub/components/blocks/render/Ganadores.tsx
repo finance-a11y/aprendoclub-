@@ -1,4 +1,10 @@
+'use client'
+
+import { useRef } from 'react'
 import Image from 'next/image'
+import { useInView } from 'framer-motion'
+
+import { BlurFade } from '@/components/ui/blur-fade'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { resolveMedia } from '@/lib/blocks/media'
 import type { GanadoresBlock as GanadoresBlockType } from '@/payload-types'
@@ -9,9 +15,11 @@ import type { GanadoresBlock as GanadoresBlockType } from '@/payload-types'
  */
 export function Ganadores({ block }: { block: GanadoresBlockType }) {
   const ganadores = block.ganadores ?? []
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
+    <section ref={ref} className="bg-[var(--bg-secondary)] container-padding section-spacing">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 flex flex-col items-center gap-3 text-center">
           <Eyebrow>GANADORES</Eyebrow>
@@ -23,20 +31,19 @@ export function Ganadores({ block }: { block: GanadoresBlockType }) {
           {ganadores.map((g, i) => {
             const imagen = resolveMedia(g.imagen)
             return (
-              <div
-                key={g.id ?? i}
-                className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]"
-              >
-                {imagen && (
-                  <div className="relative aspect-square w-full">
-                    <Image src={imagen.url} alt={g.nombre} fill className="object-cover" />
+              <BlurFade key={g.id ?? i} delay={i * 0.08} isInView={isInView}>
+                <div className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]">
+                  {imagen && (
+                    <div className="relative aspect-square w-full">
+                      <Image src={imagen.url} alt={g.nombre} fill className="object-cover" />
+                    </div>
+                  )}
+                  <div className="flex flex-col gap-1 p-4">
+                    <h3 className="text-sm font-semibold text-white">{g.nombre}</h3>
+                    <span className="text-xs text-gray-400">{g.edicion}</span>
                   </div>
-                )}
-                <div className="flex flex-col gap-1 p-4">
-                  <h3 className="text-sm font-semibold text-white">{g.nombre}</h3>
-                  <span className="text-xs text-gray-400">{g.edicion}</span>
                 </div>
-              </div>
+              </BlurFade>
             )
           })}
         </div>

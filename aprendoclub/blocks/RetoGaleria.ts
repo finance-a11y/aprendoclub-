@@ -37,5 +37,7 @@ export const RetoGaleriaBlock: Block = {
     singular: 'Galería del Reto',
     plural: 'Galería del Reto',
   },
+  imageURL: '/block-previews/gallery-grid.svg',
+  imageAltText: 'Mosaico de imágenes de tamaños desiguales',
   fields: retoGaleriaFields,
 }

@@ -52,5 +52,7 @@ export const InstructorBlock: Block = {
     singular: 'Instructor',
     plural: 'Instructor',
   },
+  imageURL: '/block-previews/team-grid.svg',
+  imageAltText: 'Grid de avatares circulares con nombre debajo',
   fields: instructorFields,
 }

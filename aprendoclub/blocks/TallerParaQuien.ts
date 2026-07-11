@@ -18,5 +18,7 @@ export const TallerParaQuienBlock: Block = {
     singular: 'Para quién (Taller)',
     plural: 'Para quién (Taller)',
   },
+  imageURL: '/block-previews/grid-cards.svg',
+  imageAltText: 'Grid de tarjetas con ícono y dos líneas de texto cada una',
   fields: tallerParaQuienFields,
 }

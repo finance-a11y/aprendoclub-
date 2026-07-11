@@ -50,5 +50,7 @@ export const YoutubeTestimonialsBlock: Block = {
     singular: 'Testimonios en video (YouTube)',
     plural: 'Testimonios en video (YouTube)',
   },
+  imageURL: '/block-previews/testimonial-quote.svg',
+  imageAltText: 'Cita de testimonio con avatar circular y texto',
   fields: youtubeTestimonialsFields,
 }

@@ -25,5 +25,7 @@ export const ProgramGridRefBlock: Block = {
     singular: 'Programas (referencia)',
     plural: 'Programas (referencia)',
   },
+  imageURL: '/block-previews/gallery-grid.svg',
+  imageAltText: 'Mosaico de imágenes de tamaños desiguales',
   fields: programGridRefFields,
 }

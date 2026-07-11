@@ -77,5 +77,7 @@ export const DiplomadoTeamBlock: Block = {
     singular: 'Equipo (Diplomado)',
     plural: 'Equipo (Diplomado)',
   },
+  imageURL: '/block-previews/team-grid.svg',
+  imageAltText: 'Grid de avatares circulares con nombre debajo',
   fields: diplomadoTeamFields,
 }

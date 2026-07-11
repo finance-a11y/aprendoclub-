@@ -46,5 +46,7 @@ export const FundadoraBlock: Block = {
     singular: 'Fundadora',
     plural: 'Fundadora',
   },
+  imageURL: '/block-previews/team-grid.svg',
+  imageAltText: 'Grid de avatares circulares con nombre debajo',
   fields: fundadoraFields,
 }

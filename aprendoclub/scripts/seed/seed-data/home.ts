@@ -22,6 +22,7 @@ export interface HomeHero {
   badgeText: string;
   tituloPre: string;
   tituloAccent: string;
+  tituloPost: string;
   subtitulo: string;
   ctaPrimario: { label: string; href: string };
   ctaSecundario: { label: string; href: string };
@@ -33,11 +34,12 @@ export interface HomeHero {
 /** Hero (hero-section.tsx). */
 export const hero: HomeHero = {
   badgeText: "+500 estudiantes ya aprenden SEO con IA",
-  tituloPre: "La única academia que te prepara",
-  tituloAccent: "para conseguir un trabajo real.",
+  tituloPre: "La única academia de",
+  tituloAccent: "marketing e IA",
+  tituloPost: "que te ayuda a encontrar trabajo",
   subtitulo:
     "Especialízate en SEO con la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
-  ctaPrimario: { label: "Únete a aprendoclub", href: "#precios" },
+  ctaPrimario: { label: "Únete a aprendoclub", href: "#asesoria" },
   ctaSecundario: {
     label: "Agenda una llamada",
     href: "https://calendar.app.google/pRxa4Jd24YZMhVNE7",
@@ -58,6 +60,12 @@ export interface FeatureGridItem {
   icon: string;
   titulo: string;
   descripcion: string;
+  /** Modo del ícono (default 'icon'). 'image' no se usa activamente en esta fase. */
+  iconMode?: "icon" | "image";
+  /** Color resuelto del ícono (default 'auto' -> var(--accent)). */
+  iconColor?: "auto" | "accent" | "white" | "primary";
+  /** Ruta de media para el modo 'image' (no usado en esta fase). */
+  image?: string;
 }
 
 export interface FeatureGridSection {
@@ -76,39 +84,27 @@ export const problema: FeatureGridSection = {
   items: [
     {
       icon: "compass",
-      titulo: "Sin rumbo profesional",
+      titulo: "Sabes de todo y no te especializas",
       descripcion:
-        "Aprendes de todo, pero no te especializas en nada. Tu CV dice 'marketing digital' pero no tienes diferenciación real.",
+        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización real. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
     },
     {
-      icon: "timer",
-      titulo: "Contenido desactualizado",
+      icon: "history",
+      titulo: "Aprendes de contenido desactualizado",
       descripcion:
-        "Los cursos que encuentras online están desactualizados. Google cambia sus algoritmos y tú sigues con técnicas de hace 2 años.",
+        "Los cursos que encuentras online repiten técnicas de hace años. Google y las redes cambian sus algoritmos cada semana y tú sigues resolviendo con lo que ya no funciona.",
     },
     {
-      icon: "users",
-      titulo: "Sin comunidad real",
+      icon: "hourglass",
+      titulo: "Llevas meses preparándote",
       descripcion:
-        "Aprendes solo, sin feedback, sin networking, sin alguien que te diga si vas por buen camino o estás perdiendo el tiempo.",
+        "Llevas meses viendo tutoriales sueltos y leyendo artículos, pero no tienes un plan claro ni nadie que valide si vas por buen camino. El tiempo pasa y sigues en el mismo lugar.",
     },
     {
-      icon: "brain",
+      icon: "bot",
       titulo: "La IA te está dejando atrás",
       descripcion:
-        "Todos hablan de IA + SEO pero nadie te enseña cómo integrar herramientas de IA en tu flujo de trabajo real.",
-    },
-    {
-      icon: "trending-up",
-      titulo: "Crecimiento estancado",
-      descripcion:
-        "Sin mentoría ni estructura, tu carrera se estanca. Necesitas un camino claro de junior a consultor.",
-    },
-    {
-      icon: "target",
-      titulo: "Sin proyectos reales",
-      descripcion:
-        "La teoría no basta. Necesitas aplicar SEO en proyectos reales con feedback de expertos para desarrollar habilidades.",
+        "Cada semana aparece una herramienta de IA nueva que cambia cómo se hace marketing. Si no la dominas, terminas compitiendo con profesionales que sí la están usando a su favor.",
     },
   ],
 };
@@ -153,89 +149,6 @@ export const beneficios: FeatureGridSection = {
  * `programas` (Phase 15 Plan 02: home page.tsx la fetchea directo).
  */
 export { homeProgramas };
-
-/** Payload-ready: mapea al bloque `Pricing` (pricingFields en blocks/Pricing.ts). */
-export interface PricingPlan {
-  /** Etiqueta pequeña sobre el nombre del plan (e.g. "Acceso completo"). */
-  labelSuperior: string;
-  nombre: string;
-  precio: string;
-  /** Texto bajo el precio (e.g. "4 cuotas mensuales"). */
-  nota: string;
-  /** Badge tipo trofeo, solo el plan destacado (e.g. "Más elegido"). */
-  badge?: string;
-  /** Badge secundario, solo el plan destacado (e.g. "Ahorrás más en un solo pago"). */
-  badgeSecundario?: string;
-  ctaLabel: string;
-  ctaHref: string;
-}
-
-export interface PricingCtaAsesoria {
-  eyebrow: string;
-  tituloPre: string;
-  tituloAccent: string;
-  texto: string;
-  botonLabel: string;
-  botonHref: string;
-  microcopy: string;
-}
-
-export interface PricingSection {
-  eyebrow: string;
-  titulo: string;
-  subtitulo: string;
-  features: string[];
-  planCuotas: PricingPlan;
-  planUnico: PricingPlan;
-  ctaAsesoria: PricingCtaAsesoria;
-}
-
-/** Pricing (pricing-section.tsx). */
-export const pricing: PricingSection = {
-  eyebrow: "PRECIOS",
-  titulo: "Elige tu camino de especialización",
-  subtitulo: "Todos los planes incluyen acceso completo al contenido",
-  features: [
-    "Comunidad activa 24/7",
-    "Cursos cortos y prácticos (SEO con IA, SEO para rrss, creación de webs)",
-    "Bolsa de trabajo curada",
-    "Actualizaciones SEO + IA",
-    "Diplomado completo Cero a SEO",
-    "3 sesiones semanales en vivo",
-    "Proyectos con casos reales",
-    "Ruta profesional guiada",
-    "Plantillas, frameworks y SOPs",
-    "Comunidad privada de profesionales",
-  ],
-  planCuotas: {
-    labelSuperior: "Acceso completo",
-    nombre: "Empieza hoy en cuotas",
-    precio: "$210",
-    nota: "4 cuotas mensuales",
-    ctaLabel: "Comenzar en cuotas",
-    ctaHref: "https://diplomado.aprendoseo.com/offers/hHa9LbUL/checkout",
-  },
-  planUnico: {
-    labelSuperior: "Todo incluido",
-    nombre: "Pago único sin cuotas",
-    precio: "$780",
-    nota: "Pago único · Sin cuotas · Sin sorpresas",
-    badge: "Más elegido",
-    badgeSecundario: "Ahorrás más en un solo pago",
-    ctaLabel: "Obtener acceso completo",
-    ctaHref: "https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout",
-  },
-  ctaAsesoria: {
-    eyebrow: "Hablemos",
-    tituloPre: "¿Necesitas facilidades de pago personalizadas?",
-    tituloAccent: "Hay una forma para ti.",
-    texto:
-      "No dejes que el dinero decida tu futuro. Si tienes la disposición, nosotros encontramos la forma. Agenda una asesoría gratuita con nuestra directora de admisiones y encontramos juntos la opción ideal para ti.",
-    botonLabel: "Agendar asesoría gratuita",
-    botonHref: "https://wa.link/85a89y",
-    microcopy: "Respuesta en menos de 24hs · 100% gratuito",
-  },
-};
 
 /** Payload-ready: mapea a un group (bioCorta1/2 + bloque `Stats`). */
 export interface InstructorStat {
@@ -330,7 +243,7 @@ export interface CtaFinalSection {
 export const ctaFinal: CtaFinalSection = {
   titulo: "Deja de aprender solo. Únete a la comunidad.",
   botonLabel: "Comenzar ahora",
-  botonHref: "#precios",
+  botonHref: "#asesoria",
 };
 
 /** Payload-ready: mapea a un group simple (botonLabel + botonHref). */
@@ -342,5 +255,41 @@ export interface StickyCtaSection {
 /** Sticky CTA mobile (sticky-cta-mobile.tsx). */
 export const stickyCta: StickyCtaSection = {
   botonLabel: "Únete a aprendoclub",
-  botonHref: "#precios",
+  botonHref: "#asesoria",
+};
+
+/** Payload-ready: mapea al bloque `AsesoriaWidget` (blocks/AsesoriaWidget.ts). */
+export interface AsesoriaWidgetSection {
+  eyebrow: string;
+  titulo: string;
+  subtitulo?: string;
+  bullets: string[];
+  botonLabel: string;
+  botonHref: string;
+}
+
+/**
+ * Widget de asesoría gratuita (Fase 22). Reemplaza `pricing` en el layout
+ * del home (ADV-01); copy y bullets exactos definidos por Juan (ADV-02),
+ * CTA a WhatsApp configurable (ADV-03).
+ */
+export const asesoriaWidget: AsesoriaWidgetSection = {
+  eyebrow: "ASESORÍA GRATUITA",
+  titulo: "Conversemos sobre tu futuro en marketing e IA",
+  subtitulo:
+    "Agenda una asesoría gratuita y te contamos cómo el Diplomado puede ayudarte a especializarte y conseguir trabajo.",
+  bullets: [
+    "Diplomado certificado con el aval académico de la UCAB",
+    "Clases en vivo, no grabaciones",
+    "Masterclasses exclusivas con expertos de la industria",
+    "Invitados especiales en cada cohorte",
+    "Proyectos reales para armar tu portafolio",
+    "Coaches personalizados que acompañan tu proceso",
+    "Comunidad LATAM de estudiantes y egresados",
+    "Recursos y materiales nuevos cada semana",
+    "Certificación para mostrar en tu perfil de LinkedIn",
+  ],
+  botonLabel: "Quiero mi asesoría gratuita",
+  botonHref:
+    "https://api.whatsapp.com/send?phone=13055728892&text=Hola!%20%F0%9F%98%8A%20Vengo%20de%20tu%20web%20y%20me%20interesa%20ingresar%20al%20Diplomado%20de%20SEO%20para%20convertirme%20en%20especialista.%20%C2%BFMe%20podr%C3%ADas%20dar%20m%C3%A1s%20detalles%20sobre%20el%20programa%20y%20las%20opciones%20de%20pago%20disponibles%3F",
 };

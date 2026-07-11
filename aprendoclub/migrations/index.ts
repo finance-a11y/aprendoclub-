@@ -15,6 +15,9 @@ import * as migration_20260705_194938_author_socials from './20260705_194938_aut
 import * as migration_20260705_212118_add_blog_redirect_targets from './20260705_212118_add_blog_redirect_targets';
 import * as migration_20260705_221614_llms_global from './20260705_221614_llms_global';
 import * as migration_20260706_220700_youtube_testimonials_block from './20260706_220700_youtube_testimonials_block';
+import * as migration_20260711_002023_p21_feature_grid_icon_variant from './20260711_002023_p21_feature_grid_icon_variant';
+import * as migration_20260711_010453_p22_asesoria_widget_block from './20260711_010453_p22_asesoria_widget_block';
+import * as migration_20260711_042156_p24_diplomado_galeria_block from './20260711_042156_p24_diplomado_galeria_block';
 
 export const migrations = [
   {
@@ -100,6 +103,21 @@ export const migrations = [
   {
     up: migration_20260706_220700_youtube_testimonials_block.up,
     down: migration_20260706_220700_youtube_testimonials_block.down,
-    name: '20260706_220700_youtube_testimonials_block'
+    name: '20260706_220700_youtube_testimonials_block',
+  },
+  {
+    up: migration_20260711_002023_p21_feature_grid_icon_variant.up,
+    down: migration_20260711_002023_p21_feature_grid_icon_variant.down,
+    name: '20260711_002023_p21_feature_grid_icon_variant',
+  },
+  {
+    up: migration_20260711_010453_p22_asesoria_widget_block.up,
+    down: migration_20260711_010453_p22_asesoria_widget_block.down,
+    name: '20260711_010453_p22_asesoria_widget_block',
+  },
+  {
+    up: migration_20260711_042156_p24_diplomado_galeria_block.up,
+    down: migration_20260711_042156_p24_diplomado_galeria_block.down,
+    name: '20260711_042156_p24_diplomado_galeria_block'
   },
 ];

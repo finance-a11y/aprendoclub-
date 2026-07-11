@@ -40,5 +40,7 @@ export const GanadoresBlock: Block = {
     singular: 'Ganadores',
     plural: 'Ganadores',
   },
+  imageURL: '/block-previews/section-header.svg',
+  imageAltText: 'Encabezado de sección con eyebrow y título',
   fields: ganadoresFields,
 }

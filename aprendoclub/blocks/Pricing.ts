@@ -78,5 +78,7 @@ export const PricingBlock: Block = {
     singular: 'Pricing',
     plural: 'Pricing',
   },
+  imageURL: '/block-previews/pricing-columns.svg',
+  imageAltText: 'Columnas de precios con lista de beneficios y botón de acción',
   fields: pricingFields,
 }

@@ -36,5 +36,7 @@ export const CtaBannerBlock: Block = {
     singular: 'CTA Banner',
     plural: 'CTA Banners',
   },
+  imageURL: '/block-previews/cta-banner.svg',
+  imageAltText: 'Banda de llamado a la acción con título y botón centrado',
   fields: ctaBannerFields,
 }

@@ -29,5 +29,7 @@ export const ComparacionBlock: Block = {
     singular: 'Comparación',
     plural: 'Comparación',
   },
+  imageURL: '/block-previews/grid-cards.svg',
+  imageAltText: 'Grid de tarjetas con ícono y dos líneas de texto cada una',
   fields: comparacionFields,
 }

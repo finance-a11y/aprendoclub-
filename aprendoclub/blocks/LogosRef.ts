@@ -27,5 +27,7 @@ export const LogosRefBlock: Block = {
     singular: 'Logos (referencia)',
     plural: 'Logos (referencia)',
   },
+  imageURL: '/block-previews/gallery-grid.svg',
+  imageAltText: 'Mosaico de imágenes de tamaños desiguales',
   fields: logosRefFields,
 }

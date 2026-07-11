@@ -51,5 +51,7 @@ export const HistoriaBlock: Block = {
     singular: 'Historia',
     plural: 'Historia',
   },
+  imageURL: '/block-previews/prose-block.svg',
+  imageAltText: 'Bloque de texto largo tipo párrafo',
   fields: historiaFields,
 }

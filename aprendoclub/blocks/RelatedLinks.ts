@@ -26,5 +26,7 @@ export const RelatedLinksBlock: Block = {
     singular: 'Links relacionados',
     plural: 'Links relacionados',
   },
+  imageURL: '/block-previews/section-header.svg',
+  imageAltText: 'Encabezado de sección con eyebrow y título',
   fields: relatedLinksFields,
 }

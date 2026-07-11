@@ -29,5 +29,7 @@ export const TestimonialRefBlock: Block = {
     singular: 'Testimonios (referencia)',
     plural: 'Testimonios (referencia)',
   },
+  imageURL: '/block-previews/testimonial-quote.svg',
+  imageAltText: 'Cita de testimonio con avatar circular y texto',
   fields: testimonialRefFields,
 }

@@ -339,6 +339,7 @@ export interface Page {
     | DiplomadoTeamBlock
     | DiplomadoBenefitsBlock
     | DiplomadoPricingBlock
+    | DiplomadoGaleriaBlock
     | BarraUrgenciaBlock
     | RetoHeroBlock
     | RazonNoEscalasBlock
@@ -349,6 +350,7 @@ export interface Page {
     | PremiosBlock
     | RetoPricingBlock
     | GanadoresBlock
+    | AsesoriaWidgetBlock
   )[];
   meta?: {
     title?: string | null;
@@ -379,6 +381,9 @@ export interface HeroBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Imagen del hero del Diplomado. Recomendado: 1600×900px (16:9), JPG/WEBP, máx. 300KB. Reemplaza el placeholder subiendo el archivo real aquí.
+   */
   imagen?: (number | null) | Media;
   ctaPrimario: {
     label: string;
@@ -471,9 +476,21 @@ export interface FeatureGridBlock {
   items?:
     | {
         /**
-         * Nombre de icono lucide (e.g. "rocket", "target")
+         * Tipo de ícono
+         */
+        iconMode?: ('icon' | 'image') | null;
+        /**
+         * Icono lucide seleccionado visualmente
          */
         icon?: string | null;
+        /**
+         * Si no elegís uno, se usa el color de mayor contraste del sistema
+         */
+        iconColor?: ('auto' | 'accent' | 'white' | 'primary') | null;
+        /**
+         * Sube una imagen chica o ilustración en vez de un ícono lucide
+         */
+        image?: (number | null) | Media;
         titulo: string;
         descripcion?: string | null;
         id?: string | null;
@@ -639,6 +656,9 @@ export interface HeroHomeBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Imagen del hero del Diplomado. Recomendado: 1600×900px (16:9), JPG/WEBP, máx. 300KB. Reemplaza el placeholder subiendo el archivo real aquí.
+   */
   imagen?: (number | null) | Media;
   ctaPrimario: {
     label: string;
@@ -897,9 +917,21 @@ export interface HowItWorksBlock {
   items?:
     | {
         /**
-         * Nombre de icono lucide (e.g. "rocket", "target")
+         * Tipo de ícono
+         */
+        iconMode?: ('icon' | 'image') | null;
+        /**
+         * Icono lucide seleccionado visualmente
          */
         icon?: string | null;
+        /**
+         * Si no elegís uno, se usa el color de mayor contraste del sistema
+         */
+        iconColor?: ('auto' | 'accent' | 'white' | 'primary') | null;
+        /**
+         * Sube una imagen chica o ilustración en vez de un ícono lucide
+         */
+        image?: (number | null) | Media;
         titulo: string;
         descripcion?: string | null;
         id?: string | null;
@@ -991,6 +1023,22 @@ export interface DiplomadoPricingBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'diplomadoPricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoGaleriaBlock".
+ */
+export interface DiplomadoGaleriaBlock {
+  eyebrow: string;
+  titulo: string;
+  texto: string;
+  /**
+   * Galería de fotos reales del Diplomado (clases, proyectos, comunidad). 3 a 6 imágenes recomendadas, cada una 800–1200px de ancho, cualquier proporción (funciona como mosaico), JPG/WEBP, máx. 200KB c/u. Reemplaza los placeholders subiendo los archivos reales aquí.
+   */
+  imagenes?: (number | Media)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'diplomadoGaleria';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1174,6 +1222,29 @@ export interface GanadoresBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'ganadores';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AsesoriaWidgetBlock".
+ */
+export interface AsesoriaWidgetBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  boton: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'asesoriaWidget';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1595,6 +1666,7 @@ export interface PagesSelect<T extends boolean = true> {
         diplomadoTeam?: T | DiplomadoTeamBlockSelect<T>;
         diplomadoBenefits?: T | DiplomadoBenefitsBlockSelect<T>;
         diplomadoPricing?: T | DiplomadoPricingBlockSelect<T>;
+        diplomadoGaleria?: T | DiplomadoGaleriaBlockSelect<T>;
         barraUrgencia?: T | BarraUrgenciaBlockSelect<T>;
         retoHero?: T | RetoHeroBlockSelect<T>;
         razonNoEscalas?: T | RazonNoEscalasBlockSelect<T>;
@@ -1605,6 +1677,7 @@ export interface PagesSelect<T extends boolean = true> {
         premios?: T | PremiosBlockSelect<T>;
         retoPricing?: T | RetoPricingBlockSelect<T>;
         ganadores?: T | GanadoresBlockSelect<T>;
+        asesoriaWidget?: T | AsesoriaWidgetBlockSelect<T>;
       };
   meta?:
     | T
@@ -1735,7 +1808,10 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
   items?:
     | T
     | {
+        iconMode?: T;
         icon?: T;
+        iconColor?: T;
+        image?: T;
         titulo?: T;
         descripcion?: T;
         id?: T;
@@ -2142,7 +2218,10 @@ export interface HowItWorksBlockSelect<T extends boolean = true> {
   items?:
     | T
     | {
+        iconMode?: T;
         icon?: T;
+        iconColor?: T;
+        image?: T;
         titulo?: T;
         descripcion?: T;
         id?: T;
@@ -2235,6 +2314,18 @@ export interface DiplomadoPricingBlockSelect<T extends boolean = true> {
   ctaLabel?: T;
   ctaHref?: T;
   garantiaTexto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoGaleriaBlock_select".
+ */
+export interface DiplomadoGaleriaBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  texto?: T;
+  imagenes?: T;
   id?: T;
   blockName?: T;
 }
@@ -2410,6 +2501,30 @@ export interface GanadoresBlockSelect<T extends boolean = true> {
         nombre?: T;
         edicion?: T;
         imagen?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AsesoriaWidgetBlock_select".
+ */
+export interface AsesoriaWidgetBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  boton?:
+    | T
+    | {
+        label?: T;
+        href?: T;
         id?: T;
       };
   id?: T;

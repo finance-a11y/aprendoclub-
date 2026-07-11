@@ -30,5 +30,7 @@ export const FaqRefBlock: Block = {
     singular: 'FAQ (referencia)',
     plural: 'FAQ (referencia)',
   },
+  imageURL: '/block-previews/faq-accordion.svg',
+  imageAltText: 'Lista de preguntas frecuentes con flecha desplegable',
   fields: faqRefFields,
 }

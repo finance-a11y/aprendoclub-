@@ -1,5 +1,10 @@
+'use client'
+
+import { useRef } from 'react'
 import { CheckCircle2 } from 'lucide-react'
+import { useInView } from 'framer-motion'
 import { Eyebrow } from '@/components/ui/eyebrow'
+import { BlurFade } from '@/components/ui/blur-fade'
 import type { DiplomadoBenefitsBlock as DiplomadoBenefitsBlockType } from '@/payload-types'
 
 /**
@@ -10,9 +15,11 @@ import type { DiplomadoBenefitsBlock as DiplomadoBenefitsBlockType } from '@/pay
 export function DiplomadoBenefits({ block }: { block: DiplomadoBenefitsBlockType }) {
   const items = block.items ?? []
   const extras = block.extras ?? []
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section className="section-spacing">
+    <section ref={ref} className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         {block.eyebrow && (
           <div className="mb-4">
@@ -32,8 +39,8 @@ export function DiplomadoBenefits({ block }: { block: DiplomadoBenefitsBlockType
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {items.map((benefit, i) => (
+            <BlurFade key={benefit.id ?? i} delay={i * 0.08} isInView={isInView}>
             <div
-              key={benefit.id ?? i}
               className="rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6"
             >
               {benefit.valor && (
@@ -43,6 +50,7 @@ export function DiplomadoBenefits({ block }: { block: DiplomadoBenefitsBlockType
               )}
               <p className="text-sm leading-relaxed text-gray-400">{benefit.texto}</p>
             </div>
+            </BlurFade>
           ))}
         </div>
 

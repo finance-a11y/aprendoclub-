@@ -97,6 +97,7 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
         badgeText: home.hero.badgeText,
         tituloPre: home.hero.tituloPre,
         tituloAccent: home.hero.tituloAccent,
+        tituloPost: home.hero.tituloPost,
         subtitulo: home.hero.subtitulo,
         ctaPrimario: { label: home.hero.ctaPrimario.label, href: home.hero.ctaPrimario.href },
         ctaSecundario: { label: home.hero.ctaSecundario.label, href: home.hero.ctaSecundario.href },
@@ -111,7 +112,13 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
         eyebrow: home.problema.eyebrow,
         titulo: home.problema.titulo,
         subtitulo: home.problema.subtitulo,
-        items: home.problema.items.map((i) => ({ icon: i.icon, titulo: i.titulo, descripcion: i.descripcion })),
+        items: home.problema.items.map((i) => ({
+          icon: i.icon,
+          titulo: i.titulo,
+          descripcion: i.descripcion,
+          iconMode: i.iconMode ?? 'icon',
+          iconColor: i.iconColor ?? 'auto',
+        })),
       },
       {
         blockType: 'featureGrid',
@@ -129,38 +136,18 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
         items: idsFor(maps.programas, HOME_PROGRAMAS_ORDER, 'home.programas'),
       },
       {
-        blockType: 'pricing',
-        eyebrow: home.pricing.eyebrow,
-        titulo: home.pricing.titulo,
-        subtitulo: home.pricing.subtitulo,
-        planes: [
-          {
-            nombre: home.pricing.planCuotas.nombre,
-            precio: home.pricing.planCuotas.precio,
-            precioNota: home.pricing.planCuotas.nota,
-            features: home.pricing.features.map((text) => ({ text })),
-            cta: { label: home.pricing.planCuotas.ctaLabel, href: home.pricing.planCuotas.ctaHref },
-          },
-          {
-            nombre: home.pricing.planUnico.nombre,
-            badge: home.pricing.planUnico.badge,
-            precio: home.pricing.planUnico.precio,
-            precioNota: home.pricing.planUnico.nota,
-            features: home.pricing.features.map((text) => ({ text })),
-            cta: { label: home.pricing.planUnico.ctaLabel, href: home.pricing.planUnico.ctaHref },
-          },
-        ],
-        ctaAsesoria: {
-          titulo: home.pricing.ctaAsesoria.tituloAccent,
-          texto: home.pricing.ctaAsesoria.texto,
-          cta: { label: home.pricing.ctaAsesoria.botonLabel, href: home.pricing.ctaAsesoria.botonHref },
-        },
-      },
-      {
         blockType: 'testimonialRef',
         eyebrow: home.testimoniosHome.eyebrow,
         titulo: home.testimoniosHome.titulo,
         items: maps.testimoniosFeatured,
+      },
+      {
+        blockType: 'asesoriaWidget',
+        eyebrow: home.asesoriaWidget.eyebrow,
+        titulo: home.asesoriaWidget.titulo,
+        subtitulo: home.asesoriaWidget.subtitulo,
+        bullets: home.asesoriaWidget.bullets.map((text) => ({ text })),
+        boton: { label: home.asesoriaWidget.botonLabel, href: home.asesoriaWidget.botonHref },
       },
       {
         blockType: 'instructor',
@@ -194,7 +181,7 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
   }
 }
 
-function buildDiplomado(maps: CollectionMaps): PageSeed {
+function buildDiplomado(mediaMap: Map<string, number>, maps: CollectionMaps): PageSeed {
   return {
     slug: 'diplomado',
     title: 'Diplomado',
@@ -209,12 +196,21 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
         ctaPrimario: { label: diplomadoHero.ctaPrimario.label, href: diplomadoHero.ctaPrimario.href },
         ctaSecundario: { label: diplomadoHero.ctaSecundario.label, href: diplomadoHero.ctaSecundario.href },
         microcopy: diplomadoHero.microcopy,
+        imagen: mediaId(mediaMap, diplomadoHero.imagen, 'diplomado.hero.imagen'),
       },
       {
         blockType: 'featureGrid',
         eyebrow: diplomado.origin.eyebrow,
         titulo: diplomado.origin.titulo,
-        items: diplomado.origin.tarjetas.map((t) => ({ icon: t.icon, titulo: t.texto, descripcion: undefined })),
+        items: diplomado.origin.tarjetas.map((t) => ({
+          icon: t.icon,
+          titulo: t.texto,
+          descripcion: undefined,
+          // Preserva los colores originales pre-cutover (origin.tsx): Lightbulb en
+          // accent, Briefcase/Users en primary. No usar el default 'auto', que
+          // repintaría todo a var(--accent) (pensado solo para 'problema').
+          iconColor: t.icon === 'lightbulb' ? 'accent' : 'primary',
+        })),
       },
       {
         blockType: 'audience',
@@ -235,6 +231,9 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
           icon: p.icon,
           titulo: p.titulo,
           descripcion: p.descripcion,
+          // Preserva el color uniforme original (methodology.tsx: var(--primary-light)
+          // en los 4 pilares). No usar el default 'auto', pensado solo para 'problema'.
+          iconColor: 'primary',
         })),
       },
       {
@@ -255,9 +254,23 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
           icon: f.icon,
           titulo: f.titulo,
           descripcion: f.descripcion,
+          iconMode: f.iconMode ?? 'icon',
+          image:
+            f.iconMode === 'image' && f.imagen
+              ? mediaId(mediaMap, f.imagen, `diplomado.howItWorks.${f.titulo}`)
+              : undefined,
         })),
         ctaLabel: diplomado.howItWorks.ctaLabel,
         ctaHref: diplomado.howItWorks.ctaHref,
+      },
+      {
+        blockType: 'diplomadoGaleria',
+        eyebrow: diplomado.galeria.eyebrow,
+        titulo: diplomado.galeria.titulo,
+        texto: diplomado.galeria.texto,
+        imagenes: diplomado.galeria.imagenes
+          .map((img) => mediaId(mediaMap, img.src, 'diplomado.galeria'))
+          .filter((id): id is number => id !== undefined),
       },
       {
         blockType: 'diplomadoTeam',
@@ -599,7 +612,7 @@ export async function seedPages(payload: Payload, mediaMap: Map<string, number>,
     buildQuienesSomos(mediaMap, maps),
     buildTestimonios(mediaMap, maps),
     buildProgramasHub(maps),
-    buildDiplomado(maps),
+    buildDiplomado(mediaMap, maps),
     buildReto(mediaMap, maps),
     buildTaller(),
   ]

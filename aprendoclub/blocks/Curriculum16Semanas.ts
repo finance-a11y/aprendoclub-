@@ -44,5 +44,7 @@ export const Curriculum16SemanasBlock: Block = {
     singular: 'Temario 16 semanas',
     plural: 'Temario 16 semanas',
   },
+  imageURL: '/block-previews/curriculum-list.svg',
+  imageAltText: 'Lista numerada de semanas con flecha',
   fields: curriculum16SemanasFields,
 }

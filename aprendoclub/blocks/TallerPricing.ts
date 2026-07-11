@@ -34,5 +34,7 @@ export const TallerPricingBlock: Block = {
     singular: 'Pricing (Taller)',
     plural: 'Pricing (Taller)',
   },
+  imageURL: '/block-previews/pricing-columns.svg',
+  imageAltText: 'Columnas de precios con lista de beneficios y botón de acción',
   fields: tallerPricingFields,
 }

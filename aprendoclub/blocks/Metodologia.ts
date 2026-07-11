@@ -40,5 +40,7 @@ export const MetodologiaBlock: Block = {
     singular: 'Metodología',
     plural: 'Metodología',
   },
+  imageURL: '/block-previews/prose-block.svg',
+  imageAltText: 'Bloque de texto largo tipo párrafo',
   fields: metodologiaFields,
 }
