@@ -125,7 +125,7 @@ export const origin: OriginContent = {
     {
       icon: "users",
       texto:
-        "Así nació aprendoclub, la primera academia especializada en SEO para el mercado hispano. Hoy, más de 750 personas se han formado con nosotros.",
+        "Así nació aprendoclub, la primera academia especializada en marketing con IA para el mercado hispano. Hoy, más de 750 personas se han formado con nosotros.",
     },
   ],
 };
