@@ -1,6 +1,11 @@
+'use client'
+
+import { useRef } from 'react'
 import Image from 'next/image'
+import { useInView } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Eyebrow } from '@/components/ui/eyebrow'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { LucideIcon } from '@/lib/blocks/icons'
 import type { HowItWorksBlock as HowItWorksBlockType } from '@/payload-types'
 
@@ -13,9 +18,11 @@ import type { HowItWorksBlock as HowItWorksBlockType } from '@/payload-types'
  */
 export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
   const items = block.items ?? []
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section className="section-spacing">
+    <section ref={ref} className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         {block.eyebrow && <Eyebrow className="mb-4 block">{block.eyebrow}</Eyebrow>}
 
@@ -35,8 +42,8 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
               isImageMode && item.image && typeof item.image === 'object' ? item.image : null
 
             return (
+              <BlurFade key={item.id ?? i} delay={i * 0.08} isInView={isInView}>
               <div
-                key={item.id ?? i}
                 className={`rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6 ${
                   i >= 3 ? 'lg:col-span-1' : ''
                 }`}
@@ -67,6 +74,7 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
                   </p>
                 )}
               </div>
+              </BlurFade>
             )
           })}
         </div>
