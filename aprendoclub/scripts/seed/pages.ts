@@ -40,7 +40,7 @@ import { idsFor, mediaId } from './globals'
 /** Nombres de los 5 miembros del equipo de quienes-somos, en el orden del grid. */
 const QUIENES_SOMOS_TEAM_ORDER = [
   'Arianna Lupi',
-  'Diana Rodríguez',
+  'Dana Aliaga',
   'Ibraim Zayed',
   'Juan Carlos Angulo',
   'Verónica Romero',

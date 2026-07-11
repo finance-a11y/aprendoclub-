@@ -98,22 +98,16 @@ const FEATURED_ON_HOME = new Set(['Johanna Ramírez', 'Nataly Domínguez', 'Marc
 
 /**
  * Equipo del grid /diplomado (components/diplomado/team.tsx, T-14-10). Dana
- * Aliaga es una persona real DISTINTA de Diana Rodríguez (quienes-somos) — no
- * deduplicar. Sin foto ni bio propia en la fuente (team.tsx no trae bio); se
- * usa el rol real como bio mínima (campo requerido en la colección).
+ * Aliaga reemplazó a Diana Rodríguez en el grid de quienes-somos (Phase 27) y
+ * ahora comparte el mismo registro de team-members en ambas páginas — ver
+ * `SHARED_WITH_DIPLOMADO`. Este array queda vacío tras la reconciliación.
  */
-const DIPLOMADO_TEAM_ONLY = [
-  {
-    nombre: 'Dana Aliaga',
-    rol: 'SEO Specialist',
-    bio: 'SEO Specialist del equipo de coaches de aprendoclub.',
-    iniciales: 'DA',
-  },
-]
+const DIPLOMADO_TEAM_ONLY: Array<{ nombre: string; rol: string; bio: string; iniciales: string }> = []
 
 /** Nombres del equipo de quienes-somos que también aparecen en /diplomado (team.tsx). */
 const SHARED_WITH_DIPLOMADO = new Set([
   'Arianna Lupi',
+  'Dana Aliaga',
   'Ibraim Zayed',
   'Juan Carlos Angulo',
   'Verónica Romero',
@@ -215,6 +209,15 @@ export async function seedCollections(
   }
   console.log(`[seed:collections] programas: ${programasMap.size}`)
 
+  // --- TeamMembers: cleanup idempotente del registro huérfano de Diana Rodríguez ---
+  // (reemplazada por Dana Aliaga en Phase 27; no-op si la DB ya no tiene este doc)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  await (payload as any).delete({
+    collection: 'team-members',
+    where: { nombre: { equals: 'Diana Rodríguez' } },
+    context: { disableRevalidate: true },
+  })
+
   // --- TeamMembers (upsert por nombre) ---
   for (const [index, m] of equipo.entries()) {
     const id = await upsertByField(payload, 'team-members', 'nombre', m.nombre, {
@@ -242,7 +245,7 @@ export async function seedCollections(
     })
     teamMembers.set(m.nombre, id)
   }
-  console.log(`[seed:collections] team-members: ${teamMembers.size} (incl. Diana Rodríguez y Dana Aliaga como registros distintos)`)
+  console.log(`[seed:collections] team-members: ${teamMembers.size}`)
 
   // --- Faq (upsert por question+page) ---
   let ordenFaq = 0

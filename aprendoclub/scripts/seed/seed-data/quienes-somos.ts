@@ -120,11 +120,10 @@ export const equipo: TeamMember[] = [
     web: "https://ariannalupi.com",
   },
   {
-    nombre: "Diana Rodríguez",
+    nombre: "Dana Aliaga",
     rol: "SEO Specialist",
     bio: "Especialista en SEO, enfocada en ejecución y resultados.",
-    foto: "/coaches/diana.avif",
-    iniciales: "DR",
+    iniciales: "DA",
   },
   {
     nombre: "Ibraim Zayed",
