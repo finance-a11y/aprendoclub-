@@ -349,6 +349,7 @@ export interface Page {
     | PremiosBlock
     | RetoPricingBlock
     | GanadoresBlock
+    | AsesoriaWidgetBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1201,6 +1202,29 @@ export interface GanadoresBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AsesoriaWidgetBlock".
+ */
+export interface AsesoriaWidgetBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  boton: {
+    label: string;
+    href: string;
+    id?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'asesoriaWidget';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
 export interface Category {
@@ -1629,6 +1653,7 @@ export interface PagesSelect<T extends boolean = true> {
         premios?: T | PremiosBlockSelect<T>;
         retoPricing?: T | RetoPricingBlockSelect<T>;
         ganadores?: T | GanadoresBlockSelect<T>;
+        asesoriaWidget?: T | AsesoriaWidgetBlockSelect<T>;
       };
   meta?:
     | T
@@ -2440,6 +2465,30 @@ export interface GanadoresBlockSelect<T extends boolean = true> {
         nombre?: T;
         edicion?: T;
         imagen?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AsesoriaWidgetBlock_select".
+ */
+export interface AsesoriaWidgetBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  boton?:
+    | T
+    | {
+        label?: T;
+        href?: T;
         id?: T;
       };
   id?: T;

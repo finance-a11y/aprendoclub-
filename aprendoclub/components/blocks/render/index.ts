@@ -41,6 +41,7 @@ import { Premios } from './Premios'
 import { RetoPricing } from './RetoPricing'
 import { Ganadores } from './Ganadores'
 import { YoutubeTestimonials } from './YoutubeTestimonials'
+import { AsesoriaWidget } from './AsesoriaWidget'
 
 /**
  * Registry blockType -> componente de render.
@@ -98,4 +99,5 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   retoPricing: RetoPricing,
   ganadores: Ganadores,
   youtubeTestimonials: YoutubeTestimonials,
+  asesoriaWidget: AsesoriaWidget,
 }
