@@ -39,7 +39,7 @@ export const hero: HomeHero = {
   tituloPost: "que te ayuda a encontrar trabajo",
   subtitulo:
     "Especialízate en SEO con la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
-  ctaPrimario: { label: "Únete a aprendoclub", href: "#precios" },
+  ctaPrimario: { label: "Únete a aprendoclub", href: "#asesoria" },
   ctaSecundario: {
     label: "Agenda una llamada",
     href: "https://calendar.app.google/pRxa4Jd24YZMhVNE7",
@@ -326,7 +326,7 @@ export interface CtaFinalSection {
 export const ctaFinal: CtaFinalSection = {
   titulo: "Deja de aprender solo. Únete a la comunidad.",
   botonLabel: "Comenzar ahora",
-  botonHref: "#precios",
+  botonHref: "#asesoria",
 };
 
 /** Payload-ready: mapea a un group simple (botonLabel + botonHref). */
@@ -338,5 +338,41 @@ export interface StickyCtaSection {
 /** Sticky CTA mobile (sticky-cta-mobile.tsx). */
 export const stickyCta: StickyCtaSection = {
   botonLabel: "Únete a aprendoclub",
-  botonHref: "#precios",
+  botonHref: "#asesoria",
+};
+
+/** Payload-ready: mapea al bloque `AsesoriaWidget` (blocks/AsesoriaWidget.ts). */
+export interface AsesoriaWidgetSection {
+  eyebrow: string;
+  titulo: string;
+  subtitulo?: string;
+  bullets: string[];
+  botonLabel: string;
+  botonHref: string;
+}
+
+/**
+ * Widget de asesoría gratuita (Fase 22). Reemplaza `pricing` en el layout
+ * del home (ADV-01); copy y bullets exactos definidos por Juan (ADV-02),
+ * CTA a WhatsApp configurable (ADV-03).
+ */
+export const asesoriaWidget: AsesoriaWidgetSection = {
+  eyebrow: "ASESORÍA GRATUITA",
+  titulo: "Conversemos sobre tu futuro en marketing e IA",
+  subtitulo:
+    "Agenda una asesoría gratuita y te contamos cómo el Diplomado puede ayudarte a especializarte y conseguir trabajo.",
+  bullets: [
+    "Diplomado certificado con el aval académico de la UCAB",
+    "Clases en vivo, no grabaciones",
+    "Masterclasses exclusivas con expertos de la industria",
+    "Invitados especiales en cada cohorte",
+    "Proyectos reales para armar tu portafolio",
+    "Coaches personalizados que acompañan tu proceso",
+    "Comunidad LATAM de estudiantes y egresados",
+    "Recursos y materiales nuevos cada semana",
+    "Certificación para mostrar en tu perfil de LinkedIn",
+  ],
+  botonLabel: "Quiero mi asesoría gratuita",
+  botonHref:
+    "https://api.whatsapp.com/send?phone=13055728892&text=Hola!%20%F0%9F%98%8A%20Vengo%20de%20tu%20web%20y%20me%20interesa%20ingresar%20al%20Diplomado%20de%20SEO%20para%20convertirme%20en%20especialista.%20%C2%BFMe%20podr%C3%ADas%20dar%20m%C3%A1s%20detalles%20sobre%20el%20programa%20y%20las%20opciones%20de%20pago%20disponibles%3F",
 };

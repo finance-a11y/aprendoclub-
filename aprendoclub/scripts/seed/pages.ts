@@ -136,38 +136,18 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
         items: idsFor(maps.programas, HOME_PROGRAMAS_ORDER, 'home.programas'),
       },
       {
-        blockType: 'pricing',
-        eyebrow: home.pricing.eyebrow,
-        titulo: home.pricing.titulo,
-        subtitulo: home.pricing.subtitulo,
-        planes: [
-          {
-            nombre: home.pricing.planCuotas.nombre,
-            precio: home.pricing.planCuotas.precio,
-            precioNota: home.pricing.planCuotas.nota,
-            features: home.pricing.features.map((text) => ({ text })),
-            cta: { label: home.pricing.planCuotas.ctaLabel, href: home.pricing.planCuotas.ctaHref },
-          },
-          {
-            nombre: home.pricing.planUnico.nombre,
-            badge: home.pricing.planUnico.badge,
-            precio: home.pricing.planUnico.precio,
-            precioNota: home.pricing.planUnico.nota,
-            features: home.pricing.features.map((text) => ({ text })),
-            cta: { label: home.pricing.planUnico.ctaLabel, href: home.pricing.planUnico.ctaHref },
-          },
-        ],
-        ctaAsesoria: {
-          titulo: home.pricing.ctaAsesoria.tituloAccent,
-          texto: home.pricing.ctaAsesoria.texto,
-          cta: { label: home.pricing.ctaAsesoria.botonLabel, href: home.pricing.ctaAsesoria.botonHref },
-        },
-      },
-      {
         blockType: 'testimonialRef',
         eyebrow: home.testimoniosHome.eyebrow,
         titulo: home.testimoniosHome.titulo,
         items: maps.testimoniosFeatured,
+      },
+      {
+        blockType: 'asesoriaWidget',
+        eyebrow: home.asesoriaWidget.eyebrow,
+        titulo: home.asesoriaWidget.titulo,
+        subtitulo: home.asesoriaWidget.subtitulo,
+        bullets: home.asesoriaWidget.bullets.map((text) => ({ text })),
+        boton: { label: home.asesoriaWidget.botonLabel, href: home.asesoriaWidget.botonHref },
       },
       {
         blockType: 'instructor',
