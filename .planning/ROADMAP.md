@@ -32,7 +32,7 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
 
 **Nota técnica:** Todos los cambios de copy son ediciones de contenido en `scripts/seed/seed-data/*.ts` (seed data de Payload), no en `content/*.ts` (eliminado en v1.3). Los cambios requieren correr el script de seed o editar vía Payload admin para reflejarse en la base de datos y en el sitio en vivo.
 
-- [ ] **Phase 26: Copy general + Home** - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home
+- [x] **Phase 26: Copy general + Home** - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home (completed 2026-07-11)
 - [ ] **Phase 27: Equipo y testimonios** - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios
 - [ ] **Phase 28: Rebranding del diplomado** - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias
 - [ ] **Phase 29: FAQs de membresía** - Las FAQs restantes en faqs.ts se actualizan al modelo de membresía vigente
@@ -40,57 +40,73 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
 ## Phase Details
 
 ### Phase 26: Copy general + Home
+
 **Goal**: El copy general del sitio deja de usar "real"/"reales" y de-enfatiza la palabra "SEO" en favor de "marketing/IA/tecnología"; el home refleja subtítulo y cifra de estudiantes actualizados.
 **Depends on**: Nothing (primera fase del milestone; no depende de fases previas de otros milestones, sitio ya en producción)
 **Requirements**: COPY-01, COPY-02, HOME-01, HOME-02
 **Success Criteria** (what must be TRUE):
+
   1. `grep -ri "\breal(es)?\b"` sobre `scripts/seed/seed-data/*.ts` no devuelve coincidencias fuera de nombres propios o URLs (las 36 ocurrencias detectadas quedan reescritas con voz humanizada)
   2. El subtítulo/meta del home ya no contiene "academia de SEO" ni "acompañamiento real"
   3. La cifra de estudiantes en el home (badge, subtítulo, `ratingTexto`) refleja el valor nuevo confirmado por Juan, de forma consistente en todas sus apariciones
   4. El badge y subtítulo de home y el título de quienes-somos de-enfatizan "SEO" en favor de "marketing/IA/tecnología" (barrido no se limita a esas ubicaciones si aparecen más instancias)
+
 **Plans**: 4 plans (3 en Wave 1 paralelos + 1 en Wave 2 de re-seed)
 
 Plans:
-- [ ] 26-01-PLAN.md — Home: barrido "real", de-enfasis SEO en badge/subtitulo, cifra a +10.000 (COPY-01/02, HOME-01/02)
-- [ ] 26-02-PLAN.md — Diplomado: 12 reescrituras de "real"/"reales" (COPY-01)
-- [ ] 26-03-PLAN.md — Copy disperso + globals: quienes-somos titulo/reales, faqs/testimonios/reto, meta description (COPY-01/02)
-- [ ] 26-04-PLAN.md — Gate de verificacion global + re-seed a la DB
+
+- [x] 26-01-PLAN.md — Home: barrido "real", de-enfasis SEO en badge/subtitulo, cifra a +10.000 (COPY-01/02, HOME-01/02)
+- [x] 26-02-PLAN.md — Diplomado: 12 reescrituras de "real"/"reales" (COPY-01)
+- [x] 26-03-PLAN.md — Copy disperso + globals: quienes-somos titulo/reales, faqs/testimonios/reto, meta description (COPY-01/02)
+- [x] 26-04-PLAN.md — Gate de verificacion global + re-seed a la DB
 
 ### Phase 27: Equipo y testimonios
+
 **Goal**: El equipo mostrado en quienes-somos y la sección de testimonios reflejan el estado actual del negocio.
 **Depends on**: Phase 26 (mismo lote de archivos seed-data; se ejecuta después para evitar conflictos de edición concurrente)
 **Requirements**: TEAM-01, TESTIM-01
 **Success Criteria** (what must be TRUE):
+
   1. El team grid en /quienes-somos muestra a "Dana Aliaga" y "Diana Rodríguez" ya no aparece en ningún lugar del sitio
   2. La sección de logos de empresas confiadas ("trusted companies") ya no se renderiza en /testimonios
+
 **Plans**: TBD
 
 Plans:
+
 - [ ] 27-01: TBD (definido en plan-phase)
 
 ### Phase 28: Rebranding del diplomado
+
 **Goal**: El diplomado se presenta de forma consistente bajo su nuevo nombre en todas las páginas y datos donde aparece.
 **Depends on**: Phase 26 (evita pisar el barrido general de "real"/"SEO" sobre los mismos archivos)
 **Requirements**: BRAND-01
 **Success Criteria** (what must be TRUE):
+
   1. `grep -r "Diplomado de Cero a SEO"` sobre `scripts/seed/seed-data/*.ts` no devuelve coincidencias
   2. Todas las ocurrencias del nombre del diplomado (diplomado.ts, testimonios.ts, y demás archivos donde aparezca) muestran "Diplomado de SEO + AIO"
   3. La página /diplomado en vivo (post-seed) muestra el nuevo nombre en título, hero y cualquier mención cruzada
+
 **Plans**: TBD
 
 Plans:
+
 - [ ] 28-01: TBD (definido en plan-phase)
 
 ### Phase 29: FAQs de membresía
+
 **Goal**: Las FAQs del sitio reflejan el modelo de membresía vigente, sin preguntas obsoletas del modelo anterior.
 **Depends on**: Nothing adicional (archivo independiente `faqs.ts`; puede ejecutarse en paralelo conceptual a fases 27-28, pero se numera al final por orden de confirmación con Juan)
 **Requirements**: FAQ-01
 **Success Criteria** (what must be TRUE):
+
   1. Cada FAQ en `faqs.ts` que describía el modelo de negocio anterior (no-membresía) queda reescrita o reemplazada para reflejar el modelo de membresía
   2. Las FAQs publicadas en el sitio (post-seed) son consistentes entre sí y con la pregunta de membresía ya existente
+
 **Plans**: TBD
 
 Plans:
+
 - [ ] 29-01: TBD (definido en plan-phase)
 
 ## Progress
@@ -100,7 +116,7 @@ Phases execute in numeric order: 26 → 27 → 28 → 29
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|-----------------|--------|-----------|
-| 26. Copy general + Home | v1.6 | 0/TBD | Not started | - |
+| 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
 | 27. Equipo y testimonios | v1.6 | 0/TBD | Not started | - |
 | 28. Rebranding del diplomado | v1.6 | 0/TBD | Not started | - |
 | 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |

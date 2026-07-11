@@ -9,13 +9,13 @@ Rediseño de copy del sitio, basado en auditoría de feedback histórico de Slac
 
 ### Copy general
 
-- [ ] **COPY-01**: Ningún texto del sitio usa la palabra "real"/"reales" — reescrito con voz humanizada, sin sonar a IA (36 ocurrencias detectadas en `scripts/seed/seed-data/*.ts`)
-- [ ] **COPY-02**: El sitio des-enfatiza la palabra "SEO" en favor de "marketing/IA/tecnología" — barrido completo (badge home, subtítulo home, título quienes-somos, y demás ocurrencias que aparezcan)
+- [x] **COPY-01**: Ningún texto del sitio usa la palabra "real"/"reales" — reescrito con voz humanizada, sin sonar a IA (36 ocurrencias detectadas en `scripts/seed/seed-data/*.ts`)
+- [x] **COPY-02**: El sitio des-enfatiza la palabra "SEO" en favor de "marketing/IA/tecnología" — barrido completo (badge home, subtítulo home, título quienes-somos, y demás ocurrencias que aparezcan)
 
 ### Home
 
-- [ ] **HOME-01**: El subtítulo/meta de home ya no dice "academia de SEO" ni "acompañamiento real"
-- [ ] **HOME-02**: La cifra de estudiantes en home se actualiza (de "+500 estudiantes ya aprenden SEO con IA" a la cifra nueva que confirme Juan; incluye decidir si `ratingTexto` "4.9/5 de +500 estudiantes" también cambia)
+- [x] **HOME-01**: El subtítulo/meta de home ya no dice "academia de SEO" ni "acompañamiento real"
+- [x] **HOME-02**: La cifra de estudiantes en home se actualiza (de "+500 estudiantes ya aprenden SEO con IA" a la cifra nueva que confirme Juan; incluye decidir si `ratingTexto` "4.9/5 de +500 estudiantes" también cambia)
 
 ### Equipo
 
@@ -48,16 +48,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| COPY-01 | Phase 26 | Pending |
-| COPY-02 | Phase 26 | Pending |
-| HOME-01 | Phase 26 | Pending |
-| HOME-02 | Phase 26 | Pending |
+| COPY-01 | Phase 26 | Complete |
+| COPY-02 | Phase 26 | Complete |
+| HOME-01 | Phase 26 | Complete |
+| HOME-02 | Phase 26 | Complete |
 | TEAM-01 | Phase 27 | Pending |
 | TESTIM-01 | Phase 27 | Pending |
 | BRAND-01 | Phase 28 | Pending |
 | FAQ-01 | Phase 29 | Pending |
 
 **Coverage:**
+
 - v1.6 requirements: 8 total
 - Mapped to phases: 8
 - Unmapped: 0 ✓
