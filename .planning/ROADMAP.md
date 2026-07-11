@@ -48,10 +48,13 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
   2. El subtítulo/meta del home ya no contiene "academia de SEO" ni "acompañamiento real"
   3. La cifra de estudiantes en el home (badge, subtítulo, `ratingTexto`) refleja el valor nuevo confirmado por Juan, de forma consistente en todas sus apariciones
   4. El badge y subtítulo de home y el título de quienes-somos de-enfatizan "SEO" en favor de "marketing/IA/tecnología" (barrido no se limita a esas ubicaciones si aparecen más instancias)
-**Plans**: TBD
+**Plans**: 4 plans (3 en Wave 1 paralelos + 1 en Wave 2 de re-seed)
 
 Plans:
-- [ ] 26-01: TBD (definido en plan-phase)
+- [ ] 26-01-PLAN.md — Home: barrido "real", de-enfasis SEO en badge/subtitulo, cifra a +10.000 (COPY-01/02, HOME-01/02)
+- [ ] 26-02-PLAN.md — Diplomado: 12 reescrituras de "real"/"reales" (COPY-01)
+- [ ] 26-03-PLAN.md — Copy disperso + globals: quienes-somos titulo/reales, faqs/testimonios/reto, meta description (COPY-01/02)
+- [ ] 26-04-PLAN.md — Gate de verificacion global + re-seed a la DB
 
 ### Phase 27: Equipo y testimonios
 **Goal**: El equipo mostrado en quienes-somos y la sección de testimonios reflejan el estado actual del negocio.
