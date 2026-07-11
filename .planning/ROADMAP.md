@@ -30,8 +30,6 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
 
 **Nota de alcance:** Sin fase de research (milestone es reescritura de copy sobre features existentes, no funcionalidad nueva). El wording exacto de reemplazo para COPY-01, COPY-02, HOME-01, HOME-02 y FAQ-01 se confirma con Juan en `discuss-phase` de cada fase — el roadmap solo delimita el alcance, no inventa el texto final. BRAND-01 ("Diplomado de SEO + AIO") y TEAM-01 (Dana Aliaga) ya tienen wording confirmado.
 
-**Nota técnica:** Todos los cambios de copy son ediciones de contenido en `scripts/seed/seed-data/*.ts` (seed data de Payload), no en `content/*.ts` (eliminado en v1.3). Los cambios requieren correr el script de seed o editar vía Payload admin para reflejarse en la base de datos y en el sitio en vivo.
-
 - [x] **Phase 26: Copy general + Home** - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home (completed 2026-07-11)
 - [x] **Phase 27: Equipo y testimonios** - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios (completed 2026-07-11)
 - [ ] **Phase 28: Rebranding del diplomado** - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias
@@ -87,11 +85,11 @@ Plans:
   2. Todas las ocurrencias del nombre del diplomado (diplomado.ts, testimonios.ts, y demás archivos donde aparezca) muestran "Diplomado de SEO + AIO"
   3. La página /diplomado en vivo (post-seed) muestra el nuevo nombre en título, hero y cualquier mención cruzada
 
-**Plans**: TBD
+**Plans**: 1 plan (Wave 1, 2 tasks: renames en 6 archivos + re-seed/gate)
 
 Plans:
 
-- [ ] 28-01: TBD (definido en plan-phase)
+- [ ] 28-01-PLAN.md — Renombrar diplomado en las 12 ocurrencias del seed (diplomado/testimonios/collections/globals/media/home) + fix "Práctica real" + re-seed a Neon (BRAND-01)
 
 ### Phase 29: FAQs de membresía
 
@@ -118,7 +116,7 @@ Phases execute in numeric order: 26 → 27 → 28 → 29
 |-------|-----------|-----------------|--------|-----------|
 | 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
 | 27. Equipo y testimonios | v1.6 | 1/1 | Complete   | 2026-07-11 |
-| 28. Rebranding del diplomado | v1.6 | 0/TBD | Not started | - |
+| 28. Rebranding del diplomado | v1.6 | 0/1 | Not started | - |
 | 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |
 
 ---
