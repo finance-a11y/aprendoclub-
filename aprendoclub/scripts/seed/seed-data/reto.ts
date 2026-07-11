@@ -245,7 +245,7 @@ export const pricing: RetoPricing = {
 
 /** Ganadores de ediciones anteriores. */
 export const ganadoresIntro =
-  "En cada edición, alguien se va a casa con una MacBook. Personas reales, como tú, que entraron por $20 y se tomaron el reto en serio.";
+  "En cada edición, alguien se va a casa con una MacBook. Personas como tú, que entraron por $20 y se tomaron el reto en serio.";
 
 export const ganadores: Ganador[] = [
   { nombre: "Bregner Herrera", edicion: "Edición Enero 2026", imagen: "/reto/ganadores/g1.avif" },

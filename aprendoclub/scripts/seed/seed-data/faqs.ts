@@ -38,7 +38,7 @@ export const homeFaqs: FaqItem[] = [
   {
     question: "¿Qué diferencia a aprendoclub de otros cursos online?",
     answer:
-      "Combinamos cursos actualizados, comunidad activa, mentorías y proyectos reales en una sola plataforma.",
+      "Combinamos cursos actualizados, comunidad activa, mentorías y proyectos en una sola plataforma.",
   },
 ];
 

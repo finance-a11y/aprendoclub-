@@ -57,7 +57,7 @@ export interface CtaContent {
 /** Hero — sección "## Copy propio de la página" de 03-CONTENT-SOURCE.md. */
 export const hero: HeroContent = {
   eyebrow: "TESTIMONIOS",
-  titulo: "Historias reales de gente que cambió su rumbo con el SEO",
+  titulo: "Historias de gente que cambió su rumbo con el SEO",
   subtitulo:
     "Estudiantes que empezaron desde cero y hoy posicionan sitios, consiguen clientes o trabajan remoto. Estas son sus palabras.",
 };
