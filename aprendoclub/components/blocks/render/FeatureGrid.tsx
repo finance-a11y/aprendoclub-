@@ -28,7 +28,8 @@ function resolveIconColor(iconColor: string | null | undefined): string {
  * + grid de tarjetas con icono o imagen (items[]{icon,titulo,descripcion,
  * iconMode,iconColor,image}). Espeja components/problema-section.tsx (grid
  * de tarjetas con icono lucide). Consumido por problema y beneficios (home)
- * y origin/methodology/how-it-works/benefits (diplomado); el ajuste fino de
+ * y origin/methodology (diplomado); howItWorks/benefits (diplomado) usan sus
+ * propios bloques y componentes de render (no FeatureGrid). El ajuste fino de
  * variante visual entre problema/beneficios se hace en el cutover (Phase 17).
  */
 export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
@@ -80,6 +81,11 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
                 ) : (
                   <div
                     className="w-fit rounded-xl p-3"
+                    // color-mix() sin fallback: known-limitation aceptado. Tailwind v4
+                    // (usado en este proyecto) ya requiere como baseline Safari 16.4+/
+                    // Firefox 128+/Chrome 111+ (usa color-mix/@property internamente),
+                    // por lo que no hay navegadores soportados por el proyecto sin
+                    // soporte de color-mix().
                     style={{ backgroundColor: `color-mix(in srgb, ${iconColor} 10%, transparent)` }}
                   >
                     <LucideIcon name={item.icon} className="h-6 w-6" style={{ color: iconColor }} />

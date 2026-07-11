@@ -221,7 +221,15 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
         blockType: 'featureGrid',
         eyebrow: diplomado.origin.eyebrow,
         titulo: diplomado.origin.titulo,
-        items: diplomado.origin.tarjetas.map((t) => ({ icon: t.icon, titulo: t.texto, descripcion: undefined })),
+        items: diplomado.origin.tarjetas.map((t) => ({
+          icon: t.icon,
+          titulo: t.texto,
+          descripcion: undefined,
+          // Preserva los colores originales pre-cutover (origin.tsx): Lightbulb en
+          // accent, Briefcase/Users en primary. No usar el default 'auto', que
+          // repintaría todo a var(--accent) (pensado solo para 'problema').
+          iconColor: t.icon === 'lightbulb' ? 'accent' : 'primary',
+        })),
       },
       {
         blockType: 'audience',
@@ -242,6 +250,9 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
           icon: p.icon,
           titulo: p.titulo,
           descripcion: p.descripcion,
+          // Preserva el color uniforme original (methodology.tsx: var(--primary-light)
+          // en los 4 pilares). No usar el default 'auto', pensado solo para 'problema'.
+          iconColor: 'primary',
         })),
       },
       {
