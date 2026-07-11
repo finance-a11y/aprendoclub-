@@ -54,7 +54,7 @@ export function RetoHero({ block }: { block: RetoHeroBlockType }) {
         )}
         <p className="text-base font-semibold text-white">{block.precioTexto}</p>
         {ctas.length > 0 && (
-          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-nowrap sm:justify-center lg:justify-start">
             {ctas[0] && (
               <Button
                 href={ctas[0].href}
@@ -62,6 +62,7 @@ export function RetoHero({ block }: { block: RetoHeroBlockType }) {
                 rel="noopener noreferrer"
                 variant="primary"
                 icon
+                className="whitespace-nowrap cta-shimmer"
               >
                 {ctas[0].label}
               </Button>
@@ -72,6 +73,7 @@ export function RetoHero({ block }: { block: RetoHeroBlockType }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="secondary"
+                className="whitespace-nowrap"
               >
                 {ctas[1].label}
               </Button>
