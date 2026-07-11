@@ -33,7 +33,7 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
               key={program.id}
               padding="compact"
               hover="liftAccent"
-              className="group flex flex-col gap-4"
+              className="group flex h-full flex-col gap-4"
             >
               <Eyebrow>{program.badge}</Eyebrow>
 
@@ -50,7 +50,7 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
                 )}
               </div>
 
-              <Button href={program.ctaHref} variant="primary" icon className="mt-4">
+              <Button href={program.ctaHref} variant="primary" icon className="mt-auto">
                 {program.ctaLabel}
               </Button>
             </Card>

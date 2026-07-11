@@ -34,7 +34,7 @@ export interface HeroContent {
   ctaPrimario: LinkContent;
   ctaSecundario: LinkContent;
   microcopy: string;
-  imagen: string;
+  imagen?: string;
 }
 
 export const hero: HeroContent = {
@@ -53,7 +53,6 @@ export const hero: HeroContent = {
     href: "https://calendar.app.google/pRxa4Jd24YZMhVNE7",
   },
   microcopy: "Aclaremos tus dudas juntos",
-  imagen: "/diplomado/real/diplomado-hero.avif",
 };
 
 /** Imagen de galería con alt propio (foto real, no placeholder genérico). */

@@ -28,10 +28,12 @@ export function BlurFade({
   children,
   delay = 0,
   isInView,
+  className,
 }: {
   children: ReactNode
   delay?: number
   isInView: boolean
+  className?: string
 }) {
   const reduceMotion = useReducedMotion()
   const [mounted, setMounted] = useState(false)
@@ -42,6 +44,7 @@ export function BlurFade({
 
   return (
     <motion.div
+      className={className}
       initial={mounted && !reduceMotion ? { opacity: 0, y: 12, filter: 'blur(6px)' } : false}
       animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
       transition={{
