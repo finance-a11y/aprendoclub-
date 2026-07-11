@@ -15,6 +15,11 @@ import { motion, useReducedMotion } from 'framer-motion'
  * motion is requested, since this is a JS `animate` loop, not a CSS
  * animation covered by the global prefers-reduced-motion media query.
  *
+ * `isInView` (WR-02) pauses the rotation loop while the section is out of
+ * viewport instead of letting `repeat: Infinity` run the compositor forever
+ * in the background. Defaults to `true` so existing callers that don't pass
+ * it keep the previous always-on behavior.
+ *
  * Client component — requires framer-motion runtime.
  */
 export function BorderBeam({
@@ -22,11 +27,13 @@ export function BorderBeam({
   duration = 8,
   colorFrom = 'var(--accent)',
   colorTo = 'var(--primary)',
+  isInView = true,
 }: {
   size?: number
   duration?: number
   colorFrom?: string
   colorTo?: string
+  isInView?: boolean
 }) {
   const reduceMotion = useReducedMotion()
 
@@ -39,7 +46,7 @@ export function BorderBeam({
         style={{
           background: `conic-gradient(from 0deg, transparent 0deg, ${colorFrom} ${size / 2}deg, ${colorTo} ${size}deg, transparent ${size * 1.8}deg)`,
         }}
-        animate={{ rotate: 360 }}
+        animate={isInView ? { rotate: 360 } : undefined}
         transition={{ repeat: Infinity, ease: 'linear', duration }}
       />
     </div>

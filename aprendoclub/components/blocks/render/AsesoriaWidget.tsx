@@ -32,7 +32,7 @@ export function AsesoriaWidget({ block }: { block: AsesoriaWidgetBlockType }) {
       <div className="mx-auto max-w-3xl">
         <BlurFade isInView={isInView}>
         <Card padding="default" hover="none" className="relative overflow-hidden">
-          <BorderBeam />
+          <BorderBeam isInView={isInView} />
           <div className="flex flex-col items-center gap-8 text-center">
             {block.eyebrow && <Eyebrow as="p">{block.eyebrow}</Eyebrow>}
 
