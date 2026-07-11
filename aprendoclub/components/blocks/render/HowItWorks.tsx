@@ -1,12 +1,15 @@
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { LucideIcon } from '@/lib/blocks/icons'
 import type { HowItWorksBlock as HowItWorksBlockType } from '@/payload-types'
 
 /**
- * Render de 'howItWorks': eyebrow/título + items[]{icon,titulo,descripcion}
- * (LucideIcon) + ctaLabel/ctaHref. Espeja components/diplomado/how-it-works.tsx
- * (grid de tarjetas 2/3 columnas + CTA final).
+ * Render de 'howItWorks': eyebrow/título + items[]{icon,titulo,descripcion,
+ * iconMode,image} + ctaLabel/ctaHref. Espeja components/diplomado/how-it-works.tsx
+ * (grid de tarjetas 2/3 columnas + CTA final). iconMode 'image' (IMG-01, Phase
+ * 24, assets reales desde 24-02) reusa el mismo patrón de recorte 12x12 que
+ * FeatureGrid.tsx en vez del ícono lucide.
  */
 export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
   const items = block.items ?? []
@@ -27,6 +30,10 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => {
+            const isImageMode = item.iconMode === 'image'
+            const media =
+              isImageMode && item.image && typeof item.image === 'object' ? item.image : null
+
             return (
               <div
                 key={item.id ?? i}
@@ -34,9 +41,25 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
                   i >= 3 ? 'lg:col-span-1' : ''
                 }`}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
-                  <LucideIcon name={item.icon} className="h-6 w-6 text-[var(--primary-light)]" />
-                </div>
+                {isImageMode ? (
+                  media && media.url ? (
+                    <div className="mb-4 h-12 w-12 rounded-xl bg-white/5 p-2">
+                      <Image
+                        src={media.url}
+                        alt={media.alt ?? item.titulo}
+                        width={typeof media.width === 'number' ? media.width : 48}
+                        height={typeof media.height === 'number' ? media.height : 48}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mb-4 h-12 w-12 rounded-xl border border-dashed border-white/20" />
+                  )
+                ) : (
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
+                    <LucideIcon name={item.icon} className="h-6 w-6 text-[var(--primary-light)]" />
+                  </div>
+                )}
                 <h3 className="mb-2 font-semibold text-white">{item.titulo}</h3>
                 {item.descripcion && (
                   <p className="text-sm leading-relaxed text-gray-400">

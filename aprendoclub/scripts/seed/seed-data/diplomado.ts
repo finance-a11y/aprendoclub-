@@ -53,15 +53,21 @@ export const hero: HeroContent = {
     href: "https://calendar.app.google/pRxa4Jd24YZMhVNE7",
   },
   microcopy: "Aclaremos tus dudas juntos",
-  imagen: "/diplomado/placeholders/hero.png",
+  imagen: "/diplomado/real/diplomado-hero.avif",
 };
 
-/** Galería del Diplomado (IMG-01, Phase 24). Payload-ready: bloque `diplomadoGaleria`. */
+/** Imagen de galería con alt propio (foto real, no placeholder genérico). */
+export interface GaleriaImagen {
+  src: string;
+  alt: string;
+}
+
+/** Galería del Diplomado (IMG-01, Phase 24; assets reales desde 24-02). Payload-ready: bloque `diplomadoGaleria`. */
 export interface GaleriaContent {
   eyebrow: string;
   titulo: string;
   texto: string;
-  imagenes: string[];
+  imagenes: GaleriaImagen[];
 }
 
 export const galeria: GaleriaContent = {
@@ -70,10 +76,22 @@ export const galeria: GaleriaContent = {
   texto:
     "Clases en vivo, proyectos reales y una comunidad que te acompaña todo el camino.",
   imagenes: [
-    "/diplomado/placeholders/galeria-1.png",
-    "/diplomado/placeholders/galeria-2.png",
-    "/diplomado/placeholders/galeria-3.png",
-    "/diplomado/placeholders/galeria-4.png",
+    {
+      src: "/diplomado/real/diplomado-certificado.avif",
+      alt: "Certificado de finalización del Diplomado de Cero a SEO",
+    },
+    {
+      src: "/diplomado/real/diplomado-comunidad.avif",
+      alt: "Comunidad privada de estudiantes del Diplomado",
+    },
+    {
+      src: "/diplomado/real/diplomado-mentorias.avif",
+      alt: "Sesión de mentoría en vivo por Zoom",
+    },
+    {
+      src: "/diplomado/real/diplomado-modulos1.avif",
+      alt: "Plataforma de cursos con el currículum del Diplomado",
+    },
   ],
 };
 
@@ -297,11 +315,19 @@ export const curriculum: CurriculumContent = {
   ],
 };
 
-/** Feature de "cómo funciona". Payload-ready: item del bloque `featureGrid`. */
+/**
+ * Feature de "cómo funciona". Payload-ready: item del bloque `featureGrid`.
+ * iconMode/imagen (IMG-01, Phase 24, assets reales desde 24-02): si iconMode
+ * es 'image', el item renderiza `imagen` en vez de `icon` (mismo patrón que
+ * FeatureGrid.tsx). Sin iconMode explícito, se asume 'icon' (comportamiento
+ * previo, sin cambios).
+ */
 export interface HowItWorksFeature {
   icon: string;
   titulo: string;
   descripcion: string;
+  iconMode?: "icon" | "image";
+  imagen?: string;
 }
 
 /** HowItWorks — how-it-works.tsx. Payload-ready: bloque `featureGrid` (5 items) + CTA. */
@@ -328,12 +354,16 @@ export const howItWorks: HowItWorksContent = {
       titulo: "Aprendizaje estructurado y aplicable",
       descripcion:
         "Cada módulo te lleva desde lo más básico hasta estrategias avanzadas, con lecciones que puedes aplicar en proyectos reales desde el inicio.",
+      iconMode: "image",
+      imagen: "/diplomado/real/diplomado-modulos2.avif",
     },
     {
       icon: "video",
       titulo: "Llamadas en vivo semanales",
       descripcion:
         "Tendrás 3 sesiones grupales a la semana con nuestros coaches SEO. Resolverás dudas, recibirás feedback y avanzarás con claridad.",
+      iconMode: "image",
+      imagen: "/diplomado/real/diplomado-mentorias.avif",
     },
     {
       icon: "folder-open",
@@ -346,6 +376,8 @@ export const howItWorks: HowItWorksContent = {
       titulo: "Comunidad activa que te acompaña",
       descripcion:
         "Forma parte de un grupo donde podrás compartir tus avances, recibir apoyo y conectarte con otros que también están en el camino SEO.",
+      iconMode: "image",
+      imagen: "/diplomado/real/diplomado-comunidad.avif",
     },
   ],
   ctaLabel: "Quiero inscribirme ahora",

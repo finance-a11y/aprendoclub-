@@ -254,6 +254,11 @@ function buildDiplomado(mediaMap: Map<string, number>, maps: CollectionMaps): Pa
           icon: f.icon,
           titulo: f.titulo,
           descripcion: f.descripcion,
+          iconMode: f.iconMode ?? 'icon',
+          image:
+            f.iconMode === 'image' && f.imagen
+              ? mediaId(mediaMap, f.imagen, `diplomado.howItWorks.${f.titulo}`)
+              : undefined,
         })),
         ctaLabel: diplomado.howItWorks.ctaLabel,
         ctaHref: diplomado.howItWorks.ctaHref,
@@ -264,7 +269,7 @@ function buildDiplomado(mediaMap: Map<string, number>, maps: CollectionMaps): Pa
         titulo: diplomado.galeria.titulo,
         texto: diplomado.galeria.texto,
         imagenes: diplomado.galeria.imagenes
-          .map((src) => mediaId(mediaMap, src, 'diplomado.galeria'))
+          .map((img) => mediaId(mediaMap, img.src, 'diplomado.galeria'))
           .filter((id): id is number => id !== undefined),
       },
       {
