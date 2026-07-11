@@ -43,7 +43,7 @@ export const hero: HeroContent = {
   tituloAccent: "sin experiencia previa",
   tituloPost: " ni tecnicismos",
   subtitulo:
-    "Aprende a posicionar sitios web en 6 meses, paso a paso, con una metodología clara y accesible, clases grabadas, prácticas reales y un equipo que te guiará en cada etapa.",
+    "Aprende a posicionar sitios web en 6 meses, paso a paso, con una metodología clara y accesible, clases grabadas, prácticas guiadas y un equipo que te acompaña en cada etapa.",
   ctaPrimario: {
     label: "Quiero aprender SEO",
     href: "https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout",
@@ -73,7 +73,7 @@ export const galeria: GaleriaContent = {
   eyebrow: "DIPLOMADO SEO",
   titulo: "Así se vive el Diplomado",
   texto:
-    "Clases en vivo, proyectos reales y una comunidad que te acompaña todo el camino.",
+    "Clases en vivo, proyectos y una comunidad que te acompaña todo el camino.",
   imagenes: [
     {
       src: "/diplomado/real/diplomado-certificado.avif",
@@ -110,7 +110,7 @@ export interface OriginContent {
 export const origin: OriginContent = {
   eyebrow: "Nuestra historia",
   titulo:
-    "Una necesidad real. Una solución creada desde la experiencia.",
+    "Una necesidad concreta del mercado. Una solución creada desde la experiencia.",
   tarjetas: [
     {
       icon: "briefcase",
@@ -125,7 +125,7 @@ export const origin: OriginContent = {
     {
       icon: "users",
       texto:
-        "Así nació aprendoclub, la primera academia especializada en SEO para el mercado hispano. Hoy, más de 750 personas se han formado con nosotros.",
+        "Así nació aprendoclub, la primera academia especializada en marketing con IA para el mercado hispano. Hoy, más de 750 personas se han formado con nosotros.",
     },
   ],
 };
@@ -148,7 +148,7 @@ export const audience: AudienceContent = {
   perfiles: [
     "No tienes experiencia previa y quieres aprender SEO desde cero.",
     "Eres profesional de marketing, comunicación o contenidos y quieres especializarte.",
-    "Tienes un negocio o marca personal que necesita visibilidad real en buscadores.",
+    "Tienes un negocio o marca personal que necesita visibilidad en buscadores.",
     "Quieres trabajar remoto u ofrecer servicios SEO como freelancer.",
     "Buscas una habilidad práctica, rentable y con demanda global.",
   ],
@@ -161,7 +161,7 @@ export const audience: AudienceContent = {
     "No creo que me contraten estando en Latinoamérica y sin saber inglés.",
   ],
   notaFinal:
-    "Nuestros estudiantes también comenzaron con estas dudas. Hoy, muchos aplican SEO en sus propios proyectos y en los de sus clientes, generando ingresos reales y posicionando negocios en buscadores.",
+    "Nuestros estudiantes también comenzaron con estas dudas. Hoy, muchos aplican SEO en sus propios proyectos y en los de sus clientes, generando ingresos adicionales y posicionando negocios en buscadores.",
 };
 
 /** Pilar EPAM. Payload-ready: item del bloque `featureGrid`. */
@@ -197,7 +197,7 @@ export const methodology: MethodologyContent = {
     {
       icon: "wrench",
       titulo: "Práctica aplicada",
-      descripcion: "Aplicas desde la semana 1 en un proyecto real.",
+      descripcion: "Aplicas desde la semana 1 en un proyecto de cliente.",
     },
     {
       icon: "award",
@@ -239,7 +239,7 @@ export const curriculum: CurriculumContent = {
     {
       numero: 2,
       titulo: "Proyecto SEO - Inicia tu camino",
-      detalle: "Configura tu primer proyecto SEO real paso a paso.",
+      detalle: "Configura tu primer proyecto SEO paso a paso.",
     },
     {
       numero: 3,
@@ -304,7 +304,7 @@ export const curriculum: CurriculumContent = {
     {
       numero: 15,
       titulo: "Freelance y Empleo SEO - Da el siguiente paso",
-      detalle: "Prepara tu perfil profesional para oportunidades reales.",
+      detalle: "Prepara tu perfil profesional para oportunidades laborales.",
     },
     {
       numero: 16,
@@ -352,7 +352,7 @@ export const howItWorks: HowItWorksContent = {
       icon: "book-open",
       titulo: "Aprendizaje estructurado y aplicable",
       descripcion:
-        "Cada módulo te lleva desde lo más básico hasta estrategias avanzadas, con lecciones que puedes aplicar en proyectos reales desde el inicio.",
+        "Cada módulo te lleva desde lo más básico hasta estrategias avanzadas, con lecciones que puedes aplicar en proyectos desde el inicio.",
       iconMode: "image",
       imagen: "/diplomado/real/diplomado-modulos2.avif",
     },
@@ -366,7 +366,7 @@ export const howItWorks: HowItWorksContent = {
     },
     {
       icon: "folder-open",
-      titulo: "Proyecto real para tu portafolio",
+      titulo: "Proyecto para tu portafolio",
       descripcion:
         "Culmina el diplomado aplicando todo lo aprendido en un proyecto SEO completo. Este será tu mejor carta de presentación.",
     },
@@ -514,7 +514,7 @@ export const pricing: PricingContent = {
     "Todo lo de Aprendiz",
     "Diplomado CERO A SEO completo",
     "3 sesiones semanales",
-    "Proyectos aplicados reales",
+    "Proyectos aplicados",
     "Ruta profesional guiada",
     "Plantillas, frameworks, SOPs",
     "Comunidad privada profesional",
@@ -544,7 +544,7 @@ export interface CtaFinalContent {
 export const ctaFinal: CtaFinalContent = {
   titulo: "No es magia, es SEO. Y tú lo puedes aprender.",
   texto:
-    "Este diplomado es una ruta completa para transformar tu perfil profesional y aprender esta habilidad de alta demanda, desde cero, con resultados reales y acompañamiento de la comunidad de aprendoclub.",
+    "Este diplomado es una ruta completa para transformar tu perfil profesional y aprender esta habilidad de alta demanda, desde cero, con resultados medibles y acompañamiento de la comunidad de aprendoclub.",
   bullets: [
     "Descubre cómo posicionar sitios web con estrategias que sí funcionan.",
     "Conviértete en especialista SEO, sin experiencia previa ni tecnicismos.",
