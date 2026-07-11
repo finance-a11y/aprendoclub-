@@ -34,6 +34,7 @@ export interface HeroContent {
   ctaPrimario: LinkContent;
   ctaSecundario: LinkContent;
   microcopy: string;
+  imagen: string;
 }
 
 export const hero: HeroContent = {
@@ -52,6 +53,28 @@ export const hero: HeroContent = {
     href: "https://calendar.app.google/pRxa4Jd24YZMhVNE7",
   },
   microcopy: "Aclaremos tus dudas juntos",
+  imagen: "/diplomado/placeholders/hero.png",
+};
+
+/** Galería del Diplomado (IMG-01, Phase 24). Payload-ready: bloque `diplomadoGaleria`. */
+export interface GaleriaContent {
+  eyebrow: string;
+  titulo: string;
+  texto: string;
+  imagenes: string[];
+}
+
+export const galeria: GaleriaContent = {
+  eyebrow: "DIPLOMADO SEO",
+  titulo: "Así se vive el Diplomado",
+  texto:
+    "Clases en vivo, proyectos reales y una comunidad que te acompaña todo el camino.",
+  imagenes: [
+    "/diplomado/placeholders/galeria-1.png",
+    "/diplomado/placeholders/galeria-2.png",
+    "/diplomado/placeholders/galeria-3.png",
+    "/diplomado/placeholders/galeria-4.png",
+  ],
 };
 
 /** Tarjeta de historia. Payload-ready: item del bloque `featureGrid`. */

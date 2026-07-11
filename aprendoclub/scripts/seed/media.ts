@@ -7,6 +7,7 @@ import type { Payload } from 'payload'
 import { equipo, fundadora } from './seed-data/quienes-somos'
 import * as home from './seed-data/home'
 import * as reto from './seed-data/reto'
+import { hero as diplomadoHero, galeria as diplomadoGaleria } from './seed-data/diplomado'
 import { retoImagenes, testimonios as testimoniosSource, trustedCompanies } from './seed-data/testimonios'
 
 /**
@@ -57,6 +58,10 @@ function collectMediaAssets(): MediaAsset[] {
   // Home: avatares del hero + video de fondo
   home.hero.avatares.forEach((src, i) => add(src, `Avatar de estudiante ${i + 1}`))
   add(home.hero.videoBackground, 'Video de fondo del hero del home')
+
+  // Diplomado: hero + galería (IMG-01, Phase 24)
+  add(diplomadoHero.imagen, 'Imagen del Diplomado - próximamente')
+  diplomadoGaleria.imagenes.forEach((src, i) => add(src, `Foto del Diplomado - próximamente (${i + 1})`))
 
   // Reto: hero, mentora, agenda (7 días), premios, ganadores
   add(reto.hero.imagen, 'Arianna Lupi, hero del Reto 7 días')
