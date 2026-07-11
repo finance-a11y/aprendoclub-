@@ -181,7 +181,7 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
   }
 }
 
-function buildDiplomado(maps: CollectionMaps): PageSeed {
+function buildDiplomado(mediaMap: Map<string, number>, maps: CollectionMaps): PageSeed {
   return {
     slug: 'diplomado',
     title: 'Diplomado',
@@ -196,6 +196,7 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
         ctaPrimario: { label: diplomadoHero.ctaPrimario.label, href: diplomadoHero.ctaPrimario.href },
         ctaSecundario: { label: diplomadoHero.ctaSecundario.label, href: diplomadoHero.ctaSecundario.href },
         microcopy: diplomadoHero.microcopy,
+        imagen: mediaId(mediaMap, diplomadoHero.imagen, 'diplomado.hero.imagen'),
       },
       {
         blockType: 'featureGrid',
@@ -256,6 +257,15 @@ function buildDiplomado(maps: CollectionMaps): PageSeed {
         })),
         ctaLabel: diplomado.howItWorks.ctaLabel,
         ctaHref: diplomado.howItWorks.ctaHref,
+      },
+      {
+        blockType: 'diplomadoGaleria',
+        eyebrow: diplomado.galeria.eyebrow,
+        titulo: diplomado.galeria.titulo,
+        texto: diplomado.galeria.texto,
+        imagenes: diplomado.galeria.imagenes
+          .map((src) => mediaId(mediaMap, src, 'diplomado.galeria'))
+          .filter((id): id is number => id !== undefined),
       },
       {
         blockType: 'diplomadoTeam',
@@ -597,7 +607,7 @@ export async function seedPages(payload: Payload, mediaMap: Map<string, number>,
     buildQuienesSomos(mediaMap, maps),
     buildTestimonios(mediaMap, maps),
     buildProgramasHub(maps),
-    buildDiplomado(maps),
+    buildDiplomado(mediaMap, maps),
     buildReto(mediaMap, maps),
     buildTaller(),
   ]

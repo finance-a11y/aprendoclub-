@@ -339,6 +339,7 @@ export interface Page {
     | DiplomadoTeamBlock
     | DiplomadoBenefitsBlock
     | DiplomadoPricingBlock
+    | DiplomadoGaleriaBlock
     | BarraUrgenciaBlock
     | RetoHeroBlock
     | RazonNoEscalasBlock
@@ -380,6 +381,9 @@ export interface HeroBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Imagen del hero del Diplomado. Recomendado: 1600×900px (16:9), JPG/WEBP, máx. 300KB. Reemplaza el placeholder subiendo el archivo real aquí.
+   */
   imagen?: (number | null) | Media;
   ctaPrimario: {
     label: string;
@@ -652,6 +656,9 @@ export interface HeroHomeBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Imagen del hero del Diplomado. Recomendado: 1600×900px (16:9), JPG/WEBP, máx. 300KB. Reemplaza el placeholder subiendo el archivo real aquí.
+   */
   imagen?: (number | null) | Media;
   ctaPrimario: {
     label: string;
@@ -1016,6 +1023,22 @@ export interface DiplomadoPricingBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'diplomadoPricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoGaleriaBlock".
+ */
+export interface DiplomadoGaleriaBlock {
+  eyebrow: string;
+  titulo: string;
+  texto: string;
+  /**
+   * Galería de fotos reales del Diplomado (clases, proyectos, comunidad). 3 a 6 imágenes recomendadas, cada una 800–1200px de ancho, cualquier proporción (funciona como mosaico), JPG/WEBP, máx. 200KB c/u. Reemplaza los placeholders subiendo los archivos reales aquí.
+   */
+  imagenes?: (number | Media)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'diplomadoGaleria';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1643,6 +1666,7 @@ export interface PagesSelect<T extends boolean = true> {
         diplomadoTeam?: T | DiplomadoTeamBlockSelect<T>;
         diplomadoBenefits?: T | DiplomadoBenefitsBlockSelect<T>;
         diplomadoPricing?: T | DiplomadoPricingBlockSelect<T>;
+        diplomadoGaleria?: T | DiplomadoGaleriaBlockSelect<T>;
         barraUrgencia?: T | BarraUrgenciaBlockSelect<T>;
         retoHero?: T | RetoHeroBlockSelect<T>;
         razonNoEscalas?: T | RazonNoEscalasBlockSelect<T>;
@@ -2290,6 +2314,18 @@ export interface DiplomadoPricingBlockSelect<T extends boolean = true> {
   ctaLabel?: T;
   ctaHref?: T;
   garantiaTexto?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiplomadoGaleriaBlock_select".
+ */
+export interface DiplomadoGaleriaBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  texto?: T;
+  imagenes?: T;
   id?: T;
   blockName?: T;
 }
