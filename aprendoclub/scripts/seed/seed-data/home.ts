@@ -86,7 +86,7 @@ export const problema: FeatureGridSection = {
       icon: "compass",
       titulo: "Sabes de todo y no te especializas",
       descripcion:
-        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización real. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
+        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización clara. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
     },
     {
       icon: "history",
@@ -119,7 +119,7 @@ export const beneficios: FeatureGridSection = {
       icon: "book-open",
       titulo: "Cursos Prácticos",
       descripcion:
-        "Diplomado completo de SEO + cursos cortos actualizados cada mes con casos reales.",
+        "Diplomado completo de SEO + cursos cortos actualizados cada mes con casos de estudiantes actuales.",
     },
     {
       icon: "message-circle",
@@ -283,7 +283,7 @@ export const asesoriaWidget: AsesoriaWidgetSection = {
     "Clases en vivo, no grabaciones",
     "Masterclasses exclusivas con expertos de la industria",
     "Invitados especiales en cada cohorte",
-    "Proyectos reales para armar tu portafolio",
+    "Proyectos para armar tu portafolio",
     "Coaches personalizados que acompañan tu proceso",
     "Comunidad LATAM de estudiantes y egresados",
     "Recursos y materiales nuevos cada semana",
