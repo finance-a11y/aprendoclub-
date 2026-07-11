@@ -45,7 +45,7 @@ export const AsesoriaWidgetBlock: Block = {
     singular: 'Widget de asesoría',
     plural: 'Widgets de asesoría',
   },
-  imageURL: '/block-previews/cta-banner.svg',
+  imageURL: '/block-previews/pricing-columns.svg',
   imageAltText: 'Tarjeta con checklist de beneficios y botón de llamado a la acción centrado',
   fields: asesoriaWidgetFields,
 }
