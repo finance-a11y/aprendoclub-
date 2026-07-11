@@ -117,8 +117,24 @@ export async function seedMedia(payload: Payload): Promise<Map<string, number>> 
 
     if (existing.docs.length > 0) {
       const id = Number(existing.docs[0].id)
+      const doc = existing.docs[0] as { alt?: string | null }
+
+      // Diff-and-update de los campos seedeados: `alt` es hoy el único campo
+      // que payload.create escribe en `data` (línea ~127 abajo), así que
+      // reconciliar `alt` cubre el bug por completo. Si en el futuro se
+      // agrega otro campo al `data` del create, sumarlo también acá.
+      if (doc.alt !== asset.alt) {
+        await payload.update({
+          collection: 'media',
+          id,
+          data: { alt: asset.alt },
+        })
+        console.log(`[seed:media] alt actualizado: ${filename} -> ${id} ("${doc.alt}" -> "${asset.alt}")`)
+      } else {
+        console.log(`[seed:media] ya existe (sin cambios): ${filename} -> ${id}`)
+      }
+
       manifest.set(asset.path, id)
-      console.log(`[seed:media] ya existe: ${filename} -> ${id}`)
       continue
     }
 
