@@ -2,7 +2,7 @@
 gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: Rediseño de copy
-status: completed
+status: blocked
 last_updated: "2026-07-11T08:41:52.025Z"
 last_activity: "2026-07-11 — Fase 28 completa (28-02: gap closure de verificación — bullet de pricing y media.alt en Neon)"
 progress:
@@ -41,4 +41,4 @@ Last activity: 2026-07-11 — Fase 28 completa (28-02: gap closure de verificaci
 
 ### Blockers/Concerns
 
-- **Phase 29 (FAQs de membresía) bloqueada — esperando a Juan.** Al arrancar discuss de Phase 29 pregunté qué cambió del modelo de negocio viejo al de membresía (para saber qué FAQs de `faqs.ts` quedan obsoletas). Juan prefirió revisarlo en llamada/Slack en vez de decidirlo ahora. No avanzar Phase 29 (discuss/plan/execute) hasta que Juan aporte ese contexto. El resto del milestone (Phases 26-28) está completo y verificado (26 passed, 27 passed, 28 gaps_found → gap closure en curso).
+- **Phase 29 (FAQs de membresía) bloqueada — esperando a Juan.** Al arrancar discuss de Phase 29 pregunté qué cambió del modelo de negocio viejo al de membresía (para saber qué FAQs de `faqs.ts` quedan obsoletas). Juan prefirió revisarlo en llamada/Slack en vez de decidirlo ahora. No avanzar Phase 29 (discuss/plan/execute) hasta que Juan aporte ese contexto. El resto del milestone (Phases 26-28) está completo y verificado en passed (26 passed, 27 passed, 28 passed tras gap closure 28-02). Milestone v1.6 NO está completo — falta Phase 29 y por lo tanto el lifecycle (audit/complete-milestone) no debe correr todavía.
