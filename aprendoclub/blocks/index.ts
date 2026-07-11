@@ -110,7 +110,7 @@ import { AsesoriaWidgetBlock } from './AsesoriaWidget'
 
 /**
  * Todos los Block configs disponibles para Pages.layout.blocks (Plan R02):
- * 11 genéricos (14-02) + 29 bespoke (14-R01) = 40, sin slugs duplicados.
+ * 11 genéricos (14-02) + 31 bespoke (14-R01 + Fase 22) = 42, sin slugs duplicados.
  */
 export const allBlocks: Block[] = [
   // Genéricos
