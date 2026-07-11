@@ -1,4 +1,7 @@
+'use client'
+
 import { Info } from 'lucide-react'
+import { DynamicIcon } from 'lucide-react/dynamic'
 import dynamicIconImports from 'lucide-react/dynamicIconImports'
 import type { CSSProperties } from 'react'
 
@@ -12,10 +15,16 @@ import type { CSSProperties } from 'react'
  * seed-data del diplomado): normaliza cualquier estilo a kebab-case antes de
  * resolver, evitando así una migración de datos.
  *
- * `LucideIcon` es un React Server Component async: resuelve la key
- * normalizada contra `dynamicIconImports` y carga el ícono bajo demanda. Si
- * la key no existe (o el import falla), cae a un ícono neutro (`Info`) sin
- * romper el render.
+ * `LucideIcon` es un client component (usa `DynamicIcon` de
+ * `lucide-react/dynamic`, que resuelve y carga el ícono bajo demanda de
+ * forma síncrona vía React.lazy/Suspense internamente — sin async). Si la
+ * key no existe, cae a un ícono neutro (`Info`) sin romper el render.
+ *
+ * IMPORTANTE: no volver a esta capa async (`await import(...)`) — un
+ * Server Component async no puede renderizarse desde un Client Component
+ * (Next.js App Router), y los dos consumidores actuales (FeatureGrid.tsx,
+ * HowItWorks.tsx) son 'use client' desde que sumaron BlurFade/useInView
+ * (Phases 23/25). Esa combinación causó React error #482 en producción.
  */
 
 /**
@@ -39,12 +48,11 @@ export function normalizeIconName(name?: string | null): string | null {
 }
 
 /**
- * Componente server (RSC async) que resuelve `name` contra el set completo
- * de lucide vía `dynamicIconImports` y renderiza el ícono correspondiente.
- * Cae a `Info` si `name` es vacío, no matchea ninguna key, o el import
- * dinámico falla.
+ * Client component que resuelve `name` contra el set completo de lucide
+ * vía `DynamicIcon` (carga bajo demanda, sin await). Cae a `Info` si `name`
+ * es vacío o no matchea ninguna key.
  */
-export async function LucideIcon({
+export function LucideIcon({
   name,
   className,
   style,
@@ -56,14 +64,13 @@ export async function LucideIcon({
   const key = normalizeIconName(name)
 
   if (key && key in dynamicIconImports) {
-    try {
-      const mod = await dynamicIconImports[key as keyof typeof dynamicIconImports]()
-      const Cmp = mod.default
-      return <Cmp className={className} style={style} />
-    } catch (err) {
-      // Import dinámico falló (chunk inexistente/roto): cae al fallback.
-      console.error(`[LucideIcon] falló al cargar el ícono "${key}"`, err)
-    }
+    return (
+      <DynamicIcon
+        name={key as keyof typeof dynamicIconImports}
+        className={className}
+        style={style}
+      />
+    )
   }
 
   return <Info className={className} style={style} />
