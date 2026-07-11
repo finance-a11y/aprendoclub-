@@ -86,9 +86,6 @@ export const videoTestimonios: VideoTestimonio[] = [
   { nombre: "Venezia", youtube: "https://youtu.be/eTZUpCWZJtA" },
 ];
 
-/** Texto de la banda de logos "empresas como". */
-export const logosBanda = "Profesionales de empresas como";
-
 /** Reto — galería "Historias del Reto". */
 export const reto: RetoContent = {
   eyebrow: "RETO 7 DÍAS",

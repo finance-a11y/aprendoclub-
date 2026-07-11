@@ -25,10 +25,8 @@ import {
   cta as testimoniosCta,
   gridTitulo,
   hero as testimoniosHero,
-  logosBanda,
   reto as testimoniosReto,
   retoImagenes,
-  trustedCompanies,
   videosEyebrow,
   videosTitulo,
   videoTestimonios,
@@ -500,15 +498,6 @@ function buildTestimonios(mediaMap: Map<string, number>, maps: CollectionMaps): 
         blockType: 'testimonialRef',
         titulo: gridTitulo,
         items: Array.from(maps.testimonios.values()),
-      },
-      {
-        blockType: 'logosRef',
-        texto: logosBanda,
-        items: idsFor(
-          maps.clientes,
-          trustedCompanies.map((c) => c.name),
-          'testimonios.logos',
-        ),
       },
       {
         blockType: 'retoGaleria',
