@@ -13,13 +13,54 @@ export const featureGridFields: Field[] = [
     type: 'array',
     fields: [
       {
+        name: 'iconMode',
+        type: 'select',
+        defaultValue: 'icon',
+        options: [
+          { label: 'Ícono (lucide)', value: 'icon' },
+          { label: 'Imagen / ilustración', value: 'image' },
+        ],
+        label: 'Tipo de ícono',
+        admin: {
+          description: 'Tipo de ícono',
+        },
+      },
+      {
         name: 'icon',
         type: 'text',
+        label: 'Ícono',
         admin: {
           description: 'Icono lucide seleccionado visualmente',
           components: {
             Field: '/components/admin/IconPicker#IconPicker',
           },
+          condition: (_, siblingData) => siblingData?.iconMode !== 'image',
+        },
+      },
+      {
+        name: 'iconColor',
+        type: 'select',
+        defaultValue: 'auto',
+        options: [
+          { label: 'Automático (recomendado)', value: 'auto' },
+          { label: 'Accent (verde lima)', value: 'accent' },
+          { label: 'Blanco', value: 'white' },
+          { label: 'Azul (primary)', value: 'primary' },
+        ],
+        label: 'Color del ícono',
+        admin: {
+          description: 'Si no elegís uno, se usa el color de mayor contraste del sistema',
+          condition: (_, siblingData) => siblingData?.iconMode !== 'image',
+        },
+      },
+      {
+        name: 'image',
+        type: 'upload',
+        relationTo: 'media',
+        label: 'Imagen/ilustración',
+        admin: {
+          description: 'Sube una imagen chica o ilustración en vez de un ícono lucide',
+          condition: (_, siblingData) => siblingData?.iconMode === 'image',
         },
       },
       {
