@@ -17,7 +17,14 @@ import type { HowItWorksBlock as HowItWorksBlockType } from '@/payload-types'
  * FeatureGrid.tsx en vez del ícono lucide.
  */
 export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
-  const items = block.items ?? []
+  // Cards con imagen van primero (fila de arriba), cards con ícono después —
+  // pedido explícito de Juan tras revisar /diplomado. Sort estable: preserva
+  // el orden relativo dentro de cada grupo.
+  const items = [...(block.items ?? [])].sort((a, b) => {
+    const aImage = a.iconMode === 'image' ? 0 : 1
+    const bImage = b.iconMode === 'image' ? 0 : 1
+    return aImage - bImage
+  })
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
@@ -35,44 +42,47 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
           </p>
         )}
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
           {items.map((item, i) => {
             const isImageMode = item.iconMode === 'image'
             const media =
               isImageMode && item.image && typeof item.image === 'object' ? item.image : null
 
             return (
-              <BlurFade key={item.id ?? i} delay={i * 0.08} isInView={isInView}>
-              <div
-                className={`rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)] p-6 ${
-                  i >= 3 ? 'lg:col-span-1' : ''
-                }`}
+              <BlurFade
+                key={item.id ?? i}
+                delay={i * 0.08}
+                isInView={isInView}
+                className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
+              <div className="h-full overflow-hidden rounded-2xl border border-[var(--border-card)] bg-[var(--surface-card)]">
                 {isImageMode ? (
                   media && media.url ? (
-                    <div className="mb-4 h-12 w-12 rounded-xl bg-white/5 p-2">
+                    <div className="relative aspect-video w-full">
                       <Image
                         src={media.url}
                         alt={media.alt ?? item.titulo}
-                        width={typeof media.width === 'number' ? media.width : 48}
-                        height={typeof media.height === 'number' ? media.height : 48}
-                        className="h-full w-full object-contain"
+                        fill
+                        className="object-cover"
                       />
                     </div>
                   ) : (
-                    <div className="mb-4 h-12 w-12 rounded-xl border border-dashed border-white/20" />
+                    <div className="aspect-video w-full border-b border-dashed border-white/20" />
                   )
-                ) : (
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
-                    <LucideIcon name={item.icon} className="h-6 w-6 text-[var(--primary-light)]" />
-                  </div>
-                )}
-                <h3 className="mb-2 font-semibold text-white">{item.titulo}</h3>
-                {item.descripcion && (
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    {item.descripcion}
-                  </p>
-                )}
+                ) : null}
+                <div className="p-6">
+                  {!isImageMode && (
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10">
+                      <LucideIcon name={item.icon} className="h-6 w-6 text-[var(--primary-light)]" />
+                    </div>
+                  )}
+                  <h3 className="mb-2 font-semibold text-white">{item.titulo}</h3>
+                  {item.descripcion && (
+                    <p className="text-sm leading-relaxed text-gray-400">
+                      {item.descripcion}
+                    </p>
+                  )}
+                </div>
               </div>
               </BlurFade>
             )

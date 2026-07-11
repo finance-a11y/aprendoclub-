@@ -39,8 +39,18 @@ export function BorderBeam({
 
   if (reduceMotion) return null
 
+  const maskLayers = 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)'
+
   return (
-    <div className="pointer-events-none absolute inset-0 rounded-[inherit] p-px [mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)] [mask-composite:exclude]">
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit] p-px"
+      style={{
+        WebkitMask: maskLayers,
+        mask: maskLayers,
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+      }}
+    >
       <motion.div
         className="absolute inset-[-150%]"
         style={{
