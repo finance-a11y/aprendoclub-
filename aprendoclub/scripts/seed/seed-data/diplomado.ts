@@ -239,7 +239,7 @@ export const curriculum: CurriculumContent = {
     {
       numero: 2,
       titulo: "Proyecto SEO - Inicia tu camino",
-      detalle: "Configura tu primer proyecto SEO real paso a paso.",
+      detalle: "Configura tu primer proyecto SEO paso a paso.",
     },
     {
       numero: 3,
@@ -304,7 +304,7 @@ export const curriculum: CurriculumContent = {
     {
       numero: 15,
       titulo: "Freelance y Empleo SEO - Da el siguiente paso",
-      detalle: "Prepara tu perfil profesional para oportunidades reales.",
+      detalle: "Prepara tu perfil profesional para oportunidades laborales.",
     },
     {
       numero: 16,
@@ -352,7 +352,7 @@ export const howItWorks: HowItWorksContent = {
       icon: "book-open",
       titulo: "Aprendizaje estructurado y aplicable",
       descripcion:
-        "Cada módulo te lleva desde lo más básico hasta estrategias avanzadas, con lecciones que puedes aplicar en proyectos reales desde el inicio.",
+        "Cada módulo te lleva desde lo más básico hasta estrategias avanzadas, con lecciones que puedes aplicar en proyectos desde el inicio.",
       iconMode: "image",
       imagen: "/diplomado/real/diplomado-modulos2.avif",
     },
@@ -366,7 +366,7 @@ export const howItWorks: HowItWorksContent = {
     },
     {
       icon: "folder-open",
-      titulo: "Proyecto real para tu portafolio",
+      titulo: "Proyecto para tu portafolio",
       descripcion:
         "Culmina el diplomado aplicando todo lo aprendido en un proyecto SEO completo. Este será tu mejor carta de presentación.",
     },
@@ -514,7 +514,7 @@ export const pricing: PricingContent = {
     "Todo lo de Aprendiz",
     "Diplomado CERO A SEO completo",
     "3 sesiones semanales",
-    "Proyectos aplicados reales",
+    "Proyectos aplicados",
     "Ruta profesional guiada",
     "Plantillas, frameworks, SOPs",
     "Comunidad privada profesional",
@@ -544,7 +544,7 @@ export interface CtaFinalContent {
 export const ctaFinal: CtaFinalContent = {
   titulo: "No es magia, es SEO. Y tú lo puedes aprender.",
   texto:
-    "Este diplomado es una ruta completa para transformar tu perfil profesional y aprender esta habilidad de alta demanda, desde cero, con resultados reales y acompañamiento de la comunidad de aprendoclub.",
+    "Este diplomado es una ruta completa para transformar tu perfil profesional y aprender esta habilidad de alta demanda, desde cero, con resultados medibles y acompañamiento de la comunidad de aprendoclub.",
   bullets: [
     "Descubre cómo posicionar sitios web con estrategias que sí funcionan.",
     "Conviértete en especialista SEO, sin experiencia previa ni tecnicismos.",
