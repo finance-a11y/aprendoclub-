@@ -1,5 +1,6 @@
 import { Info } from 'lucide-react'
 import dynamicIconImports from 'lucide-react/dynamicIconImports'
+import type { CSSProperties } from 'react'
 
 /**
  * Capa de resolución de íconos sobre el set completo de lucide-react
@@ -46,9 +47,11 @@ export function normalizeIconName(name?: string | null): string | null {
 export async function LucideIcon({
   name,
   className,
+  style,
 }: {
   name?: string | null
   className?: string
+  style?: CSSProperties
 }) {
   const key = normalizeIconName(name)
 
@@ -56,12 +59,12 @@ export async function LucideIcon({
     try {
       const mod = await dynamicIconImports[key as keyof typeof dynamicIconImports]()
       const Cmp = mod.default
-      return <Cmp className={className} />
+      return <Cmp className={className} style={style} />
     } catch (err) {
       // Import dinámico falló (chunk inexistente/roto): cae al fallback.
       console.error(`[LucideIcon] falló al cargar el ícono "${key}"`, err)
     }
   }
 
-  return <Info className={className} />
+  return <Info className={className} style={style} />
 }
