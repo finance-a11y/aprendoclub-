@@ -48,19 +48,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| COPY-01 | TBD | Pending |
-| COPY-02 | TBD | Pending |
-| HOME-01 | TBD | Pending |
-| HOME-02 | TBD | Pending |
-| TEAM-01 | TBD | Pending |
-| TESTIM-01 | TBD | Pending |
-| BRAND-01 | TBD | Pending |
-| FAQ-01 | TBD | Pending |
+| COPY-01 | Phase 26 | Pending |
+| COPY-02 | Phase 26 | Pending |
+| HOME-01 | Phase 26 | Pending |
+| HOME-02 | Phase 26 | Pending |
+| TEAM-01 | Phase 27 | Pending |
+| TESTIM-01 | Phase 27 | Pending |
+| BRAND-01 | Phase 28 | Pending |
+| FAQ-01 | Phase 29 | Pending |
 
 **Coverage:**
 - v1.6 requirements: 8 total
-- Mapped to phases: 0
-- Unmapped: 8 ⚠️ (pendiente de roadmap)
+- Mapped to phases: 8
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-07-11*
