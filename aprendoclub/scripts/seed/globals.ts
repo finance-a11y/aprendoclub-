@@ -62,7 +62,7 @@ const footerSocials = [
 ]
 
 const footerMeta = {
-  blurb: 'Academia de SEO + IA. Formación, comunidad y acompañamiento para especialistas.',
+  blurb: 'Academia de marketing con IA. Formación, comunidad y acompañamiento para especialistas.',
   copyrightLeft: 'aprendoclub. Todos los derechos reservados.',
   copyrightRight: 'Hecho con 💚 para la comunidad SEO',
   mobilePanelBlurb: 'Membresía profesional SEO + IA',
@@ -130,7 +130,7 @@ export async function seedGlobals(
         orgAlternateName: 'aprendoseo',
         orgLogo: mediaId(mediaMap, '/logo.svg', 'site-settings.seo.orgLogo'),
         orgDescription:
-          'Academia de SEO e IA para el mundo hispano. Formación práctica, comunidad y acompañamiento para especialistas.',
+          'Academia de marketing con IA para el mundo hispano. Formación práctica, comunidad y acompañamiento para especialistas.',
         orgFoundingDate: '2022',
         founderName: 'Arianna Lupi',
         founderJobTitle: 'Consultora SEO y Fundadora',
