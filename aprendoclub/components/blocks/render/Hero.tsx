@@ -85,7 +85,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
             variant="primary"
             size="lg"
             icon
-            className="whitespace-nowrap"
+            className="whitespace-nowrap cta-shimmer"
           >
             {block.ctaPrimario.label}
           </Button>
