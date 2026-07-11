@@ -1,5 +1,10 @@
-import Image from 'next/image'
+'use client'
 
+import { useRef } from 'react'
+import Image from 'next/image'
+import { useInView } from 'framer-motion'
+
+import { BlurFade } from '@/components/ui/blur-fade'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { LucideIcon } from '@/lib/blocks/icons'
 import type { FeatureGridBlock as FeatureGridBlockType } from '@/payload-types'
@@ -39,8 +44,14 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
       ? 'grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl'
       : 'grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl'
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
+
   return (
-    <section className="flex w-full flex-col items-center gap-12 lg:gap-16 bg-[var(--bg-secondary)] container-padding section-spacing">
+    <section
+      ref={ref}
+      className="flex w-full flex-col items-center gap-12 lg:gap-16 bg-[var(--bg-secondary)] container-padding section-spacing"
+    >
       <div className="flex max-w-[700px] flex-col items-center gap-4">
         {block.eyebrow && <Eyebrow>{block.eyebrow}</Eyebrow>}
         <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
@@ -60,8 +71,8 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
             const iconColor = resolveIconColor(item.iconColor)
 
             return (
+              <BlurFade key={item.id ?? index} delay={index * 0.08} isInView={isInView}>
               <div
-                key={item.id ?? index}
                 className="group h-full flex flex-col gap-4 rounded-xl bg-white/[0.03] border border-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30 hover:-translate-y-1"
               >
                 {isImageMode ? (
@@ -98,6 +109,7 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
                   </p>
                 )}
               </div>
+              </BlurFade>
             )
           })}
         </div>
