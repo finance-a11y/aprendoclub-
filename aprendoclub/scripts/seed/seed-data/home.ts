@@ -291,5 +291,5 @@ export const asesoriaWidget: AsesoriaWidgetSection = {
   ],
   botonLabel: "Quiero mi asesoría gratuita",
   botonHref:
-    "https://api.whatsapp.com/send?phone=13055728892&text=Hola!%20%F0%9F%98%8A%20Vengo%20de%20tu%20web%20y%20me%20interesa%20ingresar%20al%20Diplomado%20de%20SEO%20para%20convertirme%20en%20especialista.%20%C2%BFMe%20podr%C3%ADas%20dar%20m%C3%A1s%20detalles%20sobre%20el%20programa%20y%20las%20opciones%20de%20pago%20disponibles%3F",
+    "https://api.whatsapp.com/send?phone=13055728892&text=Hola!%20%F0%9F%98%8A%20Vengo%20de%20tu%20web%20y%20me%20interesa%20ingresar%20al%20Diplomado%20de%20SEO%20%2B%20AIO%20para%20convertirme%20en%20especialista.%20%C2%BFMe%20podr%C3%ADas%20dar%20m%C3%A1s%20detalles%20sobre%20el%20programa%20y%20las%20opciones%20de%20pago%20disponibles%3F",
 };

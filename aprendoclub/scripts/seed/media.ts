@@ -70,7 +70,7 @@ function collectMediaAssets(): MediaAsset[] {
   add(home.hero.videoBackground, 'Video de fondo del hero del home')
 
   // Diplomado: hero + galería con assets reales (IMG-01, Phase 24; fotos reales desde 24-02)
-  add(diplomadoHero.imagen, 'Estudiante del Diplomado de Cero a SEO trabajando en su laptop')
+  add(diplomadoHero.imagen, 'Estudiante del Diplomado de SEO + AIO trabajando en su laptop')
   for (const img of diplomadoGaleria.imagenes) add(img.src, img.alt)
   // diplomado-mentorias.avif y diplomado-comunidad.avif se reusan del bloque
   // anterior (diplomadoGaleria.imagenes): el Media doc para esos dos paths ya
@@ -78,7 +78,7 @@ function collectMediaAssets(): MediaAsset[] {
   // es un no-op intencional para esos dos (ver warning en collectMediaAssets/add).
   // Solo diplomado-modulos2.avif (único de howItWorks) toma el alt calculado aquí.
   for (const f of diplomado.howItWorks.features) {
-    if (f.iconMode === 'image' && f.imagen) add(f.imagen, `${f.titulo} - Diplomado de Cero a SEO`)
+    if (f.iconMode === 'image' && f.imagen) add(f.imagen, `${f.titulo} - Diplomado de SEO + AIO`)
   }
 
   // Reto: hero, mentora, agenda (7 días), premios, ganadores

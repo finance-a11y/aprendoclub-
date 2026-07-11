@@ -140,7 +140,7 @@ export const testimonios: Testimonio[] = [
     foto: "/testimonios/fransheska-sanchez.avif",
     ubicacion: "Perú",
     quote:
-      "Este logro no habría sido posible sin el Diplomado de Cero a SEO de Ari, que me dio las herramientas.",
+      "Este logro no habría sido posible sin el Diplomado de SEO + AIO de Ari, que me dio las herramientas.",
   },
   {
     nombre: "Igor Cegarra",

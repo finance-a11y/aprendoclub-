@@ -38,7 +38,7 @@ export interface HeroContent {
 }
 
 export const hero: HeroContent = {
-  badgeText: "Diplomado de Cero a SEO",
+  badgeText: "Diplomado de SEO + AIO",
   tituloPre: "Conviértete en especialista SEO, ",
   tituloAccent: "sin experiencia previa",
   tituloPost: " ni tecnicismos",
@@ -77,7 +77,7 @@ export const galeria: GaleriaContent = {
   imagenes: [
     {
       src: "/diplomado/real/diplomado-certificado.avif",
-      alt: "Certificado de finalización del Diplomado de Cero a SEO",
+      alt: "Certificado de finalización del Diplomado de SEO + AIO",
     },
     {
       src: "/diplomado/real/diplomado-comunidad.avif",
@@ -142,7 +142,7 @@ export interface AudienceContent {
 }
 
 export const audience: AudienceContent = {
-  titulo: "¿El diplomado de cero a SEO será para mí?",
+  titulo: "¿El Diplomado de SEO + AIO será para mí?",
   subtitulo: "Descúbrelo ya mismo",
   tituloPerfiles: "Está pensado para ti si...",
   perfiles: [
@@ -340,7 +340,7 @@ export interface HowItWorksContent {
 
 export const howItWorks: HowItWorksContent = {
   eyebrow: "Cómo funciona",
-  titulo: "¿Cómo funciona el diplomado de cero a SEO?",
+  titulo: "¿Cómo funciona el Diplomado de SEO + AIO?",
   features: [
     {
       icon: "clock",
