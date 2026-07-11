@@ -27,7 +27,7 @@ Rediseño de copy del sitio, basado en auditoría de feedback histórico de Slac
 
 ### Programas
 
-- [ ] **BRAND-01**: El diplomado se renombra de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias (diplomado.ts, testimonios.ts, y demás)
+- [x] **BRAND-01**: El diplomado se renombra de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias (diplomado.ts, testimonios.ts, y demás)
 
 ### FAQs
 
@@ -54,7 +54,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-02 | Phase 26 | Complete |
 | TEAM-01 | Phase 27 | Complete |
 | TESTIM-01 | Phase 27 | Complete |
-| BRAND-01 | Phase 28 | Pending |
+| BRAND-01 | Phase 28 | Complete |
 | FAQ-01 | Phase 29 | Pending |
 
 **Coverage:**

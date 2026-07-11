@@ -32,7 +32,7 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
 
 - [x] **Phase 26: Copy general + Home** - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home (completed 2026-07-11)
 - [x] **Phase 27: Equipo y testimonios** - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios (completed 2026-07-11)
-- [ ] **Phase 28: Rebranding del diplomado** - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias
+- [x] **Phase 28: Rebranding del diplomado** - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias (completed 2026-07-11)
 - [ ] **Phase 29: FAQs de membresía** - Las FAQs restantes en faqs.ts se actualizan al modelo de membresía vigente
 
 ## Phase Details
@@ -89,7 +89,7 @@ Plans:
 
 Plans:
 
-- [ ] 28-01-PLAN.md — Renombrar diplomado en las 12 ocurrencias del seed (diplomado/testimonios/collections/globals/media/home) + fix "Práctica real" + re-seed a Neon (BRAND-01)
+- [x] 28-01-PLAN.md — Renombrar diplomado en las 12 ocurrencias del seed (diplomado/testimonios/collections/globals/media/home) + fix "Práctica real" + re-seed a Neon (BRAND-01)
 
 ### Phase 29: FAQs de membresía
 
@@ -116,7 +116,7 @@ Phases execute in numeric order: 26 → 27 → 28 → 29
 |-------|-----------|-----------------|--------|-----------|
 | 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
 | 27. Equipo y testimonios | v1.6 | 1/1 | Complete   | 2026-07-11 |
-| 28. Rebranding del diplomado | v1.6 | 0/1 | Not started | - |
+| 28. Rebranding del diplomado | v1.6 | 1/1 | Complete   | 2026-07-11 |
 | 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |
 
 ---
