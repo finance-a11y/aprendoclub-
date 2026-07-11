@@ -85,11 +85,12 @@ Plans:
   2. Todas las ocurrencias del nombre del diplomado (diplomado.ts, testimonios.ts, y demás archivos donde aparezca) muestran "Diplomado de SEO + AIO"
   3. La página /diplomado en vivo (post-seed) muestra el nuevo nombre en título, hero y cualquier mención cruzada
 
-**Plans**: 1 plan (Wave 1, 2 tasks: renames en 6 archivos + re-seed/gate)
+**Plans**: 2 plans (Wave 1: 28-01 renames + re-seed; Wave 2: 28-02 gap closure de verificación)
 
 Plans:
 
 - [x] 28-01-PLAN.md — Renombrar diplomado en las 12 ocurrencias del seed (diplomado/testimonios/collections/globals/media/home) + fix "Práctica real" + re-seed a Neon (BRAND-01)
+- [x] 28-02-PLAN.md — Gap closure: variante "Diplomado CERO A SEO" sin "de" en bullet de pricing + bug estructural de seedMedia() que no reconciliaba alt en media preexistente + re-seed y verificación SQL directa contra Neon (BRAND-01)
 
 ### Phase 29: FAQs de membresía
 
@@ -116,7 +117,7 @@ Phases execute in numeric order: 26 → 27 → 28 → 29
 |-------|-----------|-----------------|--------|-----------|
 | 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
 | 27. Equipo y testimonios | v1.6 | 1/1 | Complete   | 2026-07-11 |
-| 28. Rebranding del diplomado | v1.6 | 1/1 | Complete   | 2026-07-11 |
+| 28. Rebranding del diplomado | v1.6 | 2/2 | Complete   | 2026-07-11 |
 | 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |
 
 ---

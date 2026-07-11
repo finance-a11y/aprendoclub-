@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: Rediseño de copy
-status: verifying
-last_updated: "2026-07-11T08:10:00.000Z"
-last_activity: "2026-07-11 — Fase 28 completa (28-01: Diplomado renombrado a 'Diplomado de SEO + AIO')"
+status: completed
+last_updated: "2026-07-11T08:41:52.025Z"
+last_activity: "2026-07-11 — Fase 28 completa (28-02: gap closure de verificación — bullet de pricing y media.alt en Neon)"
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
+  total_plans: 7
+  completed_plans: 7
   percent: 75
 ---
 
@@ -24,10 +24,10 @@ See: .planning/PROJECT.md (updated 2026-07-11)
 
 ## Current Position
 
-Phase: Phase 28 (Rebranding del diplomado) — completa (1/1 plan)
-Plan: 28-01 (Renombrar diplomado a "Diplomado de SEO + AIO" + fix "Práctica real" + re-seed) — última completada
-Status: Phase 28 completa. Requirement BRAND-01 marcado Complete en REQUIREMENTS.md. Las 10 ocurrencias de "Diplomado de Cero a SEO" en scripts/seed/ (diplomado.ts, testimonios.ts, collections.ts, globals.ts, media.ts) reemplazadas por "Diplomado de SEO + AIO"; incluye 5 ocurrencias adicionales detectadas por grep case-insensitive no listadas explícitamente en CONTEXT.md (globals.ts:21, media.ts:73/81, diplomado.ts:145/343). CTA de WhatsApp en home.ts actualizado con el nombre nuevo URL-encoded. Fix colateral "Práctica real" → "Práctica aplicada" aplicado en collections.ts. Menciones de "especialista SEO" (descripción de especialidad, no tagline) quedaron intactas. `npx tsc --noEmit` sin errores; `npm run seed` corrió exitosamente contra Neon.
-Last activity: 2026-07-11 — Fase 28 completa (28-01: Diplomado renombrado a "Diplomado de SEO + AIO")
+Phase: Phase 28 (Rebranding del diplomado) — completa (2/2 plans)
+Plan: 28-02 (Gap closure: variante "Diplomado CERO A SEO" sin "de" + reconciliación de media.alt en Neon) — última completada
+Status: Phase 28 completa y cerrada. Requirement BRAND-01 marcado Complete en REQUIREMENTS.md. 28-01 cubrió las 10 ocurrencias literales de "Diplomado de Cero a SEO" en scripts/seed/. La verificación de fase encontró 2 gaps: (1) una variante sin la palabra "de" ("Diplomado CERO A SEO completo") sobrevivió en el bullet de pricing de diplomado.ts:515, no capturada por el grep literal original; (2) seedMedia() nunca actualizaba el campo alt de documentos de media ya existentes en Neon (solo los creaba si no existían), así que 3 assets del diplomado seguían mostrando el nombre viejo en producción pese a que el fuente ya estaba corregido. 28-02 cerró ambos: renombró el bullet, agregó reconciliación diff-and-update en seedMedia() (rama existing.docs.length > 0), y durante la verificación post-fix descubrió un tercer caso — diplomado-hero.avif (media id 118) quedaba huérfano del pipeline de seed porque el campo hero.imagen ya no está seteado en el fuente; se restauró el path explícito en collectMediaAssets() para que la reconciliación también lo cubriera (confirmado sin impacto de rendering vía query directa a pages_rels: 0 referencias). Verificación final por SQL directa contra Neon (scripts/verify-media-alt.ts, payload.db.pool) confirma 0 registros de media con el nombre viejo en alt y los 3 assets del diplomado con el nombre nuevo. `npx tsc --noEmit` sin errores; `npm run seed` corrió exitosamente contra Neon.
+Last activity: 2026-07-11 — Fase 28 completa (28-02: gap closure de verificación — bullet de pricing y media.alt en Neon)
 
 ## Accumulated Context
 
