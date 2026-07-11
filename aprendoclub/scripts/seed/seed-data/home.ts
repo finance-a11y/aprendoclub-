@@ -60,6 +60,12 @@ export interface FeatureGridItem {
   icon: string;
   titulo: string;
   descripcion: string;
+  /** Modo del ícono (default 'icon'). 'image' no se usa activamente en esta fase. */
+  iconMode?: "icon" | "image";
+  /** Color resuelto del ícono (default 'auto' -> var(--accent)). */
+  iconColor?: "auto" | "accent" | "white" | "primary";
+  /** Ruta de media para el modo 'image' (no usado en esta fase). */
+  image?: string;
 }
 
 export interface FeatureGridSection {
@@ -78,39 +84,27 @@ export const problema: FeatureGridSection = {
   items: [
     {
       icon: "compass",
-      titulo: "Sin rumbo profesional",
+      titulo: "Sabes de todo y no te especializas",
       descripcion:
-        "Aprendes de todo, pero no te especializas en nada. Tu CV dice 'marketing digital' pero no tienes diferenciación real.",
+        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización real. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
     },
     {
-      icon: "timer",
-      titulo: "Contenido desactualizado",
+      icon: "history",
+      titulo: "Aprendes de contenido desactualizado",
       descripcion:
-        "Los cursos que encuentras online están desactualizados. Google cambia sus algoritmos y tú sigues con técnicas de hace 2 años.",
+        "Los cursos que encuentras online repiten técnicas de hace años. Google y las redes cambian sus algoritmos cada semana y tú sigues resolviendo con lo que ya no funciona.",
     },
     {
-      icon: "users",
-      titulo: "Sin comunidad real",
+      icon: "hourglass",
+      titulo: "Llevas meses preparándote",
       descripcion:
-        "Aprendes solo, sin feedback, sin networking, sin alguien que te diga si vas por buen camino o estás perdiendo el tiempo.",
+        "Llevas meses viendo tutoriales sueltos y leyendo artículos, pero no tienes un plan claro ni nadie que valide si vas por buen camino. El tiempo pasa y sigues en el mismo lugar.",
     },
     {
-      icon: "brain",
+      icon: "bot",
       titulo: "La IA te está dejando atrás",
       descripcion:
-        "Todos hablan de IA + SEO pero nadie te enseña cómo integrar herramientas de IA en tu flujo de trabajo real.",
-    },
-    {
-      icon: "trending-up",
-      titulo: "Crecimiento estancado",
-      descripcion:
-        "Sin mentoría ni estructura, tu carrera se estanca. Necesitas un camino claro de junior a consultor.",
-    },
-    {
-      icon: "target",
-      titulo: "Sin proyectos reales",
-      descripcion:
-        "La teoría no basta. Necesitas aplicar SEO en proyectos reales con feedback de expertos para desarrollar habilidades.",
+        "Cada semana aparece una herramienta de IA nueva que cambia cómo se hace marketing. Si no la dominas, terminas compitiendo con profesionales que sí la están usando a su favor.",
     },
   ],
 };

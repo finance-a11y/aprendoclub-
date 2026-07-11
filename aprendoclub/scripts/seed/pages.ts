@@ -112,7 +112,13 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
         eyebrow: home.problema.eyebrow,
         titulo: home.problema.titulo,
         subtitulo: home.problema.subtitulo,
-        items: home.problema.items.map((i) => ({ icon: i.icon, titulo: i.titulo, descripcion: i.descripcion })),
+        items: home.problema.items.map((i) => ({
+          icon: i.icon,
+          titulo: i.titulo,
+          descripcion: i.descripcion,
+          iconMode: i.iconMode ?? 'icon',
+          iconColor: i.iconColor ?? 'auto',
+        })),
       },
       {
         blockType: 'featureGrid',
