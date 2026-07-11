@@ -43,7 +43,7 @@ export const hero: HeroContent = {
   tituloAccent: "sin experiencia previa",
   tituloPost: " ni tecnicismos",
   subtitulo:
-    "Aprende a posicionar sitios web en 6 meses, paso a paso, con una metodología clara y accesible, clases grabadas, prácticas reales y un equipo que te guiará en cada etapa.",
+    "Aprende a posicionar sitios web en 6 meses, paso a paso, con una metodología clara y accesible, clases grabadas, prácticas guiadas y un equipo que te acompaña en cada etapa.",
   ctaPrimario: {
     label: "Quiero aprender SEO",
     href: "https://diplomado.aprendoseo.com/offers/Z2hKbUch/checkout",
@@ -73,7 +73,7 @@ export const galeria: GaleriaContent = {
   eyebrow: "DIPLOMADO SEO",
   titulo: "Así se vive el Diplomado",
   texto:
-    "Clases en vivo, proyectos reales y una comunidad que te acompaña todo el camino.",
+    "Clases en vivo, proyectos y una comunidad que te acompaña todo el camino.",
   imagenes: [
     {
       src: "/diplomado/real/diplomado-certificado.avif",
@@ -110,7 +110,7 @@ export interface OriginContent {
 export const origin: OriginContent = {
   eyebrow: "Nuestra historia",
   titulo:
-    "Una necesidad real. Una solución creada desde la experiencia.",
+    "Una necesidad concreta del mercado. Una solución creada desde la experiencia.",
   tarjetas: [
     {
       icon: "briefcase",
@@ -148,7 +148,7 @@ export const audience: AudienceContent = {
   perfiles: [
     "No tienes experiencia previa y quieres aprender SEO desde cero.",
     "Eres profesional de marketing, comunicación o contenidos y quieres especializarte.",
-    "Tienes un negocio o marca personal que necesita visibilidad real en buscadores.",
+    "Tienes un negocio o marca personal que necesita visibilidad en buscadores.",
     "Quieres trabajar remoto u ofrecer servicios SEO como freelancer.",
     "Buscas una habilidad práctica, rentable y con demanda global.",
   ],
@@ -161,7 +161,7 @@ export const audience: AudienceContent = {
     "No creo que me contraten estando en Latinoamérica y sin saber inglés.",
   ],
   notaFinal:
-    "Nuestros estudiantes también comenzaron con estas dudas. Hoy, muchos aplican SEO en sus propios proyectos y en los de sus clientes, generando ingresos reales y posicionando negocios en buscadores.",
+    "Nuestros estudiantes también comenzaron con estas dudas. Hoy, muchos aplican SEO en sus propios proyectos y en los de sus clientes, generando ingresos adicionales y posicionando negocios en buscadores.",
 };
 
 /** Pilar EPAM. Payload-ready: item del bloque `featureGrid`. */
@@ -197,7 +197,7 @@ export const methodology: MethodologyContent = {
     {
       icon: "wrench",
       titulo: "Práctica aplicada",
-      descripcion: "Aplicas desde la semana 1 en un proyecto real.",
+      descripcion: "Aplicas desde la semana 1 en un proyecto de cliente.",
     },
     {
       icon: "award",
