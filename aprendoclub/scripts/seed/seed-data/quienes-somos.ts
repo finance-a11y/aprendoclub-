@@ -76,9 +76,9 @@ export interface CtaContent {
 /** Hero — sección "## Hero" de 02-CONTENT-SOURCE.md. */
 export const hero: HeroContent = {
   eyebrow: "QUIÉNES SOMOS",
-  titulo: "La primera academia de SEO pensada para el mundo hispano",
+  titulo: "La primera academia de marketing con IA pensada para el mundo hispano",
   subtitulo:
-    "Formamos especialistas en SEO e IA que no se quedan en la teoría. Aprenden haciendo, con proyectos reales y acompañamiento de cerca.",
+    "Formamos especialistas en SEO e IA que no se quedan en la teoría. Aprenden haciendo, con proyectos y acompañamiento de cerca.",
 };
 
 /** Historia — sección "## Historia / Origen". */
@@ -92,7 +92,7 @@ export const historia: HistoriaContent = {
   ],
   quote: {
     texto:
-      "Nuestro norte no es que entiendas SEO. Es que lo apliques, lo vendas y construyas una carrera real con él.",
+      "Nuestro norte no es que entiendas SEO. Es que lo apliques, lo vendas y construyas una carrera sólida con él.",
     autor: "Arianna Lupi",
   },
 };
@@ -163,7 +163,7 @@ export const metodologia: MetodologiaContent = {
     {
       nombre: "Práctica aplicada",
       descripcion:
-        "Trabajas sobre sitios reales desde la primera semana, no con ejercicios inventados.",
+        "Trabajas sobre sitios de clientes desde la primera semana, no con ejercicios inventados.",
     },
     {
       nombre: "Autoridad digital",
