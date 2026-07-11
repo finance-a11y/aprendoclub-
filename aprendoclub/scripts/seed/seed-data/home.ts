@@ -33,12 +33,12 @@ export interface HomeHero {
 
 /** Hero (hero-section.tsx). */
 export const hero: HomeHero = {
-  badgeText: "+500 estudiantes ya aprenden SEO con IA",
+  badgeText: "+10.000 estudiantes ya se unieron",
   tituloPre: "La única academia de",
   tituloAccent: "marketing e IA",
   tituloPost: "que te ayuda a encontrar trabajo",
   subtitulo:
-    "Especialízate en SEO con la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
+    "Especialízate en marketing con IA en la plataforma educativa que te lleva de cero a consultor. Cursos, comunidad, mentorías, acompañamiento y vacantes, en un solo lugar.",
   ctaPrimario: { label: "Únete a aprendoclub", href: "#asesoria" },
   ctaSecundario: {
     label: "Agenda una llamada",
@@ -51,7 +51,7 @@ export const hero: HomeHero = {
     "/avatar-4.webp",
     "/avatar-5.webp",
   ],
-  ratingTexto: "4.9/5 de +500 estudiantes",
+  ratingTexto: "4.9/5 de +10.000 estudiantes",
   videoBackground: "/hero-video.mp4",
 };
 
@@ -86,7 +86,7 @@ export const problema: FeatureGridSection = {
       icon: "compass",
       titulo: "Sabes de todo y no te especializas",
       descripcion:
-        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización real. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
+        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización clara. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
     },
     {
       icon: "history",
@@ -119,7 +119,7 @@ export const beneficios: FeatureGridSection = {
       icon: "book-open",
       titulo: "Cursos Prácticos",
       descripcion:
-        "Diplomado completo de SEO + cursos cortos actualizados cada mes con casos reales.",
+        "Diplomado completo de SEO + cursos cortos actualizados cada mes con casos de estudiantes actuales.",
     },
     {
       icon: "message-circle",
@@ -283,7 +283,7 @@ export const asesoriaWidget: AsesoriaWidgetSection = {
     "Clases en vivo, no grabaciones",
     "Masterclasses exclusivas con expertos de la industria",
     "Invitados especiales en cada cohorte",
-    "Proyectos reales para armar tu portafolio",
+    "Proyectos para armar tu portafolio",
     "Coaches personalizados que acompañan tu proceso",
     "Comunidad LATAM de estudiantes y egresados",
     "Recursos y materiales nuevos cada semana",
