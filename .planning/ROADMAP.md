@@ -70,11 +70,11 @@ Plans:
   1. El team grid en /quienes-somos muestra a "Dana Aliaga" y "Diana Rodríguez" ya no aparece en ningún lugar del sitio
   2. La sección de logos de empresas confiadas ("trusted companies") ya no se renderiza en /testimonios
 
-**Plans**: TBD
+**Plans**: 1 plan (Wave 1, 3 tasks: TEAM-01, TESTIM-01, re-seed + gate)
 
 Plans:
 
-- [ ] 27-01: TBD (definido en plan-phase)
+- [ ] 27-01-PLAN.md — Diana→Dana (datos/orden/reconciliación collections) + quitar logosRef de /testimonios + re-seed a Neon (TEAM-01, TESTIM-01)
 
 ### Phase 28: Rebranding del diplomado
 
@@ -117,7 +117,7 @@ Phases execute in numeric order: 26 → 27 → 28 → 29
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|-----------------|--------|-----------|
 | 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
-| 27. Equipo y testimonios | v1.6 | 0/TBD | Not started | - |
+| 27. Equipo y testimonios | v1.6 | 0/1 | Not started | - |
 | 28. Rebranding del diplomado | v1.6 | 0/TBD | Not started | - |
 | 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |
 
