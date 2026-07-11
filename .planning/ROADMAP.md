@@ -33,7 +33,7 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
 **Nota técnica:** Todos los cambios de copy son ediciones de contenido en `scripts/seed/seed-data/*.ts` (seed data de Payload), no en `content/*.ts` (eliminado en v1.3). Los cambios requieren correr el script de seed o editar vía Payload admin para reflejarse en la base de datos y en el sitio en vivo.
 
 - [x] **Phase 26: Copy general + Home** - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home (completed 2026-07-11)
-- [ ] **Phase 27: Equipo y testimonios** - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios
+- [x] **Phase 27: Equipo y testimonios** - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios (completed 2026-07-11)
 - [ ] **Phase 28: Rebranding del diplomado** - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias
 - [ ] **Phase 29: FAQs de membresía** - Las FAQs restantes en faqs.ts se actualizan al modelo de membresía vigente
 
@@ -74,7 +74,7 @@ Plans:
 
 Plans:
 
-- [ ] 27-01-PLAN.md — Diana→Dana (datos/orden/reconciliación collections) + quitar logosRef de /testimonios + re-seed a Neon (TEAM-01, TESTIM-01)
+- [x] 27-01-PLAN.md — Diana→Dana (datos/orden/reconciliación collections) + quitar logosRef de /testimonios + re-seed a Neon (TEAM-01, TESTIM-01)
 
 ### Phase 28: Rebranding del diplomado
 
@@ -117,7 +117,7 @@ Phases execute in numeric order: 26 → 27 → 28 → 29
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|-----------------|--------|-----------|
 | 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
-| 27. Equipo y testimonios | v1.6 | 0/1 | Not started | - |
+| 27. Equipo y testimonios | v1.6 | 1/1 | Complete   | 2026-07-11 |
 | 28. Rebranding del diplomado | v1.6 | 0/TBD | Not started | - |
 | 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |
 

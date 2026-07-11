@@ -19,11 +19,11 @@ Rediseño de copy del sitio, basado en auditoría de feedback histórico de Slac
 
 ### Equipo
 
-- [ ] **TEAM-01**: El team grid de /quienes-somos muestra a Dana Aliaga en vez de Diana Rodríguez
+- [x] **TEAM-01**: El team grid de /quienes-somos muestra a Dana Aliaga en vez de Diana Rodríguez
 
 ### Testimonios
 
-- [ ] **TESTIM-01**: Se elimina la sección de logos de empresas confiadas ("trusted companies") de /testimonios
+- [x] **TESTIM-01**: Se elimina la sección de logos de empresas confiadas ("trusted companies") de /testimonios
 
 ### Programas
 
@@ -52,8 +52,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COPY-02 | Phase 26 | Complete |
 | HOME-01 | Phase 26 | Complete |
 | HOME-02 | Phase 26 | Complete |
-| TEAM-01 | Phase 27 | Pending |
-| TESTIM-01 | Phase 27 | Pending |
+| TEAM-01 | Phase 27 | Complete |
+| TESTIM-01 | Phase 27 | Complete |
 | BRAND-01 | Phase 28 | Pending |
 | FAQ-01 | Phase 29 | Pending |
 

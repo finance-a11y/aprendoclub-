@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: Rediseño de copy
-status: Defining requirements
-last_updated: "2026-07-11T07:23:26.057Z"
-last_activity: 2026-07-11 — Milestone v1.6 started
+status: verifying
+last_updated: "2026-07-11T07:50:00.000Z"
+last_activity: "2026-07-11 — Fase 27 completa (27-01: Dana Aliaga reemplaza a Diana; logos de empresas quitados de /testimonios)"
 progress:
   total_phases: 4
-  completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
-  percent: 25
+  completed_phases: 2
+  total_plans: 5
+  completed_plans: 5
+  percent: 50
 ---
 
 # Project State
@@ -24,10 +24,10 @@ See: .planning/PROJECT.md (updated 2026-07-11)
 
 ## Current Position
 
-Phase: Phase 26 (Copy general + Home) — completa (4/4 planes)
-Plan: 26-04 (Gate global de verificación + seed) — última completada
-Status: Phase 26 completa. Requirements COPY-01, COPY-02, HOME-01, HOME-02 marcados Complete en REQUIREMENTS.md. Gate global de "real"/"reales" y de-énfasis SEO verificado sobre todo scripts/seed/, con 2 excepciones documentadas (comentarios JSDoc de specs de imagen; quienes-somos.ts:81 "especialistas en SEO e IA" como mención de dominio/rol, no tagline de marca). `npm run seed` corrió exitosamente contra Postgres/Neon.
-Last activity: 2026-07-11 — Fase 26 completa (26-04: gate global de verificación + seed corrido contra Neon)
+Phase: Phase 27 (Equipo y testimonios) — completa (1/1 plan)
+Plan: 27-01 (Diana→Dana + quitar logos de /testimonios + re-seed) — última completada
+Status: Phase 27 completa. Requirements TEAM-01, TESTIM-01 marcados Complete en REQUIREMENTS.md. Dana Aliaga reemplaza a Diana Rodríguez en el team grid (avatar de iniciales "DA", registro único compartido con /diplomado, cleanup idempotente del doc huérfano de Diana en el seed). Bloque `logosRef` eliminado de `buildTestimonios()` en /testimonios; `trustedCompanies` y la colección Payload `ClientesTrabajados` quedan intactas. `npx tsc --noEmit` sin errores; `npm run seed` corrió exitosamente contra Neon.
+Last activity: 2026-07-11 — Fase 27 completa (27-01: Dana Aliaga reemplaza a Diana; logos de empresas quitados de /testimonios)
 
 ## Accumulated Context
 
