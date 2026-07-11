@@ -58,6 +58,9 @@ export { premiosFields, PremiosBlock } from './Premios'
 export { retoPricingFields, RetoPricingBlock } from './RetoPricing'
 export { ganadoresFields, GanadoresBlock } from './Ganadores'
 
+// Widget de asesoría gratuita (Phase 22)
+export { asesoriaWidgetFields, AsesoriaWidgetBlock } from './AsesoriaWidget'
+
 // --- Imports locales solo para construir allBlocks[] (Pages.layout.blocks, Plan R02) ---
 import { HeroBlock } from './Hero'
 import { PricingBlock } from './Pricing'
@@ -103,6 +106,7 @@ import { IncluyeBlock } from './Incluye'
 import { PremiosBlock } from './Premios'
 import { RetoPricingBlock } from './RetoPricing'
 import { GanadoresBlock } from './Ganadores'
+import { AsesoriaWidgetBlock } from './AsesoriaWidget'
 
 /**
  * Todos los Block configs disponibles para Pages.layout.blocks (Plan R02):
@@ -154,4 +158,6 @@ export const allBlocks: Block[] = [
   PremiosBlock,
   RetoPricingBlock,
   GanadoresBlock,
+  // Widget de asesoría gratuita
+  AsesoriaWidgetBlock,
 ]
