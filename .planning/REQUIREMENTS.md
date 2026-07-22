@@ -75,8 +75,8 @@ Se encontró además un **bug no reportado por Arianna**: las imágenes de la ga
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DIPLO-IMG-01 | Phase 29 | Pending |
-| BUG-01 | Phase 29 | Pending |
+| DIPLO-IMG-01 | Phase 29 | Implemented — visual verification deferred (Vercel quota externa) |
+| BUG-01 | Phase 29 | Implemented — visual verification deferred (Vercel quota externa) |
 | CARDS-01 | Phase 30 | Pending |
 | CARDS-02 | Phase 30 | Pending |
 | ADV-05 | Phase 30 | Pending |
