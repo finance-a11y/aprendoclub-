@@ -9,8 +9,8 @@ import { PostGrid } from "@/components/blog/post-grid";
 import { listPosts } from "@/lib/blog/queries";
 import { postHref } from "@/lib/blog/format";
 
-export const dynamic = "force-dynamic";
-
+// Cacheada (ISR on-demand): el hook afterChange de BlogPost llama a
+// revalidatePath('/blog') al guardar/borrar un post.
 export const metadata: Metadata = {
   title: "Blog de SEO e IA | aprendoclub",
   description:

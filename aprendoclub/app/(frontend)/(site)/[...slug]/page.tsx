@@ -22,9 +22,10 @@ import {
   relatedPosts,
 } from '@/lib/blog/queries'
 
-// Página nunca cacheada estáticamente: el contenido se crea/edita desde /admin
-// y debe reflejarse sin rebuild.
-export const dynamic = 'force-dynamic'
+// Cacheada (ISR on-demand): los hooks afterChange de Pages/BlogPost/Category/
+// Author llaman a revalidatePath() al guardar en /admin, así que no hace falta
+// force-dynamic para reflejar cambios — y evitarlo ahorra una consulta a Neon
+// por cada visita.
 
 /**
  * Slugs reservados servidos por rutas explícitas (índice, /blog, /links, admin,
