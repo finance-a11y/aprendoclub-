@@ -84,6 +84,9 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
                         width={typeof media.width === 'number' ? media.width : 48}
                         height={typeof media.height === 'number' ? media.height : 48}
                         className="h-full w-full object-contain"
+                        // Íconos ilustrados chicos (8-15KB) — inmunes a la
+                        // cuota de Vercel Image Optimization (Fase 29/31).
+                        unoptimized
                       />
                     </div>
                   ) : (

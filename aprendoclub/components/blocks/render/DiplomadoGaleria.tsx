@@ -62,6 +62,7 @@ export function DiplomadoGaleria({ block }: { block: DiplomadoGaleriaBlockType }
                 height={imagen.height || 600}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="w-full h-auto object-contain"
+                unoptimized
               />
             </button>
           ))}
@@ -106,6 +107,7 @@ export function DiplomadoGaleria({ block }: { block: DiplomadoGaleriaBlockType }
                 height={imagenActiva.height || 600}
                 sizes="(max-width: 768px) 90vw, 768px"
                 className="max-h-[90vh] w-auto h-auto rounded-lg border border-white/10 object-contain shadow-[var(--shadow-lg)]"
+                unoptimized
               />
             </motion.div>
           </motion.div>
