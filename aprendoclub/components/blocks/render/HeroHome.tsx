@@ -169,6 +169,7 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
                     width={40}
                     height={40}
                     priority
+                    unoptimized
                     className={`w-10 h-10 rounded-full object-cover border-2 border-[var(--bg-primary)] ${
                       i !== 0 ? '-ml-3' : ''
                     }`}

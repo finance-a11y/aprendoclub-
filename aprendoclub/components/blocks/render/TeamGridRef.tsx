@@ -43,6 +43,7 @@ export function TeamGridRef({ block }: { block: TeamGridRefBlockType }) {
                     width={64}
                     height={64}
                     className="h-16 w-16 shrink-0 rounded-full object-cover object-top"
+                    unoptimized
                   />
                 ) : (
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-lg font-semibold text-white">

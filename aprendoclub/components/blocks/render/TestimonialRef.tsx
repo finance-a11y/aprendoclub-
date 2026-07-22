@@ -28,10 +28,14 @@ export function TestimonialRef({ block }: { block: TestimonialRefBlockType }) {
   const items = (block.items ?? []).filter(
     (item): item is Testimonio => typeof item === 'object' && item !== null,
   )
-  if (items.length === 0) return null
 
+  // Hooks antes de cualquier early return (Rules of Hooks) — bug preexistente
+  // encontrado al revisar errores del sitio: el early return de abajo corría
+  // antes de useRef/useInView.
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
+
+  if (items.length === 0) return null
 
   return (
     <section
@@ -61,6 +65,7 @@ export function TestimonialRef({ block }: { block: TestimonialRefBlockType }) {
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover"
+                    unoptimized
                   />
                 ) : (
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-sm font-semibold text-white">

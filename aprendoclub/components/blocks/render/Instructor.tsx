@@ -29,6 +29,12 @@ export function Instructor({ block }: { block: InstructorBlockType }) {
                 fill
                 sizes="(max-width: 768px) 280px, 350px"
                 className="object-cover object-top"
+                // Foto única y ya liviana (~20KB, webp) — el optimizer de
+                // Vercel no aporta mucho acá y esta sección viene siendo la
+                // más golpeada por la cuota de transforms agotada (402).
+                // Sirviéndola sin pasar por /_next/image queda inmune a la
+                // cuota mientras dura.
+                unoptimized
               />
             </div>
           )}
