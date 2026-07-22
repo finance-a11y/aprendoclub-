@@ -16,6 +16,14 @@ const nextConfig: NextConfig = {
     // largo: las imágenes de Payload/Blob no cambian de URL al editarse.
     formats: ["image/webp"],
     minimumCacheTTL: 2678400,
+    // Ningún contenedor del sitio supera max-w-6xl (1152px); los buckets de
+    // Next por default suben hasta 3840 (4K), cada uno una combinación de
+    // transform distinta y facturable. Recortar el techo a 1200 reduce la
+    // cantidad de variantes únicas que Vercel Image Optimization genera por
+    // imagen (Fase 29, prevención de la cuota de transforms agotada — commit
+    // 516be82 ya bajó el formato duplicado; esto reduce el ancho de banda de
+    // tamaños restante).
+    deviceSizes: [640, 750, 828, 1080, 1200],
   },
   async redirects() {
     return [
