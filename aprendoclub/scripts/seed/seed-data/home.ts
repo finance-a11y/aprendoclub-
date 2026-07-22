@@ -75,7 +75,13 @@ export interface FeatureGridSection {
   items: FeatureGridItem[];
 }
 
-/** Problema (problema-section.tsx). */
+/**
+ * Problema (problema-section.tsx). Copy v1.7 (Fase 30): reemplazo verbatim
+ * del feedback de Juan (doc ClickUp, 2026-07-22). Íconos pasan de lucide a
+ * ilustraciones 3D (iconMode: "image") — ver 30-CONTEXT.md para la selección
+ * (3dicons.co no tiene ícono literal de IA/robot; Rocket es la mejor
+ * alternativa semántica disponible para la card 4).
+ */
 export const problema: FeatureGridSection = {
   eyebrow: "EL PROBLEMA",
   titulo: "¿Por qué necesitas aprendoclub?",
@@ -84,27 +90,35 @@ export const problema: FeatureGridSection = {
   items: [
     {
       icon: "compass",
+      iconMode: "image",
+      image: "/icons/problema/especializacion.webp",
       titulo: "Sabes de todo y no te especializas",
       descripcion:
-        "Manejas redes, SEO, ads y hasta diseño, pero no tienes una especialización clara. Tu CV dice 'marketing digital' y se pierde entre miles de perfiles iguales.",
+        "Tu CV dice 'marketing digital' pero no tienes diferenciación real. El mercado busca al que tiene un perfil claro y una habilidad con demanda.",
     },
     {
       icon: "history",
-      titulo: "Aprendes de contenido desactualizado",
+      iconMode: "image",
+      image: "/icons/problema/desactualizado.webp",
+      titulo: "Aprendes de contenido desactualizado, solo y sin saber si vas por buen camino.",
       descripcion:
-        "Los cursos que encuentras online repiten técnicas de hace años. Google y las redes cambian sus algoritmos cada semana y tú sigues resolviendo con lo que ya no funciona.",
+        "Google cambió el algoritmo. La IA reemplazó la mitad de las carreras genéricas. Y tú sigues con técnicas de un curso grabado hace dos años, sin correcciones, sin nadie que te diga si lo estás aplicando bien o perdiendo el tiempo.",
     },
     {
       icon: "hourglass",
-      titulo: "Llevas meses preparándote",
+      iconMode: "image",
+      image: "/icons/problema/mismo-precio.webp",
+      titulo: "Llevas meses preparándote y sigues cobrando lo mismo.",
       descripcion:
-        "Llevas meses viendo tutoriales sueltos y leyendo artículos, pero no tienes un plan claro ni nadie que valide si vas por buen camino. El tiempo pasa y sigues en el mismo lugar.",
+        "Cursos, tutoriales, certificados. Pero sin proyectos reales, sin clientes, sin mentoría y sin un camino claro de junior a consultor, el esfuerzo no se convierte en dinero. Eso ya no es falta de conocimiento — es falta de estructura.",
     },
     {
       icon: "bot",
-      titulo: "La IA te está dejando atrás",
+      iconMode: "image",
+      image: "/icons/problema/ia-te-deja-atras.webp",
+      titulo: "La IA te está dejando atrás.",
       descripcion:
-        "Cada semana aparece una herramienta de IA nueva que cambia cómo se hace marketing. Si no la dominas, terminas compitiendo con profesionales que sí la están usando a su favor.",
+        "Todos hablan de IA + SEO pero nadie te enseña cómo integrar herramientas de IA en tu flujo de trabajo para potenciar tu tiempo y habilidades.",
     },
   ],
 };
@@ -269,25 +283,29 @@ export interface AsesoriaWidgetSection {
 }
 
 /**
- * Widget de asesoría gratuita (Fase 22). Reemplaza `pricing` en el layout
- * del home (ADV-01); copy y bullets exactos definidos por Juan (ADV-02),
- * CTA a WhatsApp configurable (ADV-03).
+ * Widget de asesoría gratuita (Fase 22; copy refrescado en Fase 30/v1.7,
+ * ADV-05, verbatim del doc de Juan). Reemplaza `pricing` en el layout del
+ * home (ADV-01); CTA a WhatsApp configurable (ADV-03). El texto "¿No sabes
+ * por dónde empezar?" de Juan aparecía después de los bullets en su
+ * referencia, pero el componente solo tiene un slot de `subtitulo` antes de
+ * los bullets (sin campo nuevo para no migrar el schema) — se ubica ahí, el
+ * mensaje funciona igual de bien como lead-in que como cierre.
  */
 export const asesoriaWidget: AsesoriaWidgetSection = {
-  eyebrow: "ASESORÍA GRATUITA",
-  titulo: "Conversemos sobre tu futuro en marketing e IA",
+  eyebrow: "aprendoclub | Academia de SEO + IA",
+  titulo: "Especialízate en lo que el mercado está pagando hoy.",
   subtitulo:
-    "Agenda una asesoría gratuita y te contamos cómo el Diplomado puede ayudarte a especializarte y conseguir trabajo.",
+    "¿No sabes por dónde empezar? Agenda una asesoría gratuita de 20 minutos y te decimos exactamente qué programa es para ti.",
   bullets: [
-    "Diplomado certificado con el aval académico de la UCAB",
-    "Clases en vivo, no grabaciones",
-    "Masterclasses exclusivas con expertos de la industria",
-    "Invitados especiales en cada cohorte",
-    "Proyectos para armar tu portafolio",
-    "Coaches personalizados que acompañan tu proceso",
-    "Comunidad LATAM de estudiantes y egresados",
-    "Recursos y materiales nuevos cada semana",
-    "Certificación para mostrar en tu perfil de LinkedIn",
+    "Diplomado certificado con opción de aval universitario (UCAB)",
+    "Clases en vivo con coaches especializados en SEO + IA cada semana",
+    "Masterclasses y cursos especializados por área",
+    "Invitados especiales cada mes",
+    "Proyectos reales con feedback de expertos",
+    "Coaches personalizados para ti",
+    "Comunidad activa de especialistas en LATAM",
+    "Herramientas, plantillas y recursos actualizados cada semana",
+    "Certificación que puedes poner en tu LinkedIn hoy",
   ],
   botonLabel: "Quiero mi asesoría gratuita",
   botonHref:

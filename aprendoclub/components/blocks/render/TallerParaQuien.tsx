@@ -18,7 +18,7 @@ export function TallerParaQuien({ block }: { block: TallerParaQuienBlockType }) 
     <section ref={ref} className="container-padding section-spacing max-w-6xl mx-auto w-full">
       <BlurFade delay={0} isInView={isInView}>
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
             ¿Para quién es?
           </h2>
           <p className="text-lg leading-relaxed text-gray-400">{block.texto}</p>

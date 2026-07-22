@@ -33,7 +33,7 @@ export function DiplomadoTeam({ block }: { block: DiplomadoTeamBlockType }) {
           <Eyebrow className="mb-4 block">{block.teamIntro.eyebrow}</Eyebrow>
         )}
 
-        <h2 className="max-w-3xl text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] font-bold leading-[1.2] text-white md:text-4xl">
           {block.teamIntro?.titulo}
         </h2>
 

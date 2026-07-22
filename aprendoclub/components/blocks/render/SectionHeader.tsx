@@ -10,7 +10,7 @@ export function SectionHeader({ block }: { block: SectionHeaderBlockType }) {
   return (
     <section className="flex w-full flex-col items-center gap-4 text-center container-padding section-spacing">
       {block.eyebrow && <Eyebrow>{block.eyebrow}</Eyebrow>}
-      <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white max-w-[700px]">
+      <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white max-w-[700px]">
         {block.titulo}
       </h2>
       {block.subtitulo && (

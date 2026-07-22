@@ -7,7 +7,10 @@
 - ✅ **v1.2 Motion design + polish** - Phases 10-12, Shipped 2026-07-04
 - ✅ **v1.3 Payload CMS — todo editable** - Phases 13-18, Shipped 2026-07-05
 - ✅ **v1.5 Refresh de home + widget de asesoría** - Phases 20-25, Shipped 2026-07-11
-- 🚧 **v1.6 Rediseño de copy** - Phases 26-29 (planning)
+- ⏸️ **v1.6 Rediseño de copy** - Phases 26-28 shipped 2026-07-11; Fase 29 (FAQs de membresía) bloqueada esperando input de Juan, nunca planificada
+- 🚧 **v1.7 Feedback visual home + programas** - Phases 29-32 (planning)
+
+**Nota de numeración:** la Fase 29 original de v1.6 (FAQs de membresía) quedó bloqueada antes de que `/gsd-plan-phase` corriera sobre ella — su directorio nunca existió. Por eso este milestone reutiliza el número 29 como primera fase de v1.7. Cuando Juan desbloquee las FAQs de membresía, esa fase se retomará con numeración propia más adelante (después de la 32).
 
 ## Phases
 
@@ -24,101 +27,89 @@ Fases previas ejecutadas vía `/gsd-autonomous`; detalle completo en `.planning/
 
 </details>
 
-### 🚧 v1.6 Rediseño de copy (Planning)
+<details>
+<summary>⏸️ v1.6 Rediseño de copy (Phases 26-28 shipped, Fase 29 bloqueada)</summary>
 
 **Milestone Goal:** El copy del sitio refleja la voz real de la marca (evita "real", de-enfatiza "SEO", cifras/equipo/nombres actualizados) sin sonar a IA, y las FAQs reflejan el modelo de membresía vigente.
 
-**Nota de alcance:** Sin fase de research (milestone es reescritura de copy sobre features existentes, no funcionalidad nueva). El wording exacto de reemplazo para COPY-01, COPY-02, HOME-01, HOME-02 y FAQ-01 se confirma con Juan en `discuss-phase` de cada fase — el roadmap solo delimita el alcance, no inventa el texto final. BRAND-01 ("Diplomado de SEO + AIO") y TEAM-01 (Dana Aliaga) ya tienen wording confirmado.
+- [x] Phase 26: Copy general + Home - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home (completed 2026-07-11)
+- [x] Phase 27: Equipo y testimonios - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios (completed 2026-07-11)
+- [x] Phase 28: Rebranding del diplomado - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias (completed 2026-07-11)
+- [ ] ~~Phase 29: FAQs de membresía~~ - Bloqueada esperando input de Juan sobre el modelo de negocio viejo→membresía; nunca se planificó ni ejecutó. Se retomará como fase nueva (numeración propia, posterior a la 32) cuando Juan la desbloquee.
 
-- [x] **Phase 26: Copy general + Home** - Barrido de "real" y de-énfasis de "SEO" en todo el sitio; subtítulo y cifra de estudiantes actualizados en home (completed 2026-07-11)
-- [x] **Phase 27: Equipo y testimonios** - Dana Aliaga reemplaza a Diana Rodríguez en el team grid; se elimina la sección de logos de empresas confiadas en /testimonios (completed 2026-07-11)
-- [x] **Phase 28: Rebranding del diplomado** - El diplomado pasa de "Diplomado de Cero a SEO" a "Diplomado de SEO + AIO" en todas sus ocurrencias (completed 2026-07-11)
-- [ ] **Phase 29: FAQs de membresía** - Las FAQs restantes en faqs.ts se actualizan al modelo de membresía vigente
+Detalle completo de Phases 26-28 archivado en `.planning/milestones/v1.6-phases/`.
+
+</details>
+
+### 🚧 v1.7 Feedback visual home + programas (Planning)
+
+**Milestone Goal:** Aplicar el feedback visual/copy recibido de Arianna sobre el home y las páginas de programas (diplomado/taller/reto): tipografía y motion, cards de "problema" con copy e íconos nuevos, imágenes reales en diplomado, links de programas a páginas estables, refinamiento del widget de asesoría, y reducir espaciados — corrigiendo en el camino un bug real de imágenes rotas en producción.
+
+**Nota de alcance:** 4 puntos del feedback de Arianna ya están verificados en producción y no generan fases nuevas: hero con copy "La única academia de marketing e IA..." en Montserrat Bold (VERIFY-01), botones de programas alineados en una línea (VERIFY-02), sección de precio eliminada del home (VERIFY-03), y testimonios ubicados antes del widget de asesoría (VERIFY-04). Durante la verificación se encontró además un bug no reportado por Arianna — imágenes rotas en la galería del Diplomado, fotos del equipo y avatares de testimonios destacados — que probablemente explica parte del feedback ("¿podemos agregar imágenes?" cuando ya existen mas nunca cargaron). Se prioriza como Phase 29, antes de cualquier trabajo visual nuevo.
+
+- [ ] **Phase 29: Imágenes rotas de Diplomado y testimonios** - Fix de galería, fotos de equipo y avatares rotos en producción (bug real, prioridad alta)
+- [ ] **Phase 30: Cards de problema, asesoría y link del Taller** - Copy definitivo + íconos 3D en cards de problema, refinamiento de copy del widget de asesoría, CTA temporal del Taller
+- [ ] **Phase 31: Tipografía, motion y spacing (segunda pasada)** - Montserrat Bold consistente, motion más notorio, spacing ajustado en home/diplomado
+- [ ] **Phase 32: Galería del Diplomado rediseñada** - Cards de foto + texto superpuesto, estilo landing anterior (depende de Phase 29 y de fotos reales de Juan)
 
 ## Phase Details
 
-### Phase 26: Copy general + Home
-
-**Goal**: El copy general del sitio deja de usar "real"/"reales" y de-enfatiza la palabra "SEO" en favor de "marketing/IA/tecnología"; el home refleja subtítulo y cifra de estudiantes actualizados.
-**Depends on**: Nothing (primera fase del milestone; no depende de fases previas de otros milestones, sitio ya en producción)
-**Requirements**: COPY-01, COPY-02, HOME-01, HOME-02
+### Phase 29: Imágenes rotas de Diplomado y testimonios
+**Goal**: Las imágenes de la galería del Diplomado, las fotos del equipo y los avatares de los testimonios destacados del home cargan correctamente en producción, sin roturas.
+**Depends on**: Nothing (primera fase de v1.7; bug fix real de producción, se prioriza antes que el resto del trabajo visual)
+**Requirements**: DIPLO-IMG-01, BUG-01
 **Success Criteria** (what must be TRUE):
-
-  1. `grep -ri "\breal(es)?\b"` sobre `scripts/seed/seed-data/*.ts` no devuelve coincidencias fuera de nombres propios o URLs (las 36 ocurrencias detectadas quedan reescritas con voz humanizada)
-  2. El subtítulo/meta del home ya no contiene "academia de SEO" ni "acompañamiento real"
-  3. La cifra de estudiantes en el home (badge, subtítulo, `ratingTexto`) refleja el valor nuevo confirmado por Juan, de forma consistente en todas sus apariciones
-  4. El badge y subtítulo de home y el título de quienes-somos de-enfatizan "SEO" en favor de "marketing/IA/tecnología" (barrido no se limita a esas ubicaciones si aparecen más instancias)
-
-**Plans**: 4 plans (3 en Wave 1 paralelos + 1 en Wave 2 de re-seed)
-
-Plans:
-
-- [x] 26-01-PLAN.md — Home: barrido "real", de-enfasis SEO en badge/subtitulo, cifra a +10.000 (COPY-01/02, HOME-01/02)
-- [x] 26-02-PLAN.md — Diplomado: 12 reescrituras de "real"/"reales" (COPY-01)
-- [x] 26-03-PLAN.md — Copy disperso + globals: quienes-somos titulo/reales, faqs/testimonios/reto, meta description (COPY-01/02)
-- [x] 26-04-PLAN.md — Gate de verificacion global + re-seed a la DB
-
-### Phase 27: Equipo y testimonios
-
-**Goal**: El equipo mostrado en quienes-somos y la sección de testimonios reflejan el estado actual del negocio.
-**Depends on**: Phase 26 (mismo lote de archivos seed-data; se ejecuta después para evitar conflictos de edición concurrente)
-**Requirements**: TEAM-01, TESTIM-01
-**Success Criteria** (what must be TRUE):
-
-  1. El team grid en /quienes-somos muestra a "Dana Aliaga" y "Diana Rodríguez" ya no aparece en ningún lugar del sitio
-  2. La sección de logos de empresas confiadas ("trusted companies") ya no se renderiza en /testimonios
-
-**Plans**: 1 plan (Wave 1, 3 tasks: TEAM-01, TESTIM-01, re-seed + gate)
-
-Plans:
-
-- [x] 27-01-PLAN.md — Diana→Dana (datos/orden/reconciliación collections) + quitar logosRef de /testimonios + re-seed a Neon (TEAM-01, TESTIM-01)
-
-### Phase 28: Rebranding del diplomado
-
-**Goal**: El diplomado se presenta de forma consistente bajo su nuevo nombre en todas las páginas y datos donde aparece.
-**Depends on**: Phase 26 (evita pisar el barrido general de "real"/"SEO" sobre los mismos archivos)
-**Requirements**: BRAND-01
-**Success Criteria** (what must be TRUE):
-
-  1. `grep -r "Diplomado de Cero a SEO"` sobre `scripts/seed/seed-data/*.ts` no devuelve coincidencias
-  2. Todas las ocurrencias del nombre del diplomado (diplomado.ts, testimonios.ts, y demás archivos donde aparezca) muestran "Diplomado de SEO + AIO"
-  3. La página /diplomado en vivo (post-seed) muestra el nuevo nombre en título, hero y cualquier mención cruzada
-
-**Plans**: 2 plans (Wave 1: 28-01 renames + re-seed; Wave 2: 28-02 gap closure de verificación)
-
-Plans:
-
-- [x] 28-01-PLAN.md — Renombrar diplomado en las 12 ocurrencias del seed (diplomado/testimonios/collections/globals/media/home) + fix "Práctica real" + re-seed a Neon (BRAND-01)
-- [x] 28-02-PLAN.md — Gap closure: variante "Diplomado CERO A SEO" sin "de" en bullet de pricing + bug estructural de seedMedia() que no reconciliaba alt en media preexistente + re-seed y verificación SQL directa contra Neon (BRAND-01)
-
-### Phase 29: FAQs de membresía
-
-**Goal**: Las FAQs del sitio reflejan el modelo de membresía vigente, sin preguntas obsoletas del modelo anterior.
-**Depends on**: Nothing adicional (archivo independiente `faqs.ts`; puede ejecutarse en paralelo conceptual a fases 27-28, pero se numera al final por orden de confirmación con Juan)
-**Requirements**: FAQ-01
-**Success Criteria** (what must be TRUE):
-
-  1. Cada FAQ en `faqs.ts` que describía el modelo de negocio anterior (no-membresía) queda reescrita o reemplazada para reflejar el modelo de membresía
-  2. Las FAQs publicadas en el sitio (post-seed) son consistentes entre sí y con la pregunta de membresía ya existente
-
+  1. La galería del Diplomado (bloque `diplomadoGaleria`) muestra sus imágenes cargadas (`naturalWidth > 0`) en `/diplomado` en producción.
+  2. Las fotos del equipo (`teamGridRef`) en `/diplomado` cargan sin roturas.
+  3. Los avatares de los 3 testimonios destacados del home (Johanna Ramírez, Nataly Domínguez, Marco García) cargan sin roturas.
+  4. La causa raíz del bug (paths, build, o dominio de imágenes) queda identificada y documentada, para prevenir que reaparezca en otras páginas con el mismo patrón de imagen.
 **Plans**: TBD
+**UI hint**: yes
 
-Plans:
+### Phase 30: Cards de problema, asesoría y link del Taller
+**Goal**: El home comunica el copy definitivo de Juan en las cards de "problema" (con íconos ilustrados 3D) y en el widget de asesoría, y el CTA del Taller no dirige a una página en construcción mientras se termina.
+**Depends on**: Nothing (independiente de Phase 29 en el código que toca; se numera después por prioridad del bug de producción)
+**Requirements**: CARDS-01, CARDS-02, ADV-05, PROG-LINK-01
+**Success Criteria** (what must be TRUE):
+  1. Las 4 cards de "problema" del home muestran el copy definitivo de Juan (Sabes de todo.../Aprendes de contenido desactualizado.../Llevas meses preparándote.../La IA te está dejando atrás).
+  2. Cada card de problema muestra un ícono ilustrado 3D de 3dicons.co (`iconMode: image`) en vez del ícono lineal lucide anterior.
+  3. El widget de asesoría gratuita muestra el eyebrow/título/subtítulo y los 9 bullets actualizados, con el CTA "Quiero mi asesoría gratuita".
+  4. El CTA del Taller en la card de "Nuestros programas" del home enlaza a `https://www.aprendoclub.com/evento` (Reto y Diplomado siguen apuntando a sus páginas estables, sin cambios).
+**Plans**: TBD
+**UI hint**: yes
 
-- [ ] 29-01: TBD (definido en plan-phase)
+### Phase 31: Tipografía, motion y spacing (segunda pasada)
+**Goal**: Home, Diplomado, Taller y Reto se sienten más pulidos visualmente: encabezados en Montserrat Bold de forma consistente, motion más notorio que en v1.5, y spacing reducido donde todavía se siente excesivo.
+**Depends on**: Nothing (independiente de Phases 29-30; toca tipografía/motion/spacing de forma transversal)
+**Requirements**: TYPO-01, TYPO-02, LAY-02
+**Success Criteria** (what must be TRUE):
+  1. Los headings principales de home, diplomado, taller y reto usan Montserrat Bold de forma consistente, sin romper el contrato tipográfico de pesos (regular/medium/semibold) ya existente en el resto del sitio.
+  2. Las secciones clave del home y de las páginas de programas muestran transiciones/efectos de motion perceptiblemente más notorios que en la pasada de v1.5, respetando `prefers-reduced-motion`.
+  3. El espacio vertical entre el currículum de 16 semanas y "Cómo funciona" (y otros gaps grandes similares en home/diplomado) se percibe reducido respecto al estado actual.
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 32: Galería del Diplomado rediseñada — OMITIDA
+
+**Estado:** Juan pidió omitir esta fase (2026-07-22). Motivo: requiere migración de schema de Payload (campo nuevo `titulo` en la galería) — necesita conexión a Neon para generar/correr la migración, y Neon estaba caída (`ECONNRESET`) en el momento de ejecución del milestone. Además dependía de fotos reales que Juan no había aportado para 2 de las 6 cards.
+
+**Goal** (original, ya no se ejecuta): La sección de galería del Diplomado se rediseña como cards de foto con texto superpuesto, al estilo de la landing anterior del diplomado.
+**Requirements**: DIPLO-IMG-02 — queda en el backlog (ver Out of Scope de REQUIREMENTS.md), se retoma como fase nueva si Juan lo vuelve a pedir.
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 26 → 27 → 28 → 29
+Phases execute in numeric order: 29 → 30 → 31 → 32
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|-----------------|--------|-----------|
-| 26. Copy general + Home | v1.6 | 4/4 | Complete   | 2026-07-11 |
-| 27. Equipo y testimonios | v1.6 | 1/1 | Complete   | 2026-07-11 |
-| 28. Rebranding del diplomado | v1.6 | 2/2 | Complete   | 2026-07-11 |
-| 29. FAQs de membresía | v1.6 | 0/TBD | Not started | - |
+| 26. Copy general + Home | v1.6 | 4/4 | Complete | 2026-07-11 |
+| 27. Equipo y testimonios | v1.6 | 1/1 | Complete | 2026-07-11 |
+| 28. Rebranding del diplomado | v1.6 | 2/2 | Complete | 2026-07-11 |
+| 29. Imágenes rotas de Diplomado y testimonios | v1.7 | 1/1 | Implemented — verification deferred (Vercel quota) | 2026-07-22 |
+| 30. Cards de problema, asesoría y link del Taller | v1.7 | 1/1 | Code complete — seed pending (Neon down) | 2026-07-22 |
+| 31. Tipografía, motion y spacing | v1.7 | 1/1 | Implemented — visual QA deferred (Neon down) | 2026-07-22 |
+| 32. Galería del Diplomado rediseñada | v1.7 | — | Omitida (decisión de Juan, 2026-07-22) | - |
 
 ---
-*Roadmap created: 2026-07-11 for milestone v1.6*
+*Roadmap created: 2026-07-22 for milestone v1.7*

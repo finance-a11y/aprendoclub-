@@ -12,7 +12,7 @@ export function Incluye({ block }: { block: IncluyeBlockType }) {
   return (
     <section className="bg-[var(--bg-secondary)] container-padding section-spacing">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-10 text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="mb-10 text-center text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           Todo esto incluye tu cupo
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

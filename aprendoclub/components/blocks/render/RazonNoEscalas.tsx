@@ -22,7 +22,7 @@ export function RazonNoEscalas({ block }: { block: RazonNoEscalasBlockType }) {
       className="bg-[var(--bg-secondary)] container-padding section-spacing"
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
-        <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           {block.titulo}
         </h2>
         <p className="text-lg leading-relaxed text-gray-400">{block.parrafo}</p>

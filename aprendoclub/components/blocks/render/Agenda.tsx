@@ -15,7 +15,7 @@ export function Agenda({ block }: { block: AgendaBlockType }) {
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 flex flex-col items-center gap-3 text-center">
           <Eyebrow>AGENDA</Eyebrow>
-          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
             7 días para cambiar tu rumbo
           </h2>
         </div>
