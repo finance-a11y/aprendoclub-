@@ -8,9 +8,9 @@ last_activity: 2026-07-22
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 1
-  completed_plans: 1
-  percent: 25
+  total_plans: 3
+  completed_plans: 3
+  percent: 75
 ---
 
 # Project State
@@ -20,16 +20,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-22)
 
 **Core value:** Convertir visitas en inscripciones a los programas con un sitio rápido, editable sin código y con copy que refleje la voz real de la marca.
-**Current focus:** `/gsd-autonomous` corriendo v1.7. Phase 29 implementada (causa raíz diagnosticada, mitigación de código aplicada); verificación visual diferida por cuota de Vercel externa. Continuando a Phase 30.
+**Current focus:** `/gsd-autonomous` corriendo v1.7. Phases 29-31 implementadas en código. Bloqueada por DOS problemas de infraestructura externos simultáneos: cuota de Vercel Image Optimization agotada (Fase 29) y Neon Postgres devolviendo ECONNRESET en todo intento de conexión (bloquea `npm run seed` de Fase 30 y la verificación visual de Fases 30/31 — confirmado también en `next dev` local, no es el sandbox). Juan pidió los comandos exactos para revisar/retomar él mismo; a la espera de su confirmación antes de correr seed o avanzar a Phase 32.
 
 ## Current Position
 
-Phase: Phase 30 (Cards de problema, asesoría y link del Taller) — next up
-Plan: — (Phase 29 cerrada con verificación diferida; Phase 30 aún no planificada)
-Status: Phase 29 completada en código (deviceSizes trim + causa raíz documentada). Verificación visual diferida — depende de reset de cuota de Vercel, confirmado con Juan. `/gsd-autonomous` continúa con Phase 30.
-Last activity: 2026-07-22 — Phase 29 ejecutada (29-01), verificación diferida, avanzando a Phase 30
+Phase: Phase 32 (Galería del Diplomado rediseñada) — next, código pendiente de armar
+Plan: — (Phases 29/30/31 cerradas; Phase 32 aún no planificada)
+Status: Phases 29, 30 y 31 completas en código y committeadas en `feature/v1-7-feedback-visual-home`. Ninguna verificada visualmente en vivo: Neon no responde (ECONNRESET consistente, 4+ intentos incluyendo sin sandbox y en dev server local) — bloquea `npm run seed` (Fase 30 no llegó a Payload/producción) y el render de cualquier página que consulte Payload (Fases 30/31 tampoco se pueden ver en `next dev`). Se le pasaron a Juan los comandos exactos para diagnosticar Neon desde su lado y confirmar. `/gsd-autonomous` continúa con el código de Phase 32 (no depende de que el seed de la 30 haya corrido) mientras se espera esa confirmación.
+Last activity: 2026-07-22 — Phases 29/30/31 ejecutadas y committeadas; pausa para que Juan revise Neon antes de seed/Phase 32
 
-Progress: [██░░░░░░░░] 25% (1/4 fases con plan ejecutado; verificación completa pendiente en Phase 29)
+Progress: [███████░░░] 75% (3/4 fases con código completo; verificación visual y seed pendientes de infraestructura externa)
 
 ## Performance Metrics
 
@@ -72,6 +72,7 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 - **Phase 32 (Galería del Diplomado rediseñada) depende de que Juan aporte fotos reales.** Sin ellas, el rediseño se ejecuta igual sobre placeholders (mismo patrón de Phase 24), pero el resultado visual final queda pendiente de esos assets.
 - **Phase 32 depende funcionalmente de Phase 29**: no tiene sentido rediseñar la presentación de la galería del Diplomado mientras las imágenes sigan rotas en producción.
 - **Phase 29: cuota de Vercel Image Optimization agotada** (HTTP 402 confirmado en producción) — externo al código, Juan al tanto, espera reset de cuota o upgrade de plan. Mitigación de código ya aplicada (`deviceSizes` recortado). Phase 32 se ejecuta igual sobre este estado (el código queda correcto; la confirmación visual final queda pendiente del reset).
+- **Neon Postgres inalcanzable (`ECONNRESET`)** desde esta sesión — confirmado en 4+ intentos (`npm run seed`, con y sin sandbox de red, y `next dev` local). Bloquea: `npm run seed` de Phase 30 (cards/widget/link del Taller no llegan a Payload/producción todavía) y la verificación visual de Phases 30 y 31 (cualquier render que consulte Payload falla igual). Se le pasaron a Juan los comandos para revisar el dashboard de Neon y probar el seed desde su máquina; `/gsd-autonomous` sigue con el código de Phase 32 mientras tanto pero no debe correr seed ni avanzar a la lifecycle (audit/complete-milestone) hasta que esto se resuelva.
 
 ## Deferred Items
 
@@ -84,6 +85,8 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 | Phase | State | Resume |
 |-------|-------|--------|
 | 29 | verification_deferred_human | /gsd-verify-work 29 |
+| 30 | verification_deferred_human (+ seed pendiente) | npm run seed, luego /gsd-verify-work 30 |
+| 31 | verification_deferred_human | /gsd-verify-work 31 |
 
 ## Session Continuity
 

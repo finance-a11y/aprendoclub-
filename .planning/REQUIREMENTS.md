@@ -77,13 +77,13 @@ Se encontró además un **bug no reportado por Arianna**: las imágenes de la ga
 |-------------|-------|--------|
 | DIPLO-IMG-01 | Phase 29 | Implemented — visual verification deferred (Vercel quota externa) |
 | BUG-01 | Phase 29 | Implemented — visual verification deferred (Vercel quota externa) |
-| CARDS-01 | Phase 30 | Pending |
-| CARDS-02 | Phase 30 | Pending |
-| ADV-05 | Phase 30 | Pending |
-| PROG-LINK-01 | Phase 30 | Pending |
-| TYPO-01 | Phase 31 | Pending |
-| TYPO-02 | Phase 31 | Pending |
-| LAY-02 | Phase 31 | Pending |
+| CARDS-01 | Phase 30 | Code complete — seed pending (Neon down) |
+| CARDS-02 | Phase 30 | Code complete — seed pending (Neon down) |
+| ADV-05 | Phase 30 | Code complete — seed pending (Neon down) |
+| PROG-LINK-01 | Phase 30 | Code complete — seed pending (Neon down) |
+| TYPO-01 | Phase 31 | Implemented — visual QA deferred (Neon down) |
+| TYPO-02 | Phase 31 | Implemented — visual QA deferred (Neon down) |
+| LAY-02 | Phase 31 | Implemented — visual QA deferred (Neon down) |
 | DIPLO-IMG-02 | Phase 32 | Pending |
 | VERIFY-01 | N/A | Verified (pre-existing) |
 | VERIFY-02 | N/A | Verified (pre-existing) |

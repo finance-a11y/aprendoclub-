@@ -113,8 +113,8 @@ Phases execute in numeric order: 29 → 30 → 31 → 32
 | 27. Equipo y testimonios | v1.6 | 1/1 | Complete | 2026-07-11 |
 | 28. Rebranding del diplomado | v1.6 | 2/2 | Complete | 2026-07-11 |
 | 29. Imágenes rotas de Diplomado y testimonios | v1.7 | 1/1 | Implemented — verification deferred (Vercel quota) | 2026-07-22 |
-| 30. Cards de problema, asesoría y link del Taller | v1.7 | 0/TBD | Not started | - |
-| 31. Tipografía, motion y spacing | v1.7 | 0/TBD | Not started | - |
+| 30. Cards de problema, asesoría y link del Taller | v1.7 | 1/1 | Code complete — seed pending (Neon down) | 2026-07-22 |
+| 31. Tipografía, motion y spacing | v1.7 | 1/1 | Implemented — visual QA deferred (Neon down) | 2026-07-22 |
 | 32. Galería del Diplomado rediseñada | v1.7 | 0/TBD | Not started | - |
 
 ---
