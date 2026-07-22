@@ -40,7 +40,7 @@ export function Instructor({ block }: { block: InstructorBlockType }) {
             <Eyebrow>{block.eyebrow}</Eyebrow>
           </div>
 
-          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
             <a
               href="https://ariannalupi.com"
               target="_blank"

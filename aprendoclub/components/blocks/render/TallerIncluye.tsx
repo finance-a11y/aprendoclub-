@@ -18,7 +18,7 @@ export function TallerIncluye({ block }: { block: TallerIncluyeBlockType }) {
 
   return (
     <section ref={ref} className="container-padding section-spacing max-w-6xl mx-auto w-full">
-      <h2 className="mb-8 text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+      <h2 className="mb-8 text-center text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
         Qué incluye
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

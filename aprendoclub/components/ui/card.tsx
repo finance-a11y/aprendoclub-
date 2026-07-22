@@ -9,8 +9,9 @@ const paddingClasses: Record<CardPadding, string> = {
 };
 
 const hoverClasses: Record<CardHover, string> = {
-  lift: "hover:-translate-y-1 hover:border-white/20",
-  liftAccent: "hover:-translate-y-1 hover:border-[var(--accent)]/30",
+  lift: "hover:-translate-y-1.5 hover:scale-[1.01] hover:border-white/20 hover:shadow-[var(--shadow-lg)]",
+  liftAccent:
+    "hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[var(--accent)]/30 hover:shadow-[var(--shadow-lg)]",
   none: "",
 };
 

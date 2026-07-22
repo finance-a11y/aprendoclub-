@@ -34,7 +34,7 @@ export function Fundadora({ block }: { block: FundadoraBlockType }) {
         <div className="flex flex-col gap-6 text-center lg:text-left">
           <Eyebrow>{block.eyebrow}</Eyebrow>
 
-          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
             <a
               href="https://ariannalupi.com"
               target="_blank"

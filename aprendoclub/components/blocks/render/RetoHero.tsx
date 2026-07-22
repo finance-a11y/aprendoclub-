@@ -34,7 +34,7 @@ export function RetoHero({ block }: { block: RetoHeroBlockType }) {
         className="flex flex-col gap-6 text-center lg:text-left"
       >
         <Eyebrow>{block.eyebrow}</Eyebrow>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-white">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
           {block.titulo}{' '}
           <span className="text-[var(--accent)]">{block.destacado}</span>
         </h1>

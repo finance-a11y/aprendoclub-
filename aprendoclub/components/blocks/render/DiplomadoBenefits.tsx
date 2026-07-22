@@ -27,7 +27,7 @@ export function DiplomadoBenefits({ block }: { block: DiplomadoBenefitsBlockType
           </div>
         )}
 
-        <h2 className="max-w-3xl text-balance text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           {block.titulo}
         </h2>
 

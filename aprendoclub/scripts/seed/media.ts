@@ -67,6 +67,11 @@ function collectMediaAssets(): MediaAsset[] {
 
   // Home: avatares del hero + video de fondo
   home.hero.avatares.forEach((src, i) => add(src, `Avatar de estudiante ${i + 1}`))
+
+  // Home: íconos ilustrados de las cards de "problema" (Fase 30/v1.7, CARDS-02)
+  for (const item of home.problema.items) {
+    if (item.iconMode === 'image' && item.image) add(item.image, `Ícono: ${item.titulo}`)
+  }
   add(home.hero.videoBackground, 'Video de fondo del hero del home')
 
   // Diplomado: hero + galería con assets reales (IMG-01, Phase 24; fotos reales desde 24-02)

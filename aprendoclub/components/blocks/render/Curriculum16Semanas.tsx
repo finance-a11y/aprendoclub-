@@ -20,7 +20,7 @@ export function Curriculum16Semanas({ block }: { block: Curriculum16SemanasBlock
       <div className="mx-auto max-w-6xl container-padding">
         {block.eyebrow && <Eyebrow className="mb-4 block">{block.eyebrow}</Eyebrow>}
 
-        <h2 className="max-w-3xl text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
+        <h2 className="max-w-3xl text-balance text-[1.75rem] font-bold leading-[1.2] text-white md:text-4xl">
           {block.titulo}
         </h2>
 

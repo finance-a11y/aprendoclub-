@@ -28,7 +28,7 @@ export function Mentora({ block }: { block: MentoraBlockType }) {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-1">
           <Eyebrow>{block.rol}</Eyebrow>
-          <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+          <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
             {block.nombre}
           </h2>
         </div>

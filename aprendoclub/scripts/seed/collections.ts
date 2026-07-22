@@ -32,7 +32,11 @@ const programas = [
     precio: '$49.99',
     precioNota: undefined as string | undefined,
     ctaLabel: 'Ver taller',
-    ctaHref: '/programas/taller-seo-con-ia',
+    // PROG-LINK-01 (Fase 30/v1.7): apunta temporalmente a la página estable
+    // mientras se termina /programas/taller-seo-con-ia. Mantener en sync con
+    // programMenu[1].href abajo (el lookup de menuDesc/menuBadge compara por
+    // igualdad de href).
+    ctaHref: 'https://www.aprendoclub.com/evento',
   },
   {
     id: 'reto',
@@ -62,7 +66,7 @@ const programMenu = [
   },
   {
     label: 'Taller de SEO con IA',
-    href: '/programas/taller-seo-con-ia',
+    href: 'https://www.aprendoclub.com/evento',
     desc: '15 días para posicionar en Google, ChatGPT y Gemini.',
     badge: '$49.99',
   },

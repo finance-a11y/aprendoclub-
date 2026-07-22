@@ -18,10 +18,24 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 - ✓ Payload CMS: colección Pages (page-builder ~29 bloques) + 5 colecciones de datos + site-settings — v1.3
 - ✓ Blog migrado de aprendoseo.com (64 posts, 5 categorías, 3 autores) vía Payload — v1.3
 - ✓ Refresh de home + widget de asesoría por WhatsApp — v1.5 (deployado a main)
+- ✓ Copy sin "real", des-enfatizado de "SEO", cifra de estudiantes, Dana en team grid, sin logos de empresas en testimonios, diplomado renombrado a "SEO + AIO" — v1.6 (Phases 26-28, Fase 29 FAQs queda pendiente)
 
 ### Active
 
-- [ ] Ver `.planning/REQUIREMENTS.md` (definido en milestone v1.6)
+- [ ] Ver `.planning/REQUIREMENTS.md` (definido en milestone v1.7)
+
+## Current Milestone: v1.7 Feedback visual home + programas
+
+**Goal:** Aplicar el feedback visual/copy recibido de Arianna sobre el home y las páginas de programas (diplomado/taller/reto): tipografía y motion, cards de "problema" con copy e íconos nuevos, imágenes reales en diplomado, links de programas a páginas estables, quitar precio del home a favor del widget de asesoría con copy actualizado, reducir espaciados, y reordenar testimonios antes del widget.
+
+**Target features:**
+- Montserrat Bold en headings + pase de motion/transiciones moderno en todo el sitio
+- Cards de "problema" (home): copy nuevo (4 cards) + íconos ilustrados tipo imagen en vez de lucide
+- Imágenes reales en la página Diplomado (estilo landing anterior)
+- Botones de programas alineados (verificar, ya resuelto en v1.5) + links de programas a páginas estables mientras se ajustan las nuevas
+- Home sin precio: solo widget de asesoría, con copy/bullets actualizados
+- Reducir espaciados grandes entre secciones del home
+- Testimonios antes del widget de asesoría (verificar, ya en ese orden en código)
 
 ### Out of Scope
 
@@ -35,6 +49,8 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 - Flujo de deploy: commit en `main` → push `main` → fast-forward `develop`. Sin PRs (decisión de Juan).
 - `.planning/` no se usó de forma completa en milestones anteriores (v1.0–v1.5 corrieron vía `/gsd-autonomous` pero PROJECT.md/MILESTONES.md/STATE.md no se persistieron) — este documento se bootstrapea desde memoria auto (2026-07-11) al arrancar v1.6.
 - Milestone v1.6 nace de una auditoría de feedback histórico de Slack (Arianna Lupi, 2026-07-06 y 2026-07-08) contra el copy real del sitio: evitar la palabra "real", des-enfatizar "SEO" en favor de "marketing/IA", cambiar cifra de estudiantes, sacar logos de empresas de testimonios, renombrar el diplomado, Diana→Dana en el team grid, revisar FAQs de membresía.
+- v1.6 quedó incompleto: Fases 26-28 completas (archivadas en `.planning/milestones/v1.6-phases/`), Fase 29 (FAQs de membresía) bloqueada esperando input de Juan sobre el modelo de negocio viejo→membresía. Juan pidió arrancar v1.7 igual y retomar la Fase 29 más adelante como fase nueva cuando la desbloquee.
+- Milestone v1.7 nace de un doc de feedback de Arianna Lupi en ClickUp (7 puntos sobre home + programas, 2026-07-22), con capturas de referencia (íconos ilustrados tipo weplash.com, cards de la landing anterior del diplomado, widget de asesoría estilo weplash). Varios puntos ya estaban resueltos en el código (hero copy, orden testimonios/widget, alineación de botones) — se verifican en vez de re-implementarse.
 
 ## Constraints
 

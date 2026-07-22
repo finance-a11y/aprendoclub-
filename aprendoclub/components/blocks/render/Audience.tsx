@@ -14,7 +14,7 @@ export function Audience({ block }: { block: AudienceBlockType }) {
   return (
     <section className="section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
-        <h2 className="text-balance text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="text-balance text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           {block.titulo}
         </h2>
         {block.subtitulo && (
