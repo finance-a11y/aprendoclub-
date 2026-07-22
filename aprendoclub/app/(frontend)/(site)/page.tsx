@@ -8,10 +8,11 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { getGraphsForSlug } from "@/lib/schema-mappers";
 
 // El home se sirve desde el Page slug='home' de Payload (los bloques se
-// crean/editan desde /admin y deben reflejarse sin rebuild). El catch-all
-// `[...slug]` no matchea el índice `/`, así que esta ruta explícita es la que
-// resuelve la raíz.
-export const dynamic = "force-dynamic";
+// crean/editan desde /admin). El catch-all `[...slug]` no matchea el índice
+// `/`, así que esta ruta explícita es la que resuelve la raíz. Cacheada (ISR
+// on-demand): el hook afterChange de la colección Pages llama a
+// revalidatePath('/') al guardar, así que no hace falta force-dynamic para
+// reflejar cambios — y evitarlo ahorra una consulta a Neon por cada visita.
 
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayloadClient();

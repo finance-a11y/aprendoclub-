@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         hostname: "*.public.blob.vercel-storage.com",
       },
     ],
+    // Un solo formato (evita duplicar transformaciones avif+webp) y cache
+    // largo: las imágenes de Payload/Blob no cambian de URL al editarse.
+    formats: ["image/webp"],
+    minimumCacheTTL: 2678400,
   },
   async redirects() {
     return [
