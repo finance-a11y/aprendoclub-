@@ -116,6 +116,7 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
           descripcion: i.descripcion,
           iconMode: i.iconMode ?? 'icon',
           iconColor: i.iconColor ?? 'auto',
+          image: mediaId(mediaMap, i.image, `home.problema.items[${i.titulo}]`),
         })),
       },
       {
