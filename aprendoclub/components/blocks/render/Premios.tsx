@@ -37,6 +37,7 @@ export function Premios({ block }: { block: PremiosBlockType }) {
                   alt={block.mayor.titulo}
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             )}
@@ -52,6 +53,7 @@ export function Premios({ block }: { block: PremiosBlockType }) {
                   alt={block.becas.titulo}
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             )}

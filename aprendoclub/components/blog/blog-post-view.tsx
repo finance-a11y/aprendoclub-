@@ -76,6 +76,7 @@ export function BlogPostView({
                   width={28}
                   height={28}
                   className="rounded-full object-cover"
+                  unoptimized
                 />
               )}
               <span>{author.name}</span>
@@ -101,6 +102,7 @@ export function BlogPostView({
               sizes="(max-width: 1024px) 100vw, 900px"
               className="object-cover"
               priority
+              unoptimized
             />
           </div>
         </div>
