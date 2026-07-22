@@ -34,6 +34,7 @@ export function Agenda({ block }: { block: AgendaBlockType }) {
                       alt={`${d.dia}: ${d.titulo}`}
                       fill
                       className="object-cover"
+                      unoptimized
                     />
                   </div>
                 )}

@@ -73,6 +73,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
               width={imagen.width || 1200}
               height={imagen.height || 675}
               className="w-full h-auto object-cover"
+              unoptimized
             />
           </div>
         )}

@@ -48,6 +48,7 @@ export function AuthorView({
             width={96}
             height={96}
             className="rounded-full object-cover"
+            unoptimized
           />
         )}
         <h1 className="text-3xl font-semibold leading-tight md:text-4xl">

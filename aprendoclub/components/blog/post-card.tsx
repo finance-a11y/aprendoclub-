@@ -42,6 +42,9 @@ export function PostCard({
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            // Covers migrados del blog ya son chicos (<15KB) — inmunes a la
+            // cuota de Vercel Image Optimization (mismo issue de Fase 29).
+            unoptimized
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--primary)]/20 to-[var(--accent)]/10">
