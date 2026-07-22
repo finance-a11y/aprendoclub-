@@ -6,11 +6,11 @@ status: in_progress
 last_updated: "2026-07-22T00:00:00.000Z"
 last_activity: 2026-07-22
 progress:
-  total_phases: 4
-  completed_phases: 0
+  total_phases: 3
+  completed_phases: 3
   total_plans: 3
   completed_plans: 3
-  percent: 75
+  percent: 100
 ---
 
 # Project State
@@ -20,16 +20,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-22)
 
 **Core value:** Convertir visitas en inscripciones a los programas con un sitio rápido, editable sin código y con copy que refleje la voz real de la marca.
-**Current focus:** `/gsd-autonomous` corriendo v1.7. Phases 29-31 implementadas en código. Bloqueada por DOS problemas de infraestructura externos simultáneos: cuota de Vercel Image Optimization agotada (Fase 29) y Neon Postgres devolviendo ECONNRESET en todo intento de conexión (bloquea `npm run seed` de Fase 30 y la verificación visual de Fases 30/31 — confirmado también en `next dev` local, no es el sandbox). Juan pidió los comandos exactos para revisar/retomar él mismo; a la espera de su confirmación antes de correr seed o avanzar a Phase 32.
+**Current focus:** v1.7 cerrado con 3 fases (29-31); Fase 32 omitida por decisión de Juan (2026-07-22, requería Neon para migrar schema y Neon seguía caída). Merge feature→develop→main en curso por pedido explícito de Juan.
 
 ## Current Position
 
-Phase: Phase 32 (Galería del Diplomado rediseñada) — next, código pendiente de armar
-Plan: — (Phases 29/30/31 cerradas; Phase 32 aún no planificada)
-Status: Phases 29, 30 y 31 completas en código y committeadas en `feature/v1-7-feedback-visual-home`. Ninguna verificada visualmente en vivo: Neon no responde (ECONNRESET consistente, 4+ intentos incluyendo sin sandbox y en dev server local) — bloquea `npm run seed` (Fase 30 no llegó a Payload/producción) y el render de cualquier página que consulte Payload (Fases 30/31 tampoco se pueden ver en `next dev`). Se le pasaron a Juan los comandos exactos para diagnosticar Neon desde su lado y confirmar. `/gsd-autonomous` continúa con el código de Phase 32 (no depende de que el seed de la 30 haya corrido) mientras se espera esa confirmación.
-Last activity: 2026-07-22 — Phases 29/30/31 ejecutadas y committeadas; pausa para que Juan revise Neon antes de seed/Phase 32
+Phase: Ninguna — v1.7 completo (Phases 29-31), Phase 32 omitida
+Plan: —
+Status: Phases 29, 30 y 31 completas en código, committeadas en `feature/v1-7-feedback-visual-home`. Fase 32 omitida por Juan. Verificación visual y seed de Fase 30 siguen pendientes de que Neon vuelva a responder (`ECONNRESET` persistente) — no bloquea el merge, Juan pidió avanzar igual.
+Last activity: 2026-07-22 — Fase 32 omitida; merge a develop/main en curso
 
-Progress: [███████░░░] 75% (3/4 fases con código completo; verificación visual y seed pendientes de infraestructura externa)
+Progress: [██████████] 100% (3/3 fases planeadas ejecutadas; verificación visual/seed de Fase 30 pendiente de Neon)
 
 ## Performance Metrics
 
@@ -69,8 +69,7 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 ### Blockers/Concerns
 
 - **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. No confundir con la nueva Phase 29 de v1.7 (Imágenes rotas), que reutiliza el número porque la fase de FAQs nunca se planificó. Se retomará como fase nueva, con número propio posterior a la 32, cuando Juan la desbloquee.
-- **Phase 32 (Galería del Diplomado rediseñada) depende de que Juan aporte fotos reales.** Sin ellas, el rediseño se ejecuta igual sobre placeholders (mismo patrón de Phase 24), pero el resultado visual final queda pendiente de esos assets.
-- **Phase 32 depende funcionalmente de Phase 29**: no tiene sentido rediseñar la presentación de la galería del Diplomado mientras las imágenes sigan rotas en producción.
+- **Phase 32 omitida por decisión de Juan (2026-07-22)** — requería migración de schema de Payload (necesita Neon) + fotos reales que faltaban para 2 de 6 cards. Queda en el backlog (DIPLO-IMG-02, Out of Scope de REQUIREMENTS.md v1.7); se retoma como fase nueva si Juan la vuelve a pedir.
 - **Phase 29: cuota de Vercel Image Optimization agotada** (HTTP 402 confirmado en producción) — externo al código, Juan al tanto, espera reset de cuota o upgrade de plan. Mitigación de código ya aplicada (`deviceSizes` recortado). Phase 32 se ejecuta igual sobre este estado (el código queda correcto; la confirmación visual final queda pendiente del reset).
 - **Neon Postgres inalcanzable (`ECONNRESET`)** desde esta sesión — confirmado en 4+ intentos (`npm run seed`, con y sin sandbox de red, y `next dev` local). Bloquea: `npm run seed` de Phase 30 (cards/widget/link del Taller no llegan a Payload/producción todavía) y la verificación visual de Phases 30 y 31 (cualquier render que consulte Payload falla igual). Se le pasaron a Juan los comandos para revisar el dashboard de Neon y probar el seed desde su máquina; `/gsd-autonomous` sigue con el código de Phase 32 mientras tanto pero no debe correr seed ni avanzar a la lifecycle (audit/complete-milestone) hasta que esto se resuelva.
 

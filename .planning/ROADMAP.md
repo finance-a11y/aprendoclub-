@@ -89,18 +89,12 @@ Detalle completo de Phases 26-28 archivado en `.planning/milestones/v1.6-phases/
 **Plans**: TBD
 **UI hint**: yes
 
-### Phase 32: Galería del Diplomado rediseñada
-**Goal**: La sección de galería del Diplomado se rediseña como cards de foto con texto superpuesto, al estilo de la landing anterior del diplomado.
-**Depends on**: Phase 29 (las imágenes de la galería deben cargar correctamente en producción antes de rediseñar su presentación)
-**Requirements**: DIPLO-IMG-02
-**Success Criteria** (what must be TRUE):
-  1. La galería del Diplomado muestra cards de foto de fondo + texto superpuesto (ya no el grid simple anterior).
-  2. Los 6 textos de referencia (Diplomado 16 semanas, 3 sesiones en vivo/semana, Coachs solo para ti, Invitados especiales, Cursos cortos y actualizaciones, Comunidad activa 24/7) aparecen distribuidos en las cards correspondientes.
-  3. Mientras Juan no aporte las fotos reales, las cards muestran placeholders coherentes con el dark theme y specs de formato (tamaño, aspecto, peso) documentadas en `admin.description`, siguiendo el mismo patrón ya usado en Phase 24 (v1.5, IMG-01).
+### Phase 32: Galería del Diplomado rediseñada — OMITIDA
 
-**Riesgo/dependencia explícita**: esta fase depende de que Juan aporte fotos reales del diplomado. Sin ellas, el rediseño se completa igual mecánicamente (layout, textos superpuestos) pero se ejecuta sobre placeholders — el mismo patrón que ya funcionó en Phase 24.
-**Plans**: TBD
-**UI hint**: yes
+**Estado:** Juan pidió omitir esta fase (2026-07-22). Motivo: requiere migración de schema de Payload (campo nuevo `titulo` en la galería) — necesita conexión a Neon para generar/correr la migración, y Neon estaba caída (`ECONNRESET`) en el momento de ejecución del milestone. Además dependía de fotos reales que Juan no había aportado para 2 de las 6 cards.
+
+**Goal** (original, ya no se ejecuta): La sección de galería del Diplomado se rediseña como cards de foto con texto superpuesto, al estilo de la landing anterior del diplomado.
+**Requirements**: DIPLO-IMG-02 — queda en el backlog (ver Out of Scope de REQUIREMENTS.md), se retoma como fase nueva si Juan lo vuelve a pedir.
 
 ## Progress
 
@@ -115,7 +109,7 @@ Phases execute in numeric order: 29 → 30 → 31 → 32
 | 29. Imágenes rotas de Diplomado y testimonios | v1.7 | 1/1 | Implemented — verification deferred (Vercel quota) | 2026-07-22 |
 | 30. Cards de problema, asesoría y link del Taller | v1.7 | 1/1 | Code complete — seed pending (Neon down) | 2026-07-22 |
 | 31. Tipografía, motion y spacing | v1.7 | 1/1 | Implemented — visual QA deferred (Neon down) | 2026-07-22 |
-| 32. Galería del Diplomado rediseñada | v1.7 | 0/TBD | Not started | - |
+| 32. Galería del Diplomado rediseñada | v1.7 | — | Omitida (decisión de Juan, 2026-07-22) | - |
 
 ---
 *Roadmap created: 2026-07-22 for milestone v1.7*

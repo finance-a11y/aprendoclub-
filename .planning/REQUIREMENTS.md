@@ -34,7 +34,7 @@ Se encontró además un **bug no reportado por Arianna**: las imágenes de la ga
 ### Imágenes del Diplomado (DIPLO-IMG)
 
 - [ ] **DIPLO-IMG-01** (bug fix): Corregir las imágenes rotas de la galería actual del Diplomado (`diplomadoGaleria`) y de las fotos del equipo (`teamGridRef`) en producción — investigar causa raíz (paths, build, dominio de imágenes) y verificar carga real post-deploy.
-- [ ] **DIPLO-IMG-02**: Rediseñar la sección de galería del Diplomado como cards con foto + texto superpuesto, al estilo de la landing anterior (referencia: "Diplomado 16 semanas", "3 sesiones en vivo/semana", "Coachs solo para ti", "Invitados especiales", "Cursos cortos y actualizaciones", "Comunidad activa 24/7"). Requiere fotos reales — Juan las aporta; specs de formato (tamaño, aspecto, peso) se definen en plan-phase y quedan documentadas en `admin.description` como placeholder mientras tanto.
+- [~] **DIPLO-IMG-02** (omitida): Rediseñar la sección de galería del Diplomado como cards con foto + texto superpuesto, al estilo de la landing anterior. Juan pidió omitir esta fase (2026-07-22) — requería migración de schema de Payload con Neon caída. Queda en Out of Scope; se retoma si Juan la vuelve a pedir.
 
 ### Links de programas (PROG-LINK)
 
@@ -84,7 +84,7 @@ Se encontró además un **bug no reportado por Arianna**: las imágenes de la ga
 | TYPO-01 | Phase 31 | Implemented — visual QA deferred (Neon down) |
 | TYPO-02 | Phase 31 | Implemented — visual QA deferred (Neon down) |
 | LAY-02 | Phase 31 | Implemented — visual QA deferred (Neon down) |
-| DIPLO-IMG-02 | Phase 32 | Pending |
+| DIPLO-IMG-02 | Phase 32 | Omitida (decisión de Juan) |
 | VERIFY-01 | N/A | Verified (pre-existing) |
 | VERIFY-02 | N/A | Verified (pre-existing) |
 | VERIFY-03 | N/A | Verified (pre-existing) |
