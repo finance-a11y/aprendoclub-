@@ -64,6 +64,10 @@ export function HowItWorks({ block }: { block: HowItWorksBlockType }) {
                         alt={media.alt ?? item.titulo}
                         fill
                         className="object-cover"
+                        // Fotos reales ya livianas (8-17KB, avif) — inmunes a
+                        // la cuota de Vercel Image Optimization agotada
+                        // (mismo issue diagnosticado en Fase 29).
+                        unoptimized
                       />
                     </div>
                   ) : (

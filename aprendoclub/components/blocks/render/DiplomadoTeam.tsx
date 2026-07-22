@@ -61,6 +61,7 @@ export function DiplomadoTeam({ block }: { block: DiplomadoTeamBlockType }) {
                       width={64}
                       height={64}
                       className="mb-4 h-16 w-16 shrink-0 rounded-full object-cover object-top"
+                      unoptimized
                     />
                   ) : (
                     <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--primary)]/10 text-lg font-semibold text-[var(--primary-light)]">
@@ -98,6 +99,7 @@ export function DiplomadoTeam({ block }: { block: DiplomadoTeamBlockType }) {
                   width={96}
                   height={96}
                   className="h-24 w-24 shrink-0 rounded-2xl object-cover object-top"
+                  unoptimized
                 />
               )}
               <div>
