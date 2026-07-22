@@ -35,7 +35,7 @@ export function Ganadores({ block }: { block: GanadoresBlockType }) {
                 <div className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-card)]">
                   {imagen && (
                     <div className="relative aspect-square w-full">
-                      <Image src={imagen.url} alt={g.nombre} fill className="object-cover" />
+                      <Image src={imagen.url} alt={g.nombre} fill className="object-cover" unoptimized />
                     </div>
                   )}
                   <div className="flex flex-col gap-1 p-4">

@@ -25,6 +25,7 @@ export function Fundadora({ block }: { block: FundadoraBlockType }) {
                 fill
                 sizes="(max-width: 768px) 280px, 350px"
                 className="object-cover object-top"
+                unoptimized
               />
             </div>
           )}

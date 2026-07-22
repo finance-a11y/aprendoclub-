@@ -22,6 +22,7 @@ export function Mentora({ block }: { block: MentoraBlockType }) {
             width={520}
             height={640}
             className="h-auto w-full rounded-2xl object-cover"
+            unoptimized
           />
         </div>
       )}
