@@ -21,7 +21,7 @@ export function Pricing({ block }: { block: PricingBlockType }) {
           {block.eyebrow}
         </Eyebrow>
       )}
-      <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white text-center mb-3">
+      <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white text-center mb-3">
         {block.titulo}
       </h2>
       {block.subtitulo && (

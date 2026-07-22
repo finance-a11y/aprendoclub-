@@ -31,7 +31,7 @@ export function Hero({ block }: { block: HeroBlockType }) {
           </Eyebrow>
         )}
 
-        <h1 className="mx-auto max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+        <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
           {block.tituloPre}
           {block.tituloAccent && (
             <span className="text-[var(--accent)]"> {block.tituloAccent}</span>

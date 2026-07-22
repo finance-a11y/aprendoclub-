@@ -129,12 +129,19 @@ a:focus-visible {
   50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.15; }
 }
 
+/*
+ * Segunda pasada de spacing (Fase 31/v1.7, LAY-02): entre dos secciones
+ * consecutivas el gap visual es padding-bottom + padding-top (el doble de
+ * este valor), así que el recorte de 4rem/6rem a 2.75rem/4rem baja el hueco
+ * entre secciones de 128px/192px a 88px/128px sin apretar el contenido
+ * dentro de cada sección.
+ */
 @utility section-spacing {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
   @media (min-width: 768px) {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 

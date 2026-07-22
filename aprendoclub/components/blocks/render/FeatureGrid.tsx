@@ -54,7 +54,7 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
     >
       <div className="flex max-w-[700px] flex-col items-center gap-4">
         {block.eyebrow && <Eyebrow>{block.eyebrow}</Eyebrow>}
-        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           {block.titulo}
         </h2>
         {block.subtitulo && (
@@ -73,11 +73,11 @@ export function FeatureGrid({ block }: { block: FeatureGridBlockType }) {
             return (
               <BlurFade key={item.id ?? index} delay={index * 0.08} isInView={isInView}>
               <div
-                className="group h-full flex flex-col gap-4 rounded-xl bg-white/[0.03] border border-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30 hover:-translate-y-1"
+                className="group h-full flex flex-col gap-4 rounded-xl bg-white/[0.03] border border-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30 hover:-translate-y-1.5 hover:scale-[1.01] hover:shadow-[var(--shadow-lg)]"
               >
                 {isImageMode ? (
                   media && media.url ? (
-                    <div className="h-12 w-12 rounded-xl bg-white/5 p-2">
+                    <div className="h-12 w-12 rounded-xl bg-white/5 p-2 transition-transform duration-300 group-hover:scale-110">
                       <Image
                         src={media.url}
                         alt={media.alt ?? item.titulo}

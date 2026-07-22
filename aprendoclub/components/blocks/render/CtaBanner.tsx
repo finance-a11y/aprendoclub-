@@ -26,7 +26,7 @@ export function CtaBanner({ block }: { block: CtaBannerBlockType }) {
       />
 
       <div className="relative z-10 flex flex-col items-center gap-8 max-w-3xl text-center">
-        <h2 className="text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           {block.titulo}
         </h2>
 

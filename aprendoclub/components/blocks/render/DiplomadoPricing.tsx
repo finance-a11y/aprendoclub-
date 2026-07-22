@@ -15,7 +15,7 @@ export function DiplomadoPricing({ block }: { block: DiplomadoPricingBlockType }
     <section id="pricing" className="scroll-mt-[72px] section-spacing">
       <div className="mx-auto max-w-6xl container-padding">
         <div className="text-center">
-          <h2 className="text-balance text-[1.75rem] font-semibold leading-[1.2] text-white md:text-4xl">
+          <h2 className="text-balance text-[1.75rem] font-bold leading-[1.2] text-white md:text-4xl">
             {block.titulo}
           </h2>
           {block.subtitulo && (

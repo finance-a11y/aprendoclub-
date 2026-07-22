@@ -18,7 +18,7 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
     <section className="flex w-full flex-col items-center gap-12 lg:gap-16 bg-[var(--bg-secondary)] container-padding section-spacing">
       <div className="flex max-w-[700px] flex-col items-center gap-4">
         {block.eyebrow && <Eyebrow className="tracking-[0.2em]">{block.eyebrow}</Eyebrow>}
-        <h2 className="text-center text-[1.75rem] md:text-4xl font-semibold leading-[1.2] text-white">
+        <h2 className="text-center text-[1.75rem] md:text-4xl font-bold leading-[1.2] text-white">
           {block.titulo}
         </h2>
         {block.subtitulo && (
