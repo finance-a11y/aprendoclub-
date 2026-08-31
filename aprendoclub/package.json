@@ -29,7 +29,7 @@
     "payload": "^3.85.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
