@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
 
 const nextConfig: NextConfig = {
+  // `sharp` es un addon nativo (linux-x64/libvips) — si Next lo bundlea con
+  // webpack/turbopack en vez de dejarlo como require() externo de Node, el
+  // binario nativo no viaja con la función serverless de Vercel y crashea
+  // en runtime (ERR_DLOPEN_FAILED: libvips-cpp.so). Excluirlo del bundle.
+  serverExternalPackages: ["sharp"],
   turbopack: {
     root: import.meta.dirname,
   },
