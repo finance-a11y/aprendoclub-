@@ -14,22 +14,22 @@ export const SEO_FALLBACKS: Record<string, { title: string; description: string 
   "quienes-somos": {
     title: "Quiénes somos | aprendoclub",
     description:
-      "Conoce la historia de aprendoclub, la primera academia de SEO e IA para el mundo hispano, y al equipo que forma especialistas con proyectos reales.",
+      "Conoce la historia de aprendoclub, la primera academia de SEO e IA para el mundo hispano, y al equipo que forma especialistas con proyectos prácticos.",
   },
   testimonios: {
     title: "Testimonios | aprendoclub",
     description:
-      "Historias reales de estudiantes de aprendoclub que empezaron desde cero y hoy posicionan sitios, consiguen clientes o trabajan remoto con el SEO.",
+      "Historias de estudiantes de aprendoclub que empezaron desde cero y hoy posicionan sitios, consiguen clientes o trabajan remoto con el SEO.",
   },
   programas: {
     title: "Programas | aprendoclub",
     description:
-      "Todos los programas de aprendoclub para especializarte en SEO e IA: diplomado, reto y talleres, con práctica real y acompañamiento.",
+      "Todos los programas de aprendoclub para especializarte en SEO e IA: diplomado, reto y talleres, con práctica guiada y acompañamiento.",
   },
   diplomado: {
     title: "Diplomado de cero a SEO | aprendoclub",
     description:
-      "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica real, coaching en vivo y certificación.",
+      "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
   },
   reto: {
     title: "Reto 7 días | aprendoclub",

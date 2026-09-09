@@ -31,6 +31,8 @@ import { HowItWorks } from './HowItWorks'
 import { DiplomadoTeam } from './DiplomadoTeam'
 import { DiplomadoBenefits } from './DiplomadoBenefits'
 import { DiplomadoPricing } from './DiplomadoPricing'
+import { AntesDespues } from './AntesDespues'
+import { ComparativaTabla } from './ComparativaTabla'
 import { BarraUrgencia } from './BarraUrgencia'
 import { RetoHero } from './RetoHero'
 import { RazonNoEscalas } from './RazonNoEscalas'
@@ -89,6 +91,8 @@ export const blockRenderers: Record<string, ComponentType<{ block: any }>> = {
   diplomadoTeam: DiplomadoTeam,
   diplomadoBenefits: DiplomadoBenefits,
   diplomadoPricing: DiplomadoPricing,
+  antesDespues: AntesDespues,
+  comparativaTabla: ComparativaTabla,
   diplomadoGaleria: DiplomadoGaleria,
   barraUrgencia: BarraUrgencia,
   retoHero: RetoHero,

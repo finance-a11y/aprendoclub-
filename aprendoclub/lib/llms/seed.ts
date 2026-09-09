@@ -11,7 +11,7 @@ aprendoclub (antes aprendoseo) es una academia en español enfocada en SEO y en 
 
 ## Programas
 
-- [Diplomado de cero a SEO](https://www.aprendoclub.com/diplomado): Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica real.
+- [Diplomado de cero a SEO](https://www.aprendoclub.com/diplomado): Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica guiada.
 - [Taller de SEO con IA](https://www.aprendoclub.com/programas/taller-seo-con-ia): Taller práctico para integrar inteligencia artificial en tu flujo de trabajo SEO.
 - [Reto 7 días](https://www.aprendoclub.com/reto): Reto gratuito de 7 días para dar tus primeros pasos en SEO.
 
@@ -50,7 +50,7 @@ Fundadora: Arianna Lupi. Redes: https://www.youtube.com/@aprendoclub, https://ti
 
 ### Diplomado de cero a SEO
 https://www.aprendoclub.com/diplomado
-Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica real.
+Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica guiada.
 
 ### Taller de SEO con IA
 https://www.aprendoclub.com/programas/taller-seo-con-ia
@@ -121,13 +121,13 @@ Los fundamentos del SEO explicados sin tecnicismos. Empieza por acá si quieres 
   Descubre qué son los motores de búsqueda, cómo funcionan y cuáles son los principales para mejorar la visibilidad de tu sitio web.
 - **¿Cómo conseguir buenos clientes si eres consultor SEO en 2026?**
   https://www.aprendoclub.com/seo-basico/como-conseguir-clientes-si-eres-consultor-seo
-  Aprende cómo conseguir buenos clientes SEO en 2026 de la mano expertos del sector con estrategias reales y probadas.
+  Aprende cómo conseguir buenos clientes SEO en 2026 de la mano expertos del sector con estrategias probadas.
 - **Títulos SEO y cómo optimizarlos para mejorar el posicionamiento**
   https://www.aprendoclub.com/seo-basico/titulo-seo
   Aprende cómo optimizar un título SEO paso a paso para mejorar tu CTR y posicionarte en Google.
 - **Estructura de una URL: definición, ejemplos y optimización SEO**
   https://www.aprendoclub.com/seo-basico/que-es-una-url
-  Aprende qué es una URL, cómo es su estructura y cómo optimizarla para SEO con ejemplos reales y prácticos.
+  Aprende qué es una URL, cómo es su estructura y cómo optimizarla para SEO con ejemplos prácticos.
 - **Qué es SEO: Todo lo que debes saber para ser el primero en Google**
   https://www.aprendoclub.com/seo-basico/que-es-seo
   Descubre qué es el SEO, por qué es clave para tu negocio y cómo empezar a posicionar tu web para atraer más visitas y clientes.
@@ -154,7 +154,7 @@ Los fundamentos del SEO explicados sin tecnicismos. Empieza por acá si quieres 
   Descubre qué son las palabras clave en SEO y aprende cómo encontrarlas para mejorar el posicionamiento y atraer tráfico a tu sitio web.
 - **¿Cómo aparecer en Google?**
   https://www.aprendoclub.com/seo-basico/como-aparecer-en-google
-  Aprende 9 técnicas SEO efectivas para aparecer en Google, aumentar la visibilidad de tu sitio con estrategias prácticas y resultados reales.
+  Aprende 9 técnicas SEO efectivas para aparecer en Google, aumentar la visibilidad de tu sitio con estrategias prácticas.
 - **Intención de búsqueda en SEO: ¿Qué es y como funciona?**
   https://www.aprendoclub.com/seo-basico/intencion-de-busqueda-en-seo-que-es-y-como-funciona
   Descubre cómo entender y aprovechar la intención de búsqueda en tu estrategia SEO.

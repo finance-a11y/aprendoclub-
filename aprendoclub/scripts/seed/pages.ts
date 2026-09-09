@@ -63,7 +63,7 @@ const hubHero = {
   eyebrow: 'PROGRAMAS',
   titulo: 'Elige el camino que va con tu momento',
   subtitulo:
-    'Desde un reto de 7 días hasta el diplomado completo. Todos con proyectos reales y acompañamiento de cerca.',
+    'Desde un reto de 7 días hasta el diplomado completo. Todos con proyectos prácticos y acompañamiento de cerca.',
 }
 
 const hubCtaFinal = {

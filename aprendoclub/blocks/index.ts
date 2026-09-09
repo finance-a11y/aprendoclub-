@@ -46,6 +46,8 @@ export { howItWorksFields, HowItWorksBlock } from './HowItWorks'
 export { diplomadoTeamFields, DiplomadoTeamBlock } from './DiplomadoTeam'
 export { diplomadoBenefitsFields, DiplomadoBenefitsBlock } from './DiplomadoBenefits'
 export { diplomadoPricingFields, DiplomadoPricingBlock } from './DiplomadoPricing'
+export { antesDespuesFields, AntesDespuesBlock } from './AntesDespues'
+export { comparativaTablaFields, ComparativaTablaBlock } from './ComparativaTabla'
 
 // Reto
 export { barraUrgenciaFields, BarraUrgenciaBlock } from './BarraUrgencia'
@@ -96,6 +98,8 @@ import { HowItWorksBlock } from './HowItWorks'
 import { DiplomadoTeamBlock } from './DiplomadoTeam'
 import { DiplomadoBenefitsBlock } from './DiplomadoBenefits'
 import { DiplomadoPricingBlock } from './DiplomadoPricing'
+import { AntesDespuesBlock } from './AntesDespues'
+import { ComparativaTablaBlock } from './ComparativaTabla'
 import { DiplomadoGaleriaBlock } from './DiplomadoGaleria'
 
 import { BarraUrgenciaBlock } from './BarraUrgencia'
@@ -150,6 +154,8 @@ export const allBlocks: Block[] = [
   DiplomadoBenefitsBlock,
   DiplomadoPricingBlock,
   DiplomadoGaleriaBlock,
+  AntesDespuesBlock,
+  ComparativaTablaBlock,
   // Bespoke: reto
   BarraUrgenciaBlock,
   RetoHeroBlock,

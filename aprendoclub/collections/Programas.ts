@@ -33,6 +33,12 @@ export const Programas: CollectionConfig = {
       index: true,
     },
     {
+      name: 'imagen',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Portada',
+    },
+    {
       name: 'badge',
       type: 'text',
       required: true,

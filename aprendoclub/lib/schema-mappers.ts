@@ -37,7 +37,7 @@ const COURSES: Record<string, Parameters<typeof course>[0]> = {
   diplomado: {
     name: "Diplomado de cero a SEO",
     description:
-      "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica real, coaching en vivo y certificación.",
+      "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
     path: "/diplomado",
     price: "700",
     courseWorkload: "P16W",

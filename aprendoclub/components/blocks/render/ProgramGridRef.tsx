@@ -1,6 +1,8 @@
+import Image from 'next/image'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { resolveMedia } from '@/lib/blocks/media'
 import type { Programa, ProgramGridRefBlock as ProgramGridRefBlockType } from '@/payload-types'
 
 /**
@@ -28,13 +30,28 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
 
       {items.length > 0 && (
         <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
-          {items.map((program) => (
+          {items.map((program) => {
+            const portada = resolveMedia(program.imagen)
+            return (
             <Card
               key={program.id}
               padding="compact"
               hover="liftAccent"
               className="group flex h-full flex-col gap-4"
             >
+              {portada && (
+                <div className="relative -mx-6 -mt-6 mb-2 aspect-video overflow-hidden rounded-t-xl">
+                  <Image
+                    src={portada.url}
+                    alt={portada.alt || program.nombre}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                    unoptimized
+                  />
+                </div>
+              )}
+
               <Eyebrow>{program.badge}</Eyebrow>
 
               <h3 className="text-lg font-semibold text-white">{program.nombre}</h3>
@@ -54,7 +71,8 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
                 {program.ctaLabel}
               </Button>
             </Card>
-          ))}
+            )
+          })}
         </div>
       )}
 

@@ -1,9 +1,26 @@
 import type { Block, Field } from 'payload'
 
 /**
- * Reusable stats strip: array of value/label items.
+ * Reusable stats strip: header opcional (eyebrow/titulo/subtitulo, todos
+ * opcionales para no romper instancias existentes sin header) + array de
+ * value/titulo/label.
  */
 export const statsFields: Field[] = [
+  {
+    name: 'eyebrow',
+    type: 'text',
+  },
+  {
+    name: 'headerTitulo',
+    type: 'text',
+    admin: {
+      description: 'Título de la sección (opcional, deja vacío si el bloque no lleva encabezado)',
+    },
+  },
+  {
+    name: 'subtitulo',
+    type: 'textarea',
+  },
   {
     name: 'items',
     type: 'array',
@@ -12,6 +29,13 @@ export const statsFields: Field[] = [
         name: 'value',
         type: 'text',
         required: true,
+      },
+      {
+        name: 'titulo',
+        type: 'text',
+        admin: {
+          description: 'Línea corta en negrita debajo del número (opcional)',
+        },
       },
       {
         name: 'label',

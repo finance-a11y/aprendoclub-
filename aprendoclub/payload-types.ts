@@ -248,6 +248,7 @@ export interface ClientesTrabajado {
 export interface Programa {
   id: number;
   slug: string;
+  imagen?: (number | null) | Media;
   badge: string;
   nombre: string;
   descripcion: string;
@@ -340,6 +341,8 @@ export interface Page {
     | DiplomadoBenefitsBlock
     | DiplomadoPricingBlock
     | DiplomadoGaleriaBlock
+    | AntesDespuesBlock
+    | ComparativaTablaBlock
     | BarraUrgenciaBlock
     | RetoHeroBlock
     | RazonNoEscalasBlock
@@ -505,9 +508,19 @@ export interface FeatureGridBlock {
  * via the `definition` "StatsBlock".
  */
 export interface StatsBlock {
+  eyebrow?: string | null;
+  /**
+   * Título de la sección (opcional, deja vacío si el bloque no lleva encabezado)
+   */
+  headerTitulo?: string | null;
+  subtitulo?: string | null;
   items?:
     | {
         value: string;
+        /**
+         * Línea corta en negrita debajo del número (opcional)
+         */
+        titulo?: string | null;
         label: string;
         id?: string | null;
       }[]
@@ -689,9 +702,19 @@ export interface InstructorBlock {
   bioCorta1: string;
   bioCorta2: string;
   stats?: {
+    eyebrow?: string | null;
+    /**
+     * Título de la sección (opcional, deja vacío si el bloque no lleva encabezado)
+     */
+    headerTitulo?: string | null;
+    subtitulo?: string | null;
     items?:
       | {
           value: string;
+          /**
+           * Línea corta en negrita debajo del número (opcional)
+           */
+          titulo?: string | null;
           label: string;
           id?: string | null;
         }[]
@@ -1039,6 +1062,53 @@ export interface DiplomadoGaleriaBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'diplomadoGaleria';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AntesDespuesBlock".
+ */
+export interface AntesDespuesBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  antesLabel?: string | null;
+  antes?:
+    | {
+        texto: string;
+        id?: string | null;
+      }[]
+    | null;
+  despuesLabel?: string | null;
+  despues?:
+    | {
+        texto: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'antesDespues';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ComparativaTablaBlock".
+ */
+export interface ComparativaTablaBlock {
+  eyebrow?: string | null;
+  titulo: string;
+  subtitulo?: string | null;
+  colOfrecenLabel?: string | null;
+  colFaltaLabel?: string | null;
+  filas?:
+    | {
+        nombre: string;
+        ofrecen: string;
+        falta: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'comparativaTabla';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1582,6 +1652,7 @@ export interface ClientesTrabajadosSelect<T extends boolean = true> {
  */
 export interface ProgramasSelect<T extends boolean = true> {
   slug?: T;
+  imagen?: T;
   badge?: T;
   nombre?: T;
   descripcion?: T;
@@ -1667,6 +1738,8 @@ export interface PagesSelect<T extends boolean = true> {
         diplomadoBenefits?: T | DiplomadoBenefitsBlockSelect<T>;
         diplomadoPricing?: T | DiplomadoPricingBlockSelect<T>;
         diplomadoGaleria?: T | DiplomadoGaleriaBlockSelect<T>;
+        antesDespues?: T | AntesDespuesBlockSelect<T>;
+        comparativaTabla?: T | ComparativaTablaBlockSelect<T>;
         barraUrgencia?: T | BarraUrgenciaBlockSelect<T>;
         retoHero?: T | RetoHeroBlockSelect<T>;
         razonNoEscalas?: T | RazonNoEscalasBlockSelect<T>;
@@ -1824,10 +1897,14 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
  * via the `definition` "StatsBlock_select".
  */
 export interface StatsBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  headerTitulo?: T;
+  subtitulo?: T;
   items?:
     | T
     | {
         value?: T;
+        titulo?: T;
         label?: T;
         id?: T;
       };
@@ -1986,10 +2063,14 @@ export interface InstructorBlockSelect<T extends boolean = true> {
   stats?:
     | T
     | {
+        eyebrow?: T;
+        headerTitulo?: T;
+        subtitulo?: T;
         items?:
           | T
           | {
               value?: T;
+              titulo?: T;
               label?: T;
               id?: T;
             };
@@ -2326,6 +2407,51 @@ export interface DiplomadoGaleriaBlockSelect<T extends boolean = true> {
   titulo?: T;
   texto?: T;
   imagenes?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AntesDespuesBlock_select".
+ */
+export interface AntesDespuesBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  antesLabel?: T;
+  antes?:
+    | T
+    | {
+        texto?: T;
+        id?: T;
+      };
+  despuesLabel?: T;
+  despues?:
+    | T
+    | {
+        texto?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ComparativaTablaBlock_select".
+ */
+export interface ComparativaTablaBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  titulo?: T;
+  subtitulo?: T;
+  colOfrecenLabel?: T;
+  colFaltaLabel?: T;
+  filas?:
+    | T
+    | {
+        nombre?: T;
+        ofrecen?: T;
+        falta?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
