@@ -56,8 +56,8 @@ const COURSES: Record<string, Parameters<typeof course>[0]> = {
     description:
       "Aprende a hacer que una marca o negocio aparezca en las búsquedas de Google, Gemini y ChatGPT.",
     path: "/programas/taller-seo-con-ia",
-    price: "49.99",
-    courseWorkload: "P15D",
+    price: "30",
+    courseWorkload: "P1D",
   },
 };
 

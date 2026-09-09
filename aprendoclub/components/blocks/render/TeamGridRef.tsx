@@ -46,7 +46,7 @@ export function TeamGridRef({ block }: { block: TeamGridRefBlockType }) {
                     unoptimized
                   />
                 ) : (
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-lg font-semibold text-white">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--primary)] text-lg font-semibold text-[var(--bg-primary)]">
                     {member.iniciales}
                   </div>
                 )}
