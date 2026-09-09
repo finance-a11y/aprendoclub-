@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt para auditar tu web: encuentra tus errores SEO | aprendoclub</title>
+<meta name="description" content="Prompt gratuito para auditar tu web con IA. Detecta errores técnicos, problemas de Core Web Vitals y fallos on-page, con un plan de acción priorizado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fondo:#131417;
+    --fondo-alt:#16181C;
+    --tarjeta:#1B1F27;
+    --chip:#0E0F12;
+    --lima:#C9F94A;
+    --lima-tenue:rgba(201,249,74,.14);
+    --texto:#FFFFFF;
+    --apagado:#9BA1A8;
+    --linea:rgba(255,255,255,.08);
+    --ancho:1180px;
+  }
+  *{box-sizing:border-box;}
+  [hidden]{display:none!important;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--fondo);
+    color:var(--texto);
+    font-family:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .contenedor{max-width:var(--ancho);margin:0 auto;padding:0 32px;}
+
+  .etiqueta{
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--lima);
+    margin:0 0 22px;
+  }
+  h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0;}
+  h1{font-size:clamp(2.6rem,6.2vw,4.6rem);}
+  h2{font-size:clamp(2rem,4.4vw,3.2rem);}
+  h3{font-size:1.3rem;letter-spacing:-.01em;line-height:1.25;}
+  .acento{color:var(--lima);}
+  p{margin:0 0 18px;}
+  .apagado{color:var(--apagado);}
+
+  /* Hero */
+  .hero{
+    text-align:center;
+    padding:120px 0 110px;
+    border-bottom:1px solid var(--linea);
+  }
+  .hero h1{max-width:16ch;margin:0 auto 34px;}
+  .hero .bajada{
+    font-size:clamp(1.05rem,2.1vw,1.35rem);
+    color:var(--apagado);
+    max-width:52ch;
+    margin:0 auto 22px;
+    font-weight:300;
+  }
+  .hero .nota{
+    font-size:1.05rem;
+    color:#6E747B;
+    font-weight:300;
+    margin:0;
+  }
+
+  section{padding:110px 0;}
+  .alterna{background:var(--fondo-alt);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);}
+  .encabezado{margin-bottom:56px;}
+  .encabezado h2{max-width:22ch;}
+
+  /* Rejilla de tarjetas */
+  .rejilla{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+  }
+  .tarjeta{
+    background:var(--tarjeta);
+    border:1px solid var(--linea);
+    border-radius:20px;
+    padding:36px 32px;
+  }
+  .numero{
+    display:block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.9rem;
+    font-weight:700;
+    color:var(--lima);
+    margin-bottom:22px;
+  }
+  .tarjeta h3{margin-bottom:14px;}
+  .tarjeta p{color:var(--apagado);font-size:1rem;margin:0;}
+
+  /* Tarjeta destacada con glow */
+  .destacada{
+    background:var(--tarjeta);
+    border:1px solid var(--lima);
+    border-radius:26px;
+    padding:48px 44px;
+    box-shadow:0 0 60px rgba(201,249,74,.14);
+  }
+  .destacada h3{font-size:1.7rem;margin-bottom:26px;}
+  .titulo-oferta{
+    font-size:clamp(1.7rem,2.6vw,2.15rem);
+    line-height:1.14;
+    margin-bottom:30px;
+  }
+
+  .dos-columnas{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .marca-check{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:var(--lima-tenue);
+    color:var(--lima);
+    display:grid;place-items:center;
+    font-size:1.5rem;font-weight:700;
+    margin-bottom:26px;
+  }
+
+  .chip{
+    background:var(--chip);
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:12px;
+    padding:16px 22px;
+    margin-bottom:14px;
+    font-size:1rem;
+  }
+  .chip b{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;
+    color:var(--lima);
+    margin-right:10px;
+  }
+  .chip span{color:var(--apagado);}
+
+  /* Botones */
+  .boton{
+    display:inline-block;
+    background:var(--lima);
+    color:#111;
+    font-family:inherit;
+    font-size:1.05rem;
+    font-weight:800;
+    text-decoration:none;
+    padding:20px 44px;
+    border:none;
+    border-radius:100px;
+    cursor:pointer;
+    transition:filter .18s ease,transform .18s ease;
+  }
+  .boton:hover{filter:brightness(1.08);transform:translateY(-2px);}
+  .boton.ancho{display:block;width:100%;text-align:center;}
+  .boton.fantasma{
+    background:transparent;
+    color:var(--lima);
+    border:1px solid var(--lima);
+    font-size:.95rem;
+    padding:13px 28px;
+  }
+  .boton.fantasma.listo{background:var(--lima);color:#111;}
+
+  /* Prompt */
+  .barra-prompt{
+    display:flex;flex-wrap:wrap;gap:18px;
+    align-items:center;justify-content:space-between;
+    margin-bottom:32px;
+  }
+  .barra-prompt h2{margin:0;}
+  .prompt{
+    background:var(--tarjeta);
+    border:1px solid var(--linea);
+    border-radius:20px;
+    padding:44px 42px;
+    font-size:.97rem;
+  }
+  .prompt h4{
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--lima);
+    margin:40px 0 16px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--linea);
+  }
+  .prompt h4:first-child{margin-top:0;}
+  .prompt h5{font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--texto);}
+  .prompt p{color:var(--apagado);}
+  .prompt ul,.prompt ol{color:var(--apagado);margin:0 0 16px;padding-left:22px;}
+  .prompt li{margin-bottom:7px;}
+  .prompt strong{color:var(--texto);font-weight:600;}
+  .prompt code{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.85em;
+    background:var(--chip);
+    color:var(--lima);
+    padding:3px 8px;
+    border-radius:6px;
+    word-break:break-word;
+  }
+  .aviso-dominio{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    background:rgba(201,249,74,.07);
+    border:1px solid rgba(201,249,74,.32);
+    border-radius:16px;
+    padding:24px 28px;
+    margin:32px 0 0;
+    max-width:64ch;
+  }
+  .aviso-dominio .icono{
+    flex:0 0 auto;
+    font-size:1.15rem;
+    line-height:1.5;
+  }
+  .aviso-dominio p{margin:0;color:var(--apagado);font-size:1rem;}
+  .aviso-dominio strong{color:var(--texto);font-weight:700;}
+
+  .variable{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.85em;
+    font-weight:700;
+    color:#111;
+    background:var(--lima);
+    padding:3px 9px;
+    border-radius:6px;
+    word-break:break-word;
+  }
+  .campo-dominio{
+    background:var(--chip);
+    border:1px dashed rgba(201,249,74,.5);
+    border-radius:12px;
+    padding:18px 22px;
+    margin:0 0 28px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.92rem;
+    color:var(--apagado);
+  }
+
+  /* Barra fija de captura */
+  .barra-fija{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(19,20,23,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--linea);
+    padding:14px 0;
+  }
+  .barra-fija .contenedor{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  .barra-fija .marca{
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--lima);
+  }
+  .barra-fija .mensaje{color:var(--apagado);font-size:.95rem;}
+  .barra-fija .boton{padding:12px 26px;font-size:.92rem;}
+
+  /* Bloqueo */
+  .zona-bloqueada{position:relative;}
+  .vista-previa{
+    max-height:340px;
+    overflow:hidden;
+    filter:blur(5px);
+    opacity:.4;
+    user-select:none;
+    pointer-events:none;
+    -webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 30%,transparent 100%);
+  }
+  .candado{
+    background:var(--tarjeta);
+    border:1px solid var(--lima);
+    border-radius:26px;
+    padding:48px 44px;
+    box-shadow:0 0 60px rgba(201,249,74,.14);
+    margin-top:-120px;
+    position:relative;
+    z-index:2;
+  }
+  .candado .icono-candado{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:var(--lima-tenue);
+    display:grid;place-items:center;
+    font-size:1.4rem;
+    margin-bottom:26px;
+  }
+  .candado h3{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.14;margin-bottom:18px;}
+  .candado .apagado{max-width:52ch;}
+  .caja-form{
+    background:var(--chip);
+    border:1px solid var(--linea);
+    border-radius:18px;
+    padding:30px 28px;
+  }
+  .caja-form h4{font-size:1.05rem;font-weight:700;margin:0 0 8px;}
+  .caja-form .letra-chica{font-size:.85rem;color:#6E747B;margin:16px 0 0;}
+  /* Ajustes al formulario embebido */
+  .caja-form .etiqueta-campo{
+    display:block;
+    font-size:.82rem;
+    font-weight:700;
+    color:var(--apagado);
+    margin:0 0 8px 4px;
+  }
+  .caja-form #kajabi-envio{display:none;width:0;height:0;border:0;}
+  .caja-form .error-form{
+    margin:12px 0 0;
+    font-size:.88rem;
+    font-weight:600;
+    color:#FF8A80;
+  }
+  .caja-form input[type="email"],
+  .caja-form input[type="text"]{
+    width:100%;
+    background:#FFFFFF;
+    border:1px solid #FFFFFF;
+    border-radius:100px;
+    color:#111;
+    font-family:inherit;
+    font-size:1rem;
+    padding:16px 24px;
+  }
+  .caja-form input[type="email"]:focus,
+  .caja-form input[type="text"]:focus{
+    outline:none;
+    border-color:var(--lima);
+    box-shadow:0 0 0 3px rgba(201,249,74,.35);
+  }
+  .caja-form input::placeholder{color:#8A9099;}
+  .caja-form button,
+  .caja-form input[type="submit"]{
+    width:100%;
+    background:var(--lima);
+    color:#111;
+    font-family:inherit;
+    font-size:1rem;
+    font-weight:800;
+    border:none;
+    border-radius:100px;
+    padding:17px 32px;
+    cursor:pointer;
+  }
+  .caja-form form > *{margin-bottom:12px;}
+  .caja-form form input{margin-bottom:18px;}
+  .caja-form form .etiqueta-campo{margin-bottom:8px;}
+
+  .alerta{
+    background:rgba(201,249,74,.06);
+    border:1px solid rgba(201,249,74,.28);
+    border-radius:16px;
+    padding:28px 30px;
+    margin:36px 0 16px;
+  }
+  .alerta h4{margin-top:0;border-bottom:none;padding-bottom:0;}
+
+  /* Cierre */
+  .cierre-texto{max-width:60ch;color:var(--apagado);font-size:1.1rem;font-weight:300;margin-bottom:46px;}
+  .beneficios{list-style:none;margin:0 0 36px;padding:0;}
+  .beneficios li{
+    display:flex;gap:14px;align-items:flex-start;
+    color:var(--apagado);
+    padding:11px 0;
+  }
+  .beneficios li::before{content:'✓';color:var(--lima);font-weight:700;flex:0 0 auto;}
+  .url-directa{
+    display:block;text-align:center;
+    margin-top:18px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.82rem;color:#6E747B;
+    word-break:break-all;
+  }
+
+  footer{
+    border-top:1px solid var(--linea);
+    text-align:center;
+    padding:38px 24px;
+    color:#6E747B;
+    font-size:.92rem;
+  }
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lima);outline-offset:4px;}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}html{scroll-behavior:auto;}}
+  @media (max-width:860px){
+    .dos-columnas{grid-template-columns:1fr;gap:40px;}
+  }
+  @media (max-width:600px){
+    .contenedor{padding:0 20px;}
+    .hero{padding:80px 0 70px;}
+    section{padding:72px 0;}
+    .tarjeta,.prompt{padding:28px 22px;}
+    .destacada{padding:32px 24px;}
+    .boton{width:100%;text-align:center;padding:19px 24px;}
+    .boton.fantasma{width:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="barra-fija" id="barra-fija">
+  <div class="contenedor">
+    <span class="marca">SEO Lab</span>
+    <span class="mensaje">Déjame tu correo y te doy acceso al prompt completo</span>
+    <a class="boton" href="#candado">Ver mi recurso gratuito</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="contenedor">
+    <p class="etiqueta">SEO Lab</p>
+    <h1>Prompt para auditar <span class="acento">tu web</span></h1>
+    <p class="bajada">Identifica los problemas de SEO que frenan tu sitio y mejora tu posicionamiento orgánico.</p>
+    <p class="nota">Solo necesitas tu herramienta de IA y diez minutos.</p>
+  </div>
+</header>
+
+<section class="alterna" id="seccion-acceso">
+  <div class="contenedor">
+    <div class="encabezado">
+      <p class="etiqueta">Acceso</p>
+      <h2>Déjame tu correo y desbloqueas el prompt</h2>
+    </div>
+
+    <div class="zona-bloqueada" id="zona-bloqueada">
+      <div class="vista-previa" aria-hidden="true">
+        <article class="prompt">
+          <p style="color:#fff;">You are an expert in search engine optimization. Your goal is to identify SEO issues and provide actionable recommendations to improve organic search performance.</p>
+          <h4>Before auditing, ask me</h4>
+          <ol>
+            <li>What type of site? (SaaS, e-commerce, blog, etc.)</li>
+            <li>What's the primary business goal for SEO?</li>
+            <li>Any known issues or recent changes/migrations?</li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="candado" id="candado">
+        <div class="dos-columnas">
+          <div>
+            <div class="icono-candado" aria-hidden="true">🔒</div>
+            <h3>Déjame tu correo y recibe tus recursos</h3>
+            <p class="apagado">Se desbloquea aquí mismo, sin salir de la página.</p>
+            <ul class="beneficios">
+              <li>El prompt de auditoría completo, listo para copiar</li>
+              <li>Recibes los próximos recursos del SEO Lab antes que nadie</li>
+            </ul>
+          </div>
+          <div>
+            <div class="caja-form" id="caja-form">
+              <h4>Acceso inmediato</h4>
+              <p class="apagado" style="font-size:.95rem;">Rellena el formulario y el prompt se abre aquí mismo.</p>
+
+              <form id="form-acceso" method="POST"
+                    action="https://academia.aprendoclub.com/forms/2149717291/form_submissions"
+                    target="kajabi-envio" novalidate>
+                <label class="etiqueta-campo" for="campo-nombre">Nombre</label>
+                <input id="campo-nombre" type="text" name="form_submission[name]"
+                       placeholder="Tu nombre" autocomplete="given-name" required>
+
+                <label class="etiqueta-campo" for="campo-correo">Correo</label>
+                <input id="campo-correo" type="email" name="form_submission[email]"
+                       placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+
+                <button type="submit">Quiero el prompt →</button>
+                <p class="error-form" id="error-form" role="alert" hidden>Escribe tu nombre y un correo válido para continuar.</p>
+              </form>
+              <iframe name="kajabi-envio" id="kajabi-envio" title="Envío del formulario" hidden></iframe>
+
+              <p class="letra-chica">Sin spam. Puedes darte de baja cuando quieras.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="contenedor">
+    <div class="encabezado">
+      <p class="etiqueta">Qué vas a lograr</p>
+      <h2>Cinco respuestas que hoy no tienes sobre tu sitio</h2>
+    </div>
+    <div class="rejilla">
+      <article class="tarjeta">
+        <span class="numero">01</span>
+        <h3>Errores técnicos</h3>
+        <p>Detecta lo que impide que Google rastree e indexe tu sitio correctamente.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="numero">02</span>
+        <h3>Velocidad y Core Web Vitals</h3>
+        <p>Identifica los problemas de carga y experiencia que afectan tu posicionamiento.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="numero">03</span>
+        <h3>Optimización on-page</h3>
+        <p>Evalúa tus títulos, metadescripciones y estructura de encabezados.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="numero">04</span>
+        <h3>Calidad de contenido</h3>
+        <p>Analiza tu contenido bajo los criterios E-E-A-T de Google.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="numero">05</span>
+        <h3>Plan de acción priorizado</h3>
+        <p>Termina con fixes críticos, mejoras de alto impacto y quick wins ordenados.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="alterna" id="seccion-prompt" hidden>
+  <div class="contenedor">
+    <div class="encabezado">
+      <p class="etiqueta">Cómo se usa</p>
+      <h2>Copia el prompt y pégalo en tu herramienta de IA</h2>
+      <p class="apagado" style="max-width:56ch;margin-top:20px;font-weight:300;">Funciona en Claude, ChatGPT o la que uses. Antes de auditar te hará siete preguntas sobre tu sitio: respóndelas y el análisis sale ajustado a tu caso, no genérico.</p>
+
+    </div>
+
+    <div id="contenido">
+      <div class="aviso-dominio">
+        <span class="icono" aria-hidden="true">⚠️</span>
+        <p><strong>Antes de pegarlo, cambia el dominio.</strong> Donde veas <span class="variable">TU-DOMINIO.COM</span> tienes que escribir la dirección real de la web que vas a auditar, por ejemplo <span class="variable">aprendoclub.com</span>. Aparece en dos lugares del prompt, los dos resaltados en verde. Si no lo cambias, la IA va a auditar un sitio que no es el tuyo.</p>
+      </div>
+
+      <div class="barra-prompt">
+      <h2 style="font-size:1.5rem;">Prompt completo</h2>
+      <button class="boton fantasma" id="copiar" type="button">Copiar prompt</button>
+    </div>
+
+    <article class="prompt" id="texto-prompt">
+      <p class="campo-dominio">Site to audit: <span class="variable">TU-DOMINIO.COM</span></p>
+
+      <p style="color:#fff;">You are an expert in search engine optimization. Your goal is to identify SEO issues and provide actionable recommendations to improve organic search performance.</p>
+
+      <h4>Before auditing, ask me</h4>
+      <ol>
+        <li>What type of site? (SaaS, e-commerce, blog, etc.)</li>
+        <li>What's the primary business goal for SEO?</li>
+        <li>Any known issues or recent changes/migrations?</li>
+        <li>Current organic traffic level?</li>
+        <li>Full site audit or specific pages?</li>
+        <li>Access to Search Console / analytics?</li>
+        <li>Who are the top organic competitors?</li>
+      </ol>
+
+      <h4>Audit framework — priority order</h4>
+      <ol>
+        <li>Crawlability &amp; Indexation</li>
+        <li>Technical Foundations</li>
+        <li>On-Page Optimization</li>
+        <li>Content Quality</li>
+        <li>Authority &amp; Links</li>
+      </ol>
+
+      <h4>Technical SEO — check</h4>
+      <h5>Crawlability</h5>
+      <ul>
+        <li>robots.txt: unintentional blocks, sitemap reference</li>
+        <li>XML Sitemap: exists, accessible, only canonical/indexable URLs, properly formatted</li>
+        <li>Site Architecture: important pages within 3 clicks, no orphan pages, logical internal linking</li>
+      </ul>
+      <h5>Indexation</h5>
+      <ul>
+        <li><code>site:</code><span class="variable">TU-DOMINIO.COM</span> check</li>
+        <li>Noindex tags on important pages</li>
+        <li>Canonicals pointing wrong direction</li>
+        <li>Redirect chains/loops, soft 404s, duplicate content</li>
+      </ul>
+      <h5>Canonicalization</h5>
+      <ul>
+        <li>Self-referencing canonicals, HTTP &gt; HTTPS, www vs non-www, trailing slash consistency</li>
+      </ul>
+      <h5>Speed &amp; Core Web Vitals</h5>
+      <ul>
+        <li>LCP &lt; 2.5s, INP &lt; 200ms, CLS &lt; 0.1</li>
+        <li>TTFB, image optimization, JS execution, caching, CDN, font loading</li>
+      </ul>
+      <h5>Mobile &amp; Security</h5>
+      <ul>
+        <li>Responsive design, tap targets, viewport, same content as desktop</li>
+        <li>HTTPS sitewide, valid SSL, no mixed content, HTTP &gt; HTTPS redirects</li>
+      </ul>
+      <h5>URL Structure</h5>
+      <ul>
+        <li>Readable, descriptive, keywords where natural, lowercase + hyphens, no unnecessary params</li>
+      </ul>
+
+      <h4>On-page SEO — check</h4>
+      <ul>
+        <li><strong>Title Tags:</strong> unique, primary keyword near beginning, 50-60 chars, compelling</li>
+        <li><strong>Meta Descriptions:</strong> unique, 150-160 chars, includes keyword, clear CTA</li>
+        <li><strong>Heading Structure:</strong> one H1/page, H1 has primary keyword, logical hierarchy (H1 &gt; H2 &gt; H3)</li>
+        <li><strong>Content:</strong> keyword in first 100 words, satisfies search intent, sufficient depth, better than competitors</li>
+        <li><strong>Images:</strong> descriptive filenames, alt text, compressed, WebP format, lazy loading</li>
+        <li><strong>Internal Linking:</strong> important pages well-linked, descriptive anchor text, no broken links, no orphan pages</li>
+        <li><strong>Keyword Targeting:</strong> clear primary keyword per page, no cannibalization, logical topical clusters</li>
+      </ul>
+
+      <h4>Content quality — check</h4>
+      <h5>E-E-A-T Signals</h5>
+      <ul>
+        <li><strong>Experience:</strong> first-hand experience, original insights, real examples</li>
+        <li><strong>Expertise:</strong> author credentials, accurate/detailed info</li>
+        <li><strong>Authoritativeness:</strong> recognized in space, cited by others</li>
+        <li><strong>Trustworthiness:</strong> accurate info, contact info visible, privacy policy, HTTPS</li>
+      </ul>
+      <h5>Content Depth</h5>
+      <ul>
+        <li>Comprehensive, answers follow-up questions, updated and current</li>
+      </ul>
+
+      <div class="alerta">
+        <h4>Important — schema markup</h4>
+        <p>web_fetch and curl CANNOT reliably detect structured data. Many CMS plugins inject JSON-LD via JavaScript — it won't appear in static HTML.</p>
+        <p>To check schema, use:</p>
+        <ul>
+          <li>Google Rich Results Test: <code>https://search.google.com/test/rich-results</code></li>
+          <li>Browser console: <code>document.querySelectorAll('script[type="application/ld+json"]')</code></li>
+        </ul>
+        <p style="margin:0;">Never report "no schema found" based solely on web_fetch or curl.</p>
+      </div>
+
+      <h4>Output format</h4>
+      <p><strong>Executive Summary:</strong> overall health score, top 3-5 priority issues, quick wins identified.</p>
+      <p><strong>Findings (Technical / On-Page / Content)</strong> — for each issue:</p>
+      <ul>
+        <li>Issue: what's wrong | Impact: High/Medium/Low | Evidence: how you found it</li>
+        <li>Fix: specific recommendation | Priority: High/Medium/Low</li>
+      </ul>
+      <p><strong>Prioritized Action Plan:</strong></p>
+      <ol>
+        <li>Critical fixes (blocking indexation/ranking)</li>
+        <li>High-impact improvements</li>
+      </ol>
+    </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="contenedor">
+    <div class="encabezado">
+      <p class="etiqueta">El siguiente nivel</p>
+      <h2>¿Quieres aprender a hacer esto desde 0?</h2>
+    </div>
+    <p class="cierre-texto">En aprendoclub aprendes a hacer este ejercicio desde cero, con la guía de especialistas en SEO que ya trabajan con clientes. Un prompt te da un diagnóstico. Saber leerlo y arreglarlo es lo que te convierte en especialista.</p>
+
+    <div class="destacada">
+      <div class="dos-columnas">
+        <div>
+          <h3 class="titulo-oferta">Conviértete en Especialista SEO, <span class="acento">el rol mejor pagado del marketing</span></h3>
+          <ul class="beneficios">
+            <li>Aprendes a interpretar una auditoría y priorizar qué arreglar primero</li>
+            <li>Trabajas sobre tu propio sitio o el de un cliente real</li>
+            <li>Te acompañan especialistas que hacen SEO todos los días</li>
+            <li>Sales con un servicio concreto que puedes cobrar</li>
+          </ul>
+        </div>
+        <div>
+          <div class="marca-check">✓</div>
+          <h3 style="font-size:1.4rem;">Asesoría gratuita</h3>
+          <p class="apagado">Agenda una llamada y vemos en qué punto estás y cuál es tu siguiente paso. Sin costo y sin compromiso.</p>
+          <a class="boton ancho" href="https://crm.aprendoclub.com/agendar">Agenda tu asesoría gratuita →</a>
+          <span class="url-directa">crm.aprendoclub.com/agendar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 aprendoclub · Hecho con 💚 para la comunidad SEO</footer>
+
+<script>
+/* ---- Desbloqueo del prompt tras rellenar el formulario ---- */
+(function () {
+  var LLAVE = 'aprendoclub_acceso_prompt_auditoria';
+  var zona = document.getElementById('seccion-acceso');
+  var contenido = document.getElementById('seccion-prompt');
+  var barra = document.getElementById('barra-fija');
+  var formulario = document.getElementById('form-acceso');
+  var error = document.getElementById('error-form');
+  var abierto = false;
+
+  function recordar() { try { localStorage.setItem(LLAVE, '1'); } catch (e) {} }
+  function yaEntro() { try { return localStorage.getItem(LLAVE) === '1'; } catch (e) { return false; } }
+
+  function desbloquear(irAlContenido) {
+    if (abierto) return;
+    abierto = true;
+    recordar();
+    zona.hidden = true;
+    contenido.hidden = false;
+    if (barra) barra.hidden = true;
+    if (irAlContenido) contenido.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Ya rellenó el formulario antes, o llega con ?acceso=ok
+  if (yaEntro() || new URLSearchParams(location.search).get('acceso') === 'ok') {
+    desbloquear(false);
+    return;
+  }
+
+  if (!formulario) return;
+
+  formulario.addEventListener('submit', function (e) {
+    var nombre = document.getElementById('campo-nombre').value.trim();
+    var correo = document.getElementById('campo-correo').value.trim();
+    var correoValido = /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(correo);
+
+    // Sin datos válidos no se envía ni se desbloquea
+    if (!nombre || !correoValido) {
+      e.preventDefault();
+      error.hidden = false;
+      (nombre ? document.getElementById('campo-correo') : document.getElementById('campo-nombre')).focus();
+      return;
+    }
+
+    // El POST viaja al iframe oculto, así que la página no se recarga
+    error.hidden = true;
+    var boton = formulario.querySelector('button');
+    boton.disabled = true;
+    boton.textContent = 'Un momento…';
+    setTimeout(function () { desbloquear(true); }, 900);
+  });
+})();
+</script>
+
+<script>
+  document.getElementById('copiar').addEventListener('click', async function () {
+    const texto = document.getElementById('texto-prompt').innerText.trim();
+    const boton = this;
+    try {
+      await navigator.clipboard.writeText(texto);
+    } catch (e) {
+      const area = document.createElement('textarea');
+      area.value = texto;
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand('copy');
+      area.remove();
+    }
+    boton.textContent = 'Prompt copiado ✓';
+    boton.classList.add('listo');
+    setTimeout(function () {
+      boton.textContent = 'Copiar prompt';
+      boton.classList.remove('listo');
+    }, 2500);
+  });
+</script>
+
+</body>
+</html>
