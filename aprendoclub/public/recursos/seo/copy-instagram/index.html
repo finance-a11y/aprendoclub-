@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="4 prompts para que tu carrusel de Instagram aparezca en búsquedas. Mapeo de intenciones, copy de slides, caption y auditoría. Gratis.">
+  <title>Guía de Prompts: Carrusel con SEO | aprendoclub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0a0a0a;
+      --surface: #141414;
+      --border:  rgba(255,255,255,0.08);
+      --green:   #c8f135;
+      --green-dim: rgba(200,241,53,0.12);
+      --white:   #ffffff;
+      --muted:   rgba(255,255,255,0.45);
+      --faint:   rgba(255,255,255,0.06);
+      --radius:  16px;
+      --max:     720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── GATE ──────────────────────────────────────────────────────────────── */
+    #gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 20px;
+    }
+
+    #gate-card {
+      background: #fff;
+      color: #111;
+      border-radius: 20px;
+      padding: 44px 40px 36px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+
+    .gate-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      background: var(--green);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+
+    #gate-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0a0a0a;
+      margin-bottom: 8px;
+    }
+
+    #gate-card > p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+
+    .nf-field { margin-bottom: 12px; }
+
+    .nf-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    .nf-field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #111;
+      background: #fff;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .nf-field input:focus { border-color: #0a0a0a; }
+
+    .nf-btn {
+      width: 100%;
+      padding: 14px;
+      background: #0a0a0a;
+      color: var(--green);
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 4px;
+      transition: opacity .15s;
+    }
+    .nf-btn:hover { opacity: .85; }
+    .nf-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+    #gate-error {
+      display: none;
+      color: #dc2626;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .gate-fine {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #9CA3AF;
+      text-align: center;
+    }
+
+    /* ── PAGE ──────────────────────────────────────────────────────────────── */
+    #page-content {
+      filter: blur(5px);
+      pointer-events: none;
+      user-select: none;
+      transition: filter .4s ease;
+    }
+    #page-content.unlocked {
+      filter: none;
+      pointer-events: auto;
+      user-select: auto;
+    }
+
+    /* ── NAV ───────────────────────────────────────────────────────────────── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--green); }
+
+    .nav-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      background: var(--green);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────────────────── */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 32px 64px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--green); }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .hero-fine {
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── RULE ──────────────────────────────────────────────────────────────── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 32px;
+      max-width: calc(var(--max) - 0px);
+    }
+    .hr-full {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── SECTION ───────────────────────────────────────────────────────────── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+
+    /* ── PROMPT CARDS ──────────────────────────────────────────────────────── */
+    .prompt-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .prompt-card {
+      background: var(--faint);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .prompt-top {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 28px 28px 0;
+    }
+
+    .p-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green);
+      background: var(--green-dim);
+      border: 1px solid rgba(200,241,53,0.25);
+      border-radius: 6px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .p-meta h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .p-why {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .prompt-bottom { padding: 20px 28px 28px; }
+
+    .p-box {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .p-box-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .p-box pre {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.75);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .p-box pre .ph {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color .15s, color .15s;
+    }
+    .copy-btn:hover, .copy-btn.copied {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .tip {
+      display: flex;
+      gap: 10px;
+      background: var(--green-dim);
+      border: 1px solid rgba(200,241,53,0.18);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 12px;
+    }
+
+    .tip p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.55;
+    }
+    .tip p strong { color: var(--green); font-weight: 600; }
+
+    /* ── RULES ─────────────────────────────────────────────────────────────── */
+    .rules-wrap {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .rule {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .rule.yes { background: rgba(200,241,53,0.06); color: rgba(255,255,255,0.8); }
+    .rule.no  { background: rgba(255,80,80,0.05);  color: rgba(255,255,255,0.55); }
+
+    /* ── SIGUIENTE NIVEL ───────────────────────────────────────────────────── */
+    .nivel-section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    .nivel-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .nivel-section > h2 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+    }
+
+    .nivel-desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .nivel-card {
+      background: var(--faint);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 16px;
+    }
+
+    .nivel-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .nivel-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .nivel-card ul li {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    .nivel-card ul li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%230a0a0a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2 6 5 9 10 3'/%3E%3C/svg%3E");
+      background-size: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .asesoria-card {
+      background: var(--faint);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .asesoria-check {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%230a0a0a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 10 8 14 16 6'/%3E%3C/svg%3E");
+      background-size: 16px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .asesoria-text h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .asesoria-text p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .asesoria-btn {
+      display: inline-block;
+      background: var(--green);
+      color: #0a0a0a;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity .15s;
+    }
+    .asesoria-btn:hover { opacity: .85; }
+
+    /* ── FOOTER ────────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+    footer a { color: rgba(255,255,255,0.3); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero, .section, .nivel-section { padding-left: 20px; padding-right: 20px; }
+      .prompt-top { padding: 20px 20px 0; }
+      .prompt-bottom { padding: 16px 20px 20px; }
+      .rules-grid { grid-template-columns: 1fr; }
+      #gate-card { padding: 32px 24px 28px; }
+      .asesoria-card { flex-direction: column; align-items: flex-start; }
+      .asesoria-btn { width: 100%; text-align: center; }
+      hr { margin: 0 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── GATE ──────────────────────────────────────────────────────────────────── -->
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div id="gate-card">
+    <span class="gate-eyebrow">SEO Lab</span>
+    <h2 id="gate-title">Deja tu correo y accede a los prompts</h2>
+    <p>4 prompts para que tu carrusel aparezca en búsquedas de Instagram y Google. Se desbloquea aquí mismo, sin salir de la página.</p>
+    <form id="gate-form" onsubmit="handleGateSubmit(event)" novalidate>
+      <div class="nf-field">
+        <label for="nf-name">Nombre</label>
+        <input type="text" id="nf-name" placeholder="Tu nombre" required autocomplete="name">
+      </div>
+      <div class="nf-field">
+        <label for="nf-email">Correo</label>
+        <input type="email" id="nf-email" placeholder="tu@correo.com" required autocomplete="email">
+      </div>
+      <p id="gate-error"></p>
+      <button type="submit" class="nf-btn" id="gate-submit">Ver mis prompts →</button>
+    </form>
+    <p class="gate-fine">Sin spam. Puedes darte de baja cuando quieras.</p>
+  </div>
+</div>
+
+<!-- ── PAGE ──────────────────────────────────────────────────────────────────── -->
+<div id="page-content">
+
+  <nav>
+    <a href="https://www.aprendoclub.com" class="nav-logo">aprendo<span>club</span></a>
+    <span class="nav-pill">SEO Lab</span>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-label">Instagram SEO Update</span>
+    <h1>Haz que tu carrusel<br>aparezca en <span>búsquedas</span></h1>
+    <p class="hero-desc">4 prompts para mapear intenciones, escribir el copy de tus slides, el caption y auditar todo antes de publicar.</p>
+    <p class="hero-fine">Solo necesitas Claude y las ganas de dejar de publicar sin estrategia.</p>
+  </div>
+
+  <div class="hr-full"></div>
+
+  <!-- PROMPTS -->
+  <div class="section">
+    <p class="section-label">Los 4 prompts</p>
+    <h2><span style="color:#c8f135;">Antes de empezar</span></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:14px;max-width:580px;">Instagram ahora permite múltiples captions dentro del mismo carrusel. Eso significa que cada slide puede posicionar en una búsqueda distinta. Pero no se trata de llenar todo de keywords — se trata de darle a Instagram contexto real sobre lo que estás publicando.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:40px;max-width:580px;">Estos 4 prompts cubren el proceso completo: desde mapear tu audiencia hasta el caption de cada slide y la auditoría antes de publicar.</p>
+
+    <div class="prompt-list">
+
+      <!-- 01 -->
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-num">01</span>
+          <div class="p-meta">
+            <h3>Mapea las intenciones de búsqueda</h3>
+            <p class="p-why">Antes de escribir una sola palabra, define qué busca tu audiencia en cada slide. Este prompt te da el mapa completo del carrusel.</p>
+          </div>
+        </div>
+        <div class="prompt-bottom">
+          <div class="p-box">
+            <p class="p-box-label">Prompt</p>
+            <pre id="p1">Actúa como experto en SEO para redes sociales.
+
+Mi carrusel habla de: <span class="ph">[TEMA DEL CARRUSEL]</span>
+Mi audiencia ideal: <span class="ph">[A QUIÉN LE HABLAS]</span>
+Número de slides: <span class="ph">[N]</span>
+
+Con esa información:
+1. Define una intención de búsqueda diferente para cada slide.
+   Cada una debe ser una frase real que alguien escribiría en Instagram o Google.
+2. Ordénalas de la más general (slide 1) a la más específica (último slide).
+3. Asegúrate de que ninguna intención se repita entre slides.
+
+Entrega el resultado en tabla:
+Slide | Intención de búsqueda | Keyword principal</pre>
+          </div>
+          <button class="copy-btn" onclick="copyPrompt('p1',this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copiar prompt
+          </button>
+          <div class="tip">
+            <span>💡</span>
+            <p><strong>Por qué primero:</strong> Si no mapeas antes, terminas escribiendo el mismo tema con otras palabras. Cada slide necesita territorio propio para que Instagram no los compita entre sí.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-num">02</span>
+          <div class="p-meta">
+            <h3>Escribe el copy de los slides</h3>
+            <p class="p-why">El texto de cada slide es lo que Instagram lee para entender tu contenido. Tiene que describir lo que se ve, con la intención de búsqueda de ese slide.</p>
+          </div>
+        </div>
+        <div class="prompt-bottom">
+          <div class="p-box">
+            <p class="p-box-label">Prompt</p>
+            <pre id="p2">Actúa como estratega de contenido con experiencia en SEO para Instagram.
+
+Tengo un carrusel sobre: <span class="ph">[TEMA]</span>
+Aquí está la tabla de intenciones que generamos:
+<span class="ph">[PEGA LA TABLA DEL PROMPT 01]</span>
+
+Para cada slide escribe:
+- Título o frase principal (máx. 8 palabras, incluye la keyword del slide)
+- Subtítulo o copy de apoyo (1-2 líneas que desarrollen la idea)
+- CTA del slide (solo para el último: acción específica, no "desliza para más")
+
+Tono: directo, sin relleno, para personas reales.
+No repitas keywords entre slides.
+
+Formato de entrega:
+SLIDE 1
+Título: ...
+Copy: ...
+
+SLIDE 2
+Título: ...
+Copy: ...
+[continúa hasta el último slide]</pre>
+          </div>
+          <button class="copy-btn" onclick="copyPrompt('p2',this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copiar prompt
+          </button>
+          <div class="tip">
+            <span>💡</span>
+            <p><strong>La regla más importante:</strong> Describe lo que se VE en el slide, no lo que quieres que piensen. Instagram usa ese texto para entender el contenido visual.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-num">03</span>
+          <div class="p-meta">
+            <h3>Escribe el caption de cada slide</h3>
+            <p class="p-why">Esta es la feature nueva. Cada slide tiene su propio caption independiente. Aquí es donde le dices a Instagram de qué trata específicamente ese slide — con su propia intención de búsqueda.</p>
+          </div>
+        </div>
+        <div class="prompt-bottom">
+          <div class="p-box">
+            <p class="p-box-label">Prompt</p>
+            <pre id="p3">Actúa como experto en SEO para Instagram.
+
+Tengo un carrusel sobre: <span class="ph">[TEMA]</span>
+Aquí está la tabla de intenciones y el copy de cada slide:
+<span class="ph">[PEGA LA TABLA DEL PROMPT 01 Y EL COPY DEL PROMPT 02]</span>
+
+Ahora escribe el caption individual de cada slide usando la feature
+de múltiples captions de Instagram.
+
+Para cada slide:
+- 1 oración que describa exactamente lo que se ve en ese slide
+- Incluye la keyword asignada de forma natural, no forzada
+- Máximo 125 caracteres por caption
+- Cada caption debe sonar diferente al anterior
+- No repitas keywords entre slides
+
+Formato de entrega:
+Caption slide 1: ...
+Caption slide 2: ...
+Caption slide 3: ...
+[continúa hasta el último slide]</pre>
+          </div>
+          <button class="copy-btn" onclick="copyPrompt('p3',this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copiar prompt
+          </button>
+          <div class="tip">
+            <span>💡</span>
+            <p><strong>Cómo activarlo:</strong> Crea el carrusel → toca el área del caption → activa "Múltiples captions". Cada slide tendrá su propio campo de texto. Este prompt te da exactamente lo que va en cada uno.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-num">04</span>
+          <div class="p-meta">
+            <h3>Audita todo antes de publicar</h3>
+            <p class="p-why">Una revisión de 2 minutos puede duplicar el alcance orgánico. Este prompt detecta keywords repetidas, copy vacío y CTAs genéricos.</p>
+          </div>
+        </div>
+        <div class="prompt-bottom">
+          <div class="p-box">
+            <p class="p-box-label">Prompt</p>
+            <pre id="p4">Actúa como auditor de SEO para Instagram.
+
+Aquí está el contenido completo de mi carrusel sobre <span class="ph">[TEMA]</span>:
+
+CAPTION DEL POST:
+<span class="ph">[PEGA EL CAPTION]</span>
+
+COPY DE SLIDES:
+<span class="ph">[PEGA TODOS LOS SLIDES]</span>
+
+Revísalo y dime:
+1. ¿La keyword principal aparece en las primeras palabras del caption?
+2. ¿Alguna keyword se repite entre slides? Si sí, sugiere reemplazo.
+3. ¿Algún slide tiene copy que no describe lo que se ve visualmente?
+4. ¿Las intenciones de búsqueda son variadas o todas apuntan al mismo tema?
+5. ¿El último slide tiene un CTA específico (no genérico)?
+6. ¿El caption suena natural o parece escrito para el algoritmo?
+
+Entrega: puntuación del 1 al 10 + lista de correcciones prioritarias.</pre>
+          </div>
+          <button class="copy-btn" onclick="copyPrompt('p4',this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copiar prompt
+          </button>
+          <div class="tip">
+            <span>💡</span>
+            <p><strong>Antes de publicar:</strong> Si el copy del slide repite lo que ya se lee en la imagen, está de más. El texto tiene que añadir contexto, no duplicar lo visual.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hr-full rules-wrap">
+    <div class="section">
+      <p class="section-label">Para no arruinarlo</p>
+      <h2>Reglas rápidas</h2>
+      <div class="rules-grid">
+        <div class="rule yes"><span>✅</span>Keyword principal en las primeras palabras del caption.</div>
+        <div class="rule yes"><span>✅</span>Cada slide tiene una intención de búsqueda distinta.</div>
+        <div class="rule yes"><span>✅</span>El copy del slide describe lo que se VE.</div>
+        <div class="rule yes"><span>✅</span>El último slide siempre tiene CTA específico.</div>
+        <div class="rule no"><span>❌</span>No repitas la misma keyword en más de un slide.</div>
+        <div class="rule no"><span>❌</span>No copies el texto visual del slide en su caption.</div>
+        <div class="rule no"><span>❌</span>No termines con "desliza para más".</div>
+        <div class="rule no"><span>❌</span>No publiques sin pasar por el Prompt 04.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGUIENTE NIVEL -->
+  <div class="nivel-section">
+    <p class="nivel-label">El siguiente nivel</p>
+    <h2>¿Quieres aprender a hacer esto desde 0?</h2>
+    <p class="nivel-desc">En aprendoclub aprendes a hacer este ejercicio desde cero, con la guía de especialistas en SEO que ya trabajan con clientes. Un prompt te da un resultado. Saber por qué funciona es lo que te convierte en especialista.</p>
+
+    <div class="nivel-card">
+      <h3>Conviértete en Especialista SEO,<br>el rol mejor pagado del marketing</h3>
+      <ul>
+        <li>Aprendes a interpretar una auditoría y priorizar qué arreglar primero</li>
+        <li>Trabajas sobre tu propio sitio o el de un cliente real</li>
+        <li>Te acompañan especialistas que hacen SEO todos los días</li>
+        <li>Sales con un servicio concreto que puedes cobrar</li>
+      </ul>
+    </div>
+
+    <div class="asesoria-card">
+      <div class="asesoria-check"></div>
+      <div class="asesoria-text">
+        <h3>Asesoría gratuita</h3>
+        <p>Agenda una llamada y vemos en qué punto estás y cuál es tu siguiente paso. Sin costo y sin compromiso.</p>
+      </div>
+      <a href="https://crm.aprendoclub.com/agendar" class="asesoria-btn">Agenda tu asesoría gratuita →</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 aprendoclub · Hecho con 💚 para la comunidad SEO · <a href="https://www.aprendoclub.com">aprendoclub.com</a></p>
+  </footer>
+
+</div><!-- /page-content -->
+
+<script>
+  async function handleGateSubmit(e) {
+    e.preventDefault();
+    const name  = document.getElementById('nf-name').value.trim();
+    const email = document.getElementById('nf-email').value.trim();
+    const btn   = document.getElementById('gate-submit');
+    const err   = document.getElementById('gate-error');
+
+    err.style.display = 'none';
+    if (!name || !email || !email.includes('@')) {
+      err.textContent = 'Por favor completa todos los campos con un correo válido.';
+      err.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    const body = new URLSearchParams({
+      'authenticity_token': 'pVTmqsGJ89VWJOgwtUaD-IXPX4qFDoZqWRPyekoOidYCAPRtZ2m_sKTrsSrhYzSvTWGcZOSA-AmweM9_aOgodg',
+      'form_submission[name]': name,
+      'form_submission[email]': email
+    });
+
+    try {
+      await fetch('https://academia.aprendoclub.com/forms/2149717291/form_submissions', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString()
+      });
+    } catch(_) {}
+
+    unlockPage();
+  }
+
+  function unlockPage() {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('page-content').classList.add('unlocked');
+  }
+
+  function copyPrompt(id, btn) {
+    const pre  = document.getElementById(id);
+    const text = pre.innerText || pre.textContent;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Copiado';
+      setTimeout(function() {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar prompt';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
