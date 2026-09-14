@@ -16,12 +16,9 @@
   --green: #22c55e; --green-soft: rgba(34,197,94,0.1);
   --amber: #f59e0b; --amber-soft: rgba(245,158,11,0.1);
   --red: #ef4444; --red-soft: rgba(239,68,68,0.1);
-  --ig: #e1306c; --tk: #ff2d55; --fb: #1877f2; --fb-soft: rgba(24,119,242,0.1);
-  --radius: 10px;
+  --ig: #e1306c; --tk: #ff2d55; --fb: #1877f2; --radius: 10px;
 }
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; min-height: 100vh; }
-
-/* HEADER */
 .header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(13,13,15,0.94); backdrop-filter: blur(14px); z-index: 100; flex-wrap: wrap; gap: 12px; }
 .logo { font-family: 'DM Serif Display', serif; font-size: 20px; letter-spacing: -0.3px; }
 .logo span { color: var(--accent); }
@@ -34,32 +31,22 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .refresh-btn svg { width: 14px; height: 14px; }
 .refresh-btn.loading svg { animation: spin .7s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* CONTROLS BAR */
 .controls-bar { display: flex; align-items: center; gap: 16px; padding: 12px 32px; border-bottom: 1px solid var(--border); background: var(--surface); flex-wrap: wrap; }
 .ctrl-group { display: flex; align-items: center; gap: 8px; }
 .ctrl-label { font-size: 11px; color: var(--muted); white-space: nowrap; }
 select { font-size: 12px; padding: 5px 10px; border-radius: var(--radius); border: 1px solid var(--border-strong); background: var(--surface2); color: var(--text); cursor: pointer; font-family: 'Inter', sans-serif; outline: none; }
 select:focus { border-color: var(--accent); }
-
-/* TABS */
 .tabs { display: flex; gap: 2px; padding: 0 32px; border-bottom: 1px solid var(--border); }
 .tab { display: flex; align-items: center; gap: 7px; padding: 11px 18px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--muted); border: none; background: none; border-bottom: 2px solid transparent; font-family: 'Inter', sans-serif; transition: color .15s; }
 .tab:hover { color: var(--text); }
 .tab.on { color: var(--text); border-bottom-color: var(--accent); }
 .tab-dot { width: 7px; height: 7px; border-radius: 50%; }
-
-/* CONTENT */
 .content { padding: 24px 32px; }
 .panel { display: none; }
 .panel.on { display: block; }
-
-/* LOADING / ERROR */
 .loading-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0; gap: 14px; color: var(--muted); }
 .spinner { width: 28px; height: 28px; border: 2px solid var(--border-strong); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; }
 .error-box { background: var(--red-soft); border: 1px solid rgba(239,68,68,0.25); border-radius: var(--radius); padding: 16px 20px; color: #f87171; font-size: 13px; margin-bottom: 16px; }
-
-/* KPI ROW */
 .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
 .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
 .kpi-label { font-size: 10px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
@@ -69,25 +56,15 @@ select:focus { border-color: var(--accent); }
 .bg { background: var(--green-soft); color: var(--green); }
 .ba { background: var(--amber-soft); color: var(--amber); }
 .br { background: var(--red-soft); color: var(--red); }
-
-/* GRID */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 @media (max-width: 800px) { .g2 { grid-template-columns: 1fr; } .controls-bar, .tabs, .content, .header { padding-left: 16px; padding-right: 16px; } }
-
-/* CARD */
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 14px; }
 .card-title { font-size: 10px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
-
-/* CHART */
 .chart-wrap { position: relative; width: 100%; }
-
-/* METRIC TOGGLE */
 .metric-toggle { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
 .mtog { font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border-strong); background: transparent; color: var(--muted); cursor: pointer; font-family: 'Inter', sans-serif; transition: all .15s; }
 .mtog.on { background: var(--accent-soft); color: var(--accent); border-color: rgba(79,110,247,0.3); }
 .mtog-label { font-size: 11px; color: var(--muted); padding-top: 2px; }
-
-/* TABLE */
 .top-table { width: 100%; border-collapse: collapse; }
 .top-table th { font-size: 10px; font-weight: 500; color: var(--faint); text-transform: uppercase; letter-spacing: .05em; padding: 0 10px 10px 0; text-align: left; border-bottom: 1px solid var(--border); }
 .top-table th:last-child, .top-table td:last-child { text-align: right; padding-right: 0; }
@@ -105,8 +82,6 @@ select:focus { border-color: var(--accent); }
 .ml { font-size: 10px; color: var(--muted); }
 .mv-ig { color: var(--ig); }
 .mv-tk { color: var(--tk); }
-
-/* CAMPAIGN TREE */
 .camp-hdr { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 11px 0; border-bottom: 1px solid var(--border); gap: 12px; }
 .camp-hdr:last-of-type { border-bottom: none; }
 .camp-name { font-size: 12px; font-weight: 500; color: var(--text); flex: 1; min-width: 0; }
@@ -126,8 +101,6 @@ select:focus { border-color: var(--accent); }
 .am { text-align: right; }
 .amv { font-size: 11px; font-weight: 500; }
 .aml { font-size: 9px; color: var(--muted); }
-
-/* STORY NOTE */
 .story-note { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); border-radius: var(--radius); padding: 12px 16px; font-size: 12px; color: var(--amber); margin-bottom: 16px; line-height: 1.6; }
 </style>
 </head>
@@ -152,7 +125,7 @@ select:focus { border-color: var(--accent); }
 <div class="controls-bar">
   <div class="ctrl-group">
     <span class="ctrl-label">Período</span>
-    <select id="dateRange" onchange="applyRange()">
+    <select id="dateRange" onchange="loadAll()">
       <option value="last_7_days">Últimos 7 días</option>
       <option value="last_30_days" selected>Últimos 30 días</option>
       <option value="last_90_days">Últimos 90 días</option>
@@ -171,7 +144,7 @@ select:focus { border-color: var(--accent); }
     </select>
   </div>
   <div class="ctrl-group">
-    <span class="ctrl-label">Ordenar campañas Meta por</span>
+    <span class="ctrl-label">Ordenar campañas por</span>
     <select id="metaSort" onchange="renderMeta()">
       <option value="spend" selected>Gasto</option>
       <option value="impressions">Impresiones</option>
@@ -190,41 +163,24 @@ select:focus { border-color: var(--accent); }
 </div>
 
 <div class="content">
-
-  <!-- INSTAGRAM -->
-  <div class="panel on" id="panel-ig">
-    <div id="ig-content"><div class="loading-state"><div class="spinner"></div><span>Cargando Instagram…</span></div></div>
-  </div>
-
-  <!-- HISTORIAS -->
-  <div class="panel" id="panel-stories">
-    <div id="stories-content"><div class="loading-state"><div class="spinner"></div><span>Cargando historias…</span></div></div>
-  </div>
-
-  <!-- TIKTOK -->
-  <div class="panel" id="panel-tiktok">
-    <div id="tiktok-content"><div class="loading-state"><div class="spinner"></div><span>Cargando TikTok…</span></div></div>
-  </div>
-
-  <!-- META -->
-  <div class="panel" id="panel-meta">
-    <div id="meta-content"><div class="loading-state"><div class="spinner"></div><span>Cargando Facebook Ads…</span></div></div>
-  </div>
-
+  <div class="panel on" id="panel-ig"><div id="ig-content"><div class="loading-state"><div class="spinner"></div><span>Cargando Instagram…</span></div></div></div>
+  <div class="panel" id="panel-stories"><div id="stories-content"><div class="loading-state"><div class="spinner"></div><span>Cargando historias…</span></div></div></div>
+  <div class="panel" id="panel-tiktok"><div id="tiktok-content"><div class="loading-state"><div class="spinner"></div><span>Cargando TikTok…</span></div></div></div>
+  <div class="panel" id="panel-meta"><div id="meta-content"><div class="loading-state"><div class="spinner"></div><span>Cargando Facebook Ads…</span></div></div></div>
 </div>
 
 <script>
 /* ============================================================
-   CONFIG — reemplaza la API key si la regeneras en Supermetrics
+   CONFIG
    ============================================================ */
-const API_KEY   = 'api_UsxJBaBGEISWK_pLgEHgB4QUzsrybtuSxD5Cg0H_XoDIVjISqKamUfQnSUfwi_BQSO1RZtk1FBbPvnRxaYJM_l1hyDVGXILaa2U2';
-const API_URL   = 'https://api.supermetrics.com/enterprise/v2/query/data/json';
-const IG_ACCT   = '17841410807682520';
-const TK_ACCT   = 'aprendoclub';
-const FA_ACCTS  = ['act_839697654991752', 'act_1133973718725026'];
+const API_KEY  = 'api_UsxJBaBGEISWK_pLgEHgB4QUzsrybtuSxD5Cg0H_XoDIVjISqKamUfQnSUfwi_BQSO1RZtk1FBbPvnRxaYJM_l1hyDVGXILaa2U2';
+const API_URL  = '/api/sm';   // <- proxy local de Vercel, sin CORS
+const IG_ACCT  = '17841410807682520';
+const TK_ACCT  = 'aprendoclub';
+const FA_ACCTS = ['act_839697654991752', 'act_1133973718725026'];
 
 /* ============================================================
-   ESTADO GLOBAL
+   ESTADO
    ============================================================ */
 let igDaily = [], igPosts = [], tkVideos = [], metaRows = [];
 let igChart = null, storiesChart = null;
@@ -244,13 +200,11 @@ function fmt(n) {
   return Math.round(v).toLocaleString('es');
 }
 function fmtPct(n) { return n ? (parseFloat(n) * 100).toFixed(1) + '%' : '—'; }
-function fmtMoney(n) { return n ? '$' + parseFloat(n).toFixed(2) : '—'; }
 function sum(arr, key) { return arr.reduce((s, r) => s + (parseFloat(r[key]) || 0), 0); }
-
 function destroyChart(c) { if (c) { try { c.destroy(); } catch(e) {} } return null; }
 
 /* ============================================================
-   API HELPERS
+   API
    ============================================================ */
 async function smPost(body) {
   const res = await fetch(API_URL, {
@@ -266,25 +220,20 @@ async function smPost(body) {
 }
 
 async function pollAsync(sid, tries = 0) {
-  if (tries > 20) throw new Error('Timeout esperando datos de Supermetrics');
+  if (tries > 20) throw new Error('Timeout esperando Supermetrics');
   await new Promise(r => setTimeout(r, 2000));
   const res = await fetch(`${API_URL}?api_key=${API_KEY}&schedule_id=${sid}`);
   const json = await res.json();
   if (json.data) return parseRows(json.data);
-  if (json.status === 'running' || json.status === 'pending' || json.status === 'queued')
-    return await pollAsync(sid, tries + 1);
-  throw new Error(json.error || 'Error en query async');
+  if (['running','pending','queued'].includes(json.status)) return await pollAsync(sid, tries + 1);
+  throw new Error(json.error || 'Error async');
 }
 
 function parseRows(raw) {
   if (!raw || raw.length < 2) return [];
   const [headers, ...rows] = raw;
   if (headers[0] === 'No data found') return [];
-  return rows.map(row => {
-    const obj = {};
-    headers.forEach((h, i) => obj[h] = row[i]);
-    return obj;
-  });
+  return rows.map(row => { const o = {}; headers.forEach((h, i) => o[h] = row[i]); return o; });
 }
 
 function dateRange() { return document.getElementById('dateRange').value; }
@@ -305,26 +254,24 @@ async function loadInstagram() {
         fields: 'timestamp,media_type,media_caption,media_permalink,media_reach,media_like_count,media_comments_count,media_saved,media_shares,interactions',
         settings: { report_type: 'AccountMedia' }, max_rows: 50 })
     ]);
-
-    const validDaily = igDaily.filter(d => d['Profile reach'] && parseFloat(d['Profile reach']) > 0);
-    const totalReach    = sum(validDaily, 'Profile reach');
-    const totalEngaged  = sum(validDaily, 'Accounts engaged');
-    const totalNewFoll  = sum(validDaily.filter(d => d['New followers']), 'New followers');
-    const totalViews    = sum(validDaily, 'Profile views');
-    const totalReposts  = sum(validDaily, 'Profile reposts');
-    const totalReplies  = sum(validDaily, 'Profile replies');
-    const curFollowers  = (igDaily.find(d => d['Profile followers']) || {})['Profile followers'];
+    const valid       = igDaily.filter(d => d['Profile reach'] && parseFloat(d['Profile reach']) > 0);
+    const totalReach  = sum(valid, 'Profile reach');
+    const totalEng    = sum(valid, 'Accounts engaged');
+    const totalFoll   = sum(igDaily.filter(d => d['New followers']), 'New followers');
+    const totalViews  = sum(valid, 'Profile views');
+    const totalRep    = sum(valid, 'Profile reposts');
+    const totalRpl    = sum(valid, 'Profile replies');
+    const curFoll     = (igDaily.find(d => d['Profile followers']) || {})['Profile followers'];
 
     el.innerHTML = `
       <div class="kpis">
-        <div class="kpi"><div class="kpi-label">Seguidores</div><div class="kpi-value">${fmt(curFollowers)}</div><span class="badge bg">+${fmt(totalNewFoll)} este período</span></div>
+        <div class="kpi"><div class="kpi-label">Seguidores</div><div class="kpi-value">${fmt(curFoll)}</div><span class="badge bg">+${fmt(totalFoll)} este período</span></div>
         <div class="kpi"><div class="kpi-label">Alcance total</div><div class="kpi-value">${fmt(totalReach)}</div><div class="kpi-sub">período seleccionado</div></div>
         <div class="kpi"><div class="kpi-label">Vistas de perfil</div><div class="kpi-value">${fmt(totalViews)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Cuentas engaged</div><div class="kpi-value">${fmt(totalEngaged)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Reposts</div><div class="kpi-value">${fmt(totalReposts)}</div><div class="kpi-sub">de tu contenido</div></div>
-        <div class="kpi"><div class="kpi-label">Replies</div><div class="kpi-value">${fmt(totalReplies)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Cuentas engaged</div><div class="kpi-value">${fmt(totalEng)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Reposts</div><div class="kpi-value">${fmt(totalRep)}</div><div class="kpi-sub">de tu contenido</div></div>
+        <div class="kpi"><div class="kpi-label">Replies</div><div class="kpi-value">${fmt(totalRpl)}</div><div class="kpi-sub">período seleccionado</div></div>
       </div>
-
       <div class="metric-toggle">
         <span class="mtog-label">Ver en gráfica:</span>
         <button class="mtog on" onclick="toggleLine('reach',this)">Alcance</button>
@@ -332,29 +279,22 @@ async function loadInstagram() {
         <button class="mtog" onclick="toggleLine('views',this)">Vistas perfil</button>
         <button class="mtog" onclick="toggleLine('reposts',this)">Reposts</button>
       </div>
-
       <div class="g2">
         <div class="card"><div class="card-title">Tendencia diaria</div>
-          <div class="chart-wrap" style="height:190px">
-            <canvas id="ig-chart" role="img" aria-label="Tendencia diaria Instagram">Alcance y engagement diario en Instagram.</canvas>
-          </div>
+          <div class="chart-wrap" style="height:190px"><canvas id="ig-chart" role="img" aria-label="Tendencia diaria Instagram"></canvas></div>
         </div>
         <div class="card"><div class="card-title">Nuevos seguidores diarios</div>
-          <div class="chart-wrap" style="height:190px">
-            <canvas id="ig-foll-chart" role="img" aria-label="Nuevos seguidores diarios">Nuevos seguidores cada día.</canvas>
-          </div>
+          <div class="chart-wrap" style="height:190px"><canvas id="ig-foll-chart" role="img" aria-label="Nuevos seguidores diarios"></canvas></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-title" id="ig-posts-title">Top posts por interacciones</div>
         <div id="ig-posts-list"></div>
       </div>`;
 
-    buildIGChart(validDaily);
-    buildFollChart(validDaily);
+    buildIGChart(valid);
+    buildFollChart(valid);
     renderIGPosts();
-
   } catch(e) {
     el.innerHTML = `<div class="error-box">Error cargando Instagram: ${e.message}</div>`;
   }
@@ -365,19 +305,16 @@ function buildIGChart(daily) {
   const labels = daily.map(d => (d['Date'] || '').slice(5));
   const t = '#44444d', g = 'rgba(255,255,255,0.04)';
   const sets = [];
-  if (activeLines.reach)   sets.push({ label: 'Alcance',      data: daily.map(d => parseFloat(d['Profile reach']) || 0),      borderColor: '#2a78d6', backgroundColor: 'rgba(42,120,214,0.07)', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: true });
-  if (activeLines.engaged) sets.push({ label: 'Engaged',      data: daily.map(d => parseFloat(d['Accounts engaged']) || 0),  borderColor: '#1baf7a', backgroundColor: 'rgba(27,175,122,0.07)', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false });
-  if (activeLines.views)   sets.push({ label: 'Vistas perfil',data: daily.map(d => parseFloat(d['Profile views']) || 0),     borderColor: '#eda100', backgroundColor: 'rgba(237,161,0,0.07)',   borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false });
-  if (activeLines.reposts) sets.push({ label: 'Reposts',      data: daily.map(d => parseFloat(d['Profile reposts']) || 0),   borderColor: '#e87ba4', backgroundColor: 'rgba(232,123,164,0.07)', borderWidth: 1.5, pointRadius: 0, tension: 0.4, fill: false });
+  if (activeLines.reach)   sets.push({ label:'Alcance',       data: daily.map(d => parseFloat(d['Profile reach']) || 0),      borderColor:'#2a78d6', backgroundColor:'rgba(42,120,214,0.07)', borderWidth:2, pointRadius:0, tension:0.4, fill:true });
+  if (activeLines.engaged) sets.push({ label:'Engaged',       data: daily.map(d => parseFloat(d['Accounts engaged']) || 0),  borderColor:'#1baf7a', backgroundColor:'rgba(27,175,122,0.07)', borderWidth:2, pointRadius:0, tension:0.4, fill:false });
+  if (activeLines.views)   sets.push({ label:'Vistas perfil', data: daily.map(d => parseFloat(d['Profile views']) || 0),     borderColor:'#eda100', backgroundColor:'rgba(237,161,0,0.07)',   borderWidth:2, pointRadius:0, tension:0.4, fill:false });
+  if (activeLines.reposts) sets.push({ label:'Reposts',       data: daily.map(d => parseFloat(d['Profile reposts']) || 0),   borderColor:'#e87ba4', backgroundColor:'rgba(232,123,164,0.07)', borderWidth:1.5, pointRadius:0, tension:0.4, fill:false });
   igChart = new Chart(document.getElementById('ig-chart'), {
     type: 'line', data: { labels, datasets: sets },
-    options: { responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: { legend: { display: sets.length > 1, labels: { color: t, font: { size: 10 }, boxWidth: 10, padding: 10 } } },
-      scales: {
-        x: { ticks: { color: t, font: { size: 10 }, maxTicksLimit: 8 }, grid: { color: g } },
-        y: { ticks: { color: t, font: { size: 10 }, callback: v => fmt(v) }, grid: { color: g } }
-      }
+    options: { responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{ legend:{ display: sets.length > 1, labels:{ color:t, font:{size:10}, boxWidth:10, padding:10 } } },
+      scales:{ x:{ ticks:{color:t,font:{size:10},maxTicksLimit:8}, grid:{color:g} }, y:{ ticks:{color:t,font:{size:10},callback:v=>fmt(v)}, grid:{color:g} } }
     }
   });
 }
@@ -386,14 +323,10 @@ function buildFollChart(daily) {
   const labels = daily.map(d => (d['Date'] || '').slice(5));
   const t = '#44444d', g = 'rgba(255,255,255,0.04)';
   new Chart(document.getElementById('ig-foll-chart'), {
-    type: 'bar',
-    data: { labels, datasets: [{ data: daily.map(d => parseFloat(d['New followers']) || 0), backgroundColor: 'rgba(34,197,94,0.45)', borderColor: '#22c55e', borderWidth: 1, borderRadius: 3 }] },
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: t, font: { size: 10 }, maxTicksLimit: 8 }, grid: { color: g } },
-        y: { ticks: { color: t, font: { size: 10 } }, grid: { color: g } }
-      }
+    type:'bar',
+    data:{ labels, datasets:[{ data: daily.map(d => parseFloat(d['New followers']) || 0), backgroundColor:'rgba(34,197,94,0.45)', borderColor:'#22c55e', borderWidth:1, borderRadius:3 }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{ x:{ticks:{color:t,font:{size:10},maxTicksLimit:8},grid:{color:g}}, y:{ticks:{color:t,font:{size:10}},grid:{color:g}} }
     }
   });
 }
@@ -406,13 +339,13 @@ function toggleLine(key, btn) {
 
 function renderIGPosts() {
   const m   = document.getElementById('mainMetric').value;
-  const lbl = { interactions: 'Interacciones', saves: 'Saves', reach: 'Alcance', comments: 'Comentarios', shares: 'Shares' }[m];
-  const keyMap = { interactions: 'Interactions', saves: 'Unique saves', reach: 'Media reach', comments: 'Comments count', shares: 'Shares' };
+  const lbl = { interactions:'Interacciones', saves:'Saves', reach:'Alcance', comments:'Comentarios', shares:'Shares' }[m];
+  const key = { interactions:'Interactions', saves:'Unique saves', reach:'Media reach', comments:'Comments count', shares:'Shares' }[m];
   const titleEl = document.getElementById('ig-posts-title');
   const listEl  = document.getElementById('ig-posts-list');
   if (!titleEl || !listEl) return;
   titleEl.textContent = `Top posts por ${lbl}`;
-  const sorted = [...igPosts].filter(p => p[keyMap[m]]).sort((a, b) => parseFloat(b[keyMap[m]]) - parseFloat(a[keyMap[m]])).slice(0, 12);
+  const sorted = [...igPosts].filter(p => p[key]).sort((a,b) => parseFloat(b[key]) - parseFloat(a[key])).slice(0, 12);
   listEl.innerHTML = `<table class="top-table">
     <thead><tr>
       <th style="width:16px"></th><th>Contenido</th>
@@ -422,7 +355,7 @@ function renderIGPosts() {
       <th style="text-align:right">Saves</th>
       <th style="text-align:right">Coments</th>
     </tr></thead>
-    <tbody>${sorted.map((p, i) => {
+    <tbody>${sorted.map((p,i) => {
       const isVideo    = p['Media type'] === 'VIDEO';
       const isCarousel = p['Media type'] === 'CAROUSEL_ALBUM';
       const typeLabel  = isVideo ? 'Reel' : isCarousel ? 'Carrusel' : 'Imagen';
@@ -430,18 +363,17 @@ function renderIGPosts() {
       const cap        = (p['Media caption'] || '').substring(0, 90) + ((p['Media caption'] || '').length > 90 ? '…' : '');
       const link       = p['Media permalink'] ? `<a class="post-link" href="${p['Media permalink']}" target="_blank">Ver post →</a>` : '';
       return `<tr>
-        <td class="rk">${i + 1}</td>
+        <td class="rk">${i+1}</td>
         <td><div class="post-cap">${cap || '(sin caption)'}</div>
           <div class="post-sub"><span class="pill ${typeClass}">${typeLabel}</span>${link}</div>
         </td>
-        <td><div class="mv mv-ig" style="text-align:right">${fmt(p[keyMap[m]])}</div></td>
+        <td><div class="mv mv-ig" style="text-align:right">${fmt(p[key])}</div></td>
         <td><div class="mv" style="text-align:right">${fmt(p['Media reach'])}</div></td>
         <td><div class="mv" style="text-align:right">${fmt(p['Like count'])}</div></td>
         <td><div class="mv" style="text-align:right">${fmt(p['Unique saves'])}</div></td>
         <td><div class="mv" style="text-align:right">${fmt(p['Comments count'])}</div></td>
       </tr>`;
-    }).join('')}</tbody>
-  </table>`;
+    }).join('')}</tbody></table>`;
 }
 
 /* ============================================================
@@ -454,52 +386,41 @@ async function loadStories() {
   el.innerHTML = '<div class="loading-state"><div class="spinner"></div><span>Cargando…</span></div>';
   try {
     const daily = igDaily.length ? igDaily : await smPost({
-      ds_id: 'IGI', ds_accounts: IG_ACCT, date_range_type: dateRange(),
-      fields: 'date,profile_replies,profile_reposts,reach,accounts_engaged',
-      settings: { report_type: 'AccountInsightsDaily' }
+      ds_id:'IGI', ds_accounts:IG_ACCT, date_range_type:dateRange(),
+      fields:'date,profile_replies,profile_reposts,reach,accounts_engaged',
+      settings:{ report_type:'AccountInsightsDaily' }
     });
     const valid = daily.filter(d => d['Date']);
-    const totalReplies  = sum(valid, 'Profile replies');
-    const totalReposts  = sum(valid, 'Profile reposts');
-    const peakReply     = valid.reduce((mx, d) => parseFloat(d['Profile replies']) > parseFloat(mx['Profile replies'] || 0) ? d : mx, valid[0] || {});
-    const peakRepost    = valid.reduce((mx, d) => parseFloat(d['Profile reposts']) > parseFloat(mx['Profile reposts'] || 0) ? d : mx, valid[0] || {});
-
+    const totalRpl  = sum(valid, 'Profile replies');
+    const totalRep  = sum(valid, 'Profile reposts');
+    const peakRpl   = valid.reduce((mx,d) => parseFloat(d['Profile replies']||0) > parseFloat(mx['Profile replies']||0) ? d : mx, valid[0]||{});
+    const peakRep   = valid.reduce((mx,d) => parseFloat(d['Profile reposts']||0) > parseFloat(mx['Profile reposts']||0) ? d : mx, valid[0]||{});
     el.innerHTML = `
-      <div class="story-note">
-        Instagram solo retiene métricas individuales de historias 24 horas en su API.
-        Para acumular historial activa una transferencia diaria a Google Sheets — puedo configurártela.
-        Los datos de abajo son del perfil diario (replies y reposts) que sí acumula historial completo.
-      </div>
+      <div class="story-note">Instagram solo retiene métricas individuales de historias 24 horas en su API. Para acumular historial activa una transferencia diaria a Google Sheets. Los datos de abajo son del perfil diario (replies y reposts) que sí acumula historial.</div>
       <div class="kpis">
-        <div class="kpi"><div class="kpi-label">Replies recibidos</div><div class="kpi-value">${fmt(totalReplies)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Reposts de tu contenido</div><div class="kpi-value">${fmt(totalReposts)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Pico de replies</div><div class="kpi-value">${fmt(peakReply['Profile replies'])}</div><div class="kpi-sub">${peakReply['Date'] || '—'}</div></div>
-        <div class="kpi"><div class="kpi-label">Pico de reposts</div><div class="kpi-value">${fmt(peakRepost['Profile reposts'])}</div><div class="kpi-sub">${peakRepost['Date'] || '—'}</div></div>
+        <div class="kpi"><div class="kpi-label">Replies recibidos</div><div class="kpi-value">${fmt(totalRpl)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Reposts de tu contenido</div><div class="kpi-value">${fmt(totalRep)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Pico de replies</div><div class="kpi-value">${fmt(peakRpl['Profile replies'])}</div><div class="kpi-sub">${peakRpl['Date']||'—'}</div></div>
+        <div class="kpi"><div class="kpi-label">Pico de reposts</div><div class="kpi-value">${fmt(peakRep['Profile reposts'])}</div><div class="kpi-sub">${peakRep['Date']||'—'}</div></div>
       </div>
       <div class="card"><div class="card-title">Replies y reposts diarios</div>
-        <div class="chart-wrap" style="height:200px">
-          <canvas id="stories-chart" role="img" aria-label="Replies y reposts diarios">Replies y reposts en Instagram por día.</canvas>
-        </div>
+        <div class="chart-wrap" style="height:200px"><canvas id="stories-chart" role="img" aria-label="Replies y reposts diarios"></canvas></div>
       </div>`;
-
-    const labels = valid.map(d => (d['Date'] || '').slice(5));
+    const labels = valid.map(d => (d['Date']||'').slice(5));
     const t = '#44444d', g = 'rgba(255,255,255,0.04)';
     storiesChart = new Chart(document.getElementById('stories-chart'), {
-      type: 'bar',
-      data: { labels, datasets: [
-        { label: 'Replies',  data: valid.map(d => parseFloat(d['Profile replies']) || 0),  backgroundColor: 'rgba(79,110,247,0.55)', borderRadius: 3 },
-        { label: 'Reposts',  data: valid.map(d => parseFloat(d['Profile reposts']) || 0),  backgroundColor: 'rgba(232,123,164,0.55)', borderRadius: 3 }
+      type:'bar',
+      data:{ labels, datasets:[
+        { label:'Replies', data:valid.map(d=>parseFloat(d['Profile replies'])||0), backgroundColor:'rgba(79,110,247,0.55)', borderRadius:3 },
+        { label:'Reposts', data:valid.map(d=>parseFloat(d['Profile reposts'])||0), backgroundColor:'rgba(232,123,164,0.55)', borderRadius:3 }
       ]},
-      options: { responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: '#44444d', font: { size: 10 }, boxWidth: 10 } } },
-        scales: {
-          x: { ticks: { color: t, font: { size: 10 }, maxTicksLimit: 10 }, grid: { color: g } },
-          y: { ticks: { color: t, font: { size: 10 } }, grid: { color: g } }
-        }
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{ labels:{color:'#44444d',font:{size:10},boxWidth:10} } },
+        scales:{ x:{ticks:{color:t,font:{size:10},maxTicksLimit:10},grid:{color:g}}, y:{ticks:{color:t,font:{size:10}},grid:{color:g}} }
       }
     });
   } catch(e) {
-    el.innerHTML = `<div class="error-box">Error cargando historias: ${e.message}</div>`;
+    el.innerHTML = `<div class="error-box">Error: ${e.message}</div>`;
   }
 }
 
@@ -511,32 +432,29 @@ async function loadTikTok() {
   el.innerHTML = '<div class="loading-state"><div class="spinner"></div><span>Cargando TikTok…</span></div>';
   try {
     const [profile, videos] = await Promise.all([
-      smPost({ ds_id: 'TIKBA', ds_accounts: TK_ACCT, date_range_type: dateRange(),
-        fields: 'profile__date,profile__video_views,profile__likes,profile__comments,profile__shares,profile__new_followers,profile__reached_audience',
-        settings: { report_type: 'profile' } }),
-      smPost({ ds_id: 'TIKBA', ds_accounts: TK_ACCT, date_range_type: dateRange(),
-        fields: 'videos__create_date,videos__caption,videos__share_url,videos__video_views,videos__likes,videos__comments,videos__shares,videos__reach,videos__favorites,videos__video_completion_rate,videos__average_view_time',
-        settings: { report_type: 'videos' }, max_rows: 30 })
+      smPost({ ds_id:'TIKBA', ds_accounts:TK_ACCT, date_range_type:dateRange(),
+        fields:'profile__date,profile__video_views,profile__likes,profile__comments,profile__shares,profile__new_followers,profile__reached_audience',
+        settings:{ report_type:'profile' } }),
+      smPost({ ds_id:'TIKBA', ds_accounts:TK_ACCT, date_range_type:dateRange(),
+        fields:'videos__create_date,videos__caption,videos__share_url,videos__video_views,videos__likes,videos__comments,videos__shares,videos__reach,videos__favorites,videos__video_completion_rate,videos__average_view_time',
+        settings:{ report_type:'videos' }, max_rows:30 })
     ]);
     tkVideos = videos;
-    const totalViews      = sum(profile, 'Video views');
-    const totalLikes      = sum(profile, 'Likes');
-    const totalComments   = sum(profile, 'Comments');
-    const totalShares     = sum(profile, 'Shares');
-    const totalNewFoll    = sum(profile, 'New followers');
-
+    const totalV  = sum(profile,'Video views');
+    const totalL  = sum(profile,'Likes');
+    const totalC  = sum(profile,'Comments');
+    const totalS  = sum(profile,'Shares');
+    const totalF  = sum(profile,'New followers');
     el.innerHTML = `
       <div class="kpis">
-        <div class="kpi"><div class="kpi-label">Vistas totales</div><div class="kpi-value" style="color:var(--tk)">${fmt(totalViews)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Likes</div><div class="kpi-value">${fmt(totalLikes)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Comentarios</div><div class="kpi-value">${fmt(totalComments)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Shares</div><div class="kpi-value">${fmt(totalShares)}</div><div class="kpi-sub">período seleccionado</div></div>
-        <div class="kpi"><div class="kpi-label">Nuevos seguidores</div><div class="kpi-value">${fmt(totalNewFoll)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Vistas totales</div><div class="kpi-value" style="color:var(--tk)">${fmt(totalV)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Likes</div><div class="kpi-value">${fmt(totalL)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Comentarios</div><div class="kpi-value">${fmt(totalC)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Shares</div><div class="kpi-value">${fmt(totalS)}</div><div class="kpi-sub">período seleccionado</div></div>
+        <div class="kpi"><div class="kpi-label">Nuevos seguidores</div><div class="kpi-value">${fmt(totalF)}</div><div class="kpi-sub">período seleccionado</div></div>
       </div>
       <div class="card"><div class="card-title">Vistas diarias</div>
-        <div class="chart-wrap" style="height:190px">
-          <canvas id="tk-chart" role="img" aria-label="Vistas diarias TikTok">Vistas por día en TikTok.</canvas>
-        </div>
+        <div class="chart-wrap" style="height:190px"><canvas id="tk-chart" role="img" aria-label="Vistas diarias TikTok"></canvas></div>
       </div>
       <div class="card">
         <div class="card-title">Top videos — ordenar por:</div>
@@ -549,19 +467,13 @@ async function loadTikTok() {
         </div>
         <div id="tk-list"></div>
       </div>`;
-
-    const labels  = profile.map(d => (d['Date'] || d['Datetime'] || '').slice(5));
-    const vData   = profile.map(d => parseFloat(d['Video views']) || 0);
+    const labels = profile.map(d => (d['Date']||d['Datetime']||'').slice(5));
     const t = '#44444d', g = 'rgba(255,255,255,0.04)';
     new Chart(document.getElementById('tk-chart'), {
-      type: 'line',
-      data: { labels, datasets: [{ data: vData, borderColor: '#ff2d55', backgroundColor: 'rgba(255,45,85,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: true }] },
-      options: { responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: t, font: { size: 10 }, maxTicksLimit: 10 }, grid: { color: g } },
-          y: { ticks: { color: t, font: { size: 10 }, callback: v => fmt(v) }, grid: { color: g } }
-        }
+      type:'line',
+      data:{ labels, datasets:[{ data:profile.map(d=>parseFloat(d['Video views'])||0), borderColor:'#ff2d55', backgroundColor:'rgba(255,45,85,0.08)', borderWidth:2, pointRadius:0, tension:0.4, fill:true }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+        scales:{ x:{ticks:{color:t,font:{size:10},maxTicksLimit:10},grid:{color:g}}, y:{ticks:{color:t,font:{size:10},callback:v=>fmt(v)},grid:{color:g}} }
       }
     });
     renderTKList();
@@ -578,9 +490,9 @@ function sortTK(key, btn) {
 }
 
 function renderTKList() {
-  const keyMap  = { views: 'Video views', likes: 'Likes', comments: 'Comments', completion: 'Video completion rate', watch: 'Average view time (s)' };
-  const lbl     = { views: 'Vistas', likes: 'Likes', comments: 'Coments', completion: 'Completion', watch: 'Avg watch' };
-  const sorted  = [...tkVideos].filter(v => v[keyMap[tkSort]]).sort((a, b) => parseFloat(b[keyMap[tkSort]]) - parseFloat(a[keyMap[tkSort]])).slice(0, 15);
+  const keyMap = { views:'Video views', likes:'Likes', comments:'Comments', completion:'Video completion rate', watch:'Average view time (s)' };
+  const lbl    = { views:'Vistas', likes:'Likes', comments:'Coments', completion:'Completion', watch:'Avg watch' };
+  const sorted = [...tkVideos].filter(v=>v[keyMap[tkSort]]).sort((a,b)=>parseFloat(b[keyMap[tkSort]])-parseFloat(a[keyMap[tkSort]])).slice(0,15);
   const el = document.getElementById('tk-list');
   if (!el) return;
   el.innerHTML = `<table class="top-table">
@@ -592,25 +504,22 @@ function renderTKList() {
       <th style="text-align:right">Avg watch</th>
       <th style="text-align:right">Shares</th>
     </tr></thead>
-    <tbody>${sorted.map((v, i) => {
-      const cap  = (v['Caption'] || '').substring(0, 80) + ((v['Caption'] || '').length > 80 ? '…' : '');
-      const link = v['Share URL'] ? `<a class="post-link" href="${v['Share URL']}" target="_blank">Ver video →</a>` : '';
-      const mainVal = tkSort === 'completion' ? fmtPct(v['Video completion rate'])
-                    : tkSort === 'watch'       ? (parseFloat(v['Average view time (s)']) || 0).toFixed(1) + 's'
-                    : fmt(v[keyMap[tkSort]]);
+    <tbody>${sorted.map((v,i)=>{
+      const cap  = (v['Caption']||'').substring(0,80)+((v['Caption']||'').length>80?'…':'');
+      const link = v['Share URL']?`<a class="post-link" href="${v['Share URL']}" target="_blank">Ver video →</a>`:'';
+      const mainVal = tkSort==='completion'?fmtPct(v['Video completion rate']):tkSort==='watch'?(parseFloat(v['Average view time (s)'])||0).toFixed(1)+'s':fmt(v[keyMap[tkSort]]);
       return `<tr>
-        <td class="rk">${i + 1}</td>
-        <td><div class="post-cap">${cap || '(sin caption)'}</div>
-          <div class="post-sub"><span style="font-size:10px;color:var(--muted)">${v['Create date'] || ''}</span>${link}</div>
+        <td class="rk">${i+1}</td>
+        <td><div class="post-cap">${cap||'(sin caption)'}</div>
+          <div class="post-sub"><span style="font-size:10px;color:var(--muted)">${v['Create date']||''}</span>${link}</div>
         </td>
         <td><div class="mv mv-tk" style="text-align:right">${mainVal}</div></td>
         <td><div class="mv" style="text-align:right">${fmt(v['Video views'])}</div></td>
         <td><div class="mv" style="text-align:right">${fmtPct(v['Video completion rate'])}</div></td>
-        <td><div class="mv" style="text-align:right">${(parseFloat(v['Average view time (s)']) || 0).toFixed(1)}s</div></td>
+        <td><div class="mv" style="text-align:right">${(parseFloat(v['Average view time (s)'])||0).toFixed(1)}s</div></td>
         <td><div class="mv" style="text-align:right">${fmt(v['Shares'])}</div></td>
       </tr>`;
-    }).join('')}</tbody>
-  </table>`;
+    }).join('')}</tbody></table>`;
 }
 
 /* ============================================================
@@ -621,21 +530,19 @@ async function loadMeta() {
   el.innerHTML = '<div class="loading-state"><div class="spinner"></div><span>Cargando Facebook Ads…</span></div>';
   try {
     const [adsets, daily] = await Promise.all([
-      smPost({ ds_id: 'FA', ds_accounts: FA_ACCTS, date_range_type: dateRange(),
-        fields: 'adcampaign_name,adset_name,impressions,clicks,spend,cpm,ctr,cpc',
-        settings: { report_type: 'adset' }, max_rows: 100 }),
-      smPost({ ds_id: 'FA', ds_accounts: FA_ACCTS, date_range_type: dateRange(),
-        fields: 'date_start,spend,impressions,clicks',
-        settings: { report_type: 'account' }, max_rows: 100 })
+      smPost({ ds_id:'FA', ds_accounts:FA_ACCTS, date_range_type:dateRange(),
+        fields:'adcampaign_name,adset_name,impressions,clicks,spend,cpm,ctr,cpc',
+        settings:{ report_type:'adset' }, max_rows:100 }),
+      smPost({ ds_id:'FA', ds_accounts:FA_ACCTS, date_range_type:dateRange(),
+        fields:'date_start,spend,impressions,clicks',
+        settings:{ report_type:'account' }, max_rows:100 })
     ]);
     metaRows = adsets;
-
-    const totalSpend  = sum(adsets, 'Cost');
-    const totalImp    = sum(adsets, 'Impressions');
-    const totalClicks = sum(adsets, 'Clicks (all)');
-    const avgCPM      = totalImp > 0 ? totalSpend / totalImp * 1000 : 0;
-    const avgCTR      = totalImp > 0 ? totalClicks / totalImp * 100 : 0;
-
+    const totalSpend  = sum(adsets,'Cost');
+    const totalImp    = sum(adsets,'Impressions');
+    const totalClicks = sum(adsets,'Clicks (all)');
+    const avgCPM      = totalImp > 0 ? totalSpend/totalImp*1000 : 0;
+    const avgCTR      = totalImp > 0 ? totalClicks/totalImp*100 : 0;
     el.innerHTML = `
       <div class="kpis">
         <div class="kpi"><div class="kpi-label">Gasto total</div><div class="kpi-value" style="color:var(--fb)">$${totalSpend.toFixed(0)}</div><div class="kpi-sub">período seleccionado</div></div>
@@ -645,31 +552,22 @@ async function loadMeta() {
         <div class="kpi"><div class="kpi-label">CTR promedio</div><div class="kpi-value">${avgCTR.toFixed(2)}%</div><div class="kpi-sub">período seleccionado</div></div>
       </div>
       <div class="card"><div class="card-title">Gasto diario</div>
-        <div class="chart-wrap" style="height:170px">
-          <canvas id="meta-chart" role="img" aria-label="Gasto diario Meta Ads">Gasto diario en Facebook Ads.</canvas>
-        </div>
+        <div class="chart-wrap" style="height:170px"><canvas id="meta-chart" role="img" aria-label="Gasto diario Meta Ads"></canvas></div>
       </div>
-      <div class="card" style="padding:0 18px">
-        <div id="meta-campaigns"></div>
-      </div>`;
-
-    const dLabels = daily.map(d => (d['Date'] || '').slice(5));
-    const dSpend  = daily.map(d => parseFloat(d['Cost']) || 0);
-    const t = '#44444d', g = 'rgba(255,255,255,0.04)';
-    new Chart(document.getElementById('meta-chart'), {
-      type: 'bar',
-      data: { labels: dLabels, datasets: [{ data: dSpend, backgroundColor: 'rgba(24,119,242,0.5)', borderColor: '#1877f2', borderWidth: 1, borderRadius: 3 }] },
-      options: { responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: t, font: { size: 10 }, maxTicksLimit: 10 }, grid: { color: g } },
-          y: { ticks: { color: t, font: { size: 10 }, callback: v => '$' + v.toFixed(0) }, grid: { color: g } }
-        }
+      <div class="card" style="padding:0 18px"><div id="meta-campaigns"></div></div>`;
+    const dLabels = daily.map(d=>(d['Date']||'').slice(5));
+    const dSpend  = daily.map(d=>parseFloat(d['Cost'])||0);
+    const t='#44444d',g='rgba(255,255,255,0.04)';
+    new Chart(document.getElementById('meta-chart'),{
+      type:'bar',
+      data:{labels:dLabels,datasets:[{data:dSpend,backgroundColor:'rgba(24,119,242,0.5)',borderColor:'#1877f2',borderWidth:1,borderRadius:3}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{ticks:{color:t,font:{size:10},maxTicksLimit:10},grid:{color:g}},y:{ticks:{color:t,font:{size:10},callback:v=>'$'+v.toFixed(0)},grid:{color:g}}}
       }
     });
     renderMeta();
   } catch(e) {
-    el.innerHTML = `<div class="error-box">Error cargando Facebook Ads: ${e.message}</div>`;
+    el.innerHTML = `<div class="error-box">Error cargando Meta Ads: ${e.message}</div>`;
   }
 }
 
@@ -678,46 +576,45 @@ function renderMeta() {
   const camps = {};
   metaRows.forEach(r => {
     const cn = r['Campaign name'] || 'Sin nombre';
-    if (!camps[cn]) camps[cn] = { name: cn, adsets: [], spend: 0, impressions: 0, clicks: 0 };
+    if (!camps[cn]) camps[cn] = { name:cn, adsets:[], spend:0, impressions:0, clicks:0 };
     camps[cn].adsets.push(r);
-    camps[cn].spend       += parseFloat(r['Cost']) || 0;
-    camps[cn].impressions += parseFloat(r['Impressions']) || 0;
-    camps[cn].clicks      += parseFloat(r['Clicks (all)']) || 0;
+    camps[cn].spend       += parseFloat(r['Cost'])||0;
+    camps[cn].impressions += parseFloat(r['Impressions'])||0;
+    camps[cn].clicks      += parseFloat(r['Clicks (all)'])||0;
   });
   Object.values(camps).forEach(c => {
-    c.ctr = c.impressions > 0 ? c.clicks / c.impressions : 0;
-    c.cpm = c.impressions > 0 ? c.spend / c.impressions * 1000 : 0;
+    c.ctr = c.impressions > 0 ? c.clicks/c.impressions : 0;
+    c.cpm = c.impressions > 0 ? c.spend/c.impressions*1000 : 0;
   });
-  const sorted = Object.values(camps).sort((a, b) => b[sortKey] - a[sortKey]);
-  const maxSpend = Math.max(...sorted.map(c => c.spend));
+  const sorted   = Object.values(camps).sort((a,b) => b[sortKey]-a[sortKey]);
   const el = document.getElementById('meta-campaigns');
   if (!el) return;
-  el.innerHTML = sorted.map((c, ci) => {
-    const ctrBadge = c.ctr > 0.04 ? 'bg' : c.ctr > 0.02 ? 'ba' : 'br';
-    const adsetHTML = [...c.adsets].sort((a, b) => (parseFloat(b['Cost']) || 0) - (parseFloat(a['Cost']) || 0)).map(a => {
-      const as = parseFloat(a['Cost']) || 0;
-      const pct = c.spend > 0 ? Math.round(as / c.spend * 100) : 0;
-      const actr = parseFloat(a['CTR (all)']) || 0;
-      const ab = actr > 0.04 ? 'bg' : actr > 0.02 ? 'ba' : 'br';
+  el.innerHTML = sorted.map((c,ci) => {
+    const ctrBadge = c.ctr>0.04?'bg':c.ctr>0.02?'ba':'br';
+    const adsetHTML = [...c.adsets].sort((a,b)=>(parseFloat(b['Cost'])||0)-(parseFloat(a['Cost'])||0)).map(a=>{
+      const as  = parseFloat(a['Cost'])||0;
+      const pct = c.spend>0 ? Math.round(as/c.spend*100) : 0;
+      const actr = parseFloat(a['CTR (all)'])||0;
+      const ab  = actr>0.04?'bg':actr>0.02?'ba':'br';
       return `<div class="adr">
         <div style="flex:1;min-width:0">
-          <div class="adn">${a['Ad set name'] || '—'}</div>
+          <div class="adn">${a['Ad set name']||'—'}</div>
           <div class="bar-bg"><div class="bar-fill" style="width:${pct}%"></div></div>
-          <span class="badge ${ab}" style="margin-top:3px;font-size:9px">CTR ${(actr * 100).toFixed(1)}%</span>
+          <span class="badge ${ab}" style="margin-top:3px;font-size:9px">CTR ${(actr*100).toFixed(1)}%</span>
         </div>
         <div class="adm">
           <div class="am"><div class="amv">$${as.toFixed(0)}</div><div class="aml">gasto</div></div>
           <div class="am"><div class="amv">${fmt(a['Impressions'])}</div><div class="aml">impr.</div></div>
           <div class="am"><div class="amv">${fmt(a['Clicks (all)'])}</div><div class="aml">clics</div></div>
-          <div class="am"><div class="amv">$${(parseFloat(a['CPM (cost per 1000 impressions)']) || 0).toFixed(2)}</div><div class="aml">CPM</div></div>
-          <div class="am"><div class="amv">$${(parseFloat(a['CPC (all)']) || 0).toFixed(2)}</div><div class="aml">CPC</div></div>
+          <div class="am"><div class="amv">$${(parseFloat(a['CPM (cost per 1000 impressions)'])||0).toFixed(2)}</div><div class="aml">CPM</div></div>
+          <div class="am"><div class="amv">$${(parseFloat(a['CPC (all)'])||0).toFixed(2)}</div><div class="aml">CPC</div></div>
         </div>
       </div>`;
     }).join('');
     return `<div class="camp-hdr" onclick="toggleAdsets('camp-${ci}',this)">
       <div class="camp-name">${c.name}</div>
       <div class="camp-meta">
-        <span class="badge ${ctrBadge}">CTR ${(c.ctr * 100).toFixed(1)}%</span>
+        <span class="badge ${ctrBadge}">CTR ${(c.ctr*100).toFixed(1)}%</span>
         <span class="camp-spend">$${c.spend.toFixed(0)}</span>
         <span class="camp-stat">${fmt(c.impressions)} imp.</span>
         <span class="camp-stat">${fmt(c.clicks)} clics</span>
@@ -731,9 +628,9 @@ function renderMeta() {
 function toggleAdsets(id, hdr) {
   const el = document.getElementById(id);
   const ch = hdr.querySelector('.chevron');
-  const isOpen = el.classList.contains('open');
-  el.classList.toggle('open', !isOpen);
-  ch.classList.toggle('open', !isOpen);
+  const open = el.classList.contains('open');
+  el.classList.toggle('open', !open);
+  ch.classList.toggle('open', !open);
 }
 
 /* ============================================================
@@ -743,11 +640,9 @@ function sw(id, el) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
   el.classList.add('on');
-  document.getElementById('panel-' + id).classList.add('on');
+  document.getElementById('panel-'+id).classList.add('on');
   if (id === 'stories') loadStories();
 }
-
-function applyRange() { loadAll(); }
 
 async function loadAll() {
   const btn = document.getElementById('refreshBtn');
@@ -755,13 +650,11 @@ async function loadAll() {
   btn.classList.add('loading');
   storiesBuilt = false;
   document.getElementById('lastUpdated').textContent = 'Actualizando…';
-
   await Promise.allSettled([loadInstagram(), loadTikTok(), loadMeta()]);
-
   const now = new Date();
   document.getElementById('lastUpdated').textContent =
-    'Actualizado ' + now.toLocaleDateString('es', { day: 'numeric', month: 'short' }) +
-    ' ' + now.toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' });
+    'Actualizado ' + now.toLocaleDateString('es',{day:'numeric',month:'short'}) +
+    ' ' + now.toLocaleTimeString('es',{hour:'2-digit',minute:'2-digit'});
   btn.disabled = false;
   btn.classList.remove('loading');
 }
