@@ -174,7 +174,7 @@ select:focus { border-color: var(--accent); }
    CONFIG
    ============================================================ */
 const API_KEY  = 'api_UsxJBaBGEISWK_pLgEHgB4QUzsrybtuSxD5Cg0H_XoDIVjISqKamUfQnSUfwi_BQSO1RZtk1FBbPvnRxaYJM_l1hyDVGXILaa2U2';
-const API_URL  = '/api/sm';   // <- proxy local de Vercel, sin CORS
+const API_URL  = 'https://corsproxy.io/?https://api.supermetrics.com/enterprise/v2/query/data/json';   
 const IG_ACCT  = '17841410807682520';
 const TK_ACCT  = 'aprendoclub';
 const FA_ACCTS = ['act_839697654991752', 'act_1133973718725026'];
@@ -222,7 +222,7 @@ async function smPost(body) {
 async function pollAsync(sid, tries = 0) {
   if (tries > 20) throw new Error('Timeout esperando Supermetrics');
   await new Promise(r => setTimeout(r, 2000));
-  const res = await fetch(`${API_URL}?api_key=${API_KEY}&schedule_id=${sid}`);
+  const res = await fetch(API_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ api_key: API_KEY, schedule_id: sid }) });
   const json = await res.json();
   if (json.data) return parseRows(json.data);
   if (['running','pending','queued'].includes(json.status)) return await pollAsync(sid, tries + 1);
