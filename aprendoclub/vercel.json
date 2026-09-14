@@ -1,9 +1,0 @@
-{
-  "rootDirectory": "public/dashboard",
-  "rewrites": [
-    {
-      "source": "/api/sm",
-      "destination": "https://api.supermetrics.com/enterprise/v2/query/data/json"
-    }
-  ]
-}
