@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo crear una página web con IA que no se vea genérica | aprendoclub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-alt:#111111;
+    --card:#141414;
+    --border:#232323;
+    --text:#f5f5f5;
+    --muted:#999999;
+    --muted-dim:#6b6b6b;
+    --lime:#c6ff3d;
+    --lime-dim:rgba(198,255,61,.10);
+    --white:#ffffff;
+    --ink:#111111;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    line-height:1.1;
+    margin:0;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  .accent{color:var(--lime);}
+
+  /* Header */
+  header.topbar{
+    border-bottom:1px solid var(--border);
+    padding:22px 0;
+  }
+  .topbar-inner{
+    max-width:920px;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:18px;letter-spacing:-.02em;
+  }
+  .logo .club{color:var(--lime);}
+  .badge{
+    background:var(--lime);color:var(--ink);
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+    padding:8px 16px;border-radius:999px;
+  }
+
+  /* Hero */
+  .hero{padding:88px 0 48px;}
+  .eyebrow{
+    display:block;color:var(--lime);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:18px;font-weight:500;
+  }
+  .hero h1{font-size:52px;letter-spacing:-.02em;max-width:800px;}
+  .hero p.lead{
+    font-size:18px;color:#d0d0d0;max-width:640px;margin-top:28px;
+  }
+  .hero p.sub{
+    font-size:15px;color:var(--muted);max-width:600px;margin-top:14px;
+  }
+
+  section{padding:56px 0;}
+  section.divider{border-top:1px solid var(--border);}
+
+  /* Gate */
+  .gate-outer{padding:8px 0 64px;}
+  .gate-card{
+    background:var(--white);color:var(--ink);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 30px 80px -30px rgba(198,255,61,.15), 0 0 0 1px var(--border);
+  }
+  .gate-card .eyebrow{color:#5b7a00;}
+  .gate-card h2{
+    font-size:28px;color:var(--ink);letter-spacing:-.01em;
+  }
+  .gate-card p.desc{
+    font-size:15px;color:#555;margin-top:10px;max-width:480px;
+  }
+  .kajabi-real-holder{
+    position:absolute;width:1px;height:1px;overflow:hidden;
+    opacity:0;pointer-events:none;left:-9999px;
+  }
+  .lead-form{margin-top:28px;display:grid;gap:12px;}
+  .lead-form input{
+    width:100%;padding:14px 16px;border:1px solid #dcdcdc;border-radius:10px;
+    font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;
+  }
+  .lead-form input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px var(--lime-dim);}
+  .lead-form button{
+    margin-top:6px;width:100%;padding:15px 16px;border:0;border-radius:10px;
+    background:var(--lime);color:var(--ink);font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:15px;cursor:pointer;
+  }
+  .lead-form button:disabled{opacity:.6;cursor:default;}
+  .lead-form button:not(:disabled):hover{background:#b3ef1f;}
+  .form-error{
+    display:none;color:#b3261e;font-size:13px;margin-top:4px;
+  }
+  .form-error.show{display:block;}
+  .manual-unlock{
+    display:block;margin:18px auto 0;background:none;border:none;
+    color:#8a8a8a;font-size:13px;text-decoration:underline;cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  .lock-note{
+    display:flex;gap:10px;align-items:flex-start;
+    margin-top:20px;padding-top:20px;border-top:1px solid #ececec;
+    font-size:13px;color:#777;
+  }
+
+  #lockedContent{transition:opacity .4s ease;}
+
+  /* Prep list */
+  h2.section-title{font-size:30px;letter-spacing:-.01em;margin-bottom:20px;}
+  .check-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .check-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    color:#d5d5d5;font-size:15px;
+  }
+  .check-list li::before{
+    content:"✓";color:var(--lime);font-weight:700;flex-shrink:0;
+    width:20px;height:20px;border-radius:6px;background:var(--lime-dim);
+    display:flex;align-items:center;justify-content:center;font-size:12px;
+  }
+
+  /* Step cards */
+  .step-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:16px;padding:32px;margin-bottom:20px;
+  }
+  .step-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+  .step-num{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    color:var(--lime);background:var(--lime-dim);
+    border-radius:10px;width:44px;height:44px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:16px;
+  }
+  .step-head h3{font-size:19px;color:var(--white);}
+  .step-body{color:#bdbdbd;font-size:15px;}
+  .step-body p{margin:0 0 12px;}
+  .step-body ul{margin:12px 0;padding-left:18px;color:#bdbdbd;}
+  .step-body li{margin-bottom:6px;}
+
+  .tip{
+    margin-top:18px;background:var(--lime-dim);
+    border:1px solid rgba(198,255,61,.25);
+    border-radius:10px;padding:14px 16px;
+    font-size:14px;color:#dcdcdc;display:flex;gap:10px;
+  }
+  .tip .icon{flex-shrink:0;}
+
+  /* Screenshots */
+  .shot{
+    margin-top:18px;border-radius:12px;overflow:hidden;
+    border:1px solid var(--border);background:#0d0d0d;
+  }
+  .shot-label{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-dim);
+    padding:8px 14px;border-bottom:1px solid var(--border);
+    display:flex;justify-content:space-between;
+  }
+  .shot-img{display:block;width:100%;height:auto;}
+
+  /* Prompt block */
+  .prompt-block{
+    margin-top:18px;background:#0d0d0d;border:1px solid var(--border);
+    border-radius:12px;overflow:hidden;
+  }
+  .prompt-label{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--lime);
+    padding:12px 16px;border-bottom:1px solid var(--border);
+  }
+  .prompt-text{
+    padding:16px;font-family:'JetBrains Mono',monospace;font-size:13px;
+    color:#d8d8d8;white-space:pre-wrap;margin:0;
+  }
+  .copy-btn{
+    display:flex;align-items:center;gap:8px;
+    margin:0 16px 16px;padding:9px 14px;
+    background:transparent;border:1px solid var(--border);color:#ccc;
+    border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;
+    cursor:pointer;
+  }
+  .copy-btn:hover{border-color:var(--lime);color:var(--lime);}
+
+  .mini-steps{list-style:none;margin:14px 0;padding:0;counter-reset:mini;}
+  .mini-steps li{
+    counter-increment:mini;position:relative;padding-left:28px;
+    margin-bottom:8px;color:#bdbdbd;font-size:14px;
+  }
+  .mini-steps li::before{
+    content:counter(mini);position:absolute;left:0;top:0;
+    color:var(--lime);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;
+  }
+
+  /* Comparison */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:640px){.compare{grid-template-columns:1fr;}}
+  .compare .col{
+    border-radius:14px;padding:26px;border:1px solid var(--border);
+  }
+  .compare .col.bad{background:#141010;}
+  .compare .col.good{background:#0f140a;border-color:rgba(198,255,61,.25);}
+  .compare h4{
+    font-family:'Space Grotesk',sans-serif;font-size:15px;margin-bottom:14px;
+  }
+  .compare .col.bad h4{color:#e08a8a;}
+  .compare .col.good h4{color:var(--lime);}
+  .compare ul{margin:0;padding-left:18px;color:#bbb;font-size:14px;}
+  .compare li{margin-bottom:8px;}
+
+  /* Footer CTA */
+  footer{
+    border-top:1px solid var(--border);padding:72px 0 56px;
+  }
+  footer h2{font-size:36px;max-width:640px;margin-top:14px;letter-spacing:-.01em;}
+  footer p.lead-cta{color:var(--muted);font-size:16px;margin-top:18px;max-width:640px;}
+
+  .cta-card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:32px;margin-top:32px;
+  }
+  .cta-card h3{
+    font-size:23px;color:var(--white);margin-bottom:22px;max-width:480px;line-height:1.3;
+  }
+  .cta-check-list{list-style:none;margin:0;padding:0;display:grid;gap:16px;}
+  .cta-check-list li{
+    display:flex;gap:14px;align-items:center;color:#cfcfcf;font-size:15px;
+  }
+  .dot{
+    width:22px;height:22px;border-radius:50%;background:var(--lime);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:12px;
+    font-weight:700;flex-shrink:0;
+  }
+  .cta-card.advisory{
+    margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  }
+  .cta-card.advisory .dot{width:44px;height:44px;font-size:17px;}
+  .advisory-text{flex:1;min-width:220px;}
+  .advisory-text h4{font-size:19px;color:var(--white);margin-bottom:6px;}
+  .advisory-text p{font-size:14px;color:var(--muted);margin:0;}
+  .advisory-btn{
+    background:var(--lime);color:var(--ink);font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:15px;padding:16px 28px;border-radius:999px;
+    text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;
+  }
+  .foot-mark{margin-top:48px;color:var(--muted-dim);font-size:13px;}
+
+  @media (max-width:640px){
+    .hero h1{font-size:36px;}
+    .gate-card{padding:26px;}
+    .step-card{padding:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">aprendo<span class="club">club</span></div>
+    <span class="badge">Guía gratis</span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Diseño web con IA</span>
+      <h1>Cómo crear una página web con IA que no se vea <span class="accent">genérica</span></h1>
+      <p class="lead">Cuando le pides a cualquier IA que te cree una web, siempre produce lo mismo: botones azules, tipografía Inter, cards idénticas a millones de otros sitios. A eso se le llama el "Tailwind starter aesthetic".</p>
+      <p class="sub">Este proceso rompe ese ciclo dándole a la IA un sistema de diseño real antes de que empiece a construir.</p>
+    </section>
+  </div>
+
+  <div class="wrap gate-outer">
+    <div class="gate-card" id="gateWall">
+      <span class="eyebrow">Acceso</span>
+      <h2>Desbloquea la guía completa</h2>
+      <p class="desc">Déjanos tu correo y accede a los 4 pasos, el prompt exacto para ChatGPT Sites y la comparación completa con y sin DESIGN.md.</p>
+
+      <form class="lead-form" id="leadForm" novalidate>
+        <input type="text" id="leadName" placeholder="Nombre" required autocomplete="name">
+        <input type="email" id="leadEmail" placeholder="Correo electrónico" required autocomplete="email">
+        <div class="form-error" id="leadFormError">Revisa tu nombre y correo antes de continuar.</div>
+        <button type="submit" id="leadFormSubmit">Desbloquear la guía →</button>
+      </form>
+
+      <!-- Formulario real de Kajabi: oculto visualmente, solo se usa para generar un token válido y conocer el action URL -->
+      <div class="kajabi-real-holder" id="kajabiRealHolder" aria-hidden="true">
+        <script src="https://academia.aprendoclub.com/forms/2149717291/embed.js"></script>
+      </div>
+
+      <button class="manual-unlock" id="manualUnlock" type="button">¿Ya llenaste el formulario? Continuar</button>
+
+      <div class="lock-note">
+        <span>🔒</span>
+        <span>Al enviar el formulario se desbloquea el resto de la guía en esta misma página.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" id="lockedContent" hidden>
+
+    <section class="divider">
+      <h2 class="section-title">Lo que necesitas antes de empezar</h2>
+      <ul class="check-list">
+        <li>Cuenta en ChatGPT (plan Plus, Pro o superior — ChatGPT Sites no está disponible en el plan gratuito)</li>
+        <li>Acceso a styles.refero.design (es gratuito para explorar y copiar)</li>
+        <li>20-30 minutos</li>
+      </ul>
+    </section>
+
+    <section class="divider">
+      <span class="eyebrow">El proceso</span>
+      <h2 class="section-title">4 pasos para un diseño con personalidad</h2>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">01</div>
+          <h3>Entra a Refero Styles y elige tu referencia</h3>
+        </div>
+        <div class="step-body">
+          <p>Ve a styles.refero.design. Verás una librería de más de 2,000 sitios reales curados. Puedes buscar por marca, mood, color o tipografía.</p>
+          <p>Lo que buscas es un estilo que se parezca a la identidad visual de tu marca o al feeling que quieres proyectar. No tiene que ser exacto — es una referencia de punto de partida.</p>
+          <div class="shot">
+            <div class="shot-label"><span>styles.refero.design</span><span>Trending</span></div>
+            <img class="shot-img" src="assets/paso1-refero-styles.webp" alt="Galería de estilos en styles.refero.design filtrada por Trending">
+          </div>
+          <div class="tip"><span class="icon">💡</span><span>Busca por el mood de tu marca, no por tu industria. "Editorial dark" puede servir para una marca de servicios si ese es tu estilo.</span></div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">02</div>
+          <h3>Descarga o copia el archivo DESIGN.md</h3>
+        </div>
+        <div class="step-body">
+          <p>Cuando abres cualquier estilo en Refero, puedes acceder a su archivo DESIGN.md. Este archivo contiene en texto plano:</p>
+          <ul>
+            <li>Paleta de colores exacta (valores hex)</li>
+            <li>Tipografías y tamaños</li>
+            <li>Espaciados</li>
+            <li>Componentes y sus reglas</li>
+            <li>Lo que se debe y no se debe hacer con ese sistema de diseño</li>
+          </ul>
+          <p>Tienes dos opciones: copiar el contenido directamente desde la tarjeta del estilo, o descargar el archivo .md si está disponible.</p>
+          <div class="shot">
+            <div class="shot-label"><span>DESIGN.md</span><span>Extended</span></div>
+            <img class="shot-img" src="assets/paso2-design-md.webp" alt="Vista del archivo DESIGN.md con la referencia de estilo y sus tokens de color">
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">03</div>
+          <h3>Sube el DESIGN.md como habilidad a Claude o ChatGPT</h3>
+        </div>
+        <div class="step-body">
+          <p><strong>Si usas Claude:</strong> ve a la sección de Proyectos, crea un proyecto nuevo y sube el archivo .md como documento de contexto del proyecto. Cada conversación dentro de ese proyecto lo tendrá como referencia.</p>
+          <p><strong>Si usas ChatGPT:</strong> súbelo directamente en el chat como archivo adjunto al inicio de la conversación, o intégralo como instrucción personalizada en tu GPT.</p>
+          <p>Una vez cargado, el modelo tiene un brief de diseño real — ya no está adivinando un estilo, está siguiendo reglas concretas.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">04</div>
+          <h3>Construye tu web con ChatGPT Sites</h3>
+        </div>
+        <div class="step-body">
+          <div class="tip"><span class="icon">💡</span><span><strong>Tip clave antes de escribir tu prompt:</strong> si ya tienes el copy de tu página escrito — títulos, subtítulos, textos de secciones, CTA — pégalo junto con el DESIGN.md. La IA solo se encarga de construir la estructura y aplicar el estilo a tu contenido, en vez de inventar textos genéricos que después tienes que editar.</span></div>
+
+          <p style="margin-top:18px;">En ChatGPT Sites (disponible desde julio 2026 para planes Plus y Pro):</p>
+          <ol class="mini-steps">
+            <li>Abre una conversación nueva en ChatGPT</li>
+            <li>Adjunta tu archivo DESIGN.md al inicio</li>
+            <li>Pega tu copy si ya lo tienes</li>
+            <li>Escribe tu prompt describiendo qué quieres construir</li>
+          </ol>
+
+          <div class="prompt-block">
+            <div class="prompt-label">Prompt de ejemplo</div>
+            <p class="prompt-text">Tengo adjunto un archivo DESIGN.md con el sistema de diseño que quiero usar. También te comparto el copy completo de mi página. Crea una landing page para [describe tu negocio o servicio]. Sigue estrictamente las reglas de color, tipografía y componentes del archivo adjunto. Usa el copy que te di sin modificarlo. El objetivo principal de la página es [acción que quieres que tome el visitante]. Publícala como Site.</p>
+            <button class="copy-btn" type="button" data-copy-target>
+              <span>📋</span><span>Copiar prompt</span>
+            </button>
+          </div>
+
+          <p style="margin-top:18px;">ChatGPT construirá la página y te dará una URL pública lista para compartir, sin que tengas que tocar código ni hosting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="divider">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="section-title">La diferencia real</h2>
+      <div class="compare">
+        <div class="col bad">
+          <h4>Sin DESIGN.md</h4>
+          <ul>
+            <li>La IA usa su promedio de diseños vistos</li>
+            <li>El resultado es genérico e intercambiable</li>
+            <li>Las revisiones de estilo no tienen fin</li>
+          </ul>
+        </div>
+        <div class="col good">
+          <h4>Con DESIGN.md</h4>
+          <ul>
+            <li>La IA sigue reglas de un diseño real curado</li>
+            <li>El resultado tiene personalidad y consistencia visual</li>
+            <li>Las revisiones apuntan a reglas concretas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="eyebrow">El siguiente nivel</span>
+    <h2>¿Quieres aprender a hacer esto desde 0?</h2>
+    <p class="lead-cta">En aprendoclub aprendes a hacer este ejercicio desde cero, con la guía de especialistas en SEO que ya trabajan con clientes. Un prompt te da un resultado. Saber por qué funciona es lo que te convierte en especialista.</p>
+
+    <div class="cta-card">
+      <h3>Conviértete en Especialista SEO,<br>el rol mejor pagado del marketing</h3>
+      <ul class="cta-check-list">
+        <li><span class="dot">✓</span>Aprendes a interpretar una auditoría y priorizar qué arreglar primero</li>
+        <li><span class="dot">✓</span>Trabajas sobre tu propio sitio o el de un cliente real</li>
+        <li><span class="dot">✓</span>Te acompañan especialistas que hacen SEO todos los días</li>
+        <li><span class="dot">✓</span>Sales con un servicio concreto que puedes cobrar</li>
+      </ul>
+    </div>
+
+    <div class="cta-card advisory">
+      <span class="dot">✓</span>
+      <div class="advisory-text">
+        <h4>Asesoría gratuita</h4>
+        <p>Agenda una llamada y vemos en qué punto estás y cuál es tu siguiente paso. Sin costo y sin compromiso.</p>
+      </div>
+      <a href="https://crm.aprendoclub.com/agendar" class="advisory-btn">Agenda tu asesoría gratuita →</a>
+    </div>
+
+    <p class="foot-mark">aprendoclub</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY = 'ac_leadmagnet_ia_web_unlocked';
+  var gate = document.getElementById('gateWall');
+  var gateOuter = gate.closest('.gate-outer');
+  var content = document.getElementById('lockedContent');
+
+  function unlock(){
+    try{ localStorage.setItem(KEY, '1'); }catch(e){}
+    gateOuter.hidden = true;
+    content.hidden = false;
+  }
+
+  var alreadyUnlocked = false;
+  try{ alreadyUnlocked = localStorage.getItem(KEY) === '1'; }catch(e){}
+
+  if(alreadyUnlocked){
+    unlock();
+  } else {
+    document.getElementById('manualUnlock').addEventListener('click', unlock);
+
+    var leadForm = document.getElementById('leadForm');
+    var nameInput = document.getElementById('leadName');
+    var emailInput = document.getElementById('leadEmail');
+    var errorBox = document.getElementById('leadFormError');
+    var submitBtn = document.getElementById('leadFormSubmit');
+    var realHolder = document.getElementById('kajabiRealHolder');
+
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    leadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var name = nameInput.value.trim();
+      var email = emailInput.value.trim();
+      if(!name || !EMAIL_RE.test(email)){
+        errorBox.textContent = 'Revisa tu nombre y correo antes de continuar.';
+        errorBox.classList.add('show');
+        return;
+      }
+      errorBox.classList.remove('show');
+
+      var realForm = realHolder.querySelector('form');
+      var tokenInput = realForm && realForm.querySelector('[name="authenticity_token"]');
+      if(!realForm || !tokenInput){
+        // El script de Kajabi no cargó (bloqueado, sin conexión, etc.)
+        errorBox.textContent = 'No pudimos conectar con el formulario. Intenta de nuevo en unos segundos.';
+        errorBox.classList.add('show');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      var body = new URLSearchParams();
+      body.set('authenticity_token', tokenInput.value);
+      body.set('form_submission[name]', name);
+      body.set('form_submission[email]', email);
+
+      fetch(realForm.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        credentials: 'omit',
+        body: body
+      }).then(function(){
+        unlock();
+      }).catch(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Desbloquear la guía →';
+        errorBox.textContent = 'No se pudo enviar. Revisa tu conexión e intenta de nuevo.';
+        errorBox.classList.add('show');
+      });
+    });
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var block = btn.closest('.prompt-block').querySelector('.prompt-text');
+      var text = block.innerText;
+      var label = btn.querySelector('span:last-child');
+      var original = label.textContent;
+      navigator.clipboard.writeText(text).then(function(){
+        label.textContent = '¡Copiado!';
+        setTimeout(function(){ label.textContent = original; }, 1800);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
