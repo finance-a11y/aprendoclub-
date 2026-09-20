@@ -90,8 +90,23 @@ a{text-decoration:none;color:inherit}
 <script>
 /* ══════════════════════════════════════════════════════════
    Para agregar un recurso: añade un objeto a su categoría.
-   "ruta" debe coincidir con la carpeta dentro de /recursos.
-   ══════════════════════════════════════════════════════════ */
+   "ruta" debe coincidir EXACTAMENTE (mayúsculas incluidas) con
+   la carpeta real dentro de /recursos en el repo.
+   ══════════════════════════════════════════════════════════
+
+   CORREGIDO el 2026-09-19:
+   - SM-01 apuntaba a /recursos/social-media-lab, una carpeta que
+     no existe (la real es /recursos/Socialmedia/guia-socialmedia).
+     Ese era el único recurso visible en la biblioteca y su botón
+     "Ver recurso" no llevaba a ningún lado.
+   - Se agregaron los 5 recursos que ya existían como archivos
+     reales en el repo pero nunca se habían enlazado desde aquí:
+     formulas, guiaprompts (Social Media) y copy-instagram,
+     paginastop, prompt-audit (SEO).
+   - "paginastop" (crear webs con IA) vive en la carpeta /seo/ pero
+     el tema es más de diseño/contenido que de SEO puro — revisa si
+     quieres moverlo de carpeta y categoría más adelante.
+*/
 const CATS = [
   {
     id:'social', nombre:'Social Media',
@@ -100,13 +115,53 @@ const CATS = [
       {
         cod:'SM-01',
         titulo:'De 0 a Social Media Manager',
-        texto:'Tres skills para Claude que definen tu voz, generan ganchos virales y escriben tus guiones de reels.',
+        texto:'Tres skills para Claude que definen tu voz, generan ganchos virales y escriben tus guiones de reels. Incluye banco de 234 estructuras de hooks.',
         formato:'3 skills',
-        ruta:'/recursos/social-media-lab'
+        ruta:'/recursos/Socialmedia/guia-socialmedia'
+      },
+      {
+        cod:'SM-02',
+        titulo:'¿Tu contenido suena a IA o a ti?',
+        texto:'Una guía rápida para auditar cualquier pieza antes de publicarla. Revisa frase por frase y decide si estás comunicando o solo ocupando espacio.',
+        formato:'Guía',
+        ruta:'/recursos/Socialmedia/formulas'
+      },
+      {
+        cod:'SM-03',
+        titulo:'Guía Maestra de Prompts — Social Media + IA',
+        texto:'Los 8 tipos de prompts que un Social Media Manager necesita en su día a día — organizados por frecuencia de uso, listos para copiar, pegar y personalizar.',
+        formato:'8 prompts',
+        ruta:'/recursos/Socialmedia/guiaprompts'
       }
     ]
   },
-  { id:'seo', nombre:'SEO', desc:'Lo que aplicamos antes de escribir una sola palabra.', items:[] },
+  {
+    id:'seo', nombre:'SEO',
+    desc:'Lo que aplicamos antes de escribir una sola palabra.',
+    items:[
+      {
+        cod:'SEO-01',
+        titulo:'Guía de Prompts: Carrusel con SEO',
+        texto:'4 prompts para que tu carrusel de Instagram aparezca en búsquedas. Mapeo de intenciones, copy de slides, caption y auditoría. Gratis.',
+        formato:'4 prompts',
+        ruta:'/recursos/seo/copy-instagram'
+      },
+      {
+        cod:'SEO-02',
+        titulo:'Prompt para auditar tu web: encuentra tus errores SEO',
+        texto:'Prompt gratuito para auditar tu web con IA. Detecta errores técnicos, problemas de Core Web Vitals y fallos on-page, con un plan de acción priorizado.',
+        formato:'1 prompt',
+        ruta:'/recursos/seo/prompt-audit'
+      },
+      {
+        cod:'SEO-03',
+        titulo:'Cómo crear una página web con IA que no se vea genérica',
+        texto:'Rompe el "Tailwind starter aesthetic": dale a la IA un sistema de diseño real antes de que empiece a construir, en 4 pasos.',
+        formato:'Guía · 4 pasos',
+        ruta:'/recursos/seo/paginastop'
+      }
+    ]
+  },
   { id:'ia',  nombre:'Inteligencia Artificial', desc:'Prompts y flujos para posicionar en ChatGPT y Gemini.', items:[] },
   { id:'contenido', nombre:'Creación de Contenido', desc:'Ideas, guiones y fórmulas listas para usar.', items:[] }
 ];
