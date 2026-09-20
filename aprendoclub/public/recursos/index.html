@@ -117,6 +117,12 @@ a{text-decoration:none;color:inherit}
      /recursos/seo/guia-10prompts/index.html para que el hosting lo
      sirva con el content-type correcto (si no, el navegador lo habría
      descargado en vez de mostrarlo, igual que pasaba con SM-01).
+
+   ACTUALIZADO el 2026-09-19 (3):
+   - Se eliminaron las categorías "Inteligencia Artificial" y "Creación
+     de Contenido": no tenían ningún recurso real cargado (items:[]),
+     solo mostraban el placeholder "Próximamente". Si más adelante hay
+     contenido para esas categorías, vuelve a agregarlas al array CATS.
 */
 const CATS = [
   {
@@ -186,9 +192,7 @@ const CATS = [
         ruta:'/recursos/seo/guia-10prompts'
       }
     ]
-  },
-  { id:'ia',  nombre:'Inteligencia Artificial', desc:'Prompts y flujos para posicionar en ChatGPT y Gemini.', items:[] },
-  { id:'contenido', nombre:'Creación de Contenido', desc:'Ideas, guiones y fórmulas listas para usar.', items:[] }
+  }
 ];
 
 const nav=document.getElementById('nav');
