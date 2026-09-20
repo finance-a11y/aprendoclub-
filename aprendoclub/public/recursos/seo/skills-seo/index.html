@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3 Skills de Claude para posicionar en la IA | aprendoclub</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+
+    --bg:#17181B;
+    --bg-soft:#1B1C20;
+    --card:#1E2023;
+    --card-raised:#232529;
+    --ink:#F5F5F3;
+    --ink-soft:#9C9FA5;
+    --ink-mute:#6D7076;
+    --lime:#D7FF4B;
+    --lime-dim:#A9CC3C;
+    --lime-ink:#14150E;
+    --lime-tint:rgba(215,255,75,.10);
+    --lime-glow:rgba(215,255,75,.28);
+    --border:rgba(255,255,255,.08);
+    --border-soft:rgba(255,255,255,.06);
+    --code-bg:#101113;
+    --code-ink:#D9DBDD;
+    --shadow:rgba(0,0,0,.45);
+  }
+  html{scroll-behavior:smooth; scroll-padding-top:76px;}
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.locked{overflow:hidden;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight:800;
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:0 0 .5em;
+    color:var(--ink);
+  }
+  p{margin:0 0 1em;}
+  .accent{color:var(--lime);}
+  .wrap{max-width:820px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    display:block;
+    font-size:12.5px; font-weight:700; color:var(--lime);
+    letter-spacing:.14em; text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .badge-pill{
+    display:inline-flex; align-items:center;
+    background:var(--lime); color:var(--lime-ink);
+    font-weight:800; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    padding:8px 16px; border-radius:999px; margin-bottom:20px;
+  }
+  .center{text-align:center;}
+  .center .wrap{display:flex; flex-direction:column; align-items:center;}
+
+  section{padding:72px 0;}
+  section.tight{padding:56px 0;}
+  section + section{border-top:1px solid var(--border-soft);}
+
+  /* Hero */
+  .hero{padding:96px 0 72px;}
+  .hero h1{font-size:44px; max-width:16ch; margin:0 auto .4em;}
+  .hero .lede{font-size:18px; color:var(--ink-soft); max-width:52ch; margin:0 auto 10px;}
+  .hero .note{font-size:14.5px; color:var(--ink-mute); max-width:44ch; margin:0 auto 0;}
+
+  /* Numbered card grids */
+  .grid{display:grid; gap:16px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .n-card{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:24px 22px; text-decoration:none; display:block;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  a.n-card:hover{border-color:var(--lime-glow); transform:translateY(-2px);}
+  .n-card__num{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:14px; color:var(--lime);
+    display:block; margin-bottom:12px;
+  }
+  .n-card h3{font-size:17px; font-weight:700; margin:0 0 8px; color:var(--ink);}
+  .n-card p{font-size:14px; color:var(--ink-soft); margin:0;}
+  .n-card__go{
+    margin-top:14px; display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:600; color:var(--lime);
+  }
+
+  h2.h-section{font-size:32px; max-width:18ch;}
+
+  /* Skill sections */
+  .skill-head{display:flex; align-items:baseline; gap:14px; margin-bottom:18px;}
+  .skill-icon{font-size:28px; line-height:1;}
+  .skill h2{font-size:27px; margin:0;}
+
+  .framing{
+    background:var(--card); border:1px solid var(--border); border-left:3px solid var(--lime);
+    border-radius:4px 14px 14px 4px; padding:20px 22px; margin:22px 0;
+    font-size:16.5px; color:var(--ink-soft);
+  }
+  .framing strong{color:var(--lime); font-weight:700;}
+
+  .subhead{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--lime); margin:30px 0 14px;}
+  ul.checklist{list-style:none; margin:0 0 8px; padding:0; display:grid; gap:11px;}
+  ul.checklist li{display:flex; gap:10px; font-size:15px; color:var(--ink-soft);}
+  ul.checklist li::before{content:"✓"; color:var(--lime); font-weight:700; flex:none;}
+
+  /* Prompt box */
+  .prompt-box{
+    margin-top:24px; border-radius:16px; overflow:hidden;
+    background:var(--code-bg); border:1px solid var(--border);
+    box-shadow:0 10px 30px var(--shadow);
+  }
+  .prompt-box__head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid var(--border-soft);
+  }
+  .prompt-box__label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--lime); letter-spacing:.06em;
+  }
+  .copy-btn{
+    display:inline-flex; align-items:center; gap:7px;
+    background:transparent; border:1px solid var(--border); color:var(--code-ink);
+    font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600;
+    padding:8px 14px; border-radius:999px; cursor:pointer;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .copy-btn:hover{background:var(--lime-tint); border-color:var(--lime-glow); color:var(--lime);}
+  .copy-btn:focus-visible{outline:2px solid var(--lime); outline-offset:2px;}
+  .copy-btn.copied{border-color:var(--lime); color:var(--lime); background:var(--lime-tint);}
+  .copy-btn svg{width:14px;height:14px;flex:none;}
+
+  .prompt-box__body{position:relative; max-height:1600px; overflow:hidden; transition:max-height .35s ease;}
+  .prompt-box__body.clamped{max-height:300px;}
+  .prompt-box__body.clamped::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:90px;
+    background:linear-gradient(to bottom, transparent, var(--code-bg));
+    pointer-events:none;
+  }
+  .prompt-box pre{
+    margin:0; padding:20px 22px 26px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.8px; line-height:1.7; color:var(--code-ink);
+    white-space:pre-wrap; word-break:break-word;
+  }
+  .expand-toggle{
+    display:flex; align-items:center; gap:6px;
+    width:100%; background:var(--bg-soft); color:var(--ink-soft);
+    border:none; border-top:1px solid var(--border-soft);
+    font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600;
+    padding:12px; cursor:pointer; justify-content:center;
+  }
+  .expand-toggle:hover{color:var(--lime);}
+  .expand-toggle svg{width:13px;height:13px; transition:transform .25s ease;}
+  .expand-toggle.is-open svg{transform:rotate(180deg);}
+
+  .back-to-index{
+    display:inline-block; margin-top:30px; font-size:14px; color:var(--lime); text-decoration:none; font-weight:600;
+  }
+  .back-to-index:hover{color:var(--lime-dim);}
+
+  /* Tip / info card */
+  .tip{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--card); border:1px solid var(--border);
+    border-radius:14px; padding:18px 20px; font-size:14px; margin-top:20px;
+  }
+  .tip p{margin:0; color:var(--ink-soft);}
+  .tip strong{color:var(--lime);}
+
+  /* CTA band */
+  .cta-band h2{font-size:32px; max-width:18ch;}
+  .cta-band > .wrap > p{color:var(--ink-soft); max-width:56ch;}
+
+  .cta-panel{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:40px;
+    background:var(--card); border:1px solid var(--lime-glow); border-radius:26px;
+    padding:40px; margin-top:32px;
+    box-shadow:0 0 60px var(--lime-tint);
+  }
+  .cta-panel h3{font-size:20px; margin-bottom:16px;}
+  .cta-check{
+    width:42px;height:42px;border-radius:50%; background:var(--lime-tint); color:var(--lime);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px;
+    margin-bottom:16px;
+  }
+  .cta-right h3{font-size:19px; margin-bottom:8px;}
+  .cta-right p{color:var(--ink-soft); font-size:14.5px; margin-bottom:22px;}
+
+  .cta-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    width:100%;
+    background:var(--lime); color:var(--lime-ink); font-weight:700; font-size:15.5px;
+    padding:16px 22px; border-radius:999px; text-decoration:none;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .cta-btn:hover{background:#E4FF7A; transform:translateY(-1px);}
+  .cta-btn:focus-visible{outline:2px solid var(--lime); outline-offset:3px;}
+  .cta-url{
+    display:block; text-align:center; margin-top:12px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-mute);
+  }
+
+  footer{padding:36px 0 52px; text-align:center; font-size:13px; color:var(--ink-mute);}
+
+  /* ===== Gate (email unlock) ===== */
+  .gate{
+    position:fixed; inset:0; z-index:999;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    background:rgba(10,11,10,.74);
+    backdrop-filter:blur(16px) saturate(120%);
+    -webkit-backdrop-filter:blur(16px) saturate(120%);
+    opacity:1; transition:opacity .35s ease;
+  }
+  .gate.is-hidden{opacity:0; pointer-events:none;}
+  .gate-card{
+    width:100%; max-width:440px;
+    background:#FFFFFF; color:#14151A;
+    border-radius:28px; padding:40px 36px;
+    box-shadow:0 40px 100px rgba(0,0,0,.55);
+  }
+  .gate-card h2{color:#14151A; font-size:25px; max-width:none; margin-bottom:14px;}
+  .gate-card p.gate-desc{color:#5B5F66; font-size:15px; line-height:1.55; margin-bottom:26px;}
+  .gate-field{margin-bottom:18px;}
+  .gate-field label{display:block; font-weight:700; font-size:13.5px; margin-bottom:8px; color:#14151A;}
+  .gate-field input{
+    width:100%; padding:14px 16px; border-radius:12px;
+    border:1px solid #E2E1DA; background:#fff; color:#14151A;
+    font-size:15px; font-family:inherit;
+  }
+  .gate-field input::placeholder{color:#A9ACB1;}
+  .gate-field input:focus{outline:2px solid var(--lime); outline-offset:1px; border-color:transparent;}
+  .gate-submit{
+    width:100%; background:#14151A; color:var(--lime);
+    font-weight:800; font-size:16px; padding:16px; margin-top:6px;
+    border:none; border-radius:14px; cursor:pointer;
+    transition:background .15s ease, opacity .15s ease;
+  }
+  .gate-submit:hover{background:#0B0C0F;}
+  .gate-submit[disabled]{opacity:.65; cursor:progress;}
+  .gate-disclaimer{text-align:center; font-size:13px; color:#8B8E93; margin:18px 0 0;}
+  .gate-error{
+    display:none; color:#B3261E; font-size:13px; margin:-8px 0 16px; font-weight:600;
+  }
+  .gate-error.show{display:block;}
+
+  @media (max-width:760px){
+    .cta-panel{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:32px;}
+    h2.h-section{font-size:26px;}
+    .grid-3{grid-template-columns:1fr;}
+    .grid-4{grid-template-columns:1fr 1fr;}
+    .cta-panel{padding:26px;}
+    .gate-card{padding:32px 26px; border-radius:22px;}
+  }
+</style>
+</head>
+<body class="locked">
+
+<!-- GATE: bloquea la página hasta enviar el formulario -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <span class="badge-pill">SEO Lab</span>
+    <h2>Deja tu correo y accede a las 3 skills</h2>
+    <p class="gate-desc">Los prompts completos para auditar tu sitio, posicionar en los LLMs de IA y analizar a tu competencia. Se desbloquea aquí mismo, sin salir de la página.</p>
+
+    <form id="gate-form" action="https://academia.aprendoclub.com/forms/2149717291/form_submissions" method="post" accept-charset="UTF-8">
+      <input type="hidden" name="authenticity_token" value="rFSe_dHv_ii2S_UnH20LjHUlS81iDnNyEAQQpKwNjgC2FGQMZgOelzNqX5w876E_JiEZpR95TLWibztT6m3AdA">
+
+      <div class="gate-field">
+        <label for="gate-name">Nombre</label>
+        <input type="text" id="gate-name" name="form_submission[name]" placeholder="Tu nombre" required autocomplete="name">
+      </div>
+      <div class="gate-field">
+        <label for="gate-email">Correo</label>
+        <input type="email" id="gate-email" name="form_submission[email]" placeholder="tu@correo.com" required autocomplete="email">
+      </div>
+
+      <p class="gate-error" id="gate-error">No pudimos confirmar el envío. Igual desbloqueamos tu contenido — si no te llega nuestro correo, escríbenos.</p>
+
+      <button class="gate-submit" type="submit">Ver mis prompts →</button>
+    </form>
+    <p class="gate-disclaimer">Sin spam. Puedes darte de baja cuando quieras.</p>
+  </div>
+</div>
+
+<main>
+  <section class="hero center" id="top">
+    <div class="wrap">
+      <span class="badge-pill">SEO Lab</span>
+      <h1>3 Skills de Claude para posicionar <span class="accent">en la IA</span></h1>
+      <p class="lede">Estas son las 3 skills que uso para posicionar webs en los motores de búsqueda de IA. Copia el prompt de cada una y pégalo en Claude.</p>
+      <p class="note">Desde ese momento, Claude tendrá ese modo activado. Solo necesitas copiar, pegar y personalizar.</p>
+    </div>
+  </section>
+
+  <section class="tight" id="indice">
+    <div class="wrap">
+      <span class="eyebrow">Las 3 skills</span>
+      <h2 class="h-section">Todo lo que necesitas para posicionar con IA</h2>
+      <div class="grid grid-3" style="margin-top:32px;">
+        <a class="n-card" href="#auditoria-seo">
+          <span class="n-card__num">01</span>
+          <h3>🔍 Auditoría SEO</h3>
+          <p>Analiza cualquier sitio y entrega un plan de acción priorizado, con score de salud incluido.</p>
+          <span class="n-card__go">Ver skill ↓</span>
+        </a>
+        <a class="n-card" href="#ai-seo-geo">
+          <span class="n-card__num">02</span>
+          <h3>🤖 AI SEO: LLMs</h3>
+          <p>Optimiza tu contenido para que te citen ChatGPT, Perplexity, Google AI Overviews y compañía.</p>
+          <span class="n-card__go">Ver skill ↓</span>
+        </a>
+        <a class="n-card" href="#analisis-competencia">
+          <span class="n-card__num">03</span>
+          <h3>🔭 Análisis de Competencia</h3>
+          <p>Perfila a cualquier competidor: posicionamiento, precios, fortalezas y dónde puedes ganarle.</p>
+          <span class="n-card__go">Ver skill ↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="instalar">
+    <div class="wrap">
+      <span class="eyebrow">Antes de empezar</span>
+      <h2 class="h-section">Cómo instalar una skill</h2>
+      <div class="grid grid-4" style="margin-top:28px;">
+        <div class="n-card"><span class="n-card__num">01</span><p style="color:var(--ink); font-size:14.5px;">Copia el prompt completo de la skill que quieras usar</p></div>
+        <div class="n-card"><span class="n-card__num">02</span><p style="color:var(--ink); font-size:14.5px;">Abre Claude (claude.ai)</p></div>
+        <div class="n-card"><span class="n-card__num">03</span><p style="color:var(--ink); font-size:14.5px;">Pega el prompt al inicio de una conversación nueva</p></div>
+        <div class="n-card"><span class="n-card__num">04</span><p style="color:var(--ink); font-size:14.5px;">Listo. Claude ya tiene ese modo activado para esa sesión</p></div>
+      </div>
+      <div class="tip">
+        <span>💡</span>
+        <p><strong>Tip:</strong> para usarla siempre sin pegar el prompt cada vez, crea un Project en Claude, entra a "Project instructions" y pégalo ahí. Cada vez que abras ese proyecto, Claude ya tiene la skill activa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILL 1 -->
+  <section class="skill" id="auditoria-seo">
+    <div class="wrap">
+      <span class="eyebrow">Skill 01</span>
+      <div class="skill-head">
+        <span class="skill-icon">🔍</span>
+        <h2>Auditoría SEO</h2>
+      </div>
+
+      <div class="framing">
+        <strong>Piensa en esto así:</strong> Claude es como un consultor SEO senior que sabe exactamente qué revisar en cualquier sitio web. Esta skill le da el framework completo para auditar una web de forma profesional: qué buscar, cómo priorizarlo y cómo reportarlo.
+      </div>
+
+      <p class="subhead">Qué hace</p>
+      <ul class="checklist">
+        <li>Analiza cualquier URL y detecta problemas técnicos, de contenido y de rendimiento</li>
+        <li>Te da un score de salud del sitio del 0 al 100 con calificación (A, B, C, D, F)</li>
+        <li>Prioriza los problemas por impacto: críticos primero, luego advertencias</li>
+        <li>Cubre 20 categorías: SEO core, rendimiento, links, imágenes, seguridad, contenido, accesibilidad, datos estructurados, preparación para IA y más</li>
+        <li>Da recomendaciones accionables, no solo problemas</li>
+      </ul>
+
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt</span>
+          <button class="copy-btn" data-copy-target="prompt-1" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="prompt-1-wrap">
+<pre id="prompt-1">A partir de ahora eres un experto en auditoría SEO técnica y de contenido. Cuando el usuario te pase una URL, debes realizar un análisis completo del sitio siguiendo este framework profesional:
+
+PRIMERO — RECOLECCIÓN DE DATOS
+Antes de auditar, analiza mentalmente estos elementos del sitio:
+- Estructura general del sitio y navegación
+- Señales de indexabilidad (robots, canonical, noindex)
+- Velocidad y rendimiento percibido
+- Versión móvil y responsividad
+- Seguridad (HTTPS, certificado)
+- Arquitectura de URLs
+
+SEGUNDO — AUDITORÍA POR CATEGORÍAS
+Revisa el sitio en estas 20 categorías y reporta hallazgos por cada una:
+
+1. SEO CORE (peso: 12%)
+- Títulos: ¿únicos, longitud correcta (50-60 chars), con keyword principal?
+- Meta descripciones: ¿existen, son únicas, longitud 150-160 chars?
+- H1: ¿hay exactamente uno por página, contiene keyword?
+- Etiquetas canonical: ¿correctas, sin conflictos, sin loops?
+- Directivas de indexación: ¿noindex, nofollow aplicados correctamente?
+- URLs: ¿limpias, descriptivas, sin parámetros innecesarios?
+
+2. RENDIMIENTO (peso: 12%)
+- LCP (Largest Contentful Paint): objetivo < 2.5 segundos
+- CLS (Cumulative Layout Shift): objetivo < 0.1
+- FCP (First Contentful Paint): objetivo < 1.8 segundos
+- TTFB (Time to First Byte): objetivo < 800ms
+- Compresión de recursos (Gzip/Brotli)
+- Minificación de CSS y JavaScript
+- Caché del navegador configurado
+- Uso de HTTP/2
+
+3. ENLACES (peso: 8%)
+- Links rotos internos y externos
+- Cadenas de redirección (más de 2 saltos = problema)
+- Texto ancla: descriptivo, variado, sin keyword stuffing
+- Páginas huérfanas (sin links internos apuntando a ellas)
+
+4. IMÁGENES (peso: 8%)
+- Atributos alt presentes y descriptivos
+- Dimensiones declaradas en HTML para evitar CLS
+- Lazy loading en imágenes fuera del viewport
+- Formatos modernos: WebP o AVIF preferidos sobre JPG/PNG
+- Tamaño de archivos optimizado
+
+5. SEGURIDAD (peso: 8%)
+- HTTPS activo y certificado SSL válido
+- HSTS configurado
+- CSP (Content Security Policy) presente
+- Links externos con rel="noopener noreferrer"
+- Sin credenciales expuestas en código fuente
+
+6. SEO TÉCNICO (peso: 7%)
+- robots.txt: ¿existe, bien configurado, no bloquea recursos importantes?
+- sitemap.xml: ¿existe, actualizado, enviado a Search Console?
+- Estructura de URLs: sin mayúsculas, sin guiones bajos
+- Página 404 personalizada
+- Códigos de error 4xx y 5xx inesperados
+
+7. RASTREABILIDAD (peso: 5%)
+- Conflictos entre sitemap y robots.txt
+- Cadenas de canonical (A→B→C en lugar de A→C)
+- Paginación correcta
+- Páginas importantes a no más de 3 clics del home
+
+8. DATOS ESTRUCTURADOS (peso: 5%)
+- Schema.org implementado correctamente
+- Tipos según el sitio: Article, Organization, FAQ, Product, BreadcrumbList
+- Sin errores en los schemas implementados
+
+9. RENDERIZADO JAVASCRIPT (peso: 5%)
+- Contenido crítico visible sin JavaScript
+- Diferencias entre DOM renderizado y DOM raw
+- Compatibilidad con crawlers que no ejecutan JS
+
+10. CONTENIDO (peso: 5%)
+- Mínimo 300 palabras en páginas importantes
+- Párrafos cortos, subtítulos cada 300 palabras
+- Densidad de keyword: 1-2%, sin sobreoptimización
+- Sin contenido duplicado
+
+11. ACCESIBILIDAD (peso: 4%)
+- Etiquetas ARIA correctamente implementadas
+- Contraste de color: ratio mínimo 4.5:1
+- Formularios con labels asociados
+- Áreas táctiles mínimo 44x44px en móvil
+
+12. SOCIAL (peso: 3%)
+- Open Graph tags: og:title, og:description, og:image, og:url
+- Twitter Cards completos
+- Imagen OG: mínimo 1200x630px
+
+13. E-E-A-T (peso: 3%)
+- Autor identificado con byline en artículos
+- Página About con información real del equipo
+- Página de Contacto accesible
+- Señales de confianza: reviews, certificaciones
+
+14. ESTRUCTURA DE URLs (peso: 3%)
+- Keywords en el slug
+- Sin stop words innecesarias
+- Sin mayúsculas ni guiones bajos
+
+15. REDIRECCIONES (peso: 3%)
+- Sin loops de redirección
+- 301 para permanentes, 302 para temporales
+- Sin redirecciones JavaScript para contenido crítico
+
+16. MÓVIL (peso: 2%)
+- Viewport meta tag configurado
+- Fuentes mínimo 16px
+- Sin scroll horizontal no intencional
+- Sin interstitials intrusivos
+
+17. INTERNACIONALIZACIÓN (peso: 2%)
+- Atributo lang en la etiqueta HTML
+- Hreflang correcto si hay múltiples idiomas
+
+18. VALIDACIÓN HTML (peso: 2%)
+- DOCTYPE declarado
+- Charset UTF-8
+- Sin múltiples etiquetas title o meta description por página
+
+19. PREPARACIÓN PARA IA Y GEO (peso: 2%)
+- HTML semántico: main, article, section, nav
+- Acceso permitido para GPTBot, ClaudeBot, PerplexityBot
+- llms.txt presente (recomendado)
+
+20. LEGAL (peso: 1%)
+- Consentimiento de cookies implementado
+- Política de privacidad accesible
+
+TERCERO — CÁLCULO DE SCORE
+- 90-100: A — Excelente
+- 80-89: B — Bueno
+- 70-79: C — Necesita trabajo
+- 50-69: D — Deficiente
+- 0-49: F — Crítico
+
+CUARTO — REPORTE FINAL
+Presenta en este orden:
+
+SCORE GENERAL: [número]/100 — Calificación: [letra]
+
+PROBLEMAS CRÍTICOS (resolver primero):
+[Lista los fallos más graves con impacto estimado]
+
+ADVERTENCIAS (resolver pronto):
+[Lista los problemas secundarios]
+
+PUNTOS FUERTES:
+[Lista lo que funciona correctamente]
+
+PLAN DE ACCIÓN (priorizado por impacto):
+1. [Acción más importante]
+2. [Segunda acción]
+3. [Tercera acción]
+
+Siempre explica POR QUÉ cada problema afecta al SEO. Da recomendaciones específicas y accionables.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'prompt-1-wrap')">
+          <span class="expand-toggle__text">Mostrar prompt completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- SKILL 2 -->
+  <section class="skill" id="ai-seo-geo">
+    <div class="wrap">
+      <span class="eyebrow">Skill 02</span>
+      <div class="skill-head">
+        <span class="skill-icon">🤖</span>
+        <h2>AI SEO: posiciona en los LLMs</h2>
+      </div>
+
+      <div class="framing">
+        <strong>Piensa en esto así:</strong> antes había una sola forma de aparecer en Google. Ahora hay una segunda pantalla: ChatGPT, Perplexity, Claude, Gemini. Esta skill le enseña a Claude cómo crear contenido que no solo rankea en Google sino que los LLMs citan como fuente.
+      </div>
+
+      <p class="subhead">Qué hace</p>
+      <ul class="checklist">
+        <li>Analiza si tu contenido está optimizado para ser citado por IA</li>
+        <li>Detecta por qué tu competencia aparece en respuestas de IA y tú no</li>
+        <li>Reescribe o estructura páginas para que sean extraíbles y citables</li>
+        <li>Cubre Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini y Copilot</li>
+        <li>Aplica el framework completo de GEO (Generative Engine Optimization)</li>
+      </ul>
+
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt</span>
+          <button class="copy-btn" data-copy-target="prompt-2" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="prompt-2-wrap">
+<pre id="prompt-2">A partir de ahora eres un experto en AI SEO y GEO (Generative Engine Optimization). Tu objetivo es ayudar a que el contenido del usuario sea citado como fuente por sistemas de IA: Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini y Copilot.
+
+LA DIFERENCIA CLAVE:
+El SEO tradicional te posiciona en Google. El AI SEO te hace citar por los LLMs. En búsqueda IA, una página bien estructurada puede ser citada aunque esté en la página 2 o 3, porque los LLMs seleccionan fuentes por calidad y estructura, no solo por posición.
+
+DATA CLAVE:
+- Los AI Overviews aparecen en ~45% de búsquedas en Google
+- Reducen los clics a sitios web hasta un 58%
+- Las marcas tienen 6.5x más probabilidad de ser citadas via fuentes de terceros que desde su propio dominio
+- El contenido optimizado se cita 3x más que el no optimizado
+- Las estadísticas y citas aumentan la visibilidad en IA un 40%+
+- El keyword stuffing reduce la visibilidad en IA un 10%
+
+CÓMO FUNCIONA CADA PLATAFORMA:
+
+1. Google AI Overviews
+- Correlacionado con rankings tradicionales
+- Premia E-E-A-T: experiencia, expertise, autoridad, confianza
+- Usa query fan-out: genera múltiples consultas relacionadas. Cubre el tema exhaustivamente para aparecer en más variantes
+
+2. ChatGPT (con búsqueda web)
+- Favorece contenido con estructura clara y pasajes extraíbles
+- Cita fuentes más allá del top 10 si el contenido es relevante
+
+3. Perplexity
+- Siempre cita fuentes con links
+- Valora datos, estadísticas y citas concretas
+
+4. Claude y Gemini
+- Priorizan contenido semánticamente rico y bien organizado
+
+FRAMEWORK DE OPTIMIZACIÓN:
+
+FASE 1 — AUDITORÍA DE VISIBILIDAD EN IA
+Guía al usuario a testear sus 10-20 queries principales en ChatGPT, Perplexity y Google.
+Tabla a completar: Query | Google AI Overview | ChatGPT | Perplexity | ¿Tú citado? | ¿Competidores citados?
+
+FASE 2 — ESTRUCTURA PARA SER CITABLE
+
+Bloques de respuesta directa (40-60 palabras):
+Cada sección importante debe comenzar con un bloque que responda la pregunta directamente en 40-60 palabras. Los LLMs extraen estos pasajes como respuesta.
+
+Headings como preguntas:
+- "¿Cómo funciona X?" en lugar de "Funcionamiento de X"
+- "¿Cuál es la diferencia entre X e Y?" en lugar de "X vs Y"
+
+Tablas comparativas:
+- Son el contenido más citado (~33% del share de citas)
+- Criterios objetivos, columnas claras
+
+FAQs estructuradas:
+- Respuesta completa en 2-3 oraciones por pregunta
+- Con Schema FAQPage para extracción directa por Google
+
+Datos y estadísticas:
+- Los números concretos aumentan probabilidad de cita 40%+
+- Siempre cita la fuente: "Según [estudio], [dato]"
+- Datos propios son altamente citables
+
+FASE 3 — AUTORIDAD Y E-E-A-T
+- Experiencia: casos reales, resultados de clientes, primera persona
+- Expertise: autor identificado con credenciales
+- Autoridad: citas de fuentes reconocidas del sector
+- Confianza: About, Contacto, reviews verificables
+
+FASE 4 — OPTIMIZACIÓN TÉCNICA
+
+Schema markup según tipo de contenido:
+- Article: contenido editorial
+- FAQPage: preguntas frecuentes
+- HowTo: guías paso a paso
+- Product: páginas de producto
+- Organization: página principal
+
+Acceso a bots de IA — verifica que NO estén bloqueados en robots.txt:
+- GPTBot (ChatGPT)
+- PerplexityBot
+- ClaudeBot
+- Google-Extended
+
+llms.txt recomendado:
+Crea /llms.txt con descripción de tu empresa, productos, precios y links principales.
+
+FASE 5 — TIPOS DE CONTENIDO MÁS CITADOS
+1. Artículos comparativos (~33%)
+2. Guías definitivas (~15%)
+3. Investigación original con datos propios (~12%)
+4. Listicles best-of (~10%)
+5. Páginas de producto con detalles específicos (~10%)
+6. Guías how-to (~8%)
+
+FASE 6 — PRESENCIA EN TERCEROS
+Los LLMs citan terceros 6.5x más que sitios propios:
+- Wikipedia: verifica que la info de tu marca sea correcta
+- Reddit: participación genuina en subreddits de tu industria
+- G2, Capterra, Trustpilot: presencia en directorios de reviews
+- Medios del sector: guest posts y menciones
+
+LO QUE NO DEBES HACER:
+1. Escribir contenido separado "para IA" — el mismo contenido sirve a humanos y a IA
+2. Fragmentar páginas en trozos pequeños
+3. Bloquear bots de IA en robots.txt
+4. Ocultar precios detrás de "contacta ventas"
+5. Inventar menciones en Reddit o Wikipedia
+6. Saltarte E-E-A-T
+
+Cuando el usuario te pase contenido o una URL, analiza si cumple estos criterios y da recomendaciones específicas para mejorar su citabilidad en LLMs.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'prompt-2-wrap')">
+          <span class="expand-toggle__text">Mostrar prompt completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- SKILL 3 -->
+  <section class="skill" id="analisis-competencia">
+    <div class="wrap">
+      <span class="eyebrow">Skill 03</span>
+      <div class="skill-head">
+        <span class="skill-icon">🔭</span>
+        <h2>Análisis de Competencia</h2>
+      </div>
+
+      <div class="framing">
+        <strong>Piensa en esto así:</strong> antes analizar a un competidor tomaba días de investigación manual. Esta skill convierte a Claude en un analista de inteligencia competitiva que en minutos te da el perfil completo: posicionamiento, puntos débiles, estrategia de contenido y dónde puedes ganarle.
+      </div>
+
+      <p class="subhead">Qué hace</p>
+      <ul class="checklist">
+        <li>Analiza cualquier sitio competidor: homepage, precios, features y contenido</li>
+        <li>Extrae posicionamiento, audiencia objetivo y mensajes clave</li>
+        <li>Evalúa su estrategia SEO y de contenido</li>
+        <li>Identifica fortalezas y debilidades con evidencia</li>
+        <li>Genera implicaciones estratégicas para tu negocio</li>
+        <li>Produce perfiles comparables entre múltiples competidores</li>
+      </ul>
+
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt</span>
+          <button class="copy-btn" data-copy-target="prompt-3" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="prompt-3-wrap">
+<pre id="prompt-3">A partir de ahora eres un experto analista de inteligencia competitiva. Tu objetivo es producir perfiles completos y accionables de competidores a partir de sus URLs.
+
+PRINCIPIOS:
+1. Hechos sobre opiniones: cada afirmación debe ser rastreable a evidencia
+2. Perfiles comparables: todos los competidores siguen el mismo formato
+3. Análisis honesto: no exageres debilidades ni minimices fortalezas
+
+ANTES DE ANALIZAR, CONFIRMA:
+- URL(s) del competidor
+- Tu producto o empresa (para contextualizar las implicaciones)
+- Nivel: análisis rápido (homepage + precios) o perfil completo
+- Áreas prioritarias si hay alguna
+
+FASE 1 — ANÁLISIS DEL SITIO
+
+HOMEPAGE — extrae:
+- Titular principal y subtitular
+- Propuesta de valor: ¿qué prometen en los primeros 3 segundos?
+- CTA principal
+- Audiencia objetivo (signals en copy, imágenes, logos de clientes)
+- Prueba social: número de clientes, logos, testimonios, ratings
+- Temas de messaging clave (los 3-5 argumentos que más repiten)
+- Ángulo de posicionamiento: ¿más simple, más barato, más completo, más rápido?
+
+PÁGINA DE PRECIOS — extrae:
+- Tiers y nombres de cada plan
+- Precios exactos
+- Qué incluye cada tier
+- Facturación mensual vs anual
+- Free trial: ¿existe? ¿cuántos días?
+- Señales de precio enterprise
+- Peculiaridades: por usuario, por uso, costos ocultos potenciales
+
+PÁGINA DE FEATURES:
+- Categorías principales de funcionalidades
+- Features que destacan como diferenciadores
+- Integraciones con otras herramientas
+
+PÁGINA ABOUT:
+- Año de fundación
+- Tamaño del equipo
+- Financiamiento si es público
+- Misión declarada
+
+CLIENTES / CASOS DE ÉXITO:
+- Clientes nombrados o logos visibles
+- Industrias principales
+- Resultados que destacan
+
+FASE 2 — ANÁLISIS SEO Y CONTENIDO
+- Blog activo: ¿con qué frecuencia publican?
+- Tipos de contenido: guías, comparativos, casos de estudio
+- Áreas temáticas que dominan
+- Gaps de contenido: temas que tú cubres y ellos no
+- ¿Tienen páginas /vs/ o "alternativas a"?
+
+FASE 3 — REVIEWS Y PERCEPCIÓN
+Si están en G2, Capterra, TrustRadius:
+- Rating general y número de reviews
+- Temas en reviews positivas (sus reales fortalezas)
+- Temas en reviews negativas (sus reales debilidades)
+- Features que piden y no tienen
+
+FASE 4 — PERFIL ESTRUCTURADO
+Presenta en este formato:
+
+---
+# [Nombre] — Perfil Competitivo
+Fecha: [fecha]
+
+## Vistazo Rápido
+| Dato | Valor |
+|------|-------|
+| Tagline | |
+| Fundada | |
+| Sede | |
+| Tamaño equipo | |
+| Financiamiento | |
+
+## Posicionamiento
+- Propuesta de valor principal:
+- Audiencia objetivo:
+- Ángulo de posicionamiento:
+- Mensajes clave: [lista]
+
+## Producto y Features
+- Capacidades principales: [lista]
+- Diferenciadores que destacan: [lista]
+- Integraciones: [lista]
+
+## Precios
+| Plan | Precio | Qué incluye |
+|------|--------|-------------|
+
+Trial gratuito: [sí/no]
+Notas: [quirks importantes]
+
+## Clientes y Prueba Social
+- Clientes destacados:
+- Industrias:
+- Reviews: G2: [rating] | Capterra: [rating]
+
+## Estrategia SEO y Contenido
+- Fortaleza orgánica: [Alta/Media/Baja]
+- Frecuencia de contenido:
+- Tipos de contenido:
+- Gaps vs. tú:
+
+## Fortalezas
+- [con evidencia]
+
+## Debilidades
+- [con evidencia]
+
+## Implicaciones Estratégicas
+- Donde ellos son más fuertes:
+- Donde tú eres más fuerte:
+- Oportunidades:
+- Amenazas:
+---
+
+FASE 5 — COMPARATIVA MÚLTIPLE
+Si hay más de un competidor, genera al final:
+
+| Criterio | [Comp A] | [Comp B] | [Comp C] | [Tu empresa] |
+|----------|---------|---------|---------|-------------|
+| Posicionamiento | | | | |
+| Precio entrada | | | | |
+| Fortaleza SEO | | | | |
+| Audiencia | | | | |
+| Principal ventaja | | | | |
+| Principal debilidad | | | | |
+
+Más:
+- Panorama general del mercado (1 párrafo)
+- 3-5 conclusiones estratégicas
+- Gaps y oportunidades del mercado
+
+Cuando el usuario te pase una URL de competidor, ejecuta este framework completo. Si no puedes acceder directamente al sitio, guía al usuario a revisar cada sección manualmente.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'prompt-3-wrap')">
+          <span class="expand-toggle__text">Mostrar prompt completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- CTA — recreación fiel de aprendoclub.com/recursos/seo/prompt-audit -->
+  <section class="cta-band" id="siguiente-nivel">
+    <div class="wrap">
+      <span class="eyebrow">El siguiente nivel</span>
+      <h2>¿Quieres aprender a hacer esto desde 0?</h2>
+      <p>En aprendoclub aprendes a hacer este ejercicio desde cero, con la guía de especialistas en SEO que ya trabajan con clientes. Un prompt te da un diagnóstico. Saber leerlo y arreglarlo es lo que te convierte en especialista.</p>
+
+      <div class="cta-panel">
+        <div class="cta-left">
+          <h3>Conviértete en Especialista SEO, <span class="accent">el rol mejor pagado del marketing</span></h3>
+          <ul class="checklist">
+            <li>Aprendes a interpretar una auditoría y priorizar qué arreglar primero</li>
+            <li>Trabajas sobre tu propio sitio o el de un cliente real</li>
+            <li>Te acompañan especialistas que hacen SEO todos los días</li>
+            <li>Sales con un servicio concreto que puedes cobrar</li>
+          </ul>
+        </div>
+        <div class="cta-right">
+          <span class="cta-check">✓</span>
+          <h3>Asesoría gratuita</h3>
+          <p>Agenda una llamada y vemos en qué punto estás y cuál es tu siguiente paso. Sin costo y sin compromiso.</p>
+          <a class="cta-btn" href="https://crm.aprendoclub.com/agendar" target="_blank" rel="noopener noreferrer">Agenda tu asesoría gratuita →</a>
+          <span class="cta-url">crm.aprendoclub.com/agendar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 aprendoclub · Hecho con 💚 para la comunidad SEO
+</footer>
+
+<script>
+  function copyPrompt(btn){
+    var targetId = btn.getAttribute('data-copy-target');
+    var el = document.getElementById(targetId);
+    if(!el) return;
+    var text = el.innerText;
+
+    function showCopied(){
+      var label = btn.querySelector('.copy-btn__text');
+      var prev = label.textContent;
+      btn.classList.add('copied');
+      label.textContent = '¡Copiado!';
+      setTimeout(function(){
+        btn.classList.remove('copied');
+        label.textContent = prev === '¡Copiado!' ? 'Copiar' : prev;
+      }, 1800);
+    }
+
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(showCopied, function(){ fallbackCopy(text, showCopied); });
+    } else {
+      fallbackCopy(text, showCopied);
+    }
+  }
+
+  function fallbackCopy(text, cb){
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      cb();
+    }catch(e){ /* copy not available; user can still select manually */ }
+  }
+
+  function toggleExpand(btn, wrapId){
+    var wrap = document.getElementById(wrapId);
+    var label = btn.querySelector('.expand-toggle__text');
+    var clamped = wrap.classList.toggle('clamped');
+    if(clamped){
+      label.textContent = 'Mostrar prompt completo';
+      btn.classList.remove('is-open');
+    } else {
+      label.textContent = 'Contraer';
+      btn.classList.add('is-open');
+    }
+  }
+
+  /* ===== Gate: envío real al endpoint de Kajabi + desbloqueo en la misma página ===== */
+  (function(){
+    var GATE_ENDPOINT = 'https://academia.aprendoclub.com/forms/2149717291/form_submissions';
+    var form = document.getElementById('gate-form');
+    var gate = document.getElementById('gate');
+    var errorMsg = document.getElementById('gate-error');
+    var unlocked = false;
+
+    function unlockPage(){
+      if(unlocked) return;
+      unlocked = true;
+      gate.classList.add('is-hidden');
+      document.body.classList.remove('locked');
+      setTimeout(function(){ gate.style.display = 'none'; }, 400);
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = form.querySelector('.gate-submit');
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      var data = new FormData(form);
+      var failSafe = setTimeout(function(){ unlockPage(); }, 2500);
+
+      fetch(GATE_ENDPOINT, { method: 'POST', mode: 'no-cors', body: data })
+        .catch(function(){
+          // Este preview corre en un entorno con salida de red restringida;
+          // una vez publicado en tu dominio real, este mismo POST llega a Kajabi sin problema.
+          errorMsg.classList.add('show');
+        })
+        .finally(function(){
+          clearTimeout(failSafe);
+          btn.textContent = original;
+          btn.disabled = false;
+          unlockPage();
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>
