@@ -106,6 +106,17 @@ a{text-decoration:none;color:inherit}
    - "paginastop" (crear webs con IA) vive en la carpeta /seo/ pero
      el tema es más de diseño/contenido que de SEO puro — revisa si
      quieres moverlo de carpeta y categoría más adelante.
+
+   ACTUALIZADO el 2026-09-19 (2):
+   - Se detectaron 2 recursos nuevos en /recursos/seo/ que no estaban
+     enlazados: skills-seo y guia-10prompts. Se agregaron como SEO-04
+     y SEO-05.
+   - guia-10prompts existía como un archivo suelto sin extensión
+     (/recursos/seo/guia-10prompts), no como carpeta con index.html
+     igual que el resto de recursos. Se movió a
+     /recursos/seo/guia-10prompts/index.html para que el hosting lo
+     sirva con el content-type correcto (si no, el navegador lo habría
+     descargado en vez de mostrarlo, igual que pasaba con SM-01).
 */
 const CATS = [
   {
@@ -159,6 +170,20 @@ const CATS = [
         texto:'Rompe el "Tailwind starter aesthetic": dale a la IA un sistema de diseño real antes de que empiece a construir, en 4 pasos.',
         formato:'Guía · 4 pasos',
         ruta:'/recursos/seo/paginastop'
+      },
+      {
+        cod:'SEO-04',
+        titulo:'3 Skills de Claude para posicionar en la IA',
+        texto:'Tres prompts que convierten a Claude en tu auditor SEO, tu estratega de AI SEO/GEO y tu analista de competencia. Cópialos, pégalos y personalízalos.',
+        formato:'3 skills',
+        ruta:'/recursos/seo/skills-seo'
+      },
+      {
+        cod:'SEO-05',
+        titulo:'SEO con IA: la guía de los 10 prompts',
+        texto:'Prompts probados para posicionar desde cero: velocidad de carga, enlaces internos, SEO local, UX, link building y más. Listos para copiar y correr en ChatGPT, Gemini o Claude.',
+        formato:'10 prompts',
+        ruta:'/recursos/seo/guia-10prompts'
       }
     ]
   },
