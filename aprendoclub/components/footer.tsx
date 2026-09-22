@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Youtube } from "lucide-react";
+import { Youtube, MapPin } from "lucide-react";
 
 interface FooterColumn {
   title: string;
@@ -25,12 +25,19 @@ interface FooterLink {
   href: string;
 }
 
+export interface FooterCiudad {
+  nombre: string;
+  href: string;
+  pais?: string;
+}
+
 interface FooterProps {
   footerColumns: FooterColumn[];
   footerSocials: FooterSocial[];
   footerMeta: FooterMeta;
   blogCategories?: FooterLink[];
   recentPosts?: FooterLink[];
+  ciudades?: FooterCiudad[];
 }
 
 // SVGs de marca (lucide no trae TikTok/WhatsApp). Paths copiados de app/links/page.tsx.
@@ -64,6 +71,7 @@ export function Footer({
   footerMeta,
   blogCategories = [],
   recentPosts = [],
+  ciudades = [],
 }: FooterProps) {
   return (
     <footer className="w-full bg-[var(--bg-primary)] border-t border-white/[0.06]">
@@ -169,6 +177,35 @@ export function Footer({
           )}
         </div>
       </div>
+
+      {/* Programmatic Cities Strip (Internal Linking SEO) */}
+      {ciudades.length > 0 && (
+        <div className="border-t border-white/[0.06] container-padding py-6">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start gap-3 md:gap-6">
+            <div className="shrink-0 flex items-center gap-2 pt-0.5">
+              <MapPin className="h-4 w-4 text-[var(--accent)]" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-white">
+                Cursos SEO por Ciudad:
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-gray-400">
+              {ciudades.map((ciudad, idx) => (
+                <span key={ciudad.href} className="inline-flex items-center gap-3">
+                  <Link
+                    href={ciudad.href}
+                    className="hover:text-[var(--accent)] transition-colors"
+                  >
+                    Curso SEO en {ciudad.nombre}
+                  </Link>
+                  {idx < ciudades.length - 1 && (
+                    <span className="text-white/20 select-none">•</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Copyright Bar */}
       <div className="border-t border-white/[0.06] container-padding py-6">

@@ -9,7 +9,7 @@ export default async function SiteLayout({
 }>) {
   const payload = await getPayloadClient();
 
-  const [settings, programas, categories, recent] = await Promise.all([
+  const [settings, programas, categories, recent, ciudades] = await Promise.all([
     payload.findGlobal({ slug: "site-settings" }),
     payload.find({ collection: "programas", sort: "orden", depth: 0 }),
     payload.find({ collection: "categories", sort: "name", depth: 0, limit: 100 }),
@@ -18,6 +18,12 @@ export default async function SiteLayout({
       sort: "-publishedAt",
       depth: 2,
       limit: 4,
+    }),
+    payload.find({
+      collection: "ciudades-seo",
+      sort: "nombre",
+      depth: 0,
+      limit: 100,
     }),
   ]);
 
@@ -54,6 +60,11 @@ export default async function SiteLayout({
     footerMeta: settings.footer.footerMeta,
     blogCategories: blogMenu.map((c) => ({ label: c.label, href: c.href })),
     recentPosts,
+    ciudades: ciudades.docs.map((c) => ({
+      nombre: c.nombre,
+      href: `/cursos-seo/${c.slug}`,
+      pais: c.pais,
+    })),
   };
 
   return (
