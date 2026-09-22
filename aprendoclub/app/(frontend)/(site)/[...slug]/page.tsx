@@ -33,7 +33,7 @@ import {
  * /autor/{slug}, /{categoria}, /{categoria}/{slug} — antes que (2) Pages, para
  * que la estructura flat del blog conviva con las páginas del builder sin chocar.
  */
-const RESERVED_SLUGS = new Set<string>(['', 'home', 'links', 'admin', 'api', 'blog'])
+const RESERVED_SLUGS = new Set<string>(['', 'home', 'links', 'admin', 'api', 'blog', 'glosario', 'cursos-seo'])
 
 function pageParam(searchParams?: { page?: string | string[] }): number {
   const raw = Array.isArray(searchParams?.page) ? searchParams?.page[0] : searchParams?.page

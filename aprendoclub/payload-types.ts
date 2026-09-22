@@ -79,6 +79,7 @@ export interface Config {
     authors: Author;
     blogposts: Blogpost;
     'ciudades-seo': CiudadesSeo;
+    glosario: Glosario;
     redirects: Redirect;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -99,6 +100,7 @@ export interface Config {
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     blogposts: BlogpostsSelect<false> | BlogpostsSelect<true>;
     'ciudades-seo': CiudadesSeoSelect<false> | CiudadesSeoSelect<true>;
+    glosario: GlosarioSelect<false> | GlosarioSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -1436,6 +1438,22 @@ export interface CiudadesSeo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "glosario".
+ */
+export interface Glosario {
+  id: number;
+  termino: string;
+  slug: string;
+  definicion: string;
+  letra: string;
+  categoria: 'basico' | 'tecnico' | 'onpage' | 'offpage' | 'herramientas' | 'ia-algoritmos' | 'metricas';
+  ejemplo?: string | null;
+  destacado?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1540,6 +1558,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ciudades-seo';
         value: number | CiudadesSeo;
+      } | null)
+    | ({
+        relationTo: 'glosario';
+        value: number | Glosario;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -2775,6 +2797,21 @@ export interface CiudadesSeoSelect<T extends boolean = true> {
         title?: T;
         description?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "glosario_select".
+ */
+export interface GlosarioSelect<T extends boolean = true> {
+  termino?: T;
+  slug?: T;
+  definicion?: T;
+  letra?: T;
+  categoria?: T;
+  ejemplo?: T;
+  destacado?: T;
   updatedAt?: T;
   createdAt?: T;
 }

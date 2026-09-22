@@ -22,6 +22,7 @@ import { Programas } from './collections/Programas'
 import { TeamMembers } from './collections/TeamMembers'
 import { Testimonios } from './collections/Testimonios'
 import { CiudadesSeo } from './collections/CiudadesSeo'
+import { Glosario } from './collections/Glosario'
 import { SiteSettings } from './globals/SiteSettings'
 import { Llms } from './globals/Llms'
 
@@ -50,7 +51,7 @@ export default buildConfig({
       },
     },
   },
-  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost, CiudadesSeo],
+  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost, CiudadesSeo, Glosario],
   globals: [SiteSettings, Llms],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

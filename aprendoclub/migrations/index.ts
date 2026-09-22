@@ -21,6 +21,7 @@ import * as migration_20260711_042156_p24_diplomado_galeria_block from './202607
 import * as migration_20260831_041336_add_programas_imagen from './20260831_041336_add_programas_imagen';
 import * as migration_20260909_044802_add_antesdespues_comparativa_stats_header from './20260909_044802_add_antesdespues_comparativa_stats_header';
 import * as migration_20260922_162757_add_ciudades_seo from './20260922_162757_add_ciudades_seo';
+import * as migration_20260922_222511_add_glosario from './20260922_222511_add_glosario';
 
 export const migrations = [
   {
@@ -136,6 +137,11 @@ export const migrations = [
   {
     up: migration_20260922_162757_add_ciudades_seo.up,
     down: migration_20260922_162757_add_ciudades_seo.down,
-    name: '20260922_162757_add_ciudades_seo'
+    name: '20260922_162757_add_ciudades_seo',
+  },
+  {
+    up: migration_20260922_222511_add_glosario.up,
+    down: migration_20260922_222511_add_glosario.down,
+    name: '20260922_222511_add_glosario'
   },
 ];
