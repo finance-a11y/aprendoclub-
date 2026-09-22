@@ -1,16 +1,39 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
+import Link from 'next/link'
 import { slugifyHeading } from '@/lib/blog/lexical-utils'
 
 /**
- * Render del body Lexical de un BlogPost con anclas en los encabezados h2/h3
- * (para el TOC). Reusa los converters por defecto y sólo sobrescribe `heading`
- * para inyectar un `id` slugificado. Estilado con `.measure-prose` + `.blog-prose`.
- *
- * Tipado laxo (any) en los converters: la firma genérica de JSXConvertersFunction
- * es intratable acá, pero la API en runtime provee `node` + `nodesToJSX`.
+ * Normaliza enlaces para asegurar que enlaces internos o que apunten a
+ * aprendoseo.com / aprendoclub.com se sirvan con rutas relativas para SPA de Next.js.
  */
+function cleanLinkHref(rawUrl: string): { href: string; isInternal: boolean } {
+  let url = (rawUrl || '').trim()
+
+  // Si apunta a aprendoseo.com, remover el dominio para dejar la ruta limpia
+  if (/^https?:\/\/(?:[a-z0-9-]+\.)*aprendoseo\.com/i.test(url)) {
+    try {
+      const u = new URL(url)
+      url = u.pathname + u.search + u.hash
+    } catch {
+      // ignore
+    }
+  }
+
+  // Si apunta a aprendoclub.com, convertirlo a relativo para navegación SPA de Next.js
+  if (/^https?:\/\/(?:[a-z0-9-]+\.)*aprendoclub\.com/i.test(url)) {
+    try {
+      const u = new URL(url)
+      url = u.pathname + u.search + u.hash
+    } catch {
+      // ignore
+    }
+  }
+
+  const isInternal = url.startsWith('/') || url.startsWith('#')
+  return { href: url, isInternal }
+}
 
 function headingText(node: any): string {
   const collect = (n: any): string => {
@@ -43,6 +66,62 @@ export function RichBody({ data }: { data: unknown }) {
               <Tag id={id} className="scroll-mt-28">
                 {children}
               </Tag>
+            )
+          },
+          link: ({ node, nodesToJSX }: any) => {
+            const children = nodesToJSX({ nodes: node.children ?? [] })
+            const rawUrl = node.fields?.url ?? node.url ?? ''
+            const { href, isInternal } = cleanLinkHref(rawUrl)
+            if (!href) return <>{children}</>
+
+            if (isInternal) {
+              return (
+                <Link
+                  href={href}
+                  className="text-[var(--accent)] underline underline-offset-2 hover:opacity-80 transition-opacity font-medium"
+                >
+                  {children}
+                </Link>
+              )
+            }
+
+            return (
+              <a
+                href={href}
+                target={node.fields?.newTab ? '_blank' : undefined}
+                rel={node.fields?.newTab ? 'noopener noreferrer' : undefined}
+                className="text-[var(--accent)] underline underline-offset-2 hover:opacity-80 transition-opacity font-medium"
+              >
+                {children}
+              </a>
+            )
+          },
+          autolink: ({ node, nodesToJSX }: any) => {
+            const children = nodesToJSX({ nodes: node.children ?? [] })
+            const rawUrl = node.fields?.url ?? node.url ?? ''
+            const { href, isInternal } = cleanLinkHref(rawUrl)
+            if (!href) return <>{children}</>
+
+            if (isInternal) {
+              return (
+                <Link
+                  href={href}
+                  className="text-[var(--accent)] underline underline-offset-2 hover:opacity-80 transition-opacity font-medium"
+                >
+                  {children}
+                </Link>
+              )
+            }
+
+            return (
+              <a
+                href={href}
+                target={node.fields?.newTab ? '_blank' : undefined}
+                rel={node.fields?.newTab ? 'noopener noreferrer' : undefined}
+                className="text-[var(--accent)] underline underline-offset-2 hover:opacity-80 transition-opacity font-medium"
+              >
+                {children}
+              </a>
             )
           },
           upload: ({ node }: any) => {
