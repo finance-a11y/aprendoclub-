@@ -122,7 +122,9 @@ Detalle completo de Phases 29-32 archivado en `.planning/milestones/v1.7-phases/
   2. Las filas de `/reto` y `/diplomado` apuntan a `/programas/reto` y `/programas/diplomado` (URLs finales, post-reestructura de Phase 34), y las 2 filas de merge (`/certificaciones`, `/academia-seo`) apuntan a la página de autor de Arianna y a `/quienes-somos` respectivamente, como redirect simple sin fusión de contenido.
   3. Cada URL destino de la lista fue verificada contra la DB de Payload en vivo (no contra el sheet a ciegas); cualquier fila desactualizada respecto al código actual quedó corregida o descartada, con nota de qué cambió.
   4. El archivo está en un formato y ubicación que Juan puede importar directamente en el dashboard de Cloudflare del dominio aprendoseo.com, sin edición manual adicional.
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 33-01-PLAN.md — CSV completo de redirects 301 (verificado contra sheet y Payload en vivo) + README de importación a Cloudflare
 
 ### Phase 34: Reestructura de URLs de programas
 **Goal**: Las páginas de reto y diplomado viven en `/programas/reto` y `/programas/diplomado`, consistente con `/programas/taller-seo-con-ia`, sin romper enlaces existentes ni el SEO.
