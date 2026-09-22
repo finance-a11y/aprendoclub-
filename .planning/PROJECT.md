@@ -19,26 +19,28 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 - ✓ Blog migrado de aprendoseo.com (64 posts, 5 categorías, 3 autores) vía Payload — v1.3
 - ✓ Refresh de home + widget de asesoría por WhatsApp — v1.5 (deployado a main)
 - ✓ Copy sin "real", des-enfatizado de "SEO", cifra de estudiantes, Dana en team grid, sin logos de empresas en testimonios, diplomado renombrado a "SEO + AIO" — v1.6 (Phases 26-28, Fase 29 FAQs queda pendiente)
+- ✓ Feedback visual home + programas: tipografía/motion, cards de problema, imágenes reales en diplomado, widget de asesoría sin precio, espaciados — v1.7 (Phases 29-31, Phase 32 omitida)
 
 ### Active
 
-- [ ] Ver `.planning/REQUIREMENTS.md` (definido en milestone v1.7)
+- [ ] Ver `.planning/REQUIREMENTS.md` (definido en milestone v1.8)
 
-## Current Milestone: v1.7 Feedback visual home + programas
+## Current Milestone: v1.8 Migración aprendoseo.com → aprendoclub.com
 
-**Goal:** Aplicar el feedback visual/copy recibido de Arianna sobre el home y las páginas de programas (diplomado/taller/reto): tipografía y motion, cards de "problema" con copy e íconos nuevos, imágenes reales en diplomado, links de programas a páginas estables, quitar precio del home a favor del widget de asesoría con copy actualizado, reducir espaciados, y reordenar testimonios antes del widget.
+**Goal:** Migrar la totalidad de URLs de aprendoseo.com a aprendoclub.com sin pérdida de SEO, según el mapeo del sheet de Juan: primero la lista de redirects 301 para todo lo que ya existe en aprendoclub (para importar en Cloudflare), y después la creación de las páginas que faltan.
 
 **Target features:**
-- Montserrat Bold en headings + pase de motion/transiciones moderno en todo el sitio
-- Cards de "problema" (home): copy nuevo (4 cards) + íconos ilustrados tipo imagen en vez de lucide
-- Imágenes reales en la página Diplomado (estilo landing anterior)
-- Botones de programas alineados (verificar, ya resuelto en v1.5) + links de programas a páginas estables mientras se ajustan las nuevas
-- Home sin precio: solo widget de asesoría, con copy/bullets actualizados
-- Reducir espaciados grandes entre secciones del home
-- Testimonios antes del widget de asesoría (verificar, ya en ese orden en código)
+- Lista de redirects 301 lista para importar en Cloudflare (Bulk Redirects), cubriendo los ~80 URLs de aprendoseo.com cuyo destino ya existe en aprendoclub (64 blog posts en 5 categorías, 3 autores, 2 programas)
+- Reestructura de URLs: `/reto` → `/programas/reto`, `/diplomado` → `/programas/diplomado` (consistencia con `/programas/taller-seo-con-ia`), con redirect interno desde las rutas viejas
+- Páginas programáticas de ciudad (10: Alicante, Bilbao, Caracas, CDMX, Guadalajara, Málaga, Maracaibo, Puebla, Toledo, Valencia) migradas a Payload, mejoradas sobre el patrón genérico de aprendoseo
+- 2 páginas de programa nuevas (Curso SEO RDSS, Curso Básico de SEO) creadas en Payload a partir del contenido vivo en aprendoseo.com
+- 2 páginas de autor faltantes (Ibraim Zayed, Verónica Romero)
+- Páginas sueltas faltantes (contacto, glosario, políticas legales, recursos) creadas o redirigidas
+- `/prensa` descartada (sin valor, sin redirect)
 
 ### Out of Scope
 
+- Merge de contenido de `/certificaciones` → página de autor de Arianna y de `/academia-seo` → `/quienes-somos` — solo redirect simple por ahora; el merge de copy queda para una fase futura (decisión de Juan)
 - Checkout real del Taller SEO con IA — falta URL de pago; queda con fallback a aprendoseo.com hasta que Juan la aporte
 - Página Econía/SEOconía (PROG-05) — diferida, sin fuente de contenido
 - Import de imágenes/embeds inline del cuerpo del blog — limitación aceptada del migrador HTML→Lexical
@@ -65,6 +67,25 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 | Payload CMS con page-builder de bloques en vez de contenido hardcodeado en `content/*.ts` | Todo editable sin código para el equipo | ✓ Good — v1.3 completado, contenido migrado |
 | Milestone v1.6 tratado como milestone GSD completo (discuss→requirements→roadmap→plan→execute→review) | Los cambios de copy tocan posicionamiento de marca y voz, no son mecánicos | — Pending |
 | Checkpoints visuales agrupados al final del lote de fases, no fase por fase | Preferencia explícita de Juan durante v1.5 | ✓ Good |
+| Redirects 301 de aprendoseo.com → aprendoclub.com se aplican en Cloudflare, no en next.config.ts | Son dominios distintos; Cloudflare gestiona el DNS/CDN de aprendoseo.com | — Pending |
+| `/reto` y `/diplomado` se mueven a `/programas/reto` y `/programas/diplomado` | Consistencia de rutas con `/programas/taller-seo-con-ia`, aunque las URLs viejas ya estén live | — Pending |
+
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd-transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd-complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state
 
 ---
-*Last updated: 2026-07-11 after bootstrap para milestone v1.6*
+*Last updated: 2026-09-22 after arranque de milestone v1.8*

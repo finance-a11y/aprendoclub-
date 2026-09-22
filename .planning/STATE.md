@@ -1,16 +1,16 @@
 ---
-gsd_state_version: '1.0'
-milestone: v1.7
-milestone_name: Feedback visual home + programas
-status: in_progress
-last_updated: "2026-07-22T00:00:00.000Z"
-last_activity: 2026-07-22
+gsd_state_version: "1.0"
+milestone: v1.8
+milestone_name: Migración aprendoseo.com → aprendoclub.com
+status: planning
+last_updated: "2026-09-22T14:52:48.921Z"
+last_activity: 2026-09-22
 progress:
-  total_phases: 3
-  completed_phases: 3
-  total_plans: 3
-  completed_plans: 3
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -24,16 +24,15 @@ See: .planning/PROJECT.md (updated 2026-07-22)
 
 ## Current Position
 
-Phase: Ninguna — v1.7 completo (Phases 29-31), Phase 32 omitida
+Phase: Not started (defining requirements)
 Plan: —
-Status: Phases 29, 30 y 31 completas en código, committeadas en `feature/v1-7-feedback-visual-home`. Fase 32 omitida por Juan. Verificación visual y seed de Fase 30 siguen pendientes de que Neon vuelva a responder (`ECONNRESET` persistente) — no bloquea el merge, Juan pidió avanzar igual.
-Last activity: 2026-07-22 — Fase 32 omitida; merge a develop/main en curso
-
-Progress: [██████████] 100% (3/3 fases planeadas ejecutadas; verificación visual/seed de Fase 30 pendiente de Neon)
+Status: Defining requirements
+Last activity: 2026-09-22 — Milestone v1.8 started
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed (v1.7): 0
 - Average duration: — min
 - Total execution time: 0 hours
@@ -45,6 +44,7 @@ Progress: [██████████] 100% (3/3 fases planeadas ejecutadas;
 | - | - | - | - |
 
 **Recent Trend:**
+
 - Last 5 plans: — (histórico completo en `.planning/milestones/` y en commits previos de v1.5/v1.6)
 - Trend: —
 
