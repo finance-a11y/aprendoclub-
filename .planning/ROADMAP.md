@@ -210,8 +210,10 @@ Plans:
   2. `/seo-con-ia/evento` tiene destino confirmado (candidato: `/programas/taller-seo-con-ia`) y su redirect 301 agregado a la lista.
   3. `/prensa` NO aparece en la lista final de redirects de Cloudflare (descartada sin valor, según decisión del sheet).
 
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 1 plan
+Plans:
+
+- [x] 38-01-PLAN.md — Seed de páginas sueltas/legales en Payload y redirects 301
 
 ## Progress
 
@@ -232,8 +234,8 @@ Phases execute in numeric order: 33 → 34 → 35 → 36 → 37 → 38
 | 35. Páginas programáticas de ciudad | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 36. Páginas de programa nuevas | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 37. Páginas de autor faltantes | v1.8 | 1/1 | Complete    | 2026-09-22 |
-| 38. Páginas sueltas faltantes | v1.8 | 0/? | Not started | - |
+| 38. Páginas sueltas faltantes | v1.8 | 1/1 | Complete    | 2026-09-22 |
 
 ---
 *Roadmap created: 2026-07-22 for milestone v1.7*
-*Updated: 2026-09-22 — milestone v1.8 (Phases 33-38) agregado*
+*Updated: 2026-09-22 — milestone v1.8 (Phases 33-38) completado*

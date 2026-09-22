@@ -66,13 +66,13 @@
     {
       "number": "38",
       "name": "Páginas sueltas faltantes",
-      "status": "pending"
+      "status": "complete"
     }
   ],
   "next": {
-    "command": "/gsd-progress --next",
-    "label": "Advance to the next step (plan phase 38)",
-    "reason": "Phase 38 of 10 — needs a plan"
+    "command": "/gsd-audit-milestone",
+    "label": "Audit milestone completion",
+    "reason": "All phases of v1.8 are complete — audit against requirements"
   },
-  "updated_at": "2026-09-22T16:48:00.000Z"
+  "updated_at": "2026-09-22T16:54:00.000Z"
 }

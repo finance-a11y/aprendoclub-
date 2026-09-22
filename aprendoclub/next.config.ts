@@ -42,6 +42,9 @@ const nextConfig: NextConfig = {
       // PROGNEW-03: Redirección de programas nuevos desde su URL raíz a /programas/*
       { source: "/curso-seo-rdss", destination: "/programas/curso-seo-rdss", permanent: true },
       { source: "/curso-basico-de-seo", destination: "/programas/curso-basico-de-seo", permanent: true },
+      // MISC-01 & MISC-02: Redirección de recursos y landing de evento
+      { source: "/recursos/guia-seo-para-principiantes", destination: "/programas/curso-basico-de-seo", permanent: true },
+      { source: "/seo-con-ia/evento", destination: "/programas/taller-seo-con-ia", permanent: true },
     ];
   },
 };
