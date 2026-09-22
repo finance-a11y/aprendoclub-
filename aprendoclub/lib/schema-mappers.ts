@@ -76,6 +76,22 @@ const COURSES: Record<string, Parameters<typeof course>[0]> = {
     price: "30",
     courseWorkload: "P1D",
   },
+  "programas/curso-seo-rdss": {
+    name: "Curso SEO RDSS",
+    description:
+      "Taller práctico de SEO de 2 horas con Arianna Lupi. Optimización técnica, quick wins y plan de acción.",
+    path: "/programas/curso-seo-rdss",
+    price: "30",
+    courseWorkload: "PT2H",
+  },
+  "programas/curso-basico-de-seo": {
+    name: "Curso Básico de SEO",
+    description:
+      "Aprende las bases del posicionamiento web desde cero: rastreo, indexación, keyword research y métricas en Google Search Console.",
+    path: "/programas/curso-basico-de-seo",
+    price: "0",
+    courseWorkload: "P1W",
+  },
 };
 
 export async function getGraphsForSlug(
@@ -144,7 +160,9 @@ export async function getGraphsForSlug(
     case "programas/reto":
     case "diplomado":
     case "reto":
-    case "programas/taller-seo-con-ia": {
+    case "programas/taller-seo-con-ia":
+    case "programas/curso-seo-rdss":
+    case "programas/curso-basico-de-seo": {
       graphs.push(course(COURSES[slug]));
       // diplomado/reto también llevaban FAQPage (del bloque faqRef de su Page).
       const faqs = faqsFromLayout(doc);

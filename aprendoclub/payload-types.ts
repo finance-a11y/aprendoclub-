@@ -78,6 +78,7 @@ export interface Config {
     categories: Category;
     authors: Author;
     blogposts: Blogpost;
+    'ciudades-seo': CiudadesSeo;
     redirects: Redirect;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -97,6 +98,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     blogposts: BlogpostsSelect<false> | BlogpostsSelect<true>;
+    'ciudades-seo': CiudadesSeoSelect<false> | CiudadesSeoSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -1399,6 +1401,41 @@ export interface Blogpost {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ciudades-seo".
+ */
+export interface CiudadesSeo {
+  id: number;
+  nombre: string;
+  slug: string;
+  pais: 'España' | 'México' | 'Venezuela';
+  /**
+   * Ej: "en Valencia", "en Ciudad de México", "en Caracas"
+   */
+  gentilicio?: string | null;
+  /**
+   * Ej: "€28.000 – €38.000 / año" o "$25,000 – $42,000 MXN / mes"
+   */
+  salarioPromedio: string;
+  /**
+   * Explicación del salario para perfiles junior vs senior y trabajo remoto
+   */
+  salarioNota?: string | null;
+  faqs?:
+    | {
+        pregunta: string;
+        respuesta: string;
+        id?: string | null;
+      }[]
+    | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1499,6 +1536,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blogposts';
         value: number | Blogpost;
+      } | null)
+    | ({
+        relationTo: 'ciudades-seo';
+        value: number | CiudadesSeo;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -2706,6 +2747,33 @@ export interface BlogpostsSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ciudades-seo_select".
+ */
+export interface CiudadesSeoSelect<T extends boolean = true> {
+  nombre?: T;
+  slug?: T;
+  pais?: T;
+  gentilicio?: T;
+  salarioPromedio?: T;
+  salarioNota?: T;
+  faqs?:
+    | T
+    | {
+        pregunta?: T;
+        respuesta?: T;
+        id?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
       };
   updatedAt?: T;
   createdAt?: T;
