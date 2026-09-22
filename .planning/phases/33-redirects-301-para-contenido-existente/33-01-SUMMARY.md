@@ -7,14 +7,14 @@ tags: [redirects, cloudflare, 301, payload, seo]
 requires: []
 provides:
   - "CSV importable para Cloudflare Bulk Redirects con 81 reglas 301 validadas en vivo contra Payload"
-  - "README con instrucciones de importación y advertencia sobre Phase 34"
+  - "README con instrucciones de importación inmediata a Cloudflare y estrategia de redirección interna con Phase 34"
   - "Script reutilizable query-payload-slugs.ts para auditar colecciones y slugs de Payload"
 affects: [34-reestructuracion-de-rutas-de-programas, 35-creacion-de-paginas-nuevas-programas-y-autores]
 
 actuals:
   tokens: 42000
   tasks: 3
-  commits: 3
+  commits: 4
 
 tech-stack:
   added: []
@@ -28,8 +28,7 @@ key-files:
   modified: []
 
 key-decisions:
-  - "Normalizar origen de la fila de Reto a https://www.aprendoseo.com/reto apuntando a https://www.aprendoclub.com/programas/reto"
-  - "Apuntar fila de Diplomado a https://www.aprendoclub.com/programas/diplomado (URL definitiva post-Phase 34)"
+  - "Apuntar filas de Reto y Diplomado directamente a /reto y /diplomado (rutas activas en producción hoy), difiriendo la redirección hacia /programas/* a una redirección interna en Phase 34"
   - "Implementar filas con nota de merge (/certificaciones y /academia-seo) como redirects 301 simples sin fusión de páginas"
   - "Excluir filas de páginas nuevas (Phases 35-38), /prensa y evento de ads"
 
@@ -48,11 +47,11 @@ coverage:
         status: pass
     human_judgment: false
   - id: D2
-    description: "URLs finales de programas (/programas/reto, /programas/diplomado) y merges simples (/certificaciones, /academia-seo)"
+    description: "URLs de programas (/reto, /diplomado, /programas/taller-seo-con-ia) y merges simples (/certificaciones, /academia-seo)"
     requirement: "REDIR-02"
     verification:
       - kind: automated_ui
-        ref: "bash test grep for reto and diplomado target URLs and bare URL rejection"
+        ref: "bash test grep for reto and diplomado target URLs"
         status: pass
     human_judgment: false
   - id: D3
@@ -64,7 +63,7 @@ coverage:
         status: pass
     human_judgment: false
   - id: D4
-    description: "README con instrucciones de importación y advertencia sobre Phase 34"
+    description: "README con instrucciones de importación y estrategia para Phase 34"
     requirement: "REDIR-04"
     verification:
       - kind: manual_procedural
@@ -79,7 +78,7 @@ status: complete
 
 # Phase 33: Redirects 301 para contenido existente Summary
 
-**Lista completa de 81 redirects 301 para Cloudflare Bulk Redirects verificada al 100% contra Payload en vivo, con instrucciones de importación y control de dependencias para Phase 34.**
+**Lista completa de 81 redirects 301 para Cloudflare Bulk Redirects verificada al 100% contra Payload en vivo, con targets activos hoy (/reto, /diplomado) para activación inmediata sin riesgo de 404.**
 
 ## Performance
 
@@ -92,9 +91,9 @@ status: complete
 ## Accomplishments
 
 - Script de consulta de solo lectura `aprendoclub/scripts/query-payload-slugs.ts` creado y probado contra Neon en vivo.
-- Generación de `.planning/deliverables/v1.8/redirects-phase33-cloudflare.csv` con 81 filas validadas (64 blogposts, 3 autores, páginas de categoría, /links, /blog, /testimonios, /quienes-somos, /programas/taller-seo-con-ia, más las rutas finales de reto y diplomado).
-- Coincidencia exacta del 100% entre los destinos de blogposts/autores y la base de datos de producción (cero enlaces rotos).
-- Creación de `.planning/deliverables/v1.8/README-cloudflare-import.md` con instrucciones paso a paso para Juan en Cloudflare Bulk Redirects y advertencia explícita para no activar las filas de reto/diplomado antes del despliegue de Phase 34.
+- Generación de `.planning/deliverables/v1.8/redirects-phase33-cloudflare.csv` con 81 filas validadas (64 blogposts, 3 autores, páginas de categoría, /links, /blog, /testimonios, /quienes-somos, /programas/taller-seo-con-ia, y rutas activas en vivo de /reto y /diplomado).
+- Coincidencia exacta del 100% entre los destinos del CSV y la base de datos de Payload en producción.
+- Creación de `.planning/deliverables/v1.8/README-cloudflare-import.md` con instrucciones paso a paso para Juan en Cloudflare Bulk Redirects y explicación de la estrategia de redirección interna post-Phase 34.
 
 ## Task Commits
 
@@ -105,17 +104,18 @@ status: complete
 ## Files Created/Modified
 
 - `.planning/deliverables/v1.8/redirects-phase33-cloudflare.csv` - Archivo CSV listo para Cloudflare Bulk Redirects.
-- `.planning/deliverables/v1.8/README-cloudflare-import.md` - Guía de importación para Cloudflare y advertencias operativas.
+- `.planning/deliverables/v1.8/README-cloudflare-import.md` - Guía de importación para Cloudflare.
 - `aprendoclub/scripts/query-payload-slugs.ts` - Script de auditoría de slugs en Payload.
 
 ## Decisions Made
 
-- Normalizado el origen de Reto a `https://www.aprendoseo.com/reto` y destino `https://www.aprendoclub.com/programas/reto`.
-- Destino de Diplomado ajustado a `https://www.aprendoclub.com/programas/diplomado`.
+- Normalizado el origen de Reto a `https://www.aprendoseo.com/reto` y destino `https://www.aprendoclub.com/reto` (ruta activa en producción).
+- Destino de Diplomado establecido como `https://www.aprendoclub.com/diplomado` (ruta activa en producción).
+- Redirección hacia `/programas/reto` y `/programas/diplomado` se resolverá internamente dentro de aprendoclub en Phase 34, evitando cualquier riesgo de 404 antes de ese despliegue.
 - Los dos casos de merge (`/certificaciones` y `/academia-seo`) se configuraron como redirects 301 limpios sin fusionar contenido de páginas.
 - Excluidas las filas de páginas nuevas (Phases 35-38), `/prensa` y evento publicitario.
 
 ## Next Phase Readiness
 
-- Todo listo para Phase 34 (Reestructuración de rutas de programas: `/reto` → `/programas/reto` y `/diplomado` → `/programas/diplomado`).
-- Juan puede importar el CSV en Cloudflare Bulk Redirects cuando lo desee, manteniendo pausadas o postergadas las 2 filas de programas hasta completar la Phase 34.
+- Todo listo para Phase 34 (Reestructuración de rutas de programas: `/reto` → `/programas/reto` y `/diplomado` → `/programas/diplomado`), donde se configurará la redirección interna correspondiente.
+- Juan puede importar y activar el CSV en Cloudflare Bulk Redirects de forma inmediata sin esperar a Phase 34.

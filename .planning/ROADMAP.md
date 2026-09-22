@@ -130,7 +130,7 @@ Detalle completo de Phases 29-32 archivado en `.planning/milestones/v1.7-phases/
 **Success Criteria** (what must be TRUE):
 
   1. Existe un archivo CSV (formato Cloudflare Bulk Redirects: source URL, target URL, status code 301, preserve query string) con ~78 filas cubriendo los 64 blog posts, los 3 autores existentes, los 2 programas existentes y las URLs sueltas del sheet cuyo destino ya existe hoy en aprendoclub.
-  2. Las filas de `/reto` y `/diplomado` apuntan a `/programas/reto` y `/programas/diplomado` (URLs finales, post-reestructura de Phase 34), y las 2 filas de merge (`/certificaciones`, `/academia-seo`) apuntan a la página de autor de Arianna y a `/quienes-somos` respectivamente, como redirect simple sin fusión de contenido.
+  2. Las filas de `/reto` y `/diplomado` apuntan a `/reto` y `/diplomado` (URLs activas hoy en aprendoclub), y las 2 filas de merge (`/certificaciones`, `/academia-seo`) apuntan a la página de autor de Arianna y a `/quienes-somos` respectivamente, como redirect simple sin fusión de contenido. La redirección a `/programas/reto` y `/programas/diplomado` se manejará de forma interna en Phase 34.
   3. Cada URL destino de la lista fue verificada contra la DB de Payload en vivo (no contra el sheet a ciegas); cualquier fila desactualizada respecto al código actual quedó corregida o descartada, con nota de qué cambió.
   4. El archivo está en un formato y ubicación que Juan puede importar directamente en el dashboard de Cloudflare del dominio aprendoseo.com, sin edición manual adicional.
 
@@ -142,7 +142,7 @@ Plans:
 ### Phase 34: Reestructura de URLs de programas
 
 **Goal**: Las páginas de reto y diplomado viven en `/programas/reto` y `/programas/diplomado`, consistente con `/programas/taller-seo-con-ia`, sin romper enlaces existentes ni el SEO.
-**Depends on**: Phase 33 (la lista de redirects generada ya referencia las URLs finales `/programas/reto` y `/programas/diplomado` que esta fase pone en producción)
+**Depends on**: Phase 33 (con las redirecciones de Cloudflare apuntando a `/reto` y `/diplomado`, el redirect interno 301 de esta fase redirigirá ese tráfico a `/programas/reto` y `/programas/diplomado`)
 **Requirements**: RESTRUCT-01, RESTRUCT-02, RESTRUCT-03
 **Success Criteria** (what must be TRUE):
 

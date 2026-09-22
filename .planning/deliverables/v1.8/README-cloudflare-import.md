@@ -11,7 +11,7 @@ El archivo `redirects-phase33-cloudflare.csv` contiene 81 redirecciones permanen
 - **Artículos de blog:** 64 entradas correspondientes a las categorías actuales (seo-basico, empieza-en-seo, seo-onpage, herramientas-seo y seo-tecnico).
 - **Páginas de autor:** Perfiles de Arianna Lupi, Diana Rodríguez y Juan Angulo.
 - **Páginas de categoría y listados:** Índices de categorías del blog, listado general (`/blog`) y página de enlaces (`/links`).
-- **Programas:** Taller de SEO con IA (`/programas/taller-seo-con-ia`), más las redirecciones preparadas para Reto y Diplomado.
+- **Programas:** Taller de SEO con IA (`/programas/taller-seo-con-ia`), Reto (`/reto`) y Diplomado (`/diplomado`).
 - **Páginas institucionales:** Testimonios (`/testimonios`) y Quiénes somos (`/quienes-somos`).
 
 Todas las filas conservan los parámetros de consulta (`preserve_query_string: true`) para mantener el seguimiento de campañas y parámetros UTM.
@@ -38,24 +38,23 @@ Para aplicar estas reglas en el dominio de origen (aprendoseo.com):
    - Regresa a la pestaña **Bulk Redirects** y haz clic en **Create Bulk Redirect Rule**.
    - Asigna un nombre a la regla (por ejemplo, `Regla Migracion AprendoClub`).
    - Selecciona la lista que acabas de subir (`migracion-aprendoclub-fase33`).
-   - Guarda y despliega la regla.
+   - Guarda y despliega la regla. Esta lista puede activarse de inmediato porque todas las URLs de destino están publicadas y funcionando en aprendoclub.com hoy.
 
 ---
 
-## 3. Advertencia importante: Dependencia con Phase 34 (Reto y Diplomado)
+## 3. Manejo de URLs de Reto y Diplomado (Estrategia con Phase 34)
 
-> **ATENCIÓN REQUERIDA ANTES DE ACTIVAR:**
->
-> Las siguientes dos redirecciones apuntan a la estructura definitiva de programas definida para la Phase 34:
-> - `https://www.aprendoseo.com/reto` → `https://www.aprendoclub.com/programas/reto`
-> - `https://www.aprendoseo.com/diplomado` → `https://www.aprendoclub.com/programas/diplomado`
->
-> **No actives estas dos filas en Cloudflare hasta que se despliegue la Phase 34.**  
-> En el estado actual del sitio (previo a Phase 34), esas dos páginas aún viven en rutas raíz (`/reto` y `/diplomado`). Si se activan estas dos redirecciones antes del despliegue de Phase 34, los visitantes recibirán un error 404.
->
-> **Opciones recomendadas:**
-> 1. Pausar o desactivar temporalmente estas dos líneas dentro de la lista de Cloudflare hasta completar el despliegue de la Phase 34.
-> 2. O bien, importar la lista completa pero activar la regla en Cloudflare en el mismo momento en que se libere la Phase 34.
+En el sitio en vivo de aprendoclub.com, las páginas de Reto y Diplomado se encuentran actualmente en la raíz:
+- `https://www.aprendoseo.com/reto` → `https://www.aprendoclub.com/reto`
+- `https://www.aprendoseo.com/diplomado` → `https://www.aprendoclub.com/diplomado`
+
+Por instrucción de Juan, estas redirecciones apuntan directamente a sus rutas actuales (`/reto` y `/diplomado`) para que el archivo CSV pueda activarse en Cloudflare sin generar errores 404.
+
+Posteriormente, cuando se ejecute la **Phase 34** (reestructuración de programas bajo la subcarpeta `/programas`), se implementarán las redirecciones internas dentro de aprendoclub.com:
+- `/reto` → `/programas/reto`
+- `/diplomado` → `/programas/diplomado`
+
+De este modo, los usuarios provenientes de aprendoseo.com llegarán primero a `/reto` o `/diplomado` y luego serán canalizados internamente a la nueva ruta final una vez desplegada la Phase 34.
 
 ---
 
@@ -63,11 +62,11 @@ Para aplicar estas reglas en el dominio de origen (aprendoseo.com):
 
 Durante la verificación cruzada entre el Google Sheet de migración y la base de datos de Payload en Neon, se registraron las siguientes particularidades:
 
-1. **Fila de Reto sin URL de origen en el sheet:** La fila 4 del sheet contenía destino `reto` y notas de reubicación, pero la celda `url_origen` estaba en blanco. Por simetría con Diplomado y las decisiones de la fase, se estableció el origen como `https://www.aprendoseo.com/reto` apuntando a `https://www.aprendoclub.com/programas/reto`.
-2. **Destino de Diplomado actualizado:** La fila 6 del sheet indicaba el destino simple `diplomado`. Se ajustó a la URL final `https://www.aprendoclub.com/programas/diplomado` para evitar una doble redirección tras Phase 34.
+1. **Fila de Reto sin URL de origen en el sheet:** La fila 4 del sheet contenía destino `reto` y notas de reubicación, pero la celda `url_origen` estaba en blanco. Se estableció el origen como `https://www.aprendoseo.com/reto` apuntando a `https://www.aprendoclub.com/reto`.
+2. **Destino de Diplomado:** La fila 6 del sheet indicaba el destino `diplomado`. Se configuró apuntando a `https://www.aprendoclub.com/diplomado`, ruta activa en producción.
 3. **Casos con nota de merge:**
    - `https://www.aprendoseo.com/certificaciones` redirige de forma simple a `https://www.aprendoclub.com/autor/arianna-lupi`.
    - `https://www.aprendoseo.com/academia-seo` redirige de forma simple a `https://www.aprendoclub.com/quienes-somos`.  
    Ambos casos se configuraron como redirecciones 301 limpias sin alterar el contenido de las páginas destino.
-4. **Verificación de blog y autores (100% coincidencia):** Los 64 artículos de blog y los 3 autores existentes en el sheet coinciden de forma exacta con los slugs y categorías registrados en la base de datos de Payload. Ningún artículo fue descartado por falta de coincidencia.
+4. **Verificación de blog, páginas y autores (100% coincidencia):** Los 64 artículos de blog, páginas institucionales, programas y los 3 autores existentes en el sheet coinciden de forma exacta con los slugs y categorías registrados en la base de datos de Payload. Ninguna URL fue descartada por falta de coincidencia.
 5. **Filas excluidas para fases posteriores:** Se excluyeron del CSV las 19 filas con acción "Crear Página nueva y redirigir" (se abordarán en Phases 35 a 38), la fila `/prensa` marcada para eliminación y la página de eventos de ads (`/seo-con-ia/evento`).
