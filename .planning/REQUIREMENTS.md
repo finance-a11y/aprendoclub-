@@ -44,20 +44,20 @@ Decisiones de Juan ya incorporadas al alcance:
 
 ### Páginas de programa nuevas (PROGNEW)
 
-- [ ] **PROGNEW-01**: Crear en Payload la página del Curso SEO RDSS, con el contenido/estructura de `aprendoseo.com/curso-seo-rdss` (landing de 2h sobre SEO para RRSS, instructor Arianna Lupi, testimonios, FAQ, precio $30) adaptado a la voz de marca de aprendoclub.
-- [ ] **PROGNEW-02**: Crear en Payload la página del Curso Básico de SEO, con el contenido/estructura de `aprendoseo.com/curso-basico-de-seo` (curso gratuito para principiantes, 4 objetivos de aprendizaje, testimonios) adaptado a la voz de marca de aprendoclub.
-- [ ] **PROGNEW-03**: Redirect 301 desde `/curso-seo-rdss` y `/curso-basico-de-seo` de aprendoseo.com a las páginas nuevas.
+- [x] **PROGNEW-01**: Crear en Payload la página del Curso SEO RDSS, con el contenido/estructura de `aprendoseo.com/curso-seo-rdss` (landing de 2h sobre SEO para RRSS, instructor Arianna Lupi, testimonios, FAQ, precio $30) adaptado a la voz de marca de aprendoclub.
+- [x] **PROGNEW-02**: Crear en Payload la página del Curso Básico de SEO, con el contenido/estructura de `aprendoseo.com/curso-basico-de-seo` (curso gratuito para principiantes, 4 objetivos de aprendizaje, testimonios) adaptado a la voz de marca de aprendoclub.
+- [x] **PROGNEW-03**: Redirect 301 desde `/curso-seo-rdss` y `/curso-basico-de-seo` de aprendoseo.com a las páginas nuevas.
 
 ### Páginas de autor faltantes (AUTHOR)
 
-- [ ] **AUTHOR-01**: Crear en Payload las páginas de autor de Ibraim Zayed y Verónica Romero (mismo patrón que Arianna/Diana/Juan), con su bio y posts asociados si los tienen.
-- [ ] **AUTHOR-02**: Redirect 301 desde `/autor/ibraim-zayed` y `/autor/veronica-romero` de aprendoseo.com a las páginas nuevas.
+- [x] **AUTHOR-01**: Crear en Payload las páginas de autor de Ibraim Zayed y Verónica Romero (mismo patrón que Arianna/Diana/Juan), con su bio y posts asociados si los tienen.
+- [x] **AUTHOR-02**: Redirect 301 desde `/autor/ibraim-zayed` y `/autor/veronica-romero` de aprendoseo.com a las páginas nuevas.
 
 ### Páginas sueltas faltantes (MISC)
 
-- [ ] **MISC-01**: Crear o localizar en aprendoclub las páginas de contacto, glosario, política de privacidad, política de reembolso, aviso legal y términos y condiciones (7 filas del sheet), con redirect 301 desde sus URLs de aprendoseo.com.
-- [ ] **MISC-02**: Confirmar y redirigir `/seo-con-ia/evento` (fila "Página para ads" del sheet) a la página correspondiente en aprendoclub (candidato: `/programas/taller-seo-con-ia`).
-- [ ] **MISC-03**: Descartar `/prensa` de aprendoseo.com sin redirect (marcada como "sin valor" en el sheet) — no entra en la lista de Cloudflare.
+- [x] **MISC-01**: Crear o localizar en aprendoclub las páginas de contacto, glosario, política de privacidad, política de reembolso, aviso legal y términos y condiciones (7 filas del sheet), con redirect 301 desde sus URLs de aprendoseo.com.
+- [x] **MISC-02**: Confirmar y redirigir `/seo-con-ia/evento` (fila "Página para ads" del sheet) a la página correspondiente en aprendoclub (candidato: `/programas/taller-seo-con-ia`).
+- [x] **MISC-03**: Descartar `/prensa` de aprendoseo.com sin redirect (marcada como "sin valor" en el sheet) — no entra en la lista de Cloudflare.
 
 ## Out of Scope (v1.8)
 
@@ -83,21 +83,22 @@ Decisiones de Juan ya incorporadas al alcance:
 | CITY-02 | Phase 35 | Complete |
 | CITY-03 | Phase 35 | Complete |
 | CITY-04 | Phase 35 | Complete |
-| PROGNEW-01 | Phase 36 | Pending |
-| PROGNEW-02 | Phase 36 | Pending |
-| PROGNEW-03 | Phase 36 | Pending |
-| AUTHOR-01 | Phase 37 | Pending |
-| AUTHOR-02 | Phase 37 | Pending |
-| MISC-01 | Phase 38 | Pending |
-| MISC-02 | Phase 38 | Pending |
-| MISC-03 | Phase 38 | Pending |
+| PROGNEW-01 | Phase 36 | Complete |
+| PROGNEW-02 | Phase 36 | Complete |
+| PROGNEW-03 | Phase 36 | Complete |
+| AUTHOR-01 | Phase 37 | Complete |
+| AUTHOR-02 | Phase 37 | Complete |
+| MISC-01 | Phase 38 | Complete |
+| MISC-02 | Phase 38 | Complete |
+| MISC-03 | Phase 38 | Complete |
 
 **Coverage:**
 
 - v1 requirements: 19 total
 - Mapped to phases: 19/19 ✓
+- Completed: 19/19 (100%)
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-09-22*
-*Last updated: 2026-09-22 — roadmap creado, requirements mapeados a Phases 33-38*
+*Last updated: 2026-09-22 — milestone v1.8 completado*

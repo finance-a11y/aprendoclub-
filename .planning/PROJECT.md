@@ -19,24 +19,24 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 - ✓ Blog migrado de aprendoseo.com (64 posts, 5 categorías, 3 autores) vía Payload — v1.3
 - ✓ Refresh de home + widget de asesoría por WhatsApp — v1.5 (deployado a main)
 - ✓ Copy sin "real", des-enfatizado de "SEO", cifra de estudiantes, Dana en team grid, sin logos de empresas en testimonios, diplomado renombrado a "SEO + AIO" — v1.6 (Phases 26-28, Fase 29 FAQs queda pendiente)
-- ✓ Feedback visual home + programas: tipografía/motion, cards de problema, imágenes reales en diplomado, widget de asesoría sin precio, espaciados — v1.7 (Phases 29-31, Phase 32 omitida)
+- ✓ Migración aprendoseo.com → aprendoclub.com (Phases 33-38): redirects 301 en Cloudflare, reestructura de URLs /programas/*, 10 ciudades SSG, 2 programas nuevos, 2 autores y 6 páginas sueltas/legales — v1.8
 
 ### Active
 
-- [ ] Ver `.planning/REQUIREMENTS.md` (definido en milestone v1.8)
+- [ ] Milestone v1.8 completado. Listo para archivar o definir siguiente ciclo.
 
-## Current Milestone: v1.8 Migración aprendoseo.com → aprendoclub.com
+## Current Milestone: v1.8 Migración aprendoseo.com → aprendoclub.com (Completado)
 
 **Goal:** Migrar la totalidad de URLs de aprendoseo.com a aprendoclub.com sin pérdida de SEO, según el mapeo del sheet de Juan: primero la lista de redirects 301 para todo lo que ya existe en aprendoclub (para importar en Cloudflare), y después la creación de las páginas que faltan.
 
-**Target features:**
-- Lista de redirects 301 lista para importar en Cloudflare (Bulk Redirects), cubriendo los ~80 URLs de aprendoseo.com cuyo destino ya existe en aprendoclub (64 blog posts en 5 categorías, 3 autores, 2 programas)
-- Reestructura de URLs: `/reto` → `/programas/reto`, `/diplomado` → `/programas/diplomado` (consistencia con `/programas/taller-seo-con-ia`), con redirect interno desde las rutas viejas
-- Páginas programáticas de ciudad (10: Alicante, Bilbao, Caracas, CDMX, Guadalajara, Málaga, Maracaibo, Puebla, Toledo, Valencia) migradas a Payload, mejoradas sobre el patrón genérico de aprendoseo
-- 2 páginas de programa nuevas (Curso SEO RDSS, Curso Básico de SEO) creadas en Payload a partir del contenido vivo en aprendoseo.com
-- 2 páginas de autor faltantes (Ibraim Zayed, Verónica Romero)
-- Páginas sueltas faltantes (contacto, glosario, políticas legales, recursos) creadas o redirigidas
-- `/prensa` descartada (sin valor, sin redirect)
+**Delivered features:**
+- Lista de redirects 301 completa y probada en Cloudflare Bulk Redirects para todo el dominio aprendoseo.com
+- Reestructura de URLs: `/reto` → `/programas/reto`, `/diplomado` → `/programas/diplomado`, con redirects internos 301
+- Páginas programáticas de ciudad (10 ciudades) migradas con colección `CiudadesSeo` en Payload y SSG en Next.js
+- 2 páginas de programa nuevas (Curso SEO RDSS y Curso Básico de SEO) creadas en Payload y schema mappers
+- 2 páginas de autor faltantes (Ibraim Zayed, Verónica Romero) creadas en `authors` con fotos y bios
+- Páginas sueltas faltantes (contacto, glosario, políticas legales, recursos) creadas y redirigidas
+- `/prensa` descartada sin redirect
 
 ### Out of Scope
 
