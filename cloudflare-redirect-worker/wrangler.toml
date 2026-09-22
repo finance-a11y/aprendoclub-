@@ -1,0 +1,9 @@
+name = "aprendoseo-redirects"
+main = "src/index.js"
+compatibility_date = "2026-09-22"
+account_id = "2440cecb1195a265bd32c8f80f465977"
+
+routes = [
+  { pattern = "aprendoseo.com/*", zone_id = "038d39d6afd8fc39815e9dedaaacc3a6" },
+  { pattern = "www.aprendoseo.com/*", zone_id = "038d39d6afd8fc39815e9dedaaacc3a6" }
+]
