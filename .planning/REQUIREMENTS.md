@@ -1,95 +1,101 @@
-# Requirements: aprendoclub — Web (v1.7 Feedback visual home + programas)
+# Requirements: aprendoclub — Migración (v1.8 Migración aprendoseo.com → aprendoclub.com)
 
-**Defined:** 2026-07-22
-**Core Value:** Que el home y las páginas de programas reflejen el feedback más reciente de Arianna (copy, íconos, imágenes, motion, spacing) e inviten a agendar asesoría, corrigiendo en el camino un bug real de imágenes rotas que explica parte del feedback.
-**Research:** Ninguno — feedback viene con copy definitivo y referencias visuales (doc ClickUp de Arianna), y se verificó contra el sitio en producción antes de definir el alcance.
+**Defined:** 2026-09-22
+**Core Value:** Migrar aprendoseo.com a aprendoclub.com sin pérdida de tráfico/SEO: todo lo que ya existe queda redirigido, todo lo que falta se crea.
+**Research:** Ninguno — se auditó el sheet de mapeo de Juan (124 filas con datos) contra el código/DB en vivo de aprendoclub (Payload: 5 categorías de blog, 64 posts, 3 autores, 3 páginas de programa) y contra aprendoseo.com en vivo antes de definir el alcance.
 
 ## Contexto de verificación
 
-Antes de definir estos requirements se auditó el sitio en producción (aprendoclub.com) contra el doc de feedback. Varios puntos del feedback **ya están resueltos** en el código/producción (quedan como verificación, no como trabajo nuevo):
+Se cruzó el sheet de Juan (`https://docs.google.com/spreadsheets/d/1Iuy2kJE0Og_0ZUuk1gfSLTcmXkP1wBXfNvy0eVAHpzw`) contra la DB de Payload en vivo:
 
-- Hero: copy "La única academia de marketing e IA que te ayuda a encontrar trabajo" en Montserrat Bold — ✓ ya en producción.
-- Botones de programas (Diplomado/Taller/Reto) alineados en la misma línea — ✓ ya en producción.
-- Sección de precio eliminada del home, reemplazada por widget de asesoría — ✓ ya en producción.
-- Testimonios ubicados antes del widget de asesoría — ✓ ya en producción.
+- **80 filas "Aplicar redirección 301"**: el destino de la inmensa mayoría ya existe en aprendoclub — 64 blog posts bajo 5 categorías (`seo-basico`, `empieza-en-seo`, `seo-onpage`, `seo-tecnico`, `herramientas-seo`, que coinciden 1:1 con las categorías de Payload), 3 páginas de autor (`arianna-lupi`, `diana-rodriguez`, `juan-angulo`), y 2 páginas de programa.
+- **29 filas "Crear página nueva y redirigir"**: no existen todavía. Incluye 10 páginas programáticas de ciudad (confirmado en vivo: `aprendoseo.com/cursos-seo/curso-seo-cdmx` es contenido genérico con el nombre de ciudad sustituido — mismo precio $49.99, misma estructura de 16 módulos, solo cambia el rango salarial local en el FAQ), 2 páginas de programa nuevas (Curso SEO RDSS — landing de 2h sobre SEO para RRSS/TikTok/Instagram, $30; Curso Básico de SEO — curso gratuito para principiantes), 2 autores faltantes (Ibraim Zayed, Verónica Romero) y páginas sueltas (contacto, glosario, políticas legales, recursos).
+- **1 fila "eliminar (sin valor)"**: `/prensa` — se descarta, sin redirect.
+- **1 fila "Página para ads"**: `/seo-con-ia/evento` — pendiente confirmar destino exacto (candidato: `/programas/taller-seo-con-ia`).
 
-Se encontró además un **bug no reportado por Arianna**: las imágenes de la galería del Diplomado (`diplomadoGaleria`) y las fotos del equipo (`teamGridRef`) están rotas en producción (`naturalWidth: 0`, `complete: true` — la request falla). Esto probablemente explica por qué el feedback pide "¿podemos agregar imágenes?" cuando el feature y los archivos ya existen en el repo — nunca se vieron porque no cargan. Se prioriza el fix de este bug dentro de este milestone.
+Decisiones de Juan ya incorporadas al alcance:
+- `/reto` y `/diplomado` se reestructuran a `/programas/reto` y `/programas/diplomado` (URLs ya live en producción).
+- Los merges de contenido (`/certificaciones` → autor Arianna, `/academia-seo` → `/quienes-somos`) quedan fuera de este milestone — solo redirect simple por ahora.
+- Las páginas de ciudad se migran completas (las 10), analizando primero una a fondo para ver si se pueden mejorar sobre el patrón genérico de aprendoseo.
+- Todo el alcance (redirects + páginas nuevas) va en este milestone, en fases secuenciales.
 
-## v1 Requirements (milestone v1.7)
+## v1 Requirements (milestone v1.8)
 
-### Tipografía y motion (TYPO)
+### Redirects a Cloudflare (REDIR)
 
-- [ ] **TYPO-01**: Auditar y aplicar Montserrat Bold de forma consistente en los headings principales de home, diplomado, taller y reto (hoy el contrato tipográfico es 3 pesos: regular/medium/semibold; se agrega Bold donde falte, sin romper el contrato existente en el resto del sitio).
-- [ ] **TYPO-02**: Segunda pasada de motion/transiciones (framer-motion, sin dependencias nuevas) en secciones clave del home y de programas — más notorio que el pase de v1.5, respetando `prefers-reduced-motion`.
+- [ ] **REDIR-01**: Generar la lista completa de redirects 301 (source aprendoseo.com → destination aprendoclub.com) para las ~78 filas del sheet cuyo destino ya existe hoy en aprendoclub (blog posts, autores, programas, URLs sueltas), en el formato de import de Cloudflare Bulk Redirects (CSV: source URL, target URL, status code 301, preserve query string).
+- [ ] **REDIR-02**: Incluir en la lista los 2 redirects con nota de "merge" (`/certificaciones` → página de autor de Arianna, `/academia-seo` → `/quienes-somos`) como redirect simple, sin fusionar contenido todavía.
+- [ ] **REDIR-03**: Verificar cada URL destino propuesta contra la DB de Payload en vivo (no contra el sheet a ciegas) antes de incluirla en la lista final — descartar o corregir cualquier fila donde el sheet esté desactualizado respecto al código actual.
+- [ ] **REDIR-04**: Entregar la lista en un formato que Juan pueda importar directamente en el dashboard de Cloudflare del dominio aprendoseo.com (no se aplica dentro del repo de aprendoclub — son dominios distintos).
 
-### Cards de "problema" del home (CARDS)
+### Reestructura de URLs de programas (RESTRUCT)
 
-- [ ] **CARDS-01**: Reemplazar el copy de las 4 cards de "problema" del home por el texto definitivo de Juan:
-  - Card 1: "Sabes de todo y no te especializas. Tu CV dice 'marketing digital' pero no tienes diferenciación real. El mercado busca al que tiene un perfil claro y una habilidad con demanda."
-  - Card 2: "Aprendes de contenido desactualizado, solo y sin saber si vas por buen camino. Google cambió el algoritmo. La IA reemplazó la mitad de las carreras genéricas. Y tú sigues con técnicas de un curso grabado hace dos años, sin correcciones, sin nadie que te diga si lo estás aplicando bien o perdiendo el tiempo."
-  - Card 3: "Llevas meses preparándote y sigues cobrando lo mismo. Cursos, tutoriales, certificados. Pero sin proyectos reales, sin clientes, sin mentoría y sin un camino claro de junior a consultor, el esfuerzo no se convierte en dinero. Eso ya no es falta de conocimiento — es falta de estructura."
-  - Card 4: "La IA te está dejando atrás. Todos hablan de IA + SEO pero nadie te enseña cómo integrar herramientas de IA en tu flujo de trabajo para potenciar tu tiempo y habilidades."
-- [ ] **CARDS-02**: Reemplazar los íconos lucide de las 4 cards por íconos ilustrados 3D de [3dicons.co](https://3dicons.co/) (`iconMode: "image"`, infraestructura ya existe en `FeatureGrid`), uno por card, subidos a Payload media.
+- [ ] **RESTRUCT-01**: Mover el slug de la página `reto` en Payload de `reto` a `programas/reto`, y `diplomado` a `programas/diplomado`, verificando que el catch-all `[...slug]` de `(site)` resuelve las rutas anidadas correctamente.
+- [ ] **RESTRUCT-02**: Agregar redirects internos 301 en `next.config.ts` desde `/reto` → `/programas/reto` y `/diplomado` → `/programas/diplomado`, para no romper enlaces/analytics/ads existentes que apunten a las rutas viejas.
+- [ ] **RESTRUCT-03**: Actualizar todos los links internos del sitio (navbar, footer, cards de "Nuestros programas" en home, cross-links entre páginas de programa) que apunten a `/reto` o `/diplomado` para que usen las rutas nuevas directamente.
 
-### Imágenes del Diplomado (DIPLO-IMG)
+### Páginas programáticas de ciudad (CITY)
 
-- [ ] **DIPLO-IMG-01** (bug fix): Corregir las imágenes rotas de la galería actual del Diplomado (`diplomadoGaleria`) y de las fotos del equipo (`teamGridRef`) en producción — investigar causa raíz (paths, build, dominio de imágenes) y verificar carga real post-deploy.
-- [~] **DIPLO-IMG-02** (omitida): Rediseñar la sección de galería del Diplomado como cards con foto + texto superpuesto, al estilo de la landing anterior. Juan pidió omitir esta fase (2026-07-22) — requería migración de schema de Payload con Neon caída. Queda en Out of Scope; se retoma si Juan la vuelve a pedir.
+- [ ] **CITY-01**: Analizar a fondo una página de ciudad de aprendoseo.com (ej. `curso-seo-cdmx`) y definir cómo modelarla en Payload — evaluar si conviene una colección nueva (`CityLandingPages` con campo `city` + `salaryRange` + relación al programa) versus 10 entradas sueltas en `Pages`, priorizando reducir duplicación.
+- [ ] **CITY-02**: Implementar el modelo elegido en Payload (colección/campos) y el template de render que sustituye el nombre de la ciudad y el rango salarial local en el copy (título, H1, FAQ).
+- [ ] **CITY-03**: Crear las 10 páginas de ciudad (Alicante, Bilbao, Caracas, CDMX, Guadalajara, Málaga, Maracaibo, Puebla, Toledo, Valencia) con el modelo implementado, con URLs limpias en aprendoclub (definir patrón, ej. `/programas/taller-seo-con-ia/{ciudad}` o `/cursos-seo/{ciudad}`).
+- [ ] **CITY-04**: Redirect 301 desde cada URL vieja de aprendoseo.com (`/cursos-seo/curso-seo-{ciudad}`) a la URL nueva correspondiente en aprendoclub.
 
-### Links de programas (PROG-LINK)
+### Páginas de programa nuevas (PROGNEW)
 
-- [ ] **PROG-LINK-01**: El CTA del Taller en el home (card de "Nuestros programas") apunta temporalmente a la página estable `https://www.aprendoclub.com/evento` en vez de la página en construcción `/programas/taller-seo-con-ia`, hasta que esta última esté lista. Reto y Diplomado ya apuntan a sus páginas estables (`/reto`, `/diplomado`) — sin cambios.
+- [ ] **PROGNEW-01**: Crear en Payload la página del Curso SEO RDSS, con el contenido/estructura de `aprendoseo.com/curso-seo-rdss` (landing de 2h sobre SEO para RRSS, instructor Arianna Lupi, testimonios, FAQ, precio $30) adaptado a la voz de marca de aprendoclub.
+- [ ] **PROGNEW-02**: Crear en Payload la página del Curso Básico de SEO, con el contenido/estructura de `aprendoseo.com/curso-basico-de-seo` (curso gratuito para principiantes, 4 objetivos de aprendizaje, testimonios) adaptado a la voz de marca de aprendoclub.
+- [ ] **PROGNEW-03**: Redirect 301 desde `/curso-seo-rdss` y `/curso-basico-de-seo` de aprendoseo.com a las páginas nuevas.
 
-### Widget de asesoría — refinamiento de copy (ADV)
+### Páginas de autor faltantes (AUTHOR)
 
-- [ ] **ADV-05**: Actualizar el eyebrow/título/subtítulo/bullets del widget de asesoría gratuita del home al wording más reciente de Juan:
-  - Eyebrow/título: "aprendoclub | Academia de SEO + IA" / "Especialízate en lo que el mercado está pagando hoy."
-  - Bullets (9): aval universitario UCAB, clases en vivo con coaches especializados en SEO + IA cada semana, masterclasses y cursos especializados por área, invitados especiales cada mes, proyectos reales con feedback de expertos, coaches personalizados para ti, comunidad activa de especialistas en LATAM, herramientas/plantillas/recursos actualizados cada semana, certificación para LinkedIn hoy.
-  - Subtítulo/CTA: "¿No sabes por dónde empezar? Agenda una asesoría gratuita de 20 minutos y te decimos exactamente qué programa es para ti." → "Quiero mi asesoría gratuita".
+- [ ] **AUTHOR-01**: Crear en Payload las páginas de autor de Ibraim Zayed y Verónica Romero (mismo patrón que Arianna/Diana/Juan), con su bio y posts asociados si los tienen.
+- [ ] **AUTHOR-02**: Redirect 301 desde `/autor/ibraim-zayed` y `/autor/veronica-romero` de aprendoseo.com a las páginas nuevas.
 
-### Spacing — segunda pasada (LAY)
+### Páginas sueltas faltantes (MISC)
 
-- [ ] **LAY-02**: Reducir los espacios verticales entre secciones que siguen siendo grandes en home y diplomado (ej. gap entre currículum de 16 semanas y "Cómo funciona"), continuando el ajuste ya hecho en v1.5.
+- [ ] **MISC-01**: Crear o localizar en aprendoclub las páginas de contacto, glosario, política de privacidad, política de reembolso, aviso legal y términos y condiciones (7 filas del sheet), con redirect 301 desde sus URLs de aprendoseo.com.
+- [ ] **MISC-02**: Confirmar y redirigir `/seo-con-ia/evento` (fila "Página para ads" del sheet) a la página correspondiente en aprendoclub (candidato: `/programas/taller-seo-con-ia`).
+- [ ] **MISC-03**: Descartar `/prensa` de aprendoseo.com sin redirect (marcada como "sin valor" en el sheet) — no entra en la lista de Cloudflare.
 
-### Bug adicional encontrado (BUG)
-
-- [ ] **BUG-01**: Corregir los avatares rotos de los 3 testimonios destacados del home (Johanna Ramírez, Nataly Domínguez, Marco García) — mismo síntoma que DIPLO-IMG-01, probablemente misma causa raíz.
-
-## Verificación (ya resuelto, sin trabajo nuevo)
-
-- [x] **VERIFY-01**: Hero con copy "La única academia de marketing e IA..." en Montserrat Bold — confirmado en producción 2026-07-22.
-- [x] **VERIFY-02**: Botones de Diplomado/Taller/Reto alineados en la misma línea — confirmado en producción 2026-07-22.
-- [x] **VERIFY-03**: Sección de precio eliminada del home — confirmado en producción 2026-07-22.
-- [x] **VERIFY-04**: Testimonios antes del widget de asesoría — confirmado en producción 2026-07-22.
-
-## Out of Scope (v1.7)
+## Out of Scope (v1.8)
 
 | Feature | Reason |
 |---------|--------|
-| Fase 29 de v1.6 (FAQs de membresía) | Bloqueada esperando input de Juan sobre el modelo de negocio; se retoma como fase aparte (numeración propia) cuando Juan la desbloquee |
-| Checkout real del Taller SEO con IA | Falta URL de pago real; sigue con fallback a aprendoseo.com |
-| Página Econía/SEOconía | Diferida, sin fuente de contenido |
-| Actualizar fecha "Empieza el 13 de Julio" del Reto | No pedido por Juan en este feedback; posible contenido desactualizado a revisar aparte |
+| Merge de contenido de `/certificaciones` en la página de autor de Arianna | Decisión de Juan: solo redirect simple por ahora, el merge de copy queda para una fase futura |
+| Merge de contenido de `/academia-seo` en `/quienes-somos` | Misma decisión — redirect simple, merge después |
+| `curso-seo-rdss` (contenido) como cluster temático nuevo del blog | Es una landing de programa, no un cluster de blog; fuera de alcance del blog migrado en v1.3 |
+| Página de recursos con Canva embebido (`aprendoseo.com/caracas`) | Nota del sheet indica que es material de apoyo, no una URL real de producto; se evalúa aparte si Juan la pide |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DIPLO-IMG-01 | Phase 29 | Implemented — visual verification deferred (Vercel quota externa) |
-| BUG-01 | Phase 29 | Implemented — visual verification deferred (Vercel quota externa) |
-| CARDS-01 | Phase 30 | Code complete — seed pending (Neon down) |
-| CARDS-02 | Phase 30 | Code complete — seed pending (Neon down) |
-| ADV-05 | Phase 30 | Code complete — seed pending (Neon down) |
-| PROG-LINK-01 | Phase 30 | Code complete — seed pending (Neon down) |
-| TYPO-01 | Phase 31 | Implemented — visual QA deferred (Neon down) |
-| TYPO-02 | Phase 31 | Implemented — visual QA deferred (Neon down) |
-| LAY-02 | Phase 31 | Implemented — visual QA deferred (Neon down) |
-| DIPLO-IMG-02 | Phase 32 | Omitida (decisión de Juan) |
-| VERIFY-01 | N/A | Verified (pre-existing) |
-| VERIFY-02 | N/A | Verified (pre-existing) |
-| VERIFY-03 | N/A | Verified (pre-existing) |
-| VERIFY-04 | N/A | Verified (pre-existing) |
+| REDIR-01 | TBD | Pending |
+| REDIR-02 | TBD | Pending |
+| REDIR-03 | TBD | Pending |
+| REDIR-04 | TBD | Pending |
+| RESTRUCT-01 | TBD | Pending |
+| RESTRUCT-02 | TBD | Pending |
+| RESTRUCT-03 | TBD | Pending |
+| CITY-01 | TBD | Pending |
+| CITY-02 | TBD | Pending |
+| CITY-03 | TBD | Pending |
+| CITY-04 | TBD | Pending |
+| PROGNEW-01 | TBD | Pending |
+| PROGNEW-02 | TBD | Pending |
+| PROGNEW-03 | TBD | Pending |
+| AUTHOR-01 | TBD | Pending |
+| AUTHOR-02 | TBD | Pending |
+| MISC-01 | TBD | Pending |
+| MISC-02 | TBD | Pending |
+| MISC-03 | TBD | Pending |
+
+**Coverage:**
+- v1 requirements: 19 total
+- Mapped to phases: 0 (pendiente de roadmap)
+- Unmapped: 19 ⚠️ (se resuelve al crear el roadmap)
 
 ---
-*Requirements defined: 2026-07-22*
-*Last updated: 2026-07-22 — roadmap creado (Phases 29-32), traceability completa*
+*Requirements defined: 2026-09-22*
+*Last updated: 2026-09-22 — definición inicial milestone v1.8*
