@@ -178,8 +178,11 @@ Plans:
   2. La página del Curso Básico de SEO está publicada en Payload con los 4 objetivos de aprendizaje y testimonios, adaptada a la voz de aprendoclub (curso gratuito).
   3. `/curso-seo-rdss` y `/curso-basico-de-seo` de aprendoseo.com tienen su redirect 301 agregado a la lista de Cloudflare de Phase 33.
 
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 1 plan
+Plans:
+
+- [x] 36-01-PLAN.md — Seed de páginas de programa nuevas, schema mappers y redirects 301
+
 
 ### Phase 37: Páginas de autor faltantes
 
@@ -225,7 +228,7 @@ Phases execute in numeric order: 33 → 34 → 35 → 36 → 37 → 38
 | 33. Redirects 301 para contenido existente | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 34. Reestructura de URLs de programas | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 35. Páginas programáticas de ciudad | v1.8 | 1/1 | Complete    | 2026-09-22 |
-| 36. Páginas de programa nuevas | v1.8 | 0/? | Not started | - |
+| 36. Páginas de programa nuevas | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 37. Páginas de autor faltantes | v1.8 | 0/? | Not started | - |
 | 38. Páginas sueltas faltantes | v1.8 | 0/? | Not started | - |
 
