@@ -2,6 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { resendAdapter } from '@payloadcms/email-resend'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
@@ -20,6 +21,7 @@ import { Pages } from './collections/Pages'
 import { Programas } from './collections/Programas'
 import { TeamMembers } from './collections/TeamMembers'
 import { Testimonios } from './collections/Testimonios'
+import { CiudadesSeo } from './collections/CiudadesSeo'
 import { SiteSettings } from './globals/SiteSettings'
 import { Llms } from './globals/Llms'
 
@@ -48,10 +50,21 @@ export default buildConfig({
       },
     },
   },
-  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost],
+  collections: [Users, Media, Testimonios, ClientesTrabajados, Programas, TeamMembers, Faq, Pages, Category, Author, BlogPost, CiudadesSeo],
   globals: [SiteSettings, Llms],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
+  // Sin RESEND_API_KEY (dev local) Payload escribe los emails a consola.
+  // El remitente debe pertenecer a un dominio verificado en Resend.
+  ...(process.env.RESEND_API_KEY
+    ? {
+        email: resendAdapter({
+          defaultFromAddress: process.env.RESEND_FROM_EMAIL || 'hello@ariannalupi.com',
+          defaultFromName: process.env.RESEND_FROM_NAME || 'Aprendo Club',
+          apiKey: process.env.RESEND_API_KEY,
+        }),
+      }
+    : {}),
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI,

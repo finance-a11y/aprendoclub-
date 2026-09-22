@@ -20,6 +20,7 @@ import * as migration_20260711_010453_p22_asesoria_widget_block from './20260711
 import * as migration_20260711_042156_p24_diplomado_galeria_block from './20260711_042156_p24_diplomado_galeria_block';
 import * as migration_20260831_041336_add_programas_imagen from './20260831_041336_add_programas_imagen';
 import * as migration_20260909_044802_add_antesdespues_comparativa_stats_header from './20260909_044802_add_antesdespues_comparativa_stats_header';
+import * as migration_20260922_162757_add_ciudades_seo from './20260922_162757_add_ciudades_seo';
 
 export const migrations = [
   {
@@ -130,6 +131,11 @@ export const migrations = [
   {
     up: migration_20260909_044802_add_antesdespues_comparativa_stats_header.up,
     down: migration_20260909_044802_add_antesdespues_comparativa_stats_header.down,
-    name: '20260909_044802_add_antesdespues_comparativa_stats_header'
+    name: '20260909_044802_add_antesdespues_comparativa_stats_header',
+  },
+  {
+    up: migration_20260922_162757_add_ciudades_seo.up,
+    down: migration_20260922_162757_add_ciudades_seo.down,
+    name: '20260922_162757_add_ciudades_seo'
   },
 ];

@@ -37,6 +37,8 @@ const nextConfig: NextConfig = {
       // RESTRUCT-02: URLs de programas reestructuradas hacia /programas/*
       { source: "/reto", destination: "/programas/reto", permanent: true },
       { source: "/diplomado", destination: "/programas/diplomado", permanent: true },
+      // CITY-04: Redirección de URLs antiguas de cursos-seo por ciudad
+      { source: "/cursos-seo/curso-seo-:ciudad", destination: "/cursos-seo/:ciudad", permanent: true },
     ];
   },
 };
