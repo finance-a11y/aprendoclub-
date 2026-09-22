@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Práctica Módulo 1 — Monta tu Project y tu ADN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* ============================================================
+   SISTEMA DE DISEÑO — mismo que la landing de Social Media con IA
+   ============================================================ */
+:root{
+  --ink:#030403;
+  --ink-2:#0c0f0c;
+  --mint:#b8f50d;
+  --lime:#b8f50d;
+  --green-deep:#06281c;
+  --text:#f9faf9;
+  --text-70:rgba(255,255,255,.87);
+  --text-55:rgba(255,255,255,.64);
+  --line:rgba(255,255,255,.07);
+  --line-2:rgba(255,255,255,.11);
+  --card:rgba(3,4,3,.74);
+  --mint-07:rgba(184,245,13,.07);
+  --mint-30:rgba(184,245,13,.30);
+
+  --display:"Bricolage Grotesque","Bricolage Grotesque Fallback",ui-sans-serif,system-ui,sans-serif;
+  --serif:"Newsreader",ui-serif,Georgia,serif;
+  --body:"Geist","Geist Fallback",ui-sans-serif,system-ui,sans-serif;
+  --mono:"JetBrains Mono","JetBrains Mono Fallback",ui-monospace,monospace;
+
+  --r-card:26px;
+  --r-lg:32px;
+  --maxw:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--text);font-family:var(--body);
+  font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:88px 0;position:relative}
+.section--tight{padding:56px 0}
+@media(max-width:680px){.section{padding:56px 0}.section--tight{padding:40px 0}}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:1.06;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,6vw,58px);letter-spacing:-.035em}
+h2{font-size:clamp(28px,4vw,40px)}
+h3{font-size:clamp(19px,2.2vw,23px);letter-spacing:-.02em;line-height:1.2}
+p{margin:0}
+em,.it{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.01em}
+
+.eyebrow{font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);margin:0 0 18px}
+.lead{font-size:clamp(17px,1.9vw,20px);line-height:1.62;color:var(--text-70);max-width:64ch}
+.dim{color:var(--text-55);font-size:14.5px}
+
+.pill{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;
+  background:var(--mint-07);border:1px solid var(--mint-30);
+  font-size:12.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--mint)
+}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:32px}
+
+/* ---------- botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--body);font-size:16px;font-weight:600;letter-spacing:-.01em;
+  padding:17px 30px;border-radius:999px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease
+}
+.btn--primary{background:var(--mint);color:var(--green-deep)}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px -12px rgba(184,245,13,.55)}
+.btn--ghost{background:transparent;color:var(--text);border-color:var(--line-2)}
+.btn--ghost:hover{border-color:var(--mint-30);background:var(--mint-07)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:6px}
+
+@property --beam-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
+.btn--beam{position:relative;z-index:0}
+.btn--beam::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;
+  background:conic-gradient(from var(--beam-angle),transparent 0 72%,rgba(6,40,28,.9) 85%,rgba(255,255,255,.95) 93%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:beam-spin 2.8s linear infinite;pointer-events:none;z-index:-1
+}
+@keyframes beam-spin{to{--beam-angle:360deg}}
+
+.aurora{
+  background-image:linear-gradient(100deg,var(--mint) 42%,color-mix(in srgb,var(--mint) 45%,white) 50%,var(--mint) 58%);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;
+  color:transparent;display:inline-block;animation:aurora-move 5s ease-in-out infinite
+}
+h1 .it.aurora{color:transparent}
+@keyframes aurora-move{0%{background-position:120% center}100%{background-position:-20% center}}
+
+.particles-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.7}
+.particles-bg canvas{width:100%;height:100%;display:block}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+  .btn--primary:hover{transform:none}
+  .btn--beam::before,.aurora{animation:none}
+  .aurora{background:none;-webkit-text-fill-color:var(--mint);color:var(--mint)}
+}
+
+/* ---------- HERO (recortado: solo hasta título + explicación) ---------- */
+.hero{position:relative;padding:88px 0 64px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-30% -10% auto -10%;height:820px;
+  background:radial-gradient(58% 52% at 50% 26%,rgba(184,245,13,.16),transparent 68%);
+  pointer-events:none
+}
+.hero__in{position:relative;max-width:780px}
+.hero h1{margin:22px 0 22px}
+.hero__sub{font-size:clamp(16.5px,1.8vw,19px);line-height:1.64;color:var(--text-70);max-width:62ch}
+
+/* ---------- pasos numerados ---------- */
+.steps{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:0}
+.steps li{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.step__n{
+  flex:none;width:34px;height:34px;border-radius:50%;
+  background:var(--mint-07);border:1px solid var(--mint-30);color:var(--mint);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:14px
+}
+.step__body{padding-top:4px;color:var(--text-70);font-size:16px;line-height:1.6}
+.step__body strong{color:var(--text);font-weight:600}
+
+/* ---------- recurso: prompt copiable ---------- */
+.resource__head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.resource__tag{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);font-weight:600}
+.promptbox{
+  position:relative;margin-top:22px;background:var(--ink-2);border:1px solid var(--line);
+  border-radius:var(--r-card);overflow:hidden
+}
+.promptbox__bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 20px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)
+}
+.promptbox__label{font-family:var(--mono);font-size:12.5px;color:var(--text-55);letter-spacing:.02em}
+.copy-btn{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:13.5px;font-weight:600;
+  color:var(--mint);background:var(--mint-07);border:1px solid var(--mint-30);border-radius:999px;
+  padding:8px 16px;cursor:pointer;transition:background .18s ease,transform .18s ease
+}
+.copy-btn:hover{background:var(--mint-30)}
+.copy-btn svg{width:14px;height:14px}
+.promptbox pre{
+  margin:0;padding:24px;font-family:var(--mono);font-size:14px;line-height:1.7;color:var(--text-70);
+  white-space:pre-wrap;word-break:break-word;max-height:520px;overflow-y:auto
+}
+
+/* ---------- recurso: tabla ADN ---------- */
+.dnatable{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px}
+.dnatable th,.dnatable td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line)}
+.dnatable th{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-55);font-weight:600}
+.dnatable td{color:var(--text-70)}
+.dnatable td strong{color:var(--text);font-weight:600}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.resource-card{margin-top:24px}
+.resource-card p+p{margin-top:14px}
+.resource-card .lead{margin-bottom:0}
+
+.download-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:28px}
+</style>
+</head>
+<body>
+
+<div class="particles-bg" aria-hidden="true"><canvas id="particlesCanvas"></canvas></div>
+
+<!-- ============================ HERO (recortado) ============================ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="rv hero__in">
+      <p class="pill">Prácticas · Módulo 1</p>
+      <h1>Monta tu <span class="it aurora">Project</span> y tu ADN</h1>
+      <p class="hero__sub">
+        Aquí empieza la construcción del sistema. Este es el núcleo del módulo y lo que separa
+        este curso de un curso de prompts.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ PASO PRÁCTICO ============================ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="rv" style="max-width:760px">
+      <p class="eyebrow">Paso práctico</p>
+      <h2>Por qué un Claude Project</h2>
+      <p class="lead" style="margin-top:18px">
+        Es tu documentación viva. Cuando tienes tu ADN guardado ahí, cada pieza que generes
+        respeta tu voz automáticamente. Sin Project, repites tu contexto en cada prompt.
+        Con Project, defines quién eres una sola vez, y de ahí en adelante solo ordenas qué crear.
+      </p>
+    </div>
+
+    <div class="rv" style="max-width:760px;margin-top:48px">
+      <p class="eyebrow" style="margin-bottom:8px">Cómo se hace</p>
+      <p class="dim">Muéstralo en pantalla mientras lo explicas.</p>
+      <ul class="steps">
+        <li>
+          <span class="step__n">1</span>
+          <span class="step__body">Entra a <strong>claude.ai → Projects → Nuevo Project</strong>.</span>
+        </li>
+        <li>
+          <span class="step__n">2</span>
+          <span class="step__body">Nómbralo: <strong>"[Tu marca] — Content System"</strong>.</span>
+        </li>
+        <li>
+          <span class="step__n">3</span>
+          <span class="step__body">En <strong>Instructions</strong>, pega tu ADN (lo generas con el prompt de abajo).</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RECURSO A — PROMPT ============================ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="rv card resource-card">
+      <div class="resource__head">
+        <div>
+          <p class="resource__tag">Recurso A</p>
+          <h3>El Prompt de Voz de Marca</h3>
+        </div>
+      </div>
+      <p class="lead">
+        La persona corre este prompt una sola vez. No le pide que defina su voz (nadie la conoce
+        por introspección): la persona llena su perfil y la IA le devuelve voz, pilares y oferta
+        listos para el ADN.
+      </p>
+
+      <div class="promptbox">
+        <div class="promptbox__bar">
+          <span class="promptbox__label">Copia y pega en el Project</span>
+          <button class="copy-btn" id="copyPromptBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copyPromptLabel">Copiar prompt</span>
+          </button>
+        </div>
+        <pre id="promptText">Actúa como brand strategist especializado en contenido para redes sociales.
+Necesito definir mi voz de marca y mi oferta.
+
+MI PERFIL:
+- Tipo: [negocio / marca personal]
+- Nombre/marca: [tu nombre o marca]
+- Qué ofrezco: [producto / servicio / conocimiento]
+- A quién ayudo: [descripción de audiencia ideal]
+- El resultado que genero: [qué cambia para ellos]
+- Mi historia de origen: [por qué empecé esto, en 2-3 frases]
+- Lo que creo diferente a los demás en mi industria: [tu posición]
+
+GENERA:
+1. Mi tono de voz en 3 palabras + explicación de cada una
+2. Lo que SÍ soy vs lo que NO soy comunicando (tabla)
+3. 4 pilares con: nombre, función, objetivo y 3 ideas de tema cada uno
+4. Mi declaración de voz completa (2-3 frases, que suene a mí)
+5. Una frase de posicionamiento para mi bio
+6. Mi oferta en una frase: [qué vendo] + [a quién] + [resultado específico]
+
+REGLAS:
+- Que suene humano y específico. Nada genérico.
+- Si algo de mi perfil está vago, dímelo y pídeme que lo concrete antes de generar.
+- El tono que me propongas tiene que salir de cómo escribí mi perfil, no de un molde.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RECURSO B — ADN ============================ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="rv card resource-card">
+      <div class="resource__head">
+        <div>
+          <p class="resource__tag">Recurso B</p>
+          <h3>El ADN de Contenido</h3>
+        </div>
+      </div>
+      <p class="lead">
+        Las 6 salidas del prompt se trasplantan a este documento, que vive permanentemente en las
+        Instructions del Project. Es lo que los 4 Skills van a leer en cada pieza. Cada salida del
+        prompt tiene su campo exacto:
+      </p>
+
+      <div class="table-scroll">
+        <table class="dnatable">
+          <thead>
+            <tr><th>Salida del prompt</th><th>Campo del ADN</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 · Tono en 3 palabras</td><td><strong>TONO</strong></td></tr>
+            <tr><td>2 · Tabla SÍ soy / NO soy</td><td><strong>SÍ/NO + PROHIBIDO</strong></td></tr>
+            <tr><td>3 · 4 pilares con ideas de tema</td><td><strong>MIS 4 PILARES</strong></td></tr>
+            <tr><td>4 · Declaración de voz</td><td><strong>MI VOZ</strong> (encabezado)</td></tr>
+            <tr><td>5 · Frase de posicionamiento</td><td><strong>MI BIO</strong></td></tr>
+            <tr><td>6 · Oferta en una frase</td><td><strong>MI OFERTA</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="download-row">
+        <a class="btn btn--primary btn--beam" id="downloadAdnBtn" href="#" download="ADN-de-contenido.md">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar archivo del ADN
+        </a>
+        <span class="dim">Plantilla + ejemplo lleno · .md</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('downloadAdnBtn').setAttribute('href', "data:text/markdown;charset=utf-8;base64,IyBBRE4gREUgQ09OVEVOSURPIOKAlCBbVFUgTUFSQ0FdCgo+IEVzdGUgZG9jdW1lbnRvIHZpdmUgZW4gbGFzIEluc3RydWN0aW9ucyBkZSB0dSBDbGF1ZGUgUHJvamVjdC4KPiBFcyBsYSBtZW1vcmlhIHBlcm1hbmVudGUgZGUgcXVpw6luIGVyZXMuIFR1cyA0IFNraWxscyBsbyBsZWVuIGFudGVzIGRlIHByb2R1Y2lyCj4gY3VhbHF1aWVyIGNvc2EuIFNpIGVzdMOhIGJpZW4gaGVjaG8sIHRvZG8gbG8gcXVlIGdlbmVyZXMgc3VlbmEgYSB0aS4KPgo+IExsw6luYWxvIGNvbiBsYXMgNiBzYWxpZGFzIGRlbCBQUk9NUFQgREUgVk9aLiBDYWRhIHNhbGlkYSBkZWwgcHJvbXB0IHRpZW5lCj4gc3UgY2FtcG8gZXhhY3RvIGFxdcOtIGFiYWpvICh0ZSBtYXJjbyBjdcOhbCBjb24g4oaQKS4gQWN0dWFsw616YWxvIGN1YW5kbyBldm9sdWNpb25lcy4KCi0tLQoKIyMg8J+nrCBOw5pDTEVPIChlc3RvIG5vIGNhbWJpYSkKCioqVElQTzoqKiBbbmVnb2NpbyAvIG1hcmNhIHBlcnNvbmFsXQoKKipRVcOJIE9GUkVaQ086KiogW2VuIHVuYSBmcmFzZV0gICDihpAgc2FsaWRhIDYgZGVsIHByb21wdCAocGFydGUgInF1w6kgdmVuZG8iKQoKKipDTElFTlRFIElERUFMOioqIFthIHF1acOpbiBsZSBoYWJsYXMsIGRlc2NyaXRvIHBvciBsbyBxdWUgc2llbnRlL3F1aWVyZSwgbm8gc29sbyBkZW1vZ3JhZsOtYV0KCioqTUkgRElGRVJFTkNJQUw6KiogW3R1IHBvc3R1cmEg4oCUIGVsIHB1bnRvIGRlIHZpc3RhIHF1ZSBkZWZpZW5kZXMgeSBxdWUgY2FzaSBuYWRpZSBtw6FzIGRpY2VdCgoqKk1JIEhJU1RPUklBIERFIE9SSUdFTjoqKiBbcG9yIHF1w6kgZW1wZWPDqSBlc3RvLCAyLTMgZnJhc2VzIOKAlCBtYXRlcmlhIHByaW1hIGRlbCBwaWxhciBkZSBDb25leGnDs25dCgotLS0KCiMjIPCfjpnvuI8gTUkgVk9aCgoqKkRFQ0xBUkFDScOTTiBERSBWT1o6KiogW2xhcyAyLTMgZnJhc2VzIHF1ZSByZXN1bWVuIGPDs21vIHN1ZW5hc10gICDihpAgc2FsaWRhIDQgZGVsIHByb21wdAoKKipUT05PICgzIHBhbGFicmFzKToqKiBbcGFsYWJyYTFdIMK3IFtwYWxhYnJhMl0gwrcgW3BhbGFicmEzXSAgIOKGkCBzYWxpZGEgMSBkZWwgcHJvbXB0CgoqKkPDk01PIFNVRU5PIEVOIEPDgU1BUkE6KiogWzEgZnJhc2U6IMK/cGF1c2FkbywgcsOhcGlkbywgY29uZnJvbnRhdGl2bywgY2VyY2Fubz9dCgoqKkZSQVNFUyBNQVJDQToqKiBbdHVzIG11bGV0aWxsYXMsIGZvcm1hcyBkZSBlbXBlemFyLCBleHByZXNpb25lcyBxdWUgcmVwaXRlcyDigJQgbGl0ZXJhbF0KCi0tLQoKIyMg4pyFIExPIFFVRSBTw40gU09ZIHZzIPCfmqsgTE8gUVVFIE5PICAg4oaQIHNhbGlkYSAyIGRlbCBwcm9tcHQKCnwgU8ONIGNvbXVuaWNvIGFzw60gfCBOTyBjb211bmljbyBhc8OtIHwKfC0tLXwtLS18CnwgW3Jhc2dvXSB8IFtsbyBvcHVlc3RvIHF1ZSByZWNoYXphc10gfAp8IFtyYXNnb10gfCBbbG8gb3B1ZXN0byBxdWUgcmVjaGF6YXNdIHwKfCBbcmFzZ29dIHwgW2xvIG9wdWVzdG8gcXVlIHJlY2hhemFzXSB8CgoqKvCfmqsgUFJPSElCSURPIChmcmFzZXMgeSB0b25vcyBxdWUgTlVOQ0EgdXNvKToqKiBbY2xpY2jDqXMgZGUgbWFudWFsLCB0b25vIHF1ZSByZWNoYXphcywgZW1vamlzIGRlY29yYXRpdm9zLCBoYXNodGFncyBnZW7DqXJpY29zIOKAlCBzYWNhIGVzdG8gZGUgbGEgY29sdW1uYSBOT10KCi0tLQoKIyMg8J+Pm++4jyBNSVMgNCBQSUxBUkVTICAg4oaQIHNhbGlkYSAzIGRlbCBwcm9tcHQKCnwgIyB8IFBpbGFyIHwgRnVuY2nDs24gfCBPYmpldGl2byB8IDMgaWRlYXMgZGUgdGVtYSB8CnwtLS18LS0tLS0tLXwtLS0tLS0tLS18LS0tLS0tLS0tLXwtLS0tLS0tLS0tLS0tLS0tLS18CnwgMSB8IFtub21icmVdIHwgW3BhcmEgcXXDqV0gfCBbcXXDqSBsb2dyYV0gfCBbaWRlYV0gLyBbaWRlYV0gLyBbaWRlYV0gfAp8IDIgfCBbbm9tYnJlXSB8IFtwYXJhIHF1w6ldIHwgW3F1w6kgbG9ncmFdIHwgW2lkZWFdIC8gW2lkZWFdIC8gW2lkZWFdIHwKfCAzIHwgW25vbWJyZV0gfCBbcGFyYSBxdcOpXSB8IFtxdcOpIGxvZ3JhXSB8IFtpZGVhXSAvIFtpZGVhXSAvIFtpZGVhXSB8CnwgNCB8IFtub21icmVdIHwgW3BhcmEgcXXDqV0gfCBbcXXDqSBsb2dyYV0gfCBbaWRlYV0gLyBbaWRlYV0gLyBbaWRlYV0gfAoKPiBNYW50w6luIHNpZW1wcmUgdW5vIGRlIHBydWViYSB5IHVubyBkZSBjb252ZXJzacOzbiDigJQgc2luIGVzb3MgZG9zIG5vIGhheSB2ZW50YS4KCi0tLQoKIyMg8J+SsCBNSSBPRkVSVEEgICDihpAgc2FsaWRhIDYgZGVsIHByb21wdAoKKipPRkVSVEEgRU4gVU5BIEZSQVNFOioqIFtxdcOpIHZlbmRvXSArIFthIHF1acOpbl0gKyBbcmVzdWx0YWRvIGVzcGVjw61maWNvXQoKKipQUkVDSU86KiogW3VuIG7Dum1lcm8sIG5vIHVuIHJhbmdvIHZhZ29dCgoqKlFVw4kgQ1VFTlRBIENPTU8gTEVBRCBDQUxJRklDQURPOioqIFtxdcOpIGFjY2nDs24gaW5kaWNhIGludGVuY2nDs24gcmVhbCBkZSBjb21wcmEg4oCUIGVqOiB1biBETSBwcmVndW50YW5kbyBwcmVjaW8sIG5vIHVuIGxpa2VdCgotLS0KCiMjIPCfk4wgTUkgQklPICAg4oaQIHNhbGlkYSA1IGRlbCBwcm9tcHQKCioqRlJBU0UgREUgUE9TSUNJT05BTUlFTlRPOioqIFtsYSBsw61uZWEgcGFyYSB0dSBiaW8gZGUgSW5zdGFncmFtL0xpbmtlZEluXQoKLS0tCgojIyDimpnvuI8gUkVHTEFTIFBBUkEgTUlTIFNLSUxMUyAobGFzIGxlZW4gc2llbXByZSkKCjEuIFRvZGEgcGllemEgcmVzcGV0YSBtaSBERUNMQVJBQ0nDk04gREUgVk9aLCBtaSBUT05PIHkgbWlzIEZSQVNFUyBNQVJDQS4gU2kgc3VlbmEgYSBJQSwgZXN0w6EgbWFsLgoyLiBVbmEgcGllemEgPSB1biBwaWxhci4gTnVuY2EgbWV6Y2xhci4KMy4gVG9kbyBnYW5jaG8gZW50cmVnYSB2YWxvciBzb2NpYWwgKGludGVsaWdlbnRlIC8gdHJpYnUgLyBhc3BpcmFjaW9uYWwpLgo0LiBUb2RvIGNvbmNlcHRvIGF0ZXJyaXphIGVuIGFsZ28gY29uY3JldG86IHVuIG7Dum1lcm8sIHVuIGVqZW1wbG8sIHVuYSBzaXR1YWNpw7NuIHJlYWwuCjUuIFRvZGEgcGllemEgdGVybWluYSBlbiBVTkEgYWNjacOzbiBjbGFyYS4KNi4gTnVuY2EgdXNhciBuYWRhIGRlIGxhIGNvbHVtbmEgTk8gbmkgZGUgUFJPSElCSURPLgoKLS0tCi0tLQoKIyDwn5OLIEVKRU1QTE8gTExFTk8gKG5pY2hvIGRlIG11ZXN0cmE6IFNNTSBmcmVlbGFuY2UpCgo+IEFzw60gc2UgdmUgdW4gQUROIGJpZW4gaGVjaG8sIHNhbGlkbyBkZWwgcHJvbXB0IGRlIHZvei4gw5pzYWxvIGRlIHJlZmVyZW5jaWEsIG5vIGxvIGNvcGllcy4KCiMjIPCfp6wgTsOaQ0xFTwoKKipUSVBPOioqIG1hcmNhIHBlcnNvbmFsCgoqKlFVw4kgT0ZSRVpDTzoqKiBHZXN0acOzbiBkZSBjb250ZW5pZG8gY29uIElBICsgZXN0cmF0ZWdpYSBwYXJhIG5lZ29jaW9zIHF1ZSBwdWJsaWNhbiBzaW4gcnVtYm8uCgoqKkNMSUVOVEUgSURFQUw6KiogRHVlw7FvIGRlIG5lZ29jaW8gcGVxdWXDsW8gcXVlIHNhYmUgcXVlICJkZWJlcsOtYSBlc3RhciBlbiByZWRlcyIsIHB1YmxpY2EgYSByYXRvcyBwb3IgY3VscGEsIHkgZW4gZWwgZm9uZG8gc2llbnRlIHF1ZSBwaWVyZGUgY2xpZW50ZXMgY29udHJhIGNvbXBldGlkb3JlcyBxdWUgc8OtIGFwYXJlY2VuLiBObyBsZSBzb2JyYSB0aWVtcG8gbmkgcGFjaWVuY2lhLgoKKipNSSBESUZFUkVOQ0lBTDoqKiBMYSBtYXlvcsOtYSBkZSBTTU0gY29icmFuIHBvY28gcG9ycXVlIHZlbmRlbiAicG9zdHMiLiBZbyBjcmVvIHF1ZSB2ZW5kZXMgZWwgcHJvYmxlbWEgcXVlIGxlIHF1aXRhcyBkZSBlbmNpbWEgYWwgY2xpZW50ZSDigJQgeSBwb3IgZXNvIHNlIGNvYnJhIGRpc3RpbnRvLgoKKipNSSBISVNUT1JJQSBERSBPUklHRU46KiogRW1wZWPDqSBnZXN0aW9uYW5kbyBsYXMgcmVkZXMgZGUgbGEgY2FmZXRlcsOtYSBkZSB1bmEgYW1pZ2EgZ3JhdGlzLiBFbiAyIG1lc2VzIGxlIHN1YsOtIGxhcyB2aXNpdGFzIHJlYWxlcyBhbCBsb2NhbC4gQWjDrSBlbnRlbmTDrSBxdWUgZXN0byBubyBlcmEgInN1YmlyIGZvdG9zIGJvbml0YXMiLCBlcmEgdHJhZXIgY2xpZW50ZXMuCgojIyDwn46Z77iPIE1JIFZPWgoKKipERUNMQVJBQ0nDk04gREUgVk9aOioqIEhhYmxvIGRpcmVjdG8geSBzaW4gYWRvcm5vcywgY29tbyB1bmEgYW1pZ2EgcXVlIHRlIGRpY2UgbGEgdmVyZGFkIGF1bnF1ZSBpbmNvbW9kZS4gTm8gdmVuZG8gaHVtbyBuaSBmw7NybXVsYXMgbcOhZ2ljYXM6IHRlIG11ZXN0cm8gZWwgdHJhYmFqbyByZWFsIGRldHLDoXMgZGUgbG9zIHJlc3VsdGFkb3MuCgoqKlRPTk8gKDMgcGFsYWJyYXMpOioqIGRpcmVjdGEgwrcgc2luIHJvZGVvcyDCtyBwcsOhY3RpY2EKCioqQ8OTTU8gU1VFTk8gRU4gQ8OBTUFSQToqKiByw6FwaWRvIHkgZGlyZWN0bywgc2luIGludHJvLCB2b3kgYWwgZ3Jhbm8gZW4gbGEgcHJpbWVyYSBmcmFzZS4KCioqRlJBU0VTIE1BUkNBOioqICJvIHNlYSIsICJkw6lqYW1lIHNlciBob25lc3RhIiwgImVzdG8gbmFkaWUgdGUgbG8gZGljZSIsIGVtcGllem8gc2VndWlkbyByb21waWVuZG8gdW4gc3VwdWVzdG8uCgojIyDinIUgTE8gUVVFIFPDjSBTT1kgdnMg8J+aqyBMTyBRVUUgTk8KCnwgU8ONIGNvbXVuaWNvIGFzw60gfCBOTyBjb211bmljbyBhc8OtIHwKfC0tLXwtLS18CnwgRGlyZWN0YSwgdm95IGFsIGdyYW5vIHwgUm9kZW9zIHkgcmVsbGVubyBjb3Jwb3JhdGl2byB8CnwgSG9uZXN0YSBzb2JyZSBlbCBlc2Z1ZXJ6byByZWFsIHwgUHJvbWVzYXMgZGUgImbDoWNpbCB5IHLDoXBpZG8iIHwKfCBQcsOhY3RpY2EsIHRvZG8gYWNjaW9uYWJsZSB8IFRlb3LDrWEgc2luIGFwbGljYWNpw7NuIHwKCioq8J+aqyBQUk9ISUJJRE86KiogImVuIGVsIGNvbXBldGl0aXZvIG11bmRvIGRpZ2l0YWwiLCAic2luIGR1ZGEgYWxndW5hIiwgImVzIGltcG9ydGFudGUgZGVzdGFjYXIiLCBlbW9qaXMgZGUgZnVlZ3VpdG8sIHRvbm8gY29hY2ggbW90aXZhY2lvbmFsLCAiNSB0aXBzIiBzaW4gw6FuZ3VsbywgaGFzaHRhZ3MgZ2Vuw6lyaWNvcyAoI8OpeGl0byAjZW1wcmVuZGVkb3IpLgoKIyMg8J+Pm++4jyBNSVMgNCBQSUxBUkVTCgp8ICMgfCBQaWxhciB8IEZ1bmNpw7NuIHwgT2JqZXRpdm8gfCAzIGlkZWFzIGRlIHRlbWEgfAp8LS0tfC0tLS0tLS18LS0tLS0tLS0tfC0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLS0tLS0tfAp8IDEgfCBFZHVjYXRpdm8gfCBlbnNlw7FhciBhIHByb2R1Y2lyIGNvbiBJQSBzaW4gc29uYXIgYSBJQSB8IHF1ZSBtZSBjaXRlbiB5IGd1YXJkZW4gfCBjw7NtbyBjYXB0dXJhciBpZGVhcyAvIHByb21wdHMgcXVlIHVzbyAvIGVycm9yZXMgZGUgU01NIG5vdmF0b3MgfAp8IDIgfCBDb25leGnDs24gfCBtb3N0cmFyIGxhIHJlYWxpZGFkIGNydWRhIGRlbCBmcmVlbGFuY2UgTEFUQU0gfCBxdWUgc2llbnRhbiBxdWUgbG9zIGVudGllbmRvIHwgZWwgY2xpZW50ZSBkZWwgZG9taW5nbyAxMXBtIC8gY29icmFyIGJhcmF0byAvIG1pIGhpc3RvcmlhIGRlIGxhIGNhZmV0ZXLDrWEgfAp8IDMgfCBQcnVlYmEgfCByZXN1bHRhZG9zIHJlYWxlcyBjb24gY2lmcmFzIHwgcXVlIGNvbmbDrWVuIHwgY2FzbyAyMDDihpIzLjQwMCBhbGNhbmNlIC8gYW50ZXMtZGVzcHXDqXMgZGUgdW4gcGVyZmlsIC8gdGVzdGltb25pbyB8CnwgNCB8IENvbnZlcnNpw7NuIHwgaW52aXRhciBhIHRyYWJhamFyIGNvbm1pZ28gfCBxdWUgbWFuZGVuIERNIHwgInRlbmdvIDIgZXNwYWNpb3MiIC8gYXPDrSB0cmFiYWpvIC8gcXXDqSBpbmNsdXllIG1pIHBhcXVldGUgfAoKIyMg8J+SsCBNSSBPRkVSVEEKCioqT0ZFUlRBIEVOIFVOQSBGUkFTRToqKiBHZXN0aW9ubyBlbCBjb250ZW5pZG8gZGUgbmVnb2Npb3MgcGVxdWXDsW9zIGNvbiBJQSArIGVzdHJhdGVnaWEgcGFyYSBxdWUgZGVqZW4gZGUgaW1wcm92aXNhciB5IGVtcGllY2VuIGEgYXRyYWVyIGNsaWVudGVzIGRlc2RlIHJlZGVzLgoKKipQUkVDSU86KiogJDMwMC9tZXMgZWwgcGFxdWV0ZSBiYXNlICgzLTQgcGllemFzL3NlbWFuYSArIGVzdHJhdGVnaWEgKyByZXBvcnRlKS4KCioqUVXDiSBDVUVOVEEgQ09NTyBMRUFEIENBTElGSUNBRE86KiogdW4gRE0gcHJlZ3VudGFuZG8gY8OzbW8gdHJhYmFqbyBvIGN1w6FudG8gY29icm8g4oCUIG5vIHVuIGxpa2UsIG5vIHVuICJxdcOpIGJ1ZW4gcG9zdCIuCgojIyDwn5OMIE1JIEJJTwoKKipGUkFTRSBERSBQT1NJQ0lPTkFNSUVOVE86KiogQXl1ZG8gYSBuZWdvY2lvcyBwZXF1ZcOxb3MgYSBhdHJhZXIgY2xpZW50ZXMgZGVzZGUgcmVkZXMg4oCUIHNpbiBpbXByb3Zpc2FyIHkgc2luIHNvbmFyIGEgcm9ib3QuCgojIyDimpnvuI8gUkVHTEFTIFBBUkEgTUlTIFNLSUxMUwoKMS4gVG9kYSBwaWV6YSBzdWVuYSBkaXJlY3RhIHkgc2luIHJvZGVvcy4gU2kgc3VlbmEgbmV1dHJhbCBvIGEgbWFudWFsLCBlc3TDoSBtYWwuCjIuIFVuYSBwaWV6YSA9IHVuIHBpbGFyLgozLiBUb2RvIGdhbmNobyBlbnRyZWdhIHZhbG9yIHNvY2lhbC4KNC4gVG9kbyBjb25jZXB0byBhdGVycml6YSBlbiB1biBjYXNvIHJlYWwgbyB1bmEgY2lmcmEuCjUuIFRvZGEgcGllemEgdGVybWluYSBlbiB1bmEgYWNjacOzbi4KNi4gTnVuY2EgdXNhciBuYWRhIGRlIGxhIGNvbHVtbmEgTk8gbmkgZGUgUFJPSElCSURPLgoKLS0tCgpBcHJlbmRvQ2x1YiB8IGFwcmVuZG9jbHViLmNvbQo=");
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('copyPromptBtn');
+  var label = document.getElementById('copyPromptLabel');
+  var text = document.getElementById('promptText').textContent;
+  btn.addEventListener('click', function(){
+    function done(){
+      label.textContent = '¡Copiado!';
+      setTimeout(function(){ label.textContent = 'Copiar prompt'; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function(){
+        fallbackCopy();
+      });
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var canvas = document.getElementById('particlesCanvas');
+  var ctx = canvas.getContext('2d');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var quantity = window.innerWidth < 700 ? 45 : 90;
+  var staticity = 50, ease = 50, baseSize = 1;
+  var w = 0, h = 0, circles = [], rafId = null;
+  var mouse = { x: 0, y: 0 };
+
+  function rand(a, b){ return Math.random() * (b - a) + a; }
+
+  function makeCircle(){
+    return {
+      x: Math.floor(Math.random() * w),
+      y: Math.floor(Math.random() * h),
+      translateX: 0, translateY: 0,
+      size: Math.floor(Math.random() * 2) + baseSize,
+      alpha: 0,
+      targetAlpha: parseFloat((Math.random() * 0.6 + 0.1).toFixed(2)),
+      dx: rand(-0.05, 0.05), dy: rand(-0.05, 0.05),
+      magnetism: 0.1 + Math.random() * 4
+    };
+  }
+
+  function drawCircle(c){
+    ctx.translate(c.translateX, c.translateY);
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, c.size, 0, 2 * Math.PI);
+    ctx.fillStyle = 'rgba(255,255,255,' + c.alpha + ')';
+    ctx.fill();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function resize(){
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    circles = [];
+    for (var i = 0; i < quantity; i++) circles.push(makeCircle());
+  }
+
+  function remap(value, s1, e1, s2, e2){
+    var r = ((value - s1) * (e2 - s2)) / (e1 - s1) + s2;
+    return r > 0 ? r : 0;
+  }
+
+  function frame(){
+    ctx.clearRect(0, 0, w, h);
+    for (var i = circles.length - 1; i >= 0; i--) {
+      var c = circles[i];
+      var edge = [c.x + c.translateX - c.size, w - c.x - c.translateX - c.size, c.y + c.translateY - c.size, h - c.y - c.translateY - c.size];
+      var closest = Math.min.apply(null, edge);
+      var re = parseFloat(remap(closest, 0, 20, 0, 1).toFixed(2));
+      if (re > 1) { c.alpha += 0.02; if (c.alpha > c.targetAlpha) c.alpha = c.targetAlpha; }
+      else { c.alpha = c.targetAlpha * re; }
+      c.x += c.dx; c.y += c.dy;
+      c.translateX += (mouse.x / (staticity / c.magnetism) - c.translateX) / ease;
+      c.translateY += (mouse.y / (staticity / c.magnetism) - c.translateY) / ease;
+      drawCircle(c);
+      if (c.x < -c.size || c.x > w + c.size || c.y < -c.size || c.y > h + c.size) {
+        circles.splice(i, 1);
+        circles.push(makeCircle());
+      }
+    }
+    rafId = window.requestAnimationFrame(frame);
+  }
+
+  resize();
+  if (!reduceMotion) {
+    frame();
+    window.addEventListener('mousemove', function(e){ mouse.x = e.clientX - w / 2; mouse.y = e.clientY - h / 2; });
+  } else {
+    circles.forEach(function(c){ c.alpha = c.targetAlpha; drawCircle(c); });
+  }
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      if (rafId) cancelAnimationFrame(rafId);
+      resize();
+      if (!reduceMotion) frame();
+    }, 200);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

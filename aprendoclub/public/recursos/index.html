@@ -90,8 +90,40 @@ a{text-decoration:none;color:inherit}
 <script>
 /* ══════════════════════════════════════════════════════════
    Para agregar un recurso: añade un objeto a su categoría.
-   "ruta" debe coincidir con la carpeta dentro de /recursos.
-   ══════════════════════════════════════════════════════════ */
+   "ruta" debe coincidir EXACTAMENTE (mayúsculas incluidas) con
+   la carpeta real dentro de /recursos en el repo.
+   ══════════════════════════════════════════════════════════
+
+   CORREGIDO el 2026-09-19:
+   - SM-01 apuntaba a /recursos/social-media-lab, una carpeta que
+     no existe (la real es /recursos/Socialmedia/guia-socialmedia).
+     Ese era el único recurso visible en la biblioteca y su botón
+     "Ver recurso" no llevaba a ningún lado.
+   - Se agregaron los 5 recursos que ya existían como archivos
+     reales en el repo pero nunca se habían enlazado desde aquí:
+     formulas, guiaprompts (Social Media) y copy-instagram,
+     paginastop, prompt-audit (SEO).
+   - "paginastop" (crear webs con IA) vive en la carpeta /seo/ pero
+     el tema es más de diseño/contenido que de SEO puro — revisa si
+     quieres moverlo de carpeta y categoría más adelante.
+
+   ACTUALIZADO el 2026-09-19 (2):
+   - Se detectaron 2 recursos nuevos en /recursos/seo/ que no estaban
+     enlazados: skills-seo y guia-10prompts. Se agregaron como SEO-04
+     y SEO-05.
+   - guia-10prompts existía como un archivo suelto sin extensión
+     (/recursos/seo/guia-10prompts), no como carpeta con index.html
+     igual que el resto de recursos. Se movió a
+     /recursos/seo/guia-10prompts/index.html para que el hosting lo
+     sirva con el content-type correcto (si no, el navegador lo habría
+     descargado en vez de mostrarlo, igual que pasaba con SM-01).
+
+   ACTUALIZADO el 2026-09-19 (3):
+   - Se eliminaron las categorías "Inteligencia Artificial" y "Creación
+     de Contenido": no tenían ningún recurso real cargado (items:[]),
+     solo mostraban el placeholder "Próximamente". Si más adelante hay
+     contenido para esas categorías, vuelve a agregarlas al array CATS.
+*/
 const CATS = [
   {
     id:'social', nombre:'Social Media',
@@ -100,15 +132,67 @@ const CATS = [
       {
         cod:'SM-01',
         titulo:'De 0 a Social Media Manager',
-        texto:'Tres skills para Claude que definen tu voz, generan ganchos virales y escriben tus guiones de reels.',
+        texto:'Tres skills para Claude que definen tu voz, generan ganchos virales y escriben tus guiones de reels. Incluye banco de 234 estructuras de hooks.',
         formato:'3 skills',
-        ruta:'/recursos/social-media-lab'
+        ruta:'/recursos/Socialmedia/guia-socialmedia'
+      },
+      {
+        cod:'SM-02',
+        titulo:'¿Tu contenido suena a IA o a ti?',
+        texto:'Una guía rápida para auditar cualquier pieza antes de publicarla. Revisa frase por frase y decide si estás comunicando o solo ocupando espacio.',
+        formato:'Guía',
+        ruta:'/recursos/Socialmedia/formulas'
+      },
+      {
+        cod:'SM-03',
+        titulo:'Guía Maestra de Prompts — Social Media + IA',
+        texto:'Los 8 tipos de prompts que un Social Media Manager necesita en su día a día — organizados por frecuencia de uso, listos para copiar, pegar y personalizar.',
+        formato:'8 prompts',
+        ruta:'/recursos/Socialmedia/guiaprompts'
       }
     ]
   },
-  { id:'seo', nombre:'SEO', desc:'Lo que aplicamos antes de escribir una sola palabra.', items:[] },
-  { id:'ia',  nombre:'Inteligencia Artificial', desc:'Prompts y flujos para posicionar en ChatGPT y Gemini.', items:[] },
-  { id:'contenido', nombre:'Creación de Contenido', desc:'Ideas, guiones y fórmulas listas para usar.', items:[] }
+  {
+    id:'seo', nombre:'SEO',
+    desc:'Lo que aplicamos antes de escribir una sola palabra.',
+    items:[
+      {
+        cod:'SEO-01',
+        titulo:'Guía de Prompts: Carrusel con SEO',
+        texto:'4 prompts para que tu carrusel de Instagram aparezca en búsquedas. Mapeo de intenciones, copy de slides, caption y auditoría. Gratis.',
+        formato:'4 prompts',
+        ruta:'/recursos/seo/copy-instagram'
+      },
+      {
+        cod:'SEO-02',
+        titulo:'Prompt para auditar tu web: encuentra tus errores SEO',
+        texto:'Prompt gratuito para auditar tu web con IA. Detecta errores técnicos, problemas de Core Web Vitals y fallos on-page, con un plan de acción priorizado.',
+        formato:'1 prompt',
+        ruta:'/recursos/seo/prompt-audit'
+      },
+      {
+        cod:'SEO-03',
+        titulo:'Cómo crear una página web con IA que no se vea genérica',
+        texto:'Rompe el "Tailwind starter aesthetic": dale a la IA un sistema de diseño real antes de que empiece a construir, en 4 pasos.',
+        formato:'Guía · 4 pasos',
+        ruta:'/recursos/seo/paginastop'
+      },
+      {
+        cod:'SEO-04',
+        titulo:'3 Skills de Claude para posicionar en la IA',
+        texto:'Tres prompts que convierten a Claude en tu auditor SEO, tu estratega de AI SEO/GEO y tu analista de competencia. Cópialos, pégalos y personalízalos.',
+        formato:'3 skills',
+        ruta:'/recursos/seo/skills-seo'
+      },
+      {
+        cod:'SEO-05',
+        titulo:'SEO con IA: la guía de los 10 prompts',
+        texto:'Prompts probados para posicionar desde cero: velocidad de carga, enlaces internos, SEO local, UX, link building y más. Listos para copiar y correr en ChatGPT, Gemini o Claude.',
+        formato:'10 prompts',
+        ruta:'/recursos/seo/guia-10prompts'
+      }
+    ]
+  }
 ];
 
 const nav=document.getElementById('nav');

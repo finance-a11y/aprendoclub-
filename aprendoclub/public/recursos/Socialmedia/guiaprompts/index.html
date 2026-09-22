@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Guía Maestra de Prompts — Social Media + IA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --bg:#0d0d0d;
+    --bg-card:#161616;
+    --bg-prompt:#1c1c1c;
+    --border:#2a2a2a;
+    --lime:#d4f542;
+    --lime-dim:#3a4014;
+    --text:#f2f2f2;
+    --text-dim:#9a9a9a;
+    --text-faint:#666;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .hero {
+    padding: 80px 24px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .anexo {
+    color: var(--text-faint);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5.5vw, 58px);
+    font-weight: 800;
+    line-height: 1.08;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 .accent { color: var(--lime); }
+  .hero p.sub {
+    font-size: 18px;
+    color: var(--text-dim);
+    line-height: 1.55;
+    max-width: 640px;
+    margin: 18px 0 0;
+  }
+
+  /* index table */
+  .index-wrap {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 0 24px;
+  }
+  .index-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .index-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+    gap: 16px;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .index-row:last-child { border-bottom: none; }
+  .index-row.head {
+    background: #131313;
+    color: var(--text-faint);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .index-letter {
+    color: var(--lime);
+    font-weight: 800;
+    font-size: 18px;
+  }
+  .index-cat { font-weight: 600; font-size: 14.5px; }
+  .index-when { color: var(--text-dim); font-size: 13.5px; }
+
+  .divider { border-top: 1px solid var(--border); margin-top: 60px; }
+
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 24px 20px;
+  }
+  .cat-label {
+    color: var(--lime);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    margin: 0 0 6px;
+  }
+  .cat-when {
+    color: var(--text-dim);
+    font-size: 16px;
+    margin: 0 0 30px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 28px;
+  }
+  .card-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .card-head > div { flex: 1 1 200px; min-width: 0; }
+  .num {
+    flex-shrink: 0;
+    background: var(--lime-dim);
+    color: var(--lime);
+    font-weight: 800;
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 6px 11px;
+    border: 1px solid #4a5518;
+    white-space: nowrap;
+  }
+  .card-head h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .why {
+    margin-top: 16px;
+    margin-left: 58px;
+    padding: 13px 17px;
+    background: rgba(212,245,66,0.06);
+    border-left: 3px solid var(--lime);
+    border-radius: 6px;
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .why b { color: var(--lime); font-weight: 700; }
+
+  .prompt-box {
+    margin-top: 20px;
+    background: var(--bg-prompt);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .prompt-box-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .prompt-label {
+    color: var(--lime);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .copy-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+  .copy-btn:hover { border-color: var(--lime); color: var(--lime); }
+  .copy-btn.copied { background: var(--lime); border-color: var(--lime); color: #0d0d0d; }
+  .copy-btn svg { width: 14px; height: 14px; }
+  .prompt-text {
+    padding: 18px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #e4e4e4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .placeholder { color: var(--lime); font-weight: 700; }
+
+  footer {
+    text-align: center;
+    padding: 50px 24px 80px;
+    color: var(--text-faint);
+    font-size: 14px;
+  }
+  .back-to-top {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--text-faint);
+    font-size: 13px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .back-to-top:hover { color: var(--lime); border-color: var(--lime); }
+
+  html { overflow-x: hidden; }
+  body { overflow-x: hidden; }
+  img, svg { max-width: 100%; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 52px 18px 32px; }
+    .hero h1 { font-size: clamp(28px, 8vw, 40px); }
+    .hero p.sub { font-size: 16px; margin-top: 14px; }
+
+    .index-wrap { padding: 0 18px; margin-top: 30px; }
+    .index-row {
+      grid-template-columns: 28px 1fr;
+      padding: 12px 14px;
+      gap: 4px 12px;
+    }
+    .index-row.head { display: none; }
+    .index-letter { font-size: 16px; }
+    .index-cat { font-size: 14px; }
+    .index-when {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 0;
+      font-size: 12.5px;
+    }
+
+    .divider { margin-top: 40px; }
+
+    .section { padding: 40px 18px 6px; }
+    .cat-label { font-size: 12px; }
+    .section h2 { font-size: 26px; }
+    .cat-when { font-size: 14.5px; margin-bottom: 22px; }
+
+    .card { padding: 18px; border-radius: 14px; margin-bottom: 20px; }
+    .card-head { gap: 10px; }
+    .num { font-size: 11.5px; padding: 5px 9px; border-radius: 6px; }
+    .card-head h3 { font-size: 17px; line-height: 1.3; }
+
+    .why {
+      margin-left: 0;
+      margin-top: 12px;
+      font-size: 13px;
+      padding: 11px 13px;
+      line-height: 1.55;
+    }
+
+    .prompt-box { margin-top: 16px; border-radius: 12px; }
+    .prompt-box-head { padding: 10px 14px; }
+    .prompt-label { font-size: 10px; }
+    .copy-btn { font-size: 12px; padding: 6px 11px; }
+    .copy-btn svg { width: 12px; height: 12px; }
+    .prompt-text {
+      padding: 14px;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    footer { padding: 40px 18px 60px; font-size: 13px; }
+  }
+
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 26px; }
+    .card-head h3 { font-size: 16px; }
+    .prompt-text { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<a id="top"></a>
+<div class="hero">
+  <h1>Guía Maestra de <span class="accent">Prompts</span><br>Social Media + IA</h1>
+  <p class="sub">Los 8 tipos de prompts que un Social Media Manager necesita en su día a día — organizados por frecuencia de uso, listos para copiar, pegar y personalizar.</p>
+</div>
+
+<div class="index-wrap">
+  <div class="index-table">
+    <div class="index-row head">
+      <span></span><span>Categoría</span><span>Para cuándo lo necesitas</span>
+    </div>
+    <div class="index-row"><span class="index-letter">A</span><span class="index-cat">Definición de voz de marca</span><span class="index-when">Al empezar con una nueva marca o cuando quieres consistencia</span></div>
+    <div class="index-row"><span class="index-letter">B</span><span class="index-cat">Estrategia y pilares</span><span class="index-when">Al planificar el trimestre o un mes nuevo</span></div>
+    <div class="index-row"><span class="index-letter">C</span><span class="index-cat">Ideas masivas de contenido</span><span class="index-when">Cuando no sabes qué publicar o quieres explorar ángulos</span></div>
+    <div class="index-row"><span class="index-letter">D</span><span class="index-cat">Hooks y aperturas</span><span class="index-when">Para cualquier post, reel o carrusel — el inicio lo es todo</span></div>
+    <div class="index-row"><span class="index-letter">E</span><span class="index-cat">Guiones de video</span><span class="index-when">Para reels, TikToks, shorts y cualquier formato video</span></div>
+    <div class="index-row"><span class="index-letter">F</span><span class="index-cat">Captions y copies por plataforma</span><span class="index-when">Para cada publicación específica</span></div>
+    <div class="index-row"><span class="index-letter">G</span><span class="index-cat">Calendario y planificación</span><span class="index-when">Semanalmente o mensualmente</span></div>
+    <div class="index-row"><span class="index-letter">H</span><span class="index-cat">Análisis y optimización</span><span class="index-when">Para mejorar posts existentes o analizar qué funciona</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- A -->
+<div class="section">
+  <div class="cat-label">Categoría A</div>
+  <h2>Prompts de voz de marca</h2>
+  <p class="cat-when">Al empezar con una nueva marca o cuando quieres consistencia</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">A1</div>
+      <div><h3>Extrae tu voz de marca desde posts existentes</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Úsalo cuando arrancas con una marca nueva y aún no tienes una guía de voz escrita, o cuando quieres asegurarte de que todo lo que publica el equipo suene igual. Le das ejemplos reales y la IA te devuelve el "manual" de tono.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="a1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="a1">Lee los siguientes posts de mi marca y extrae:
+1. Adjetivos que describen nuestro tono (mínimo 5)
+2. Estructuras de frase que repetimos
+3. Qué temas evitamos o nunca mencionamos
+4. Cómo hablamos con nuestra audiencia (¿de tú a tú, formal, íntimo?)
+5. Una descripción de 3 líneas de nuestra voz de marca
+
+[Pega aquí 3-5 posts propios]</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">A2</div>
+      <div><h3>Reescribe un texto en tu tono de marca</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para cuando tienes un texto genérico (a veces salido de una IA sin contexto, o escrito muy rápido) y necesitas que suene como tu marca antes de publicarlo.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="a2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="a2">Tengo este texto que suena genérico / muy formal / muy informal:
+[pegar texto]
+
+Reescríbelo en el tono de [nombre de la marca]:
+- Tono: [descripción]
+- Plataforma destino: [TikTok / IG / LinkedIn]
+- Mantén la información esencial pero hazlo sonar auténtico.
+
+Dame 2 versiones.</div>
+    </div>
+  </div>
+</div>
+
+<!-- B -->
+<div class="section">
+  <div class="cat-label">Categoría B</div>
+  <h2>Prompts de estrategia y pilares</h2>
+  <p class="cat-when">Al planificar el trimestre o un mes nuevo</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">B1</div>
+      <div><h3>Define pilares de contenido específicos</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para no caer en pilares genéricos tipo "educativo" o "inspiracional" que no dicen nada. Te obliga a definir pilares concretos con objetivo claro y contenido de ejemplo para cada uno.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="b1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="b1">Soy [descripción de la marca/persona]. Mi audiencia es [descripción].
+
+Define 4 pilares de contenido para [plataforma/s], con:
+- Nombre del pilar (específico, no genérico)
+- Objetivo de ese pilar en el algoritmo y en la audiencia
+- 3 ideas de contenido específicas para cada pilar
+- Formato recomendado por pilar
+
+Evita pilares genéricos como 'educativo' o 'inspiracional'.</div>
+    </div>
+  </div>
+</div>
+
+<!-- C -->
+<div class="section">
+  <div class="cat-label">Categoría C</div>
+  <h2>Prompts de ideas masivas</h2>
+  <p class="cat-when">Cuando no sabes qué publicar o quieres explorar ángulos</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">C1</div>
+      <div><h3>20 ideas con ángulo de viralización</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para cuando necesitas volumen: llenar un banco de ideas rápido, partiendo de tus pilares ya definidos, con un filtro que evita ideas planas o repetidas.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="c1">Genera 20 ideas de contenido para [marca] en [plataforma].
+
+Para cada idea:
+- Título / concepto de la idea
+- Ángulo o por qué tendría potencial de viralización
+- Formato sugerido
+
+Restricción: ninguna idea puede ser genérica. Todas deben ser específicas, concretas y accionables.
+Mis pilares: [lista]. Audiencia: [descripción].</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">C2</div>
+      <div><h3>Ideas desde tendencias de la plataforma</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para cuando quieres subirte a un formato o tendencia que ya está funcionando en la plataforma, adaptándolo a tu marca en vez de copiarlo tal cual.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="c2">Basándote en los formatos y tendencias actuales de [TikTok / IG / LinkedIn],
+sugiere 10 ideas de contenido para [marca] que aprovechen esas tendencias.
+
+Para cada idea: título, formato específico (tipo de video, estética, estructura)
+y por qué encaja con la tendencia actual.
+
+Contexto de la marca: [descripción breve].</div>
+    </div>
+  </div>
+</div>
+
+<!-- D -->
+<div class="section">
+  <div class="cat-label">Categoría D</div>
+  <h2>Prompts de hooks</h2>
+  <p class="cat-when">Para cualquier post, reel o carrusel — el inicio lo es todo</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">D1</div>
+      <div><h3>5 hooks con estructuras diferentes</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Cuando ya tienes el tema pero te cuesta el arranque. Te da 5 hooks basados en estructuras psicológicas distintas para que elijas el que mejor encaje, en vez de depender de un solo ángulo.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="d1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="d1">Escribe 5 hooks para un contenido sobre [tema] para [marca].
+
+Un hook por cada estructura:
+1. Sorpresa o dato contraintuitivo
+2. Contradicción o paradoja
+3. Confesión o vulnerabilidad
+4. Promesa específica con número
+5. Pregunta que crea disonancia cognitiva
+
+Cada hook: máximo 2 líneas. Debe funcionar hablado Y como texto en pantalla.</div>
+    </div>
+  </div>
+</div>
+
+<!-- E -->
+<div class="section">
+  <div class="cat-label">Categoría E</div>
+  <h2>Prompts de guiones de video</h2>
+  <p class="cat-when">Para reels, TikToks, shorts y cualquier formato video</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">E1</div>
+      <div><h3>Guión completo — estructura Narrativa 4 Tiempos</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para cuando necesitas un guión completo de reel/TikTok con una estructura narrativa probada (gancho → tensión → quiebre → cierre), no solo ideas sueltas.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="e1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="e1">Escribe un guión de [30/60] segundos para un reel sobre [tema].
+
+Estructura obligatoria:
+[GANCHO — 0 a 3 seg]: Primera frase que para el scroll
+[TENSIÓN — 3 a 15 seg]: Problema o dato que genera urgencia/curiosidad
+[QUIEBRE — 15 a 45 seg]: Revelación, solución o giro inesperado
+[CIERRE — últimos 5 seg]: CTA + frase memorable
+
+Incluye: on-screen text sugerido para cada sección.
+Tono: [tono]. Marca: [nombre]. Audiencia: [descripción].</div>
+    </div>
+  </div>
+</div>
+
+<!-- F -->
+<div class="section">
+  <div class="cat-label">Categoría F</div>
+  <h2>Prompts de captions por plataforma</h2>
+  <p class="cat-when">Para cada publicación específica</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">F1</div>
+      <div><h3>Caption TikTok (corto, con palabras clave)</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para cuando el video ya está grabado y solo falta el caption. Optimizado para el formato corto de TikTok, donde la primera línea decide si hacen clic en "ver más".</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="f1">Escribe 3 opciones de caption para TikTok sobre [tema/video].
+
+Características de caption TikTok:
+- Máx 100 caracteres visibles antes del 'ver más'
+- La primera línea debe enganchar y generar el clic a 'ver más'
+- Incluye 3-5 hashtags relevantes de nicho (no masivos)
+- Puede ser curioso, con humor ligero o conversacional
+
+Marca: [nombre]. Tono: [tono].</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">F2</div>
+      <div><h3>Caption LinkedIn (profesional + personal)</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para publicaciones de LinkedIn que necesitan sonar humanas y no corporativas — historia personal con aprendizajes concretos, no un anuncio disfrazado de post.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="f2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="f2">Escribe un post de LinkedIn sobre [experiencia/logro/aprendizaje].
+
+Estructura:
+- Línea 1: hook que detiene el scroll (no cliché, no empieza con 'Hoy quiero compartir')
+- Líneas 2-8: historia o contexto concreto
+- Líneas 9-13: 3 aprendizajes o puntos de valor
+- Cierre: reflexión + pregunta para comentarios
+
+Tono: profesional pero humano. Máx 250 palabras. Sin bullets infinitos.
+Contexto: [describe la situación].</div>
+    </div>
+  </div>
+</div>
+
+<!-- G -->
+<div class="section">
+  <div class="cat-label">Categoría G</div>
+  <h2>Prompts de calendario</h2>
+  <p class="cat-when">Semanalmente o mensualmente</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">G1</div>
+      <div><h3>Calendario mensual con intención estratégica</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para armar el calendario del mes completo de un solo golpe, asegurando variedad de formatos y objetivos en vez de publicar por inercia.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="g1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="g1">Crea un calendario de contenido para [nombre de la marca] — [mes/año].
+3 posts semanales. Plataformas: [lista].
+
+Para cada post:
+| Semana | Día | Pilar | Formato | Idea específica | Plataforma | Objetivo |
+
+Objetivos posibles: awareness, engagement, conversión, fidelización.
+Mis pilares: [lista]. Tono: [tono].
+
+Asegúrate de que haya variedad de formatos y de objetivos a lo largo del mes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- H -->
+<div class="section">
+  <div class="cat-label">Categoría H</div>
+  <h2>Prompts de análisis y optimización</h2>
+  <p class="cat-when">Para mejorar posts existentes o analizar qué funciona</p>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">H1</div>
+      <div><h3>Audita y mejora un post existente</h3></div>
+    </div>
+    <div class="why"><b>Para qué sirve:</b> Para cuando un post ya está publicado (con o sin métricas) y quieres entender qué funcionó, qué no, y tener una versión mejorada lista para replicar el formato.</div>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span class="prompt-label">Prompt</span>
+        <button class="copy-btn" data-target="h1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span class="btn-label">Copiar</span></button>
+      </div>
+      <div class="prompt-text" id="h1">Aquí está un post que publiqué: [pegar post completo con metrics si las tienes].
+
+Analiza:
+1. ¿Qué está funcionando? ¿Por qué?
+2. ¿Qué podría mejorar en el hook, el cuerpo o el CTA?
+3. Reescribe el post con las mejoras aplicadas
+4. ¿Qué formato o plataforma alternativa funcionaría mejor para este contenido?
+
+Contexto de la marca: [descripción]. Plataforma original: [plataforma].</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;">
+    <a href="#top" class="back-to-top">↑ Volver al índice</a>
+  </div>
+</div>
+
+<footer>Guía Maestra de Prompts — Social Media + IA</footer>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.target);
+    const text = target.innerText;
+    const label = btn.querySelector('.btn-label');
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      label.textContent = '¡Copiado!';
+      setTimeout(() => { btn.classList.remove('copied'); label.textContent = 'Copiar'; }, 1800);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+      btn.classList.add('copied');
+      label.textContent = '¡Copiado!';
+      setTimeout(() => { btn.classList.remove('copied'); label.textContent = 'Copiar'; }, 1800);
+    });
+  });
+});
+</script>
+
+</body>
+</html>
