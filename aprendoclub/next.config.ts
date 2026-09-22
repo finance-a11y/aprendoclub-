@@ -39,6 +39,9 @@ const nextConfig: NextConfig = {
       { source: "/diplomado", destination: "/programas/diplomado", permanent: true },
       // CITY-04: Redirección de URLs antiguas de cursos-seo por ciudad
       { source: "/cursos-seo/curso-seo-:ciudad", destination: "/cursos-seo/:ciudad", permanent: true },
+      { source: "/cursos-seos-con-ia/curso-seo-:ciudad", destination: "/cursos-seo/:ciudad", permanent: true },
+      { source: "/cursos-seos-con-ia/:ciudad", destination: "/cursos-seo/:ciudad", permanent: true },
+      { source: "/cursos-seo", destination: "/programas/diplomado", permanent: true },
       // PROGNEW-03: Redirección de programas nuevos desde su URL raíz a /programas/*
       { source: "/curso-seo-rdss", destination: "/programas/curso-seo-rdss", permanent: true },
       { source: "/curso-basico-de-seo", destination: "/programas/curso-basico-de-seo", permanent: true },

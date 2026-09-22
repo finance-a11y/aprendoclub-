@@ -92,6 +92,14 @@ export default async function CiudadPage({ params }: { params: Params }) {
     notFound()
   }
 
+  const { docs: allCities } = await payload.find({
+    collection: 'ciudades-seo',
+    limit: 20,
+    sort: 'nombre',
+    depth: 0,
+  })
+  const otherCities = allCities.filter((c) => c.slug !== ciudadSlug)
+
   // Schema.org structured data (Course + FAQPage)
   const courseSchema = {
     '@context': 'https://schema.org',
@@ -346,6 +354,36 @@ export default async function CiudadPage({ params }: { params: Params }) {
                 </div>
               </details>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* Cursos SEO en otras ciudades (Interlinking Mesh) */}
+      {otherCities.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-8">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[var(--accent)] uppercase tracking-wider mb-2">
+              <MapPin className="h-4 w-4" />
+              <span>Presencia y Formación Global</span>
+            </div>
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+              Cursos de SEO en otras ciudades
+            </h2>
+            <p className="text-sm text-gray-400 mb-6 max-w-2xl leading-relaxed">
+              Nuestra formación en posicionamiento web y optimización para IA es 100% online con mentoría en directo, adaptada a estudiantes y empresas de habla hispana en:
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {otherCities.map((other) => (
+                <Link
+                  key={other.slug}
+                  href={`/cursos-seo/${other.slug}`}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-gray-300 transition-colors hover:border-[var(--accent)] hover:text-white hover:bg-[var(--accent)]/10"
+                >
+                  <MapPin className="h-3.5 w-3.5 text-[var(--accent)]" />
+                  <span>{other.nombre}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       )}
