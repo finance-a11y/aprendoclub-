@@ -222,6 +222,10 @@ const REDIRECTS = {
   "/aprender-seo/funcion-especialista-seo/": "/empieza-en-seo/funcion-especialista-seo",
   "/aprender-seo/trabajar-como-seo": "/empieza-en-seo/trabajar-como-seo",
   "/aprender-seo/trabajar-como-seo/": "/empieza-en-seo/trabajar-como-seo",
+  "/caracas": "/cursos-seo/caracas",
+  "/caracas/": "/cursos-seo/caracas",
+  "/prensa": "/",
+  "/prensa/": "/",
   "/": "/",
   "": "/"
 };
