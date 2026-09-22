@@ -37,10 +37,10 @@ Decisiones de Juan ya incorporadas al alcance:
 
 ### Páginas programáticas de ciudad (CITY)
 
-- [ ] **CITY-01**: Analizar a fondo una página de ciudad de aprendoseo.com (ej. `curso-seo-cdmx`) y definir cómo modelarla en Payload — evaluar si conviene una colección nueva (`CityLandingPages` con campo `city` + `salaryRange` + relación al programa) versus 10 entradas sueltas en `Pages`, priorizando reducir duplicación.
-- [ ] **CITY-02**: Implementar el modelo elegido en Payload (colección/campos) y el template de render que sustituye el nombre de la ciudad y el rango salarial local en el copy (título, H1, FAQ).
-- [ ] **CITY-03**: Crear las 10 páginas de ciudad (Alicante, Bilbao, Caracas, CDMX, Guadalajara, Málaga, Maracaibo, Puebla, Toledo, Valencia) con el modelo implementado, con URLs limpias en aprendoclub (definir patrón, ej. `/programas/taller-seo-con-ia/{ciudad}` o `/cursos-seo/{ciudad}`).
-- [ ] **CITY-04**: Redirect 301 desde cada URL vieja de aprendoseo.com (`/cursos-seo/curso-seo-{ciudad}`) a la URL nueva correspondiente en aprendoclub.
+- [x] **CITY-01**: Analizar a fondo una página de ciudad de aprendoseo.com (ej. `curso-seo-cdmx`) y definir cómo modelarla en Payload — evaluar si conviene una colección nueva (`CityLandingPages` con campo `city` + `salaryRange` + relación al programa) versus 10 entradas sueltas en `Pages`, priorizando reducir duplicación.
+- [x] **CITY-02**: Implementar el modelo elegido en Payload (colección/campos) y el template de render que sustituye el nombre de la ciudad y el rango salarial local en el copy (título, H1, FAQ).
+- [x] **CITY-03**: Crear las 10 páginas de ciudad (Alicante, Bilbao, Caracas, CDMX, Guadalajara, Málaga, Maracaibo, Puebla, Toledo, Valencia) con el modelo implementado, con URLs limpias en aprendoclub (definir patrón, ej. `/programas/taller-seo-con-ia/{ciudad}` o `/cursos-seo/{ciudad}`).
+- [x] **CITY-04**: Redirect 301 desde cada URL vieja de aprendoseo.com (`/cursos-seo/curso-seo-{ciudad}`) a la URL nueva correspondiente en aprendoclub.
 
 ### Páginas de programa nuevas (PROGNEW)
 
@@ -79,10 +79,10 @@ Decisiones de Juan ya incorporadas al alcance:
 | RESTRUCT-01 | Phase 34 | Complete |
 | RESTRUCT-02 | Phase 34 | Complete |
 | RESTRUCT-03 | Phase 34 | Complete |
-| CITY-01 | Phase 35 | Pending |
-| CITY-02 | Phase 35 | Pending |
-| CITY-03 | Phase 35 | Pending |
-| CITY-04 | Phase 35 | Pending |
+| CITY-01 | Phase 35 | Complete |
+| CITY-02 | Phase 35 | Complete |
+| CITY-03 | Phase 35 | Complete |
+| CITY-04 | Phase 35 | Complete |
 | PROGNEW-01 | Phase 36 | Pending |
 | PROGNEW-02 | Phase 36 | Pending |
 | PROGNEW-03 | Phase 36 | Pending |

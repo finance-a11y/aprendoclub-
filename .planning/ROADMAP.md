@@ -64,7 +64,7 @@ Detalle completo de Phases 29-32 archivado en `.planning/milestones/v1.7-phases/
 
 - [x] **Phase 33: Redirects 301 para contenido existente** - Lista CSV de ~78 redirects (blog, autores, programas) lista para importar en Cloudflare Bulk Redirects (completed 2026-09-22)
 - [x] **Phase 34: Reestructura de URLs de programas** - `/reto` → `/programas/reto`, `/diplomado` → `/programas/diplomado`, con redirect interno y links actualizados (completed 2026-09-22)
-- [ ] **Phase 35: Páginas programáticas de ciudad** - Modelo en Payload + 10 páginas de ciudad + sus redirects
+- [x] **Phase 35: Páginas programáticas de ciudad** - Modelo en Payload + 10 páginas de ciudad + sus redirects (completed 2026-09-22)
 - [ ] **Phase 36: Páginas de programa nuevas** - Curso SEO RDSS y Curso Básico de SEO + sus redirects
 - [ ] **Phase 37: Páginas de autor faltantes** - Ibraim Zayed y Verónica Romero + sus redirects
 - [ ] **Phase 38: Páginas sueltas faltantes** - Contacto, glosario, políticas legales, evento + sus redirects; `/prensa` descartada
@@ -224,7 +224,7 @@ Phases execute in numeric order: 33 → 34 → 35 → 36 → 37 → 38
 | 32. Galería del Diplomado rediseñada | v1.7 | — | Omitida (decisión de Juan, 2026-07-22) | - |
 | 33. Redirects 301 para contenido existente | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 34. Reestructura de URLs de programas | v1.8 | 1/1 | Complete    | 2026-09-22 |
-| 35. Páginas programáticas de ciudad | v1.8 | 0/? | Not started | - |
+| 35. Páginas programáticas de ciudad | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 36. Páginas de programa nuevas | v1.8 | 0/? | Not started | - |
 | 37. Páginas de autor faltantes | v1.8 | 0/? | Not started | - |
 | 38. Páginas sueltas faltantes | v1.8 | 0/? | Not started | - |

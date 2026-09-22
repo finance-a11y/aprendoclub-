@@ -2,20 +2,20 @@
 gsd_state_version: "1.0"
 milestone: v1.8
 milestone_name: Migración aprendoseo.com → aprendoclub.com
-current_phase: 35
-current_phase_name: Páginas programáticas de ciudad
+current_phase: 36
+current_phase_name: Páginas de programa nuevas
 status: planning
-stopped_at: Phase 34 complete, ready to plan Phase 35
-last_updated: "2026-09-22T16:21:08.482Z"
+stopped_at: Phase 35 complete, ready to plan Phase 36
+last_updated: "2026-09-22T16:33:04.338Z"
 last_activity: 2026-09-22
-last_activity_desc: Phase 34 complete, transitioned to Phase 35
-state_head: c9f51012fe2d8907ecd16e030a6dc8d2fa3480dd
+last_activity_desc: Phase 35 complete, transitioned to Phase 36
+state_head: 600d75463988e5d390f2fcf227a53660f5b1c483
 progress:
   total_phases: 10
-  completed_phases: 5
-  total_plans: 2
-  completed_plans: 2
-  percent: 38
+  completed_phases: 6
+  total_plans: 3
+  completed_plans: 3
+  percent: 46
 ---
 
 # Project State
@@ -29,12 +29,12 @@ See: .planning/PROJECT.md (updated 2026-09-22)
 
 ## Current Position
 
-Phase: 35 of 38 (Páginas programáticas de ciudad)
+Phase: 36 of 38 (Páginas de programa nuevas)
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-09-22 — Phase 34 complete, transitioned to Phase 35
+Last activity: 2026-09-22 — Phase 35 complete, transitioned to Phase 36
 
-Progress: [████░░░░░░] 38%
+Progress: [█████░░░░░] 46%
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Progress: [████░░░░░░] 38%
 |-------|-------|-------|----------|
 | 33 | 1 | - | - |
 | 34 | 1 | - | - |
+| 35 | 1 | - | - |
 
 **Recent Trend:**
 
@@ -103,5 +104,5 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 ## Session Continuity
 
 Last session: 2026-09-22T15:30:00.000Z
-Stopped at: Phase 34 complete, ready to plan Phase 35
+Stopped at: Phase 35 complete, ready to plan Phase 36
 Resume file: None
