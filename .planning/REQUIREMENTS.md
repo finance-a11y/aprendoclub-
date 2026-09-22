@@ -14,6 +14,7 @@ Se cruzó el sheet de Juan (`https://docs.google.com/spreadsheets/d/1Iuy2kJE0Og_
 - **1 fila "Página para ads"**: `/seo-con-ia/evento` — pendiente confirmar destino exacto (candidato: `/programas/taller-seo-con-ia`).
 
 Decisiones de Juan ya incorporadas al alcance:
+
 - `/reto` y `/diplomado` se reestructuran a `/programas/reto` y `/programas/diplomado` (URLs ya live en producción).
 - Los merges de contenido (`/certificaciones` → autor Arianna, `/academia-seo` → `/quienes-somos`) quedan fuera de este milestone — solo redirect simple por ahora.
 - Las páginas de ciudad se migran completas (las 10), analizando primero una a fondo para ver si se pueden mejorar sobre el patrón genérico de aprendoseo.
@@ -23,10 +24,10 @@ Decisiones de Juan ya incorporadas al alcance:
 
 ### Redirects a Cloudflare (REDIR)
 
-- [ ] **REDIR-01**: Generar la lista completa de redirects 301 (source aprendoseo.com → destination aprendoclub.com) para las ~78 filas del sheet cuyo destino ya existe hoy en aprendoclub (blog posts, autores, programas, URLs sueltas), en el formato de import de Cloudflare Bulk Redirects (CSV: source URL, target URL, status code 301, preserve query string).
-- [ ] **REDIR-02**: Incluir en la lista los 2 redirects con nota de "merge" (`/certificaciones` → página de autor de Arianna, `/academia-seo` → `/quienes-somos`) como redirect simple, sin fusionar contenido todavía.
-- [ ] **REDIR-03**: Verificar cada URL destino propuesta contra la DB de Payload en vivo (no contra el sheet a ciegas) antes de incluirla en la lista final — descartar o corregir cualquier fila donde el sheet esté desactualizado respecto al código actual.
-- [ ] **REDIR-04**: Entregar la lista en un formato que Juan pueda importar directamente en el dashboard de Cloudflare del dominio aprendoseo.com (no se aplica dentro del repo de aprendoclub — son dominios distintos).
+- [x] **REDIR-01**: Generar la lista completa de redirects 301 (source aprendoseo.com → destination aprendoclub.com) para las ~78 filas del sheet cuyo destino ya existe hoy en aprendoclub (blog posts, autores, programas, URLs sueltas), en el formato de import de Cloudflare Bulk Redirects (CSV: source URL, target URL, status code 301, preserve query string).
+- [x] **REDIR-02**: Incluir en la lista los 2 redirects con nota de "merge" (`/certificaciones` → página de autor de Arianna, `/academia-seo` → `/quienes-somos`) como redirect simple, sin fusionar contenido todavía.
+- [x] **REDIR-03**: Verificar cada URL destino propuesta contra la DB de Payload en vivo (no contra el sheet a ciegas) antes de incluirla en la lista final — descartar o corregir cualquier fila donde el sheet esté desactualizado respecto al código actual.
+- [x] **REDIR-04**: Entregar la lista en un formato que Juan pueda importar directamente en el dashboard de Cloudflare del dominio aprendoseo.com (no se aplica dentro del repo de aprendoclub — son dominios distintos).
 
 ### Reestructura de URLs de programas (RESTRUCT)
 
@@ -71,10 +72,10 @@ Decisiones de Juan ya incorporadas al alcance:
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REDIR-01 | Phase 33 | Pending |
-| REDIR-02 | Phase 33 | Pending |
-| REDIR-03 | Phase 33 | Pending |
-| REDIR-04 | Phase 33 | Pending |
+| REDIR-01 | Phase 33 | Complete |
+| REDIR-02 | Phase 33 | Complete |
+| REDIR-03 | Phase 33 | Complete |
+| REDIR-04 | Phase 33 | Complete |
 | RESTRUCT-01 | Phase 34 | Pending |
 | RESTRUCT-02 | Phase 34 | Pending |
 | RESTRUCT-03 | Phase 34 | Pending |
@@ -92,6 +93,7 @@ Decisiones de Juan ya incorporadas al alcance:
 | MISC-03 | Phase 38 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 19 total
 - Mapped to phases: 19/19 ✓
 - Unmapped: 0
