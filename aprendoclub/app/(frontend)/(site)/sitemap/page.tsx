@@ -26,12 +26,14 @@ export default async function SitemapPage() {
     { docs: posts },
     { docs: categories },
     { docs: authors },
+    { docs: ciudades },
   ] = await Promise.all([
     payload.find({ collection: "pages", depth: 0, limit: 1000, sort: "title" }),
     payload.find({ collection: "programas", depth: 0, limit: 1000, sort: "orden" }),
     payload.find({ collection: "blogposts", depth: 1, limit: 1000, sort: "-publishedAt" }),
     payload.find({ collection: "categories", depth: 0, limit: 1000, sort: "name" }),
     payload.find({ collection: "authors", depth: 0, limit: 1000, sort: "name" }),
+    payload.find({ collection: "ciudades-seo", depth: 0, limit: 1000, sort: "nombre" }),
   ]);
 
   const sections: SitemapSection[] = [];
@@ -51,6 +53,17 @@ export default async function SitemapPage() {
     .map((pr) => ({ label: pr.nombre, href: pr.ctaHref as string }));
   if (programaLinks.length) {
     sections.push({ title: "Programas", links: programaLinks });
+  }
+
+  // Cursos SEO por ciudad (landing geo-optimizadas)
+  if (ciudades.length) {
+    sections.push({
+      title: "Cursos SEO por ciudad",
+      links: ciudades.map((c) => ({
+        label: `Curso de SEO en ${c.nombre}`,
+        href: `/cursos-seo/${c.slug}`,
+      })),
+    });
   }
 
   // Blog: índice + categorías + autores.

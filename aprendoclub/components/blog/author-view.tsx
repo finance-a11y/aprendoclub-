@@ -6,6 +6,10 @@ import { JsonLd } from '@/components/json-ld'
 import { authorGraph } from '@/lib/schema'
 import { PostGrid } from '@/components/blog/post-grid'
 import { AuthorSocials } from '@/components/blog/author-socials'
+import {
+  AuthorCredentials,
+  ARIANNA_LUPI_CREDENTIALS,
+} from '@/components/blog/author-credentials'
 import { mediaUrl, postHref } from '@/lib/blog/format'
 
 /** Página de autor: bio + grid paginado de sus posts. */
@@ -21,6 +25,7 @@ export function AuthorView({
   totalPages: number
 }) {
   const avatar = mediaUrl(author.avatar)
+  const isArianna = author.slug === 'arianna-lupi'
 
   const sameAs = (author.socials ?? [])
     .map((s) => s.url)
@@ -34,6 +39,24 @@ export function AuthorView({
     imageUrl: avatar ?? undefined,
     sameAs,
     posts: posts.map((p) => ({ name: p.title, path: postHref(p) })),
+    alumniOf: isArianna
+      ? [
+          { name: 'M.S. in Data Science' },
+          { name: 'B.B.A. in International Business' },
+        ]
+      : undefined,
+    hasCredential: isArianna
+      ? [
+          { name: 'Google Analytics Audit – CXL' },
+          { name: 'Google Analytics for Beginners – CXL' },
+          { name: 'Google Analytics for Beginners – Google' },
+          { name: 'Google Analytics Advanced – Google' },
+          { name: 'Fundamentals of Digital Marketing – Google (SP2CKRJNP)' },
+        ]
+      : undefined,
+    award: isArianna
+      ? ['Influencer Award – Marketing 2.0 Conference (USA, Verano 2023)']
+      : undefined,
   })
 
   return (
@@ -62,7 +85,19 @@ export function AuthorView({
         )}
         <AuthorSocials socials={author.socials} />
       </header>
+
+      {/* Bloque de credenciales y certificaciones académicas */}
+      {isArianna && <AuthorCredentials credentials={ARIANNA_LUPI_CREDENTIALS} />}
+
       <div className="container-padding section-spacing mx-auto max-w-6xl">
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold text-white">
+            Artículos publicados por {author.name}
+          </h2>
+          <p className="text-sm text-gray-400 mt-1">
+            Guías, tutoriales y análisis de posicionamiento orgánico e inteligencia artificial.
+          </p>
+        </div>
         <PostGrid
           posts={posts}
           page={page}

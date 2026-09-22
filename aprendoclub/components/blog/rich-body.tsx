@@ -45,6 +45,27 @@ export function RichBody({ data }: { data: unknown }) {
               </Tag>
             )
           },
+          upload: ({ node }: any) => {
+            const doc = typeof node?.value === 'object' ? node.value : null
+            const url = doc?.url || (typeof node?.value === 'string' ? node.value : '')
+            const alt = node?.fields?.alt || doc?.alt || ''
+            if (!url) return null
+            return (
+              <figure className="my-8 overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]">
+                <img
+                  src={url}
+                  alt={alt}
+                  className="w-full h-auto object-cover rounded-xl"
+                  loading="lazy"
+                />
+                {alt ? (
+                  <figcaption className="p-2.5 text-center text-xs text-gray-400">
+                    {alt}
+                  </figcaption>
+                ) : null}
+              </figure>
+            )
+          },
         })) as any}
       />
     </div>

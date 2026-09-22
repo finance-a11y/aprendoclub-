@@ -22,12 +22,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { docs: posts },
     { docs: categories },
     { docs: authors },
+    { docs: ciudades },
   ] = await Promise.all([
     payload.find({ collection: "pages", depth: 0, limit: 1000 }),
     payload.find({ collection: "programas", depth: 0, limit: 1000 }),
     payload.find({ collection: "blogposts", depth: 1, limit: 1000 }),
     payload.find({ collection: "categories", depth: 0, limit: 1000 }),
     payload.find({ collection: "authors", depth: 0, limit: 1000 }),
+    payload.find({ collection: "ciudades-seo", depth: 0, limit: 1000 }),
   ]);
 
   const seen = new Set<string>();
@@ -71,6 +73,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   for (const a of authors) {
     push(`${SITE_URL}/autor/${a.slug}`, 0.4, "monthly");
+  }
+
+  // Cursos SEO por ciudad
+  for (const c of ciudades) {
+    push(`${SITE_URL}/cursos-seo/${c.slug}`, 0.6, "monthly");
   }
 
   // Ruta estática propia.

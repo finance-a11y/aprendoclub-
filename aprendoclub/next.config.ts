@@ -45,6 +45,10 @@ const nextConfig: NextConfig = {
       // MISC-01 & MISC-02: Redirección de recursos y landing de evento
       { source: "/recursos/guia-seo-para-principiantes", destination: "/programas/curso-basico-de-seo", permanent: true },
       { source: "/seo-con-ia/evento", destination: "/programas/taller-seo-con-ia", permanent: true },
+      // CERT-01: Redirección de certificaciones al perfil de autor de Arianna Lupi
+      { source: "/certificaciones", destination: "/autor/arianna-lupi", permanent: true },
+      // BLOG-01: Redirección de categoría legacy aprender-seo a empieza-en-seo
+      { source: "/aprender-seo/:slug*", destination: "/empieza-en-seo/:slug*", permanent: true },
     ];
   },
 };

@@ -282,6 +282,9 @@ export function authorGraph({
   imageUrl,
   sameAs,
   posts,
+  alumniOf,
+  hasCredential,
+  award,
 }: {
   name: string;
   path: string;
@@ -290,6 +293,9 @@ export function authorGraph({
   imageUrl?: string;
   sameAs?: string[];
   posts: BlogListItem[];
+  alumniOf?: { name: string }[];
+  hasCredential?: { name: string }[];
+  award?: string[];
 }) {
   const person: Record<string, unknown> = {
     "@type": "Person",
@@ -304,6 +310,9 @@ export function authorGraph({
     person.image = imageUrl.startsWith("http") ? imageUrl : `${SITE_URL}${imageUrl}`;
   }
   if (sameAs && sameAs.length) person.sameAs = sameAs;
+  if (alumniOf && alumniOf.length) person.alumniOf = alumniOf.map((a) => ({ "@type": "EducationalOrganization", name: a.name }));
+  if (hasCredential && hasCredential.length) person.hasCredential = hasCredential.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c.name }));
+  if (award && award.length) person.award = award;
 
   return [
     {

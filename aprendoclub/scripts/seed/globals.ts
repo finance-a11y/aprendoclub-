@@ -12,6 +12,7 @@ const siteNav = [
   { label: 'Quiénes somos', href: '/quienes-somos', type: 'route' as const },
   { label: 'Programas', href: '/programas', type: 'route' as const },
   { label: 'Testimonios', href: '/testimonios', type: 'route' as const },
+  { label: 'Contacto', href: '/contacto', type: 'route' as const },
 ]
 
 const siteCta = { label: 'Únete ahora', href: '/programas' }
@@ -35,15 +36,22 @@ const programMenu = [
     desc: '7 días para elegir tu especialidad y cobrar en dólares.',
     badge: '$20',
   },
+  {
+    label: 'Curso Básico de SEO',
+    href: '/programas/curso-basico-de-seo',
+    desc: 'Fundamentos prácticos para iniciarte en posicionamiento web.',
+    badge: 'Gratis',
+  },
 ]
 
 const footerColumns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
   {
     title: 'Programas',
     links: [
-      { label: 'Diplomado', href: '/programas/diplomado' },
+      { label: 'Diplomado SEO + AIO', href: '/programas/diplomado' },
       { label: 'Taller SEO con IA', href: '/programas/taller-seo-con-ia' },
       { label: 'Reto 7 días', href: '/programas/reto' },
+      { label: 'Curso Básico de SEO', href: '/programas/curso-basico-de-seo' },
     ],
   },
   {
@@ -51,6 +59,17 @@ const footerColumns: { title: string; links: { label: string; href: string; exte
     links: [
       { label: 'Quiénes somos', href: '/quienes-somos' },
       { label: 'Testimonios', href: '/testimonios' },
+      { label: 'Contacto', href: '/contacto' },
+      { label: 'Glosario SEO', href: '/glosario' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Aviso Legal', href: '/aviso-legal' },
+      { label: 'Política de Privacidad', href: '/politica-privacidad' },
+      { label: 'Términos y Condiciones', href: '/terminos-condiciones' },
+      { label: 'Política de Reembolso', href: '/politica-reembolso' },
     ],
   },
 ]
