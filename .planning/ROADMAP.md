@@ -194,8 +194,10 @@ Plans:
   1. Las páginas de autor de Ibraim Zayed y Verónica Romero existen en Payload con bio y posts asociados (si los tienen), siguiendo el mismo patrón visual que las páginas de autor existentes.
   2. `/autor/ibraim-zayed` y `/autor/veronica-romero` de aprendoseo.com tienen su redirect 301 agregado a la lista de Cloudflare de Phase 33.
 
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 1 plan
+Plans:
+
+- [x] 37-01-PLAN.md — Seed de autores faltantes en Payload y redirects 301
 
 ### Phase 38: Páginas sueltas faltantes
 
@@ -229,7 +231,7 @@ Phases execute in numeric order: 33 → 34 → 35 → 36 → 37 → 38
 | 34. Reestructura de URLs de programas | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 35. Páginas programáticas de ciudad | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 36. Páginas de programa nuevas | v1.8 | 1/1 | Complete    | 2026-09-22 |
-| 37. Páginas de autor faltantes | v1.8 | 0/? | Not started | - |
+| 37. Páginas de autor faltantes | v1.8 | 1/1 | Complete    | 2026-09-22 |
 | 38. Páginas sueltas faltantes | v1.8 | 0/? | Not started | - |
 
 ---

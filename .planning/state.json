@@ -61,7 +61,7 @@
     {
       "number": "37",
       "name": "Páginas de autor faltantes",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "38",
@@ -71,8 +71,8 @@
   ],
   "next": {
     "command": "/gsd-progress --next",
-    "label": "Advance to the next step (plan phase 37)",
-    "reason": "Phase 37 of 10 — needs a plan"
+    "label": "Advance to the next step (plan phase 38)",
+    "reason": "Phase 38 of 10 — needs a plan"
   },
-  "updated_at": "2026-09-22T16:44:00.000Z"
+  "updated_at": "2026-09-22T16:48:00.000Z"
 }
