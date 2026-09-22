@@ -31,9 +31,9 @@ Decisiones de Juan ya incorporadas al alcance:
 
 ### Reestructura de URLs de programas (RESTRUCT)
 
-- [ ] **RESTRUCT-01**: Mover el slug de la página `reto` en Payload de `reto` a `programas/reto`, y `diplomado` a `programas/diplomado`, verificando que el catch-all `[...slug]` de `(site)` resuelve las rutas anidadas correctamente.
-- [ ] **RESTRUCT-02**: Agregar redirects internos 301 en `next.config.ts` desde `/reto` → `/programas/reto` y `/diplomado` → `/programas/diplomado`, para no romper enlaces/analytics/ads existentes que apunten a las rutas viejas.
-- [ ] **RESTRUCT-03**: Actualizar todos los links internos del sitio (navbar, footer, cards de "Nuestros programas" en home, cross-links entre páginas de programa) que apunten a `/reto` o `/diplomado` para que usen las rutas nuevas directamente.
+- [x] **RESTRUCT-01**: Mover el slug de la página `reto` en Payload de `reto` a `programas/reto`, y `diplomado` a `programas/diplomado`, verificando que el catch-all `[...slug]` de `(site)` resuelve las rutas anidadas correctamente.
+- [x] **RESTRUCT-02**: Agregar redirects internos 301 en `next.config.ts` desde `/reto` → `/programas/reto` y `/diplomado` → `/programas/diplomado`, para no romper enlaces/analytics/ads existentes que apunten a las rutas viejas.
+- [x] **RESTRUCT-03**: Actualizar todos los links internos del sitio (navbar, footer, cards de "Nuestros programas" en home, cross-links entre páginas de programa) que apunten a `/reto` o `/diplomado` para que usen las rutas nuevas directamente.
 
 ### Páginas programáticas de ciudad (CITY)
 
@@ -76,9 +76,9 @@ Decisiones de Juan ya incorporadas al alcance:
 | REDIR-02 | Phase 33 | Complete |
 | REDIR-03 | Phase 33 | Complete |
 | REDIR-04 | Phase 33 | Complete |
-| RESTRUCT-01 | Phase 34 | Pending |
-| RESTRUCT-02 | Phase 34 | Pending |
-| RESTRUCT-03 | Phase 34 | Pending |
+| RESTRUCT-01 | Phase 34 | Complete |
+| RESTRUCT-02 | Phase 34 | Complete |
+| RESTRUCT-03 | Phase 34 | Complete |
 | CITY-01 | Phase 35 | Pending |
 | CITY-02 | Phase 35 | Pending |
 | CITY-03 | Phase 35 | Pending |
