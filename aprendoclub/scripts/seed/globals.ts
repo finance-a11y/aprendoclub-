@@ -19,7 +19,7 @@ const siteCta = { label: 'Únete ahora', href: '/programas' }
 const programMenu = [
   {
     label: 'Diplomado de SEO + AIO',
-    href: '/diplomado',
+    href: '/programas/diplomado',
     desc: '16 semanas para convertirte en especialista SEO.',
     badge: 'Programa estrella',
   },
@@ -31,7 +31,7 @@ const programMenu = [
   },
   {
     label: 'Reto 7 días',
-    href: '/reto',
+    href: '/programas/reto',
     desc: '7 días para elegir tu especialidad y cobrar en dólares.',
     badge: '$20',
   },
@@ -41,9 +41,9 @@ const footerColumns: { title: string; links: { label: string; href: string; exte
   {
     title: 'Programas',
     links: [
-      { label: 'Diplomado', href: '/diplomado' },
+      { label: 'Diplomado', href: '/programas/diplomado' },
       { label: 'Taller SEO con IA', href: '/programas/taller-seo-con-ia' },
-      { label: 'Reto 7 días', href: '/reto' },
+      { label: 'Reto 7 días', href: '/programas/reto' },
     ],
   },
   {

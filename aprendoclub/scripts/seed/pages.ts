@@ -182,7 +182,7 @@ function buildHome(mediaMap: Map<string, number>, maps: CollectionMaps): PageSee
 
 function buildDiplomado(mediaMap: Map<string, number>, maps: CollectionMaps): PageSeed {
   return {
-    slug: 'diplomado',
+    slug: 'programas/diplomado',
     title: 'Diplomado',
     layout: [
       {
@@ -335,7 +335,7 @@ function buildDiplomado(mediaMap: Map<string, number>, maps: CollectionMaps): Pa
 
 function buildReto(mediaMap: Map<string, number>, maps: CollectionMaps): PageSeed {
   return {
-    slug: 'reto',
+    slug: 'programas/reto',
     title: 'Reto 7 días',
     layout: [
       { blockType: 'barraUrgencia', texto: reto.urgencia },

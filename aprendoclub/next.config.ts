@@ -34,6 +34,9 @@ const nextConfig: NextConfig = {
     return [
       // El índice se sirve en `/`; /home (slug del Page en Payload) redirige a la raíz.
       { source: "/home", destination: "/", permanent: true },
+      // RESTRUCT-02: URLs de programas reestructuradas hacia /programas/*
+      { source: "/reto", destination: "/programas/reto", permanent: true },
+      { source: "/diplomado", destination: "/programas/diplomado", permanent: true },
     ];
   },
 };

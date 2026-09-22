@@ -21,7 +21,7 @@ const programas = [
     precio: 'Desde $700 USD',
     precioNota: '4 cuotas',
     ctaLabel: 'Ver diplomado',
-    ctaHref: '/diplomado',
+    ctaHref: '/programas/diplomado',
   },
   {
     id: 'taller-seo-con-ia',
@@ -47,7 +47,7 @@ const programas = [
     precio: '$20',
     precioNota: undefined as string | undefined,
     ctaLabel: 'Ver reto',
-    ctaHref: '/reto',
+    ctaHref: '/programas/reto',
   },
 ]
 
@@ -60,7 +60,7 @@ const programas = [
 const programMenu = [
   {
     label: 'Diplomado de SEO + AIO',
-    href: '/diplomado',
+    href: '/programas/diplomado',
     desc: '16 semanas para convertirte en especialista SEO.',
     badge: 'Programa estrella',
   },
@@ -72,7 +72,7 @@ const programMenu = [
   },
   {
     label: 'Reto 7 días',
-    href: '/reto',
+    href: '/programas/reto',
     desc: '7 días para elegir tu especialidad y cobrar en dólares.',
     badge: '$20',
   },

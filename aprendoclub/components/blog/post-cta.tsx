@@ -16,7 +16,7 @@ export function PostCta() {
         16 semanas de práctica real, coaching en vivo y certificación. Sin
         experiencia previa ni tecnicismos.
       </p>
-      <Button href="/diplomado">Ver el diplomado</Button>
+      <Button href="/programas/diplomado">Ver el diplomado</Button>
     </aside>
   )
 }

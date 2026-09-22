@@ -34,19 +34,36 @@ function faqsFromLayout(doc: Page | undefined): { question: string; answer: stri
 
 /** Course curados verbatim de los call-sites previos (git). */
 const COURSES: Record<string, Parameters<typeof course>[0]> = {
+  "programas/diplomado": {
+    name: "Diplomado de cero a SEO",
+    description:
+      "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
+    path: "/programas/diplomado",
+    price: "700",
+    courseWorkload: "P16W",
+  },
   diplomado: {
     name: "Diplomado de cero a SEO",
     description:
       "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
-    path: "/diplomado",
+    path: "/programas/diplomado",
     price: "700",
     courseWorkload: "P16W",
+  },
+  "programas/reto": {
+    name: "Reto 7 días",
+    description:
+      "7 días para construir tu plan realista y ganar tus primeros +$1,000/mes en dólares, especializándote en las habilidades mejor pagadas del marketing digital y la inteligencia artificial.",
+    path: "/programas/reto",
+    price: "20",
+    courseWorkload: "P7D",
+    startDate: "2026-07-13",
   },
   reto: {
     name: "Reto 7 días",
     description:
       "7 días para construir tu plan realista y ganar tus primeros +$1,000/mes en dólares, especializándote en las habilidades mejor pagadas del marketing digital y la inteligencia artificial.",
-    path: "/reto",
+    path: "/programas/reto",
     price: "20",
     courseWorkload: "P7D",
     startDate: "2026-07-13",
@@ -123,6 +140,8 @@ export async function getGraphsForSlug(
       break;
     }
 
+    case "programas/diplomado":
+    case "programas/reto":
     case "diplomado":
     case "reto":
     case "programas/taller-seo-con-ia": {

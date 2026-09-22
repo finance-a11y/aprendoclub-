@@ -32,13 +32,14 @@ export function rewriteBodyLinks(
     const last = path.split('/').pop() || ''
 
     // Subdominio diplomado. (app Kajabi) → página del diplomado.
-    if (/^diplomado\./.test(host)) return '/diplomado'
+    if (/^diplomado\./.test(host)) return '/programas/diplomado'
     // Dominio pelado sin ruta → home.
     if (!path) return '/'
 
     if (slugToPath.has(last)) return slugToPath.get(last)!
     if (path.startsWith('autor/')) return `/${path}`
-    if (/diplomado/.test(path)) return '/diplomado'
+    if (/diplomado/.test(path)) return '/programas/diplomado'
+    if (/reto/.test(path)) return '/programas/reto'
     if (/seo-con-ia|curso-seo-con-ia|taller/.test(path)) {
       return '/programas/taller-seo-con-ia'
     }
