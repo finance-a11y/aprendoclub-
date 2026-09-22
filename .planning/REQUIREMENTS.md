@@ -71,31 +71,31 @@ Decisiones de Juan ya incorporadas al alcance:
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REDIR-01 | TBD | Pending |
-| REDIR-02 | TBD | Pending |
-| REDIR-03 | TBD | Pending |
-| REDIR-04 | TBD | Pending |
-| RESTRUCT-01 | TBD | Pending |
-| RESTRUCT-02 | TBD | Pending |
-| RESTRUCT-03 | TBD | Pending |
-| CITY-01 | TBD | Pending |
-| CITY-02 | TBD | Pending |
-| CITY-03 | TBD | Pending |
-| CITY-04 | TBD | Pending |
-| PROGNEW-01 | TBD | Pending |
-| PROGNEW-02 | TBD | Pending |
-| PROGNEW-03 | TBD | Pending |
-| AUTHOR-01 | TBD | Pending |
-| AUTHOR-02 | TBD | Pending |
-| MISC-01 | TBD | Pending |
-| MISC-02 | TBD | Pending |
-| MISC-03 | TBD | Pending |
+| REDIR-01 | Phase 33 | Pending |
+| REDIR-02 | Phase 33 | Pending |
+| REDIR-03 | Phase 33 | Pending |
+| REDIR-04 | Phase 33 | Pending |
+| RESTRUCT-01 | Phase 34 | Pending |
+| RESTRUCT-02 | Phase 34 | Pending |
+| RESTRUCT-03 | Phase 34 | Pending |
+| CITY-01 | Phase 35 | Pending |
+| CITY-02 | Phase 35 | Pending |
+| CITY-03 | Phase 35 | Pending |
+| CITY-04 | Phase 35 | Pending |
+| PROGNEW-01 | Phase 36 | Pending |
+| PROGNEW-02 | Phase 36 | Pending |
+| PROGNEW-03 | Phase 36 | Pending |
+| AUTHOR-01 | Phase 37 | Pending |
+| AUTHOR-02 | Phase 37 | Pending |
+| MISC-01 | Phase 38 | Pending |
+| MISC-02 | Phase 38 | Pending |
+| MISC-03 | Phase 38 | Pending |
 
 **Coverage:**
 - v1 requirements: 19 total
-- Mapped to phases: 0 (pendiente de roadmap)
-- Unmapped: 19 ⚠️ (se resuelve al crear el roadmap)
+- Mapped to phases: 19/19 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-09-22*
-*Last updated: 2026-09-22 — definición inicial milestone v1.8*
+*Last updated: 2026-09-22 — roadmap creado, requirements mapeados a Phases 33-38*

@@ -3,10 +3,10 @@ gsd_state_version: "1.0"
 milestone: v1.8
 milestone_name: Migración aprendoseo.com → aprendoclub.com
 status: planning
-last_updated: "2026-09-22T14:52:48.921Z"
+last_updated: "2026-09-22T15:30:00.000Z"
 last_activity: 2026-09-22
 progress:
-  total_phases: 0
+  total_phases: 6
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -17,23 +17,25 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-07-22)
+See: .planning/PROJECT.md (updated 2026-09-22)
 
 **Core value:** Convertir visitas en inscripciones a los programas con un sitio rápido, editable sin código y con copy que refleje la voz real de la marca.
-**Current focus:** v1.7 cerrado con 3 fases (29-31); Fase 32 omitida por decisión de Juan (2026-07-22, requería Neon para migrar schema y Neon seguía caída). Merge feature→develop→main en curso por pedido explícito de Juan.
+**Current focus:** v1.8 — migrar aprendoseo.com a aprendoclub.com (Phases 33-38: redirects, reestructura de URLs, ciudades, programas nuevos, autores, páginas sueltas).
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-09-22 — Milestone v1.8 started
+Phase: 33 of 38 (Redirects 301 para contenido existente)
+Plan: — (roadmap recién creado, plan-phase pendiente)
+Status: Ready to plan
+Last activity: 2026-09-22 — ROADMAP.md y STATE.md de v1.8 creados (Phases 33-38, coverage 19/19)
+
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed (v1.7): 0
+- Total plans completed (v1.8): 0
 - Average duration: — min
 - Total execution time: 0 hours
 
@@ -45,18 +47,20 @@ Last activity: 2026-09-22 — Milestone v1.8 started
 
 **Recent Trend:**
 
-- Last 5 plans: — (histórico completo en `.planning/milestones/` y en commits previos de v1.5/v1.6)
+- Last 5 plans: — (histórico completo en `.planning/milestones/` y en commits previos de v1.5/v1.6/v1.7)
 - Trend: —
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes para v1.7:
+Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes para v1.8:
 
-- Checkpoints visuales agrupados al final del lote de fases, no fase por fase (preferencia explícita de Juan, ya aplicada en v1.5).
-- Placeholders coherentes con dark theme + specs en `admin.description` cuando falten assets reales (patrón de Phase 24/v1.5, reutilizado en Phase 32).
-- Fase 29 de v1.6 (FAQs de membresía) se retoma más adelante con numeración propia; el número 29 se reutiliza para la primera fase de v1.7 porque esa fase nunca se planificó ni ejecutó.
+- Redirects 301 de aprendoseo.com → aprendoclub.com se aplican en Cloudflare (dashboard de aprendoseo.com), no en `next.config.ts` de aprendoclub — dominios distintos.
+- REDIR (Phase 33) va primero por ser la entrega de mayor prioridad para Juan; RESTRUCT (Phase 34) va segundo porque la lista de redirects ya referencia las URLs finales `/programas/reto` y `/programas/diplomado` que RESTRUCT pone en producción.
+- Los redirects de las páginas nuevas (CITY-04, PROGNEW-03, AUTHOR-02, MISC-01/02) se agregan como parte de la fase que crea cada página (Phases 35-38), no en una fase de redirects tardía separada — se reutiliza el mismo archivo/formato del CSV de Phase 33.
+- `/reto` y `/diplomado` se mueven a `/programas/reto` y `/programas/diplomado` (consistencia con `/programas/taller-seo-con-ia`), aunque las URLs viejas ya estén live.
+- Merge de contenido de `/certificaciones` → autor Arianna y `/academia-seo` → `/quienes-somos`: solo redirect simple en v1.8, el merge de copy queda diferido a una fase futura.
 
 ### Pending Todos
 
@@ -65,19 +69,22 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 - Assets muertos `reto/incluye/*.jpg` + `reto/icons/*.png` (candidatos a borrado).
 - Link "Blog" en navbar/footer (edición de site-settings en /admin).
 - Google Rich Results Test de JSON-LD post-deploy.
+- MISC-02: confirmar destino exacto de `/seo-con-ia/evento` con Juan antes de cerrar Phase 38 (candidato: `/programas/taller-seo-con-ia`).
 
 ### Blockers/Concerns
 
-- **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. No confundir con la nueva Phase 29 de v1.7 (Imágenes rotas), que reutiliza el número porque la fase de FAQs nunca se planificó. Se retomará como fase nueva, con número propio posterior a la 32, cuando Juan la desbloquee.
-- **Phase 32 omitida por decisión de Juan (2026-07-22)** — requería migración de schema de Payload (necesita Neon) + fotos reales que faltaban para 2 de 6 cards. Queda en el backlog (DIPLO-IMG-02, Out of Scope de REQUIREMENTS.md v1.7); se retoma como fase nueva si Juan la vuelve a pedir.
-- **Phase 29: cuota de Vercel Image Optimization agotada** (HTTP 402 confirmado en producción) — externo al código, Juan al tanto, espera reset de cuota o upgrade de plan. Mitigación de código ya aplicada (`deviceSizes` recortado). Phase 32 se ejecuta igual sobre este estado (el código queda correcto; la confirmación visual final queda pendiente del reset).
-- **Neon Postgres inalcanzable (`ECONNRESET`)** desde esta sesión — confirmado en 4+ intentos (`npm run seed`, con y sin sandbox de red, y `next dev` local). Bloquea: `npm run seed` de Phase 30 (cards/widget/link del Taller no llegan a Payload/producción todavía) y la verificación visual de Phases 30 y 31 (cualquier render que consulte Payload falla igual). Se le pasaron a Juan los comandos para revisar el dashboard de Neon y probar el seed desde su máquina; `/gsd-autonomous` sigue con el código de Phase 32 mientras tanto pero no debe correr seed ni avanzar a la lifecycle (audit/complete-milestone) hasta que esto se resuelva.
+- **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. No confundir con las fases 33-38 de v1.8.
+- **Verificación visual diferida de v1.7 (Phases 29-31)** — pendiente de reset de cuota de Vercel Image Optimization y de confirmar que el seed de Payload corrió correctamente tras la caída de Neon. No bloquea el arranque de v1.8, pero conviene resolverlo antes de dar v1.7 por cerrado del todo.
+- **Neon Postgres**: si la inestabilidad reportada en v1.7 (`ECONNRESET`) persiste, bloqueará el trabajo de Payload de Phases 34-38 (slugs, colecciones nuevas, seeds). Verificar conexión antes de planificar Phase 34.
 
 ## Deferred Items
 
 | Category | Item | Status | Deferred At |
 |----------|------|--------|-------------|
 | Fase v1.6 | FAQs de membresía (antigua Phase 29) | Bloqueada, sin numeración asignada aún | Cierre parcial de v1.6, 2026-07-11 |
+| Fase v1.7 | Galería del Diplomado rediseñada (Phase 32) | Omitida — retomar si Juan lo pide, requiere Neon + fotos reales | Cierre de v1.7, 2026-07-22 |
+| v1.8 Out of Scope | Merge `/certificaciones` → autor Arianna, `/academia-seo` → `/quienes-somos` | Solo redirect simple por ahora | Definición de requirements v1.8, 2026-09-22 |
+| v1.8 Out of Scope | Página Econía/SEOconía | Diferida, sin fuente de contenido | Definición de requirements v1.8, 2026-09-22 |
 
 ## Deferred Verification
 
@@ -89,6 +96,6 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 
 ## Session Continuity
 
-Last session: 2026-07-22T00:00:00.000Z
-Stopped at: ROADMAP.md y REQUIREMENTS.md de v1.7 creados y escritos a disco (Phases 29-32, coverage 10/10)
+Last session: 2026-09-22T15:30:00.000Z
+Stopped at: ROADMAP.md y REQUIREMENTS.md (traceability) de v1.8 creados y escritos a disco (Phases 33-38, coverage 19/19)
 Resume file: None
