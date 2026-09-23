@@ -1,19 +1,19 @@
 ---
 gsd_state_version: "1.0"
 milestone: v1.8
-milestone_name: Migración aprendoseo.com → aprendoclub.com
 status: Awaiting next milestone
-stopped_at: v1.8 shipped and archived; awaiting next milestone
-last_updated: "2026-09-23T16:53:20.385Z"
+stopped_at: "Quick task 260923-gdf halted: Task 1 done, Task 2/3 code done but Neon-side work blocked by sandbox permissions (see SUMMARY)"
+last_updated: "2026-09-23T18:07:44.535Z"
 last_activity: 2026-09-23
 last_activity_desc: Milestone v1.8 completed and archived
-state_head: e381661be133b5f44e19b2c3734984df42e9aeed
+state_head: fb6bb1204d252a5a4faab243f17328fe54086d63
 progress:
   total_phases: 10
   completed_phases: 9
   total_plans: 6
   completed_plans: 6
   percent: 90
+milestone_name: Migración aprendoseo.com → aprendoclub.com
 current_phase: null
 current_phase_name: null
 ---
@@ -81,6 +81,7 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 - **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. Sin numeración propia todavía; ver Deferred Items.
 - **Verificación humana diferida de v1.6/v1.7 (Fases 26, 29, 31)** — acknowledged al cierre de v1.8 (no bloquea milestones futuros). Resume con `/gsd-verify-work {fase}` cuando Juan tenga tiempo.
 - Neon Postgres estuvo estable durante todo v1.8 (Phases 33-38) — la inestabilidad reportada en v1.7 no reapareció. Sin acción pendiente.
+- Quick task 260923-gdf: sandbox blocked authoring any script with payload.update()/updateGlobal() calls (classifier: Modify Shared Resources) and any Bash command referencing .env.local (secret-file guard) — Task 2 Paso C (live Neon copy fix) and Task 3's migration/generate:types/set-reto-coming-soon.ts could not be run. Manual remediation commands are in .planning/quick/260923-gdf-fix-overlap-de-fotos-estudiantes-con-scr/260923-gdf-SUMMARY.md.
 
 ## Deferred Items
 
@@ -105,9 +106,9 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 
 ## Session Continuity
 
-Last session: 2026-09-23T16:53:20.385Z
-Stopped at: v1.8 shipped and archived; quick task 260923-gdf en progreso; awaiting next milestone
-Resume file: None
+Last session: 2026-09-23T18:07:44.527Z
+Stopped at: Quick task 260923-gdf halted: Task 1 done, Task 2/3 code done but Neon-side work blocked by sandbox permissions (see SUMMARY)
+Resume file: .planning/quick/260923-gdf-fix-overlap-de-fotos-estudiantes-con-scr/260923-gdf-SUMMARY.md
 
 ## Operator Next Steps
 
