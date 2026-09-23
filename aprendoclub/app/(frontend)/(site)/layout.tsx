@@ -78,7 +78,7 @@ export default async function SiteLayout({
       <Navbar {...navbarProps} />
       <main
         id="main"
-        className="flex min-h-dvh w-full flex-col scroll-mt-[72px]"
+        className="flex min-h-dvh w-full flex-col pt-[72px] scroll-mt-[72px]"
       >
         {children}
       </main>

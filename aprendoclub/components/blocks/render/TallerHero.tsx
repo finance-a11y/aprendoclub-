@@ -7,7 +7,7 @@ import type { TallerHeroBlock as TallerHeroBlockType } from '@/payload-types'
  */
 export function TallerHero({ block }: { block: TallerHeroBlockType }) {
   return (
-    <section className="container-padding section-spacing max-w-6xl mx-auto flex flex-col items-center gap-4 text-center pt-28">
+    <section className="container-padding section-spacing max-w-6xl mx-auto flex flex-col items-center gap-4 text-center">
       <Eyebrow className="tracking-[0.2em]">{block.eyebrow}</Eyebrow>
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
         {block.titulo}

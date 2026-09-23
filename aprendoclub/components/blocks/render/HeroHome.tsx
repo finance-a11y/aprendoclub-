@@ -25,7 +25,7 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-dvh flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full min-h-dvh -mt-[72px] flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Video Background */}
       {video && (
@@ -201,7 +201,7 @@ export function HeroHome({ block }: { block: HeroHomeBlockType }) {
           delay: reduceMotion ? 0 : 1.2,
           ease: 'easeOut',
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={reduceMotion ? { y: 0 } : { y: [0, 8, 0] }}
