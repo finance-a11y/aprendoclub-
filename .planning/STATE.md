@@ -3,7 +3,7 @@ gsd_state_version: "1.0"
 milestone: v1.8
 milestone_name: Migración aprendoseo.com → aprendoclub.com
 status: Awaiting next milestone
-stopped_at: Phase 35 complete, ready to plan Phase 36
+stopped_at: v1.8 shipped and archived; awaiting next milestone
 last_updated: "2026-09-23T16:53:20.385Z"
 last_activity: 2026-09-23
 last_activity_desc: Milestone v1.8 completed and archived
@@ -14,18 +14,18 @@ progress:
   total_plans: 6
   completed_plans: 6
   percent: 90
-current_phase: 36
-current_phase_name: Páginas de programa nuevas
+current_phase: null
+current_phase_name: null
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-09-22)
+See: .planning/PROJECT.md (updated 2026-09-23)
 
 **Core value:** Convertir visitas en inscripciones a los programas con un sitio rápido, editable sin código y con copy que refleje la voz real de la marca.
-**Current focus:** v1.8 — migrar aprendoseo.com a aprendoclub.com (Phases 33-38: redirects, reestructura de URLs, ciudades, programas nuevos, autores, páginas sueltas).
+**Current focus:** v1.8 shipped. Feedback de diseño post-milestone en curso vía quick task (260923-gdf). Próximo milestone por definir con `/gsd-new-milestone`.
 
 ## Current Position
 
@@ -78,9 +78,9 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 
 ### Blockers/Concerns
 
-- **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. No confundir con las fases 33-38 de v1.8.
-- **Verificación visual diferida de v1.7 (Phases 29-31)** — pendiente de reset de cuota de Vercel Image Optimization y de confirmar que el seed de Payload corrió correctamente tras la caída de Neon. No bloquea el arranque de v1.8, pero conviene resolverlo antes de dar v1.7 por cerrado del todo.
-- **Neon Postgres**: si la inestabilidad reportada en v1.7 (`ECONNRESET`) persiste, bloqueará el trabajo de Payload de Phases 34-38 (slugs, colecciones nuevas, seeds). Verificar conexión antes de planificar Phase 34.
+- **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. Sin numeración propia todavía; ver Deferred Items.
+- **Verificación humana diferida de v1.6/v1.7 (Fases 26, 29, 31)** — acknowledged al cierre de v1.8 (no bloquea milestones futuros). Resume con `/gsd-verify-work {fase}` cuando Juan tenga tiempo.
+- Neon Postgres estuvo estable durante todo v1.8 (Phases 33-38) — la inestabilidad reportada en v1.7 no reapareció. Sin acción pendiente.
 
 ## Deferred Items
 
@@ -105,8 +105,8 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 
 ## Session Continuity
 
-Last session: 2026-09-22T15:30:00.000Z
-Stopped at: Phase 35 complete, ready to plan Phase 36
+Last session: 2026-09-23T16:53:20.385Z
+Stopped at: v1.8 shipped and archived; quick task 260923-gdf en progreso; awaiting next milestone
 Resume file: None
 
 ## Operator Next Steps
