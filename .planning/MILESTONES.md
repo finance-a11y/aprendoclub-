@@ -1,5 +1,15 @@
 # Project Milestones: aprendoclub
 
+## v1.8 Migración aprendoseo.com → aprendoclub.com (Shipped: 2026-09-23)
+
+**Phases completed:** 6 phases, 6 plans, 3 tasks
+
+**Key accomplishments:**
+
+- Lista completa de 81 redirects 301 para Cloudflare Bulk Redirects verificada al 100% contra Payload en vivo, con targets activos hoy (/reto, /diplomado) para activación inmediata sin riesgo de 404.
+
+---
+
 [Entries en orden cronológico inverso — más reciente primero]
 
 ## v1.5 Refresh de home + widget de asesoría (Shipped: 2026-07-11)
@@ -9,6 +19,7 @@
 **Phases completed:** 20-25 (8 fases)
 
 **Key accomplishments:**
+
 - Hero de home rediseñado + selector visual de íconos sobre 1914 íconos lucide
 - Widget de asesoría por WhatsApp
 - Motion moderno + spacing unificado, imágenes reales en diplomado
@@ -26,6 +37,7 @@
 **Phases completed:** 13-18 (6 fases, 38 planes)
 
 **Key accomplishments:**
+
 - Colección Pages (page-builder ~29 bloques) + 5 colecciones de datos + site-settings, seed idempotente
 - 8 páginas cutover a Payload pixel-idéntico, `content/*.ts` eliminados
 - SEO: generateMetadata, JSON-LD, sitemap dinámico reconectados
@@ -43,6 +55,7 @@
 **Phases completed:** 10-12 (18 commits)
 
 **Key accomplishments:**
+
 - MOTION-AUDIT.md, easing correcto, cero duration residual
 - FAQ accordions migrados de animar height a grid-template-rows
 - 32 imágenes → AVIF/WebP, −7.37MB (−86%) en public/
@@ -58,6 +71,7 @@
 **Phases completed:** 4 fases, 23 planes, 37 tareas, 50 commits
 
 **Key accomplishments:**
+
 - Design system en app/globals.css + components/ui/{eyebrow,button,card}.tsx
 - ~205 hex crudos migrados a tokens semánticos en ~35 archivos
 - Contraste ≥4.5:1, navbar mega-menú operable por teclado, next/image en 14 archivos
@@ -72,6 +86,7 @@
 **Delivered:** Shell (site) con navbar/footer compartidos, páginas quienes-somos/testimonios/programas/diplomado/taller/reto, contenido migrado y humanizado de aprendoseo.com.
 
 **Key accomplishments:**
+
 - Patrón data-driven en content/
 - Diplomado rediseñado del sistema shadcn propio al look aprendoclub
 

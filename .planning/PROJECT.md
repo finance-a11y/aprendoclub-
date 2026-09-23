@@ -23,20 +23,24 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 
 ### Active
 
-- [ ] Milestone v1.8 completado. Listo para archivar o definir siguiente ciclo.
+- [ ] Feedback de diseño post-v1.8 en curso vía quick task: overlap mobile de fotos de estudiantes en home, padding-top insuficiente (navbar tapa contenido) en varias páginas, actualización de cifras oficiales de estudiantes, rename de producto, y campo `comingSoon` en Payload para gatear el Reto de 7 días.
+- [ ] Backfill de `menuDesc`/`menuBadge` en Payload para Curso SEO RDSS y Curso Básico de SEO (megamenu del navbar los muestra vacíos) — tech debt cosmético de v1.8, no bloqueante.
+- [ ] Definir siguiente milestone tras cerrar v1.8.
 
-## Current Milestone: v1.8 Migración aprendoseo.com → aprendoclub.com (Completado)
+## Milestone v1.8 Migración aprendoseo.com → aprendoclub.com — ✅ SHIPPED 2026-09-22
 
 **Goal:** Migrar la totalidad de URLs de aprendoseo.com a aprendoclub.com sin pérdida de SEO, según el mapeo del sheet de Juan: primero la lista de redirects 301 para todo lo que ya existe en aprendoclub (para importar en Cloudflare), y después la creación de las páginas que faltan.
 
 **Delivered features:**
-- Lista de redirects 301 completa y probada en Cloudflare Bulk Redirects para todo el dominio aprendoseo.com
-- Reestructura de URLs: `/reto` → `/programas/reto`, `/diplomado` → `/programas/diplomado`, con redirects internos 301
-- Páginas programáticas de ciudad (10 ciudades) migradas con colección `CiudadesSeo` en Payload y SSG en Next.js
-- 2 páginas de programa nuevas (Curso SEO RDSS y Curso Básico de SEO) creadas en Payload y schema mappers
+- Lista de ~113 redirects 301 completa y probada en Cloudflare Bulk Redirects para todo el dominio aprendoseo.com, verificada contra Payload en vivo
+- Reestructura de URLs: `/reto` → `/programas/reto`, `/diplomado` → `/programas/diplomado`, con redirects internos 301 (sin doble-hop, corregido retroactivamente en el CSV)
+- Páginas programáticas de ciudad (10 ciudades) migradas con colección `CiudadesSeo` en Payload y SSG en Next.js, salarios y FAQs por mercado local
+- 2 páginas de programa nuevas (Curso SEO RDSS y Curso Básico de SEO) creadas en Payload con Schema.org Course
 - 2 páginas de autor faltantes (Ibraim Zayed, Verónica Romero) creadas en `authors` con fotos y bios
-- Páginas sueltas faltantes (contacto, glosario, políticas legales, recursos) creadas y redirigidas
+- 6 páginas sueltas/legales faltantes (contacto, glosario, políticas legales, recursos) creadas y redirigidas
 - `/prensa` descartada sin redirect
+
+**Audit:** 19/19 requirements satisfechos, 6/6 fases verificadas `passed`, integración cross-fase verificada end-to-end (ver `.planning/milestones/v1.8-MILESTONE-AUDIT.md`). Único hallazgo: tech debt cosmético (menuDesc/menuBadge vacíos en 2 programas nuevos del megamenu).
 
 ### Out of Scope
 
@@ -67,8 +71,9 @@ Convertir visitas en inscripciones a los programas (diplomado, taller, reto) con
 | Payload CMS con page-builder de bloques en vez de contenido hardcodeado en `content/*.ts` | Todo editable sin código para el equipo | ✓ Good — v1.3 completado, contenido migrado |
 | Milestone v1.6 tratado como milestone GSD completo (discuss→requirements→roadmap→plan→execute→review) | Los cambios de copy tocan posicionamiento de marca y voz, no son mecánicos | — Pending |
 | Checkpoints visuales agrupados al final del lote de fases, no fase por fase | Preferencia explícita de Juan durante v1.5 | ✓ Good |
-| Redirects 301 de aprendoseo.com → aprendoclub.com se aplican en Cloudflare, no en next.config.ts | Son dominios distintos; Cloudflare gestiona el DNS/CDN de aprendoseo.com | — Pending |
-| `/reto` y `/diplomado` se mueven a `/programas/reto` y `/programas/diplomado` | Consistencia de rutas con `/programas/taller-seo-con-ia`, aunque las URLs viejas ya estén live | — Pending |
+| Redirects 301 de aprendoseo.com → aprendoclub.com se aplican en Cloudflare, no en next.config.ts | Son dominios distintos; Cloudflare gestiona el DNS/CDN de aprendoseo.com | ✓ Good — v1.8, CSV de 113 filas entregado, verificado contra Payload |
+| `/reto` y `/diplomado` se mueven a `/programas/reto` y `/programas/diplomado` | Consistencia de rutas con `/programas/taller-seo-con-ia`, aunque las URLs viejas ya estén live | ✓ Good — v1.8, migrado sin romper enlaces internos ni SEO |
+| Colección `CiudadesSeo` dedicada en Payload en vez de 10 entradas sueltas en Pages | Reducir duplicación de plantilla, permitir SSG + revalidación on-demand | ✓ Good — v1.8, 10 páginas de ciudad con salarios/FAQ contextualizados |
 
 ## Evolution
 
@@ -88,4 +93,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-09-22 after arranque de milestone v1.8*
+*Last updated: 2026-09-23 after v1.8 milestone*

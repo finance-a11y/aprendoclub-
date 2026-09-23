@@ -2,6 +2,10 @@
 phase: 31
 status: human_needed
 verified: 2026-07-22
+audit_acknowledged:
+  milestone: v1.8
+  at: 2026-09-23
+  status: human_needed
 ---
 
 # Verification: Phase 31 — Tipografía, motion y spacing (segunda pasada)

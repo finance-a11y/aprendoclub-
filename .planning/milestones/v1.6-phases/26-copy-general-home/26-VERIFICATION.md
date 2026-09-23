@@ -5,9 +5,14 @@ status: human_needed
 score: 4/4 must-haves verified
 overrides_applied: 0
 human_verification:
+
   - test: "Confirmar con Juan que 'Formamos especialistas en SEO e IA' (quienes-somos.ts:81, subtítulo del hero, justo debajo del título ya de-enfatizado) es aceptable como mención de dominio/rol y no requiere reescritura adicional."
     expected: "Juan confirma que la frase describe la especialización de los egresados (no un tagline de posicionamiento de marca) y puede quedar tal cual, o pide reescribirla."
     why_human: "Es un juicio de tono de marca/voz, no verificable por grep: el patrón genérico del gate (26-04) no la marca como violación estructural, pero es la línea de copy más cercana al límite del criterio COPY-02 (aparece inmediatamente debajo del título ya corregido, en la página de mayor peso de marca junto al home)."
+audit_acknowledged:
+  milestone: v1.8
+  at: 2026-09-23
+  status: human_needed
 ---
 
 # Phase 26: Copy general + Home Verification Report

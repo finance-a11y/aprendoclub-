@@ -2,20 +2,20 @@
 gsd_state_version: "1.0"
 milestone: v1.8
 milestone_name: Migración aprendoseo.com → aprendoclub.com
-current_phase: 36
-current_phase_name: Páginas de programa nuevas
-status: planning
+status: Awaiting next milestone
 stopped_at: Phase 35 complete, ready to plan Phase 36
-last_updated: "2026-09-22T16:33:04.338Z"
-last_activity: 2026-09-22
-last_activity_desc: Phase 35 complete, transitioned to Phase 36
-state_head: 600d75463988e5d390f2fcf227a53660f5b1c483
+last_updated: "2026-09-23T16:53:20.385Z"
+last_activity: 2026-09-23
+last_activity_desc: Milestone v1.8 completed and archived
+state_head: e381661be133b5f44e19b2c3734984df42e9aeed
 progress:
   total_phases: 10
-  completed_phases: 6
-  total_plans: 3
-  completed_plans: 3
-  percent: 46
+  completed_phases: 9
+  total_plans: 6
+  completed_plans: 6
+  percent: 90
+current_phase: 36
+current_phase_name: Páginas de programa nuevas
 ---
 
 # Project State
@@ -29,12 +29,10 @@ See: .planning/PROJECT.md (updated 2026-09-22)
 
 ## Current Position
 
-Phase: 36 of 38 (Páginas de programa nuevas)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-09-22 — Phase 35 complete, transitioned to Phase 36
-
-Progress: [█████░░░░░] 46%
+Phase: Milestone v1.8 complete
+Plan: —
+Status: Awaiting next milestone
+Last activity: 2026-09-23 — Milestone v1.8 completed and archived
 
 ## Performance Metrics
 
@@ -92,6 +90,10 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 | Fase v1.7 | Galería del Diplomado rediseñada (Phase 32) | Omitida — retomar si Juan lo pide, requiere Neon + fotos reales | Cierre de v1.7, 2026-07-22 |
 | v1.8 Out of Scope | Merge `/certificaciones` → autor Arianna, `/academia-seo` → `/quienes-somos` | Solo redirect simple por ahora | Definición de requirements v1.8, 2026-09-22 |
 | v1.8 Out of Scope | Página Econía/SEOconía | Diferida, sin fuente de contenido | Definición de requirements v1.8, 2026-09-22 |
+| Verification Gap (v1.6, archivada) | Phase 26 (Copy general home) — VERIFICATION.md human_needed sin resolver | Acknowledged al cierre de v1.8 — no bloquea, requiere validación humana pendiente | Cierre de v1.8, 2026-09-23 |
+| Verification Gap (v1.7, archivada) | Phase 29 (Imágenes rotas de Diplomado) — VERIFICATION.md human_needed sin resolver | Acknowledged al cierre de v1.8 — resume con /gsd-verify-work 29 | Cierre de v1.8, 2026-09-23 |
+| Verification Gap (v1.7, archivada) | Phase 31 (Tipografía/motion/spacing) — VERIFICATION.md human_needed sin resolver | Acknowledged al cierre de v1.8 — resume con /gsd-verify-work 31 | Cierre de v1.8, 2026-09-23 |
+| Quick Task | 260923-gdf-fix-overlap-de-fotos-estudiantes-con-scr — en progreso al momento del cierre (planner corriendo en background) | Acknowledged al cierre de v1.8 — se completa por su cuenta, no pertenece al scope de v1.8 | Cierre de v1.8, 2026-09-23 |
 
 ## Deferred Verification
 
@@ -106,3 +108,7 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 Last session: 2026-09-22T15:30:00.000Z
 Stopped at: Phase 35 complete, ready to plan Phase 36
 Resume file: None
+
+## Operator Next Steps
+
+- Start the next milestone with /gsd-new-milestone
