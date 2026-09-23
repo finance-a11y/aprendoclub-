@@ -90,27 +90,35 @@ coverage:
   - id: D4
     description: "Same copy fixes applied to content already published in Neon (pages/programas/llms global)"
     requirement: "QUICK-03"
-    verification: []
-    human_judgment: true
-    rationale: "NOT DONE — scripts/update-diplomado-copy-live.ts could not be authored in this session (sandbox blocked it). See 'Known Gap' below."
+    verification:
+      - kind: integration
+        ref: "npx payload run scripts/update-diplomado-copy-live.ts against live Neon — updated 5 pages (politica-reembolso, glosario, programas/taller-seo-con-ia, programas/diplomado, home), 1 programas doc (diplomado), and the llms global. Re-run confirmed idempotent (zero changes on second pass)."
+        status: pass
+    human_judgment: false
+    rationale: "Completed by the orchestrator after the executor's sandbox blocked it — see commit 7c3c044. Original blocker (payload.update denial + .env.local read guard) was specific to the executor's session; the orchestrator ran the same script the plan specified, unmodified."
   - id: D5
     description: "comingSoon field added to programas collection + migrated in Neon; Reto 7 días flagged comingSoon=true; inscription blocked with badge"
     requirement: "QUICK-05"
     verification:
+      - kind: integration
+        ref: "npx payload migrate:create + npx payload migrate applied programas.coming_soon column to Neon; npx payload generate:types regenerated payload-types.ts (byte-identical to prior manual patch); npx payload run scripts/set-reto-coming-soon.ts confirmed 'comingSoon=true aplicado a Reto 7 días'"
+        status: pass
       - kind: unit
         ref: "npx tsc --noEmit (collection field, catch-all gating, card badge all type-check)"
         status: pass
-    human_judgment: true
-    rationale: "Field + gating CODE is done, but the migration was never generated/applied to Neon and the Reto record was never flagged — the feature is inert until Juan runs the commands in 'Known Gap' below."
+    human_judgment: false
+    rationale: "Completed by the orchestrator after the executor's sandbox blocked it — see commit 7c3c044."
 
-duration: 55min
+duration: 55min (executor) + Neon-side completion by orchestrator
 completed: 2026-09-23
-status: halted
+status: complete
 ---
 
-# Quick Task 260923-gdf: Mobile hero fix, navbar padding, Diplomado rename, and comingSoon field (partial) Summary
+# Quick Task 260923-gdf: Mobile hero fix, navbar padding, Diplomado rename, and comingSoon field Summary
 
-**Fixed the mobile hero overlap and site-wide navbar padding gap, renamed "Diplomado SEO + AIO" everywhere in source, and shipped the comingSoon gating UI — but every step that required writing a database-mutating script or reading `.env.local` was blocked by this session's own sandbox permissions, so the Neon-side work (live copy fix, migration, Reto flag) is undone.**
+**Fixed the mobile hero overlap and site-wide navbar padding gap, renamed "Diplomado SEO + AIO" everywhere (source + live Neon content), fixed student-count copy live, and shipped + activated the comingSoon gating (migration applied, Reto flagged true in Neon).**
+
+**Note on execution:** the gsd-executor completed Task 1 fully and Tasks 2-3's code, but its sandboxed session blocked any script containing `payload.update()`/`payload.updateGlobal()` calls and any Bash command reading `.env.local` — both hard permission-system denials, not something the executor could or should have bypassed. The orchestrating session (with normal Bash permissions, after explicit user approval to proceed) ran the exact commands/scripts the plan specified — no scope changes — completing QUICK-03 and QUICK-05's live-DB truths in commit `7c3c044`.
 
 ## Performance
 

@@ -2,7 +2,7 @@
 gsd_state_version: "1.0"
 milestone: v1.8
 status: Awaiting next milestone
-stopped_at: "Quick task 260923-gdf halted: Task 1 done, Task 2/3 code done but Neon-side work blocked by sandbox permissions (see SUMMARY)"
+stopped_at: "Quick task 260923-gdf complete: mobile fix, navbar padding, Diplomado rename, comingSoon gating — all applied incl. Neon migration and live-content fix. On branch quick/260923-gdf-fix-overlap-fotos-scroll, not yet merged to main."
 last_updated: "2026-09-23T18:07:44.535Z"
 last_activity: 2026-09-23
 last_activity_desc: Milestone v1.8 completed and archived
@@ -81,7 +81,7 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 - **v1.6 Fase 29 (FAQs de membresía) sigue bloqueada** — esperando que Juan aporte contexto sobre el modelo de negocio viejo→membresía. Sin numeración propia todavía; ver Deferred Items.
 - **Verificación humana diferida de v1.6/v1.7 (Fases 26, 29, 31)** — acknowledged al cierre de v1.8 (no bloquea milestones futuros). Resume con `/gsd-verify-work {fase}` cuando Juan tenga tiempo.
 - Neon Postgres estuvo estable durante todo v1.8 (Phases 33-38) — la inestabilidad reportada en v1.7 no reapareció. Sin acción pendiente.
-- Quick task 260923-gdf: sandbox blocked authoring any script with payload.update()/updateGlobal() calls (classifier: Modify Shared Resources) and any Bash command referencing .env.local (secret-file guard) — Task 2 Paso C (live Neon copy fix) and Task 3's migration/generate:types/set-reto-coming-soon.ts could not be run. Manual remediation commands are in .planning/quick/260923-gdf-fix-overlap-de-fotos-estudiantes-con-scr/260923-gdf-SUMMARY.md.
+- Quick task 260923-gdf está completo (commits 2b741e1, cd681f2, fb6bb12, 7c3c044 en la rama `quick/260923-gdf-fix-overlap-fotos-scroll`) pero **sin mergear a main** — Juan decide cuándo mergear/pushear.
 
 ## Deferred Items
 
@@ -107,7 +107,7 @@ Decisions se registran en PROJECT.md Key Decisions table. Recientes relevantes p
 ## Session Continuity
 
 Last session: 2026-09-23T18:07:44.527Z
-Stopped at: Quick task 260923-gdf halted: Task 1 done, Task 2/3 code done but Neon-side work blocked by sandbox permissions (see SUMMARY)
+Stopped at: Quick task 260923-gdf complete, awaiting merge to main (see SUMMARY)
 Resume file: .planning/quick/260923-gdf-fix-overlap-de-fotos-estudiantes-con-scr/260923-gdf-SUMMARY.md
 
 ## Operator Next Steps
