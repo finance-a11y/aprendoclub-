@@ -88,7 +88,7 @@ export const historia: HistoriaContent = {
   parrafos: [
     "En 2022, Arianna Lupi dirigía una agencia de SEO y se topó con un problema simple: no conseguía talento hispanohablante que supiera hacer el trabajo. Al mismo tiempo, la gente que la seguía le preguntaba una y otra vez cómo había logrado trabajar en SEO 100% remoto.",
     "De esas dos preguntas nació aprendoclub: una academia para cerrar la brecha entre las empresas que necesitan especialistas y las personas que quieren aprender una habilidad bien pagada.",
-    "Hoy más de 2.000 personas se han formado con nosotros. Y no se quedan en la teoría: posicionan sitios, trabajan con clientes o llevan adelante sus propios proyectos digitales.",
+    "Hoy más de 10,000 personas se han formado con nosotros. Y no se quedan en la teoría: posicionan sitios, trabajan con clientes o llevan adelante sus propios proyectos digitales.",
   ],
   quote: {
     texto:
@@ -179,7 +179,7 @@ export const metodologia: MetodologiaContent = {
 
 /** Stats — sección "## Stats (reusar del home)". */
 export const stats: StatItem[] = [
-  { value: "2,000+", label: "estudiantes formados" },
+  { value: "10,000+", label: "estudiantes formados" },
   { value: "30+", label: "empresas ayudadas" },
   { value: "$2M+", label: "en ventas generadas" },
 ];

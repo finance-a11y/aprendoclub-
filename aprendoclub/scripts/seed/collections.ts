@@ -15,7 +15,7 @@ const programas = [
   {
     id: 'diplomado',
     badge: 'Programa estrella',
-    nombre: 'Diplomado de SEO + AIO',
+    nombre: 'Diplomado SEO + AIO',
     descripcion:
       '16 semanas para convertirte en especialista SEO, sin experiencia previa. Práctica aplicada, coaching en vivo y certificación.',
     precio: 'Desde $700 USD',
@@ -59,7 +59,7 @@ const programas = [
  */
 const programMenu = [
   {
-    label: 'Diplomado de SEO + AIO',
+    label: 'Diplomado SEO + AIO',
     href: '/programas/diplomado',
     desc: '16 semanas para convertirte en especialista SEO.',
     badge: 'Programa estrella',

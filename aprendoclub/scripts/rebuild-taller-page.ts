@@ -93,7 +93,7 @@ async function run() {
     ],
     [
       '¿Esto tiene aval universitario?',
-      'aprendoclub tiene alianza académica con la Universidad Católica Andrés Bello (UCAB) a través de su unidad CIAP. El Diplomado de Cero a SEO tiene certificación oficial, y este taller es la puerta de entrada a ese programa.',
+      'aprendoclub tiene alianza académica con la Universidad Católica Andrés Bello (UCAB) a través de su unidad CIAP. El Diplomado SEO + AIO tiene certificación oficial, y este taller es la puerta de entrada a ese programa.',
     ],
   ]
   for (let i = 0; i < faqs.length; i++) {
@@ -248,7 +248,7 @@ async function run() {
       bio: [
         {
           texto:
-            'Fundadora de aprendoclub, consultora SEO con más de 10 años de experiencia. Ha generado más de $2M en ventas para más de 30 empresas a través de SEO orgánico y formó a más de 2,000 estudiantes en LATAM. Alianza académica con la UCAB (CIAP).',
+            'Fundadora de aprendoclub, consultora SEO con más de 10 años de experiencia. Ha generado más de $2M en ventas para más de 30 empresas a través de SEO orgánico y formó a más de 10,000 estudiantes en LATAM. Alianza académica con la UCAB (CIAP).',
         },
       ],
     },

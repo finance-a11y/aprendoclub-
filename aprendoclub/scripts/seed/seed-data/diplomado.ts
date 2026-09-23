@@ -38,7 +38,7 @@ export interface HeroContent {
 }
 
 export const hero: HeroContent = {
-  badgeText: "Diplomado de SEO + AIO",
+  badgeText: "Diplomado SEO + AIO",
   tituloPre: "Conviértete en especialista SEO, ",
   tituloAccent: "sin experiencia previa",
   tituloPost: " ni tecnicismos",
@@ -77,7 +77,7 @@ export const galeria: GaleriaContent = {
   imagenes: [
     {
       src: "/diplomado/real/diplomado-certificado.avif",
-      alt: "Certificado de finalización del Diplomado de SEO + AIO",
+      alt: "Certificado de finalización del Diplomado SEO + AIO",
     },
     {
       src: "/diplomado/real/diplomado-comunidad.avif",
@@ -125,7 +125,7 @@ export const origin: OriginContent = {
     {
       icon: "users",
       texto:
-        "Así nació aprendoclub, la primera academia especializada en marketing con IA para el mercado hispano. Hoy, más de 750 personas se han formado con nosotros.",
+        "Así nació aprendoclub, la primera academia especializada en marketing con IA para el mercado hispano. Hoy, más de 3,000 estudiantes se han formado con nosotros en el Diplomado.",
     },
   ],
 };
@@ -142,7 +142,7 @@ export interface AudienceContent {
 }
 
 export const audience: AudienceContent = {
-  titulo: "¿El Diplomado de SEO + AIO será para mí?",
+  titulo: "¿El Diplomado SEO + AIO será para mí?",
   subtitulo: "Descúbrelo ya mismo",
   tituloPerfiles: "Está pensado para ti si...",
   perfiles: [
@@ -340,7 +340,7 @@ export interface HowItWorksContent {
 
 export const howItWorks: HowItWorksContent = {
   eyebrow: "Cómo funciona",
-  titulo: "¿Cómo funciona el Diplomado de SEO + AIO?",
+  titulo: "¿Cómo funciona el Diplomado SEO + AIO?",
   features: [
     {
       icon: "clock",
@@ -512,7 +512,7 @@ export const pricing: PricingContent = {
     "Para quienes quieren dominar SEO con el diplomado completo, sesiones semanales y ruta profesional.",
   features: [
     "Todo lo de Aprendiz",
-    "Diplomado de SEO + AIO completo",
+    "Diplomado SEO + AIO completo",
     "3 sesiones semanales",
     "Proyectos aplicados",
     "Ruta profesional guiada",

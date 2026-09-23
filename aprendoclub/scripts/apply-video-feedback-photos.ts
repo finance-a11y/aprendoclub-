@@ -39,7 +39,7 @@ async function run() {
   const portadaDiplomado = await upload(
     payload,
     'Portadas programas/portadas-diplomado-de-cero-a-seo---aprendoclub-.webp',
-    'Diplomado de SEO + AIO',
+    'Diplomado SEO + AIO',
   )
   const portadaReto = await upload(payload, 'Portadas programas/reto-2026---portadas-1.webp', 'Reto 7 días')
   const portadaTaller = await upload(
@@ -89,7 +89,7 @@ async function run() {
   // --- Programas: portada por programa ---
   {
     const map: Record<string, number> = {
-      'Diplomado de SEO + AIO': portadaDiplomado,
+      'Diplomado SEO + AIO': portadaDiplomado,
       'Taller de SEO con IA': portadaTaller,
       'Reto 7 días': portadaReto,
     }

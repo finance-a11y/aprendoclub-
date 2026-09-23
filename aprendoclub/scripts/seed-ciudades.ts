@@ -36,7 +36,7 @@ const CIUDADES: CiudadData[] = [
     ],
     meta: {
       title: 'Curso de SEO en Alicante | Formación Especializada aprendoclub',
-      description: 'Aprende SEO en Alicante con el Diplomado de SEO + AIO de aprendoclub. Mentoría en vivo, proyectos reales y optimización para Google y motores de IA.',
+      description: 'Aprende SEO en Alicante con el Diplomado SEO + AIO de aprendoclub. Mentoría en vivo, proyectos reales y optimización para Google y motores de IA.',
     },
   },
   {
@@ -269,7 +269,7 @@ const CIUDADES: CiudadData[] = [
       },
     ],
     meta: {
-      title: 'Curso de SEO en Valencia | Diplomado de SEO + AIO en aprendoclub',
+      title: 'Curso de SEO en Valencia | Diplomado SEO + AIO en aprendoclub',
       description: 'Curso de SEO en Valencia. Aprende posicionamiento orgánico y optimización para ChatGPT y Gemini con el Diplomado de aprendoclub.',
     },
   },

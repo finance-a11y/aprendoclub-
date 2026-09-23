@@ -19,7 +19,7 @@ const siteCta = { label: 'Únete ahora', href: '/programas' }
 
 const programMenu = [
   {
-    label: 'Diplomado de SEO + AIO',
+    label: 'Diplomado SEO + AIO',
     href: '/programas/diplomado',
     desc: '16 semanas para convertirte en especialista SEO.',
     badge: 'Programa estrella',

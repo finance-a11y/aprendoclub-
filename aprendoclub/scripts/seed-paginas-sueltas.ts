@@ -147,7 +147,7 @@ async function run() {
           texto:
             'En aprendoclub no nos quedamos en la teoría: aprendes a ejecutar auditorías completas y planes de posicionamiento medibles.',
           boton: {
-            label: 'Conoce el Diplomado de SEO + AIO',
+            label: 'Conoce el Diplomado SEO + AIO',
             href: '/programas/diplomado',
           },
         },
@@ -275,7 +275,7 @@ async function run() {
         },
         {
           blockType: 'ctaBanner' as const,
-          titulo: 'Aprende con una metodología probada por más de 2,000 profesionales',
+          titulo: 'Aprende con una metodología probada por más de 10,000 estudiantes',
           texto:
             'Revisa los testimonios y opiniones de estudiantes que han transformado sus carreras con aprendoclub.',
           boton: {

@@ -33,7 +33,7 @@ export interface HomeHero {
 
 /** Hero (hero-section.tsx). */
 export const hero: HomeHero = {
-  badgeText: "+10.000 estudiantes ya se unieron",
+  badgeText: "+10,000 estudiantes ya se unieron",
   tituloPre: "La única academia de",
   tituloAccent: "marketing e IA",
   tituloPost: "que te ayuda a encontrar trabajo",
@@ -51,7 +51,7 @@ export const hero: HomeHero = {
     "/avatar-4.webp",
     "/avatar-5.webp",
   ],
-  ratingTexto: "4.9/5 de +10.000 estudiantes",
+  ratingTexto: "4.9/5 de +10,000 estudiantes",
   videoBackground: "/hero-video.mp4",
 };
 
@@ -194,11 +194,11 @@ export const instructor: InstructorSection = {
   bioCorta1:
     "Con un Magíster en Data Analytics y más de una década de experiencia, Arianna ha generado más de $2M en ventas para 30+ empresas mediante posicionamiento en buscadores y plataformas de IA.",
   bioCorta2:
-    "En 2022 fundó aprendoclub (antes aprendoseo), donde ha capacitado a más de 2,000 estudiantes con una metodología 100% práctica y comprobada.",
+    "En 2022 fundó aprendoclub (antes aprendoseo), donde ha capacitado a más de 10,000 estudiantes con una metodología 100% práctica y comprobada.",
   stats: [
     { value: "$2M+", label: "en ventas generadas" },
     { value: "30+", label: "empresas ayudadas" },
-    { value: "2,000+", label: "estudiantes formados" },
+    { value: "10,000+", label: "estudiantes formados" },
   ],
   foto: "/arianna-lupi.webp",
   teaserLabel: "Conoce más sobre nosotros",

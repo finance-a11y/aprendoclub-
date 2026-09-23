@@ -11,7 +11,7 @@ aprendoclub (antes aprendoseo) es una academia en español enfocada en SEO y en 
 
 ## Programas
 
-- [Diplomado de cero a SEO](https://www.aprendoclub.com/programas/diplomado): Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica guiada.
+- [Diplomado SEO + AIO](https://www.aprendoclub.com/programas/diplomado): Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica guiada.
 - [Taller de SEO con IA](https://www.aprendoclub.com/programas/taller-seo-con-ia): Taller práctico para integrar inteligencia artificial en tu flujo de trabajo SEO.
 - [Reto 7 días](https://www.aprendoclub.com/programas/reto): Reto gratuito de 7 días para dar tus primeros pasos en SEO.
 
@@ -48,7 +48,7 @@ Fundadora: Arianna Lupi. Redes: https://www.youtube.com/@aprendoclub, https://ti
 
 ## Programas de formación
 
-### Diplomado de cero a SEO
+### Diplomado SEO + AIO
 https://www.aprendoclub.com/programas/diplomado
 Formación completa para pasar de cero a especialista SEO, con acompañamiento y práctica guiada.
 

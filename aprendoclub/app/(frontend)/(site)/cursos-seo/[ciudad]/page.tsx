@@ -104,7 +104,7 @@ export default async function CiudadPage({ params }: { params: Params }) {
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
-    name: `Curso de SEO en ${ciudad.nombre} — Diplomado de SEO + AIO`,
+    name: `Curso de SEO en ${ciudad.nombre} — Diplomado SEO + AIO`,
     description: `Aprende posicionamiento web profesional y optimización para motores de IA adaptado a estudiantes y profesionales ${ciudad.gentilicio || `en ${ciudad.nombre}`}.`,
     provider: {
       '@type': 'Organization',
@@ -212,7 +212,7 @@ export default async function CiudadPage({ params }: { params: Params }) {
 
           <div className="pt-4 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Button href="/programas/diplomado" size="lg" className="w-full sm:w-auto">
-              Ver el Diplomado de SEO + AIO
+              Ver el Diplomado SEO + AIO
             </Button>
             <Button
               href="/programas"
@@ -268,7 +268,7 @@ export default async function CiudadPage({ params }: { params: Params }) {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Eyebrow>Nuestra Recomendación</Eyebrow>
           <h2 className="text-2xl md:text-4xl font-bold tracking-tight mt-2 text-white">
-            Diplomado de SEO + AIO: De cero a especialista en 16 semanas
+            Diplomado SEO + AIO: De cero a especialista en 16 semanas
           </h2>
           <p className="text-gray-400 text-sm md:text-base mt-4">
             Diseñado para personas que quieren cambiar de profesión o escalar sus ingresos en marketing digital desde {ciudad.nombre}, con acompañamiento humano real y casos prácticos.
@@ -395,7 +395,7 @@ export default async function CiudadPage({ params }: { params: Params }) {
             Comienza hoy tu formación como especialista SEO desde {ciudad.nombre}
           </h2>
           <p className="text-gray-300 max-w-xl text-sm md:text-base">
-            Únete a la próxima edición del Diplomado de SEO + AIO con grupos reducidos y coaching en directo.
+            Únete a la próxima edición del Diplomado SEO + AIO con grupos reducidos y coaching en directo.
           </p>
           <Button href="/programas/diplomado" size="lg">
             Inscribirme al Diplomado

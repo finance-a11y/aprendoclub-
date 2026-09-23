@@ -35,7 +35,7 @@ function faqsFromLayout(doc: Page | undefined): { question: string; answer: stri
 /** Course curados verbatim de los call-sites previos (git). */
 const COURSES: Record<string, Parameters<typeof course>[0]> = {
   "programas/diplomado": {
-    name: "Diplomado de cero a SEO",
+    name: "Diplomado SEO + AIO",
     description:
       "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
     path: "/programas/diplomado",
@@ -43,7 +43,7 @@ const COURSES: Record<string, Parameters<typeof course>[0]> = {
     courseWorkload: "P16W",
   },
   diplomado: {
-    name: "Diplomado de cero a SEO",
+    name: "Diplomado SEO + AIO",
     description:
       "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
     path: "/programas/diplomado",

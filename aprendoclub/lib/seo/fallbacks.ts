@@ -27,7 +27,7 @@ export const SEO_FALLBACKS: Record<string, { title: string; description: string 
       "Todos los programas de aprendoclub para especializarte en SEO e IA: diplomado, reto y talleres, con práctica guiada y acompañamiento.",
   },
   diplomado: {
-    title: "Diplomado de cero a SEO | aprendoclub",
+    title: "Diplomado SEO + AIO | aprendoclub",
     description:
       "Conviértete en especialista SEO en 16 semanas, sin experiencia previa. Práctica guiada, coaching en vivo y certificación.",
   },
