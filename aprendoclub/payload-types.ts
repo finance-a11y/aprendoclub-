@@ -264,6 +264,10 @@ export interface Programa {
   menuDesc?: string | null;
   menuBadge?: string | null;
   testimonios?: (number | Testimonio)[] | null;
+  /**
+   * Si está activo: oculta el botón de inscripción en la página del programa y en su card, y muestra una insignia "Próximamente" en ambos lugares.
+   */
+  comingSoon?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1727,6 +1731,7 @@ export interface ProgramasSelect<T extends boolean = true> {
   menuDesc?: T;
   menuBadge?: T;
   testimonios?: T;
+  comingSoon?: T;
   updatedAt?: T;
   createdAt?: T;
 }

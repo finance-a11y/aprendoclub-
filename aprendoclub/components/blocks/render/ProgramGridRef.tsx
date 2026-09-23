@@ -32,13 +32,20 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
         <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
           {items.map((program) => {
             const portada = resolveMedia(program.imagen)
+            const isComingSoon = Boolean(program.comingSoon)
             return (
             <Card
               key={program.id}
               padding="compact"
               hover="liftAccent"
-              className="group flex h-full flex-col gap-4"
+              className="group relative flex h-full flex-col gap-4"
             >
+              {isComingSoon && (
+                <span className="absolute top-3 right-3 z-10 rounded-full border border-white/20 bg-black/70 backdrop-blur px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
+                  Próximamente
+                </span>
+              )}
+
               {portada && (
                 <div className="relative -mx-6 -mt-6 mb-2 aspect-video overflow-hidden rounded-t-xl">
                   <Image
@@ -67,9 +74,20 @@ export function ProgramGridRef({ block }: { block: ProgramGridRefBlockType }) {
                 )}
               </div>
 
-              <Button href={program.ctaHref} variant="primary" icon className="mt-auto">
-                {program.ctaLabel}
-              </Button>
+              {isComingSoon ? (
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className="mt-auto inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-white/20 bg-[var(--surface-card)] px-6 py-3 text-sm font-semibold text-white opacity-60"
+                >
+                  Próximamente
+                </button>
+              ) : (
+                <Button href={program.ctaHref} variant="primary" icon className="mt-auto">
+                  {program.ctaLabel}
+                </Button>
+              )}
             </Card>
             )
           })}

@@ -10,6 +10,7 @@ import { JsonLd } from '@/components/json-ld'
 import { resolveRedirect } from '@/lib/redirects'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { getGraphsForSlug } from '@/lib/schema-mappers'
+import type { Page } from '@/payload-types'
 import { BlogPostView } from '@/components/blog/blog-post-view'
 import { CategoryView } from '@/components/blog/category-view'
 import { AuthorView } from '@/components/blog/author-view'
@@ -34,6 +35,27 @@ import {
  * que la estructura flat del blog conviva con las páginas del builder sin chocar.
  */
 const RESERVED_SLUGS = new Set<string>(['', 'home', 'links', 'admin', 'api', 'blog', 'glosario', 'cursos-seo'])
+
+type LayoutBlock = Page['layout'][number]
+
+/**
+ * Vacía los CTAs de un bloque de página cuando el programa asociado está
+ * marcado `comingSoon`. Duck-typing sobre la forma del bloque (array
+ * `ctas` u objeto `boton`), no sobre `blockType`, para que funcione con
+ * cualquier programa futuro que reutilice estos mismos campos.
+ */
+function neutralizeCtas(blocks: LayoutBlock[]): LayoutBlock[] {
+  return blocks.map((block) => {
+    const raw = block as unknown as { ctas?: unknown; boton?: unknown }
+    if (Array.isArray(raw.ctas)) {
+      return { ...block, ctas: [] } as LayoutBlock
+    }
+    if (raw.boton && typeof raw.boton === 'object') {
+      return { ...block, boton: { label: '', href: '#' } } as LayoutBlock
+    }
+    return block
+  })
+}
 
 function pageParam(searchParams?: { page?: string | string[] }): number {
   const raw = Array.isArray(searchParams?.page) ? searchParams?.page[0] : searchParams?.page
@@ -169,12 +191,31 @@ export default async function CatchAllPage({
     notFound()
   }
 
+  // 4. Gating de programas "Próximamente": si esta página es la página de
+  //    inscripción de un programa marcado comingSoon (matcheado por
+  //    ctaHref === /slug), se vacían los CTAs del layout y se muestra un
+  //    banner. Reutilizable para cualquier programa futuro, no solo Reto.
+  const { docs: matchingProgramas } = await payload.find({
+    collection: 'programas',
+    where: { ctaHref: { equals: `/${slug}` } },
+    limit: 1,
+    depth: 0,
+  })
+  const isComingSoon = Boolean(matchingProgramas[0]?.comingSoon)
+
+  const layout = isComingSoon ? neutralizeCtas(doc.layout ?? []) : (doc.layout ?? [])
+
   const graphs = await getGraphsForSlug(slug, payload, doc)
 
   return (
     <>
       {graphs && <JsonLd data={graphs} />}
-      <RenderBlocks blocks={doc.layout ?? []} />
+      {isComingSoon && (
+        <div className="w-full border-b border-[var(--accent)]/30 bg-[var(--accent)]/10 px-4 py-3 text-center text-sm font-medium text-[var(--accent)]">
+          Próximamente — inscripciones aún no disponibles
+        </div>
+      )}
+      <RenderBlocks blocks={layout} />
     </>
   )
 }

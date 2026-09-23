@@ -5,7 +5,7 @@ export const Programas: CollectionConfig = {
   slug: 'programas',
   admin: {
     useAsTitle: 'nombre',
-    defaultColumns: ['nombre', 'slug', 'badge', 'orden'],
+    defaultColumns: ['nombre', 'slug', 'badge', 'orden', 'comingSoon'],
   },
   defaultSort: 'orden',
   hooks: {
@@ -89,6 +89,16 @@ export const Programas: CollectionConfig = {
       type: 'relationship',
       relationTo: 'testimonios',
       hasMany: true,
+    },
+    {
+      name: 'comingSoon',
+      type: 'checkbox',
+      label: 'Próximamente (bloquea inscripción)',
+      defaultValue: false,
+      admin: {
+        description:
+          'Si está activo: oculta el botón de inscripción en la página del programa y en su card, y muestra una insignia "Próximamente" en ambos lugares.',
+      },
     },
   ],
 }
