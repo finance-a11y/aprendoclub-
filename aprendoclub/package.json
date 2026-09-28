@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "payload generate:importmap && payload migrate && next build",
+    "build": "payload generate:importmap && node scripts/migrate-if-needed.mjs && next build",
     "start": "next start",
+    "migrate": "payload migrate",
     "lint": "eslint",
     "generate:types": "payload generate:types",
     "payload:importmap": "payload generate:importmap",
