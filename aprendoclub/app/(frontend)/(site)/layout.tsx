@@ -16,8 +16,9 @@ export default async function SiteLayout({
     payload.find({
       collection: "blogposts",
       sort: "-publishedAt",
-      depth: 2,
+      depth: 1,
       limit: 4,
+      select: { title: true, slug: true, category: true },
     }),
     payload.find({
       collection: "ciudades-seo",

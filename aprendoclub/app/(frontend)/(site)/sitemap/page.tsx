@@ -30,7 +30,13 @@ export default async function SitemapPage() {
   ] = await Promise.all([
     payload.find({ collection: "pages", depth: 0, limit: 1000, sort: "title" }),
     payload.find({ collection: "programas", depth: 0, limit: 1000, sort: "orden" }),
-    payload.find({ collection: "blogposts", depth: 1, limit: 1000, sort: "-publishedAt" }),
+    payload.find({
+      collection: "blogposts",
+      depth: 1,
+      limit: 1000,
+      sort: "-publishedAt",
+      select: { title: true, slug: true, category: true },
+    }),
     payload.find({ collection: "categories", depth: 0, limit: 1000, sort: "name" }),
     payload.find({ collection: "authors", depth: 0, limit: 1000, sort: "name" }),
     payload.find({ collection: "ciudades-seo", depth: 0, limit: 1000, sort: "nombre" }),

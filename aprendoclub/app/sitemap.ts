@@ -26,7 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ] = await Promise.all([
     payload.find({ collection: "pages", depth: 0, limit: 1000 }),
     payload.find({ collection: "programas", depth: 0, limit: 1000 }),
-    payload.find({ collection: "blogposts", depth: 1, limit: 1000 }),
+    payload.find({
+      collection: "blogposts",
+      depth: 1,
+      limit: 1000,
+      select: { slug: true, category: true },
+    }),
     payload.find({ collection: "categories", depth: 0, limit: 1000 }),
     payload.find({ collection: "authors", depth: 0, limit: 1000 }),
     payload.find({ collection: "ciudades-seo", depth: 0, limit: 1000 }),

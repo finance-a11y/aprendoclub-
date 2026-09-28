@@ -69,6 +69,7 @@ export async function listPosts(
     depth: 2,
     limit: POSTS_PER_PAGE,
     page,
+    select: { body: false }, // las tarjetas no usan el body: evita transferir el rich text completo
   })
   return {
     docs: res.docs as Blogpost[],
@@ -100,6 +101,7 @@ export async function relatedPosts(
     sort: '-publishedAt',
     depth: 1,
     limit: 3,
+    select: { body: false },
   })
   return docs as Blogpost[]
 }
