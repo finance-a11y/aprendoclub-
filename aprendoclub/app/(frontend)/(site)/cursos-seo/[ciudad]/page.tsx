@@ -23,16 +23,26 @@ import { JsonLd } from '@/components/json-ld'
 type Params = Promise<{ ciudad: string }>
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config })
-  const { docs } = await payload.find({
-    collection: 'ciudades-seo',
-    limit: 100,
-    depth: 0,
-  })
+  try {
+    const payload = await getPayload({ config })
+    const { docs } = await payload.find({
+      collection: 'ciudades-seo',
+      limit: 100,
+      depth: 0,
+    })
 
-  return docs.map((doc) => ({
-    ciudad: doc.slug,
-  }))
+    return docs.map((doc) => ({
+      ciudad: doc.slug,
+    }))
+  } catch (err) {
+    // Si la DB está caída (p.ej. cuota de Neon agotada), no tirar acá: eso
+    // aborta `next build` completo y ningún archivo de public/ llega a
+    // desplegarse. Sin params, Next igual sirve estas páginas on-demand
+    // (dynamicParams por defecto), que fallarán en runtime hasta que la DB
+    // vuelva — pero el resto del build (y los assets estáticos) sí se publica.
+    console.error('[cursos-seo] generateStaticParams: DB no disponible, build sin params estáticos', err)
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
