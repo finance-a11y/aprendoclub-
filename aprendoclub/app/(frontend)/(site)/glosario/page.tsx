@@ -6,7 +6,14 @@ import { JsonLd } from '@/components/json-ld'
 import { GlosarioView } from '@/components/glosario/glosario-view'
 import { BookOpen, Sparkles, Search } from 'lucide-react'
 
-export const revalidate = 3600 // ISR de 1 hora o revalidación on-demand
+// TEMP-NEON-OUTAGE: forzado a dynamic mientras Neon está sin cuota. Con
+// `revalidate` fijo, un `next build` con la DB caída tira acá y aborta TODO
+// el build, incluidos los assets estáticos de public/ que no dependen de
+// Payload. Con force-dynamic, esta página se compila sin tocar la DB en
+// build time y solo falla (500) en la request si Neon sigue caída — igual
+// que /blog o /programas hoy. Revertir a `export const revalidate = 3600`
+// en cuanto el plan de Neon esté activo de nuevo.
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Glosario SEO: Más de 70 Términos y Conceptos Explicados | aprendoCLUB',

@@ -9,8 +9,15 @@ import { PostGrid } from "@/components/blog/post-grid";
 import { listPosts } from "@/lib/blog/queries";
 import { postHref } from "@/lib/blog/format";
 
-// Cacheada (ISR on-demand): el hook afterChange de BlogPost llama a
-// revalidatePath('/blog') al guardar/borrar un post.
+// TEMP-NEON-OUTAGE: forzado a dynamic mientras Neon está sin cuota. Sin esto,
+// `next build` intenta prerenderizar /blog, la consulta a Payload tira y
+// aborta TODO el build — incluidos los assets estáticos de public/ que no
+// dependen de la DB. Con force-dynamic, el build no toca Payload acá y la
+// página solo falla (500) en la request si Neon sigue caída, igual que hoy.
+// Revertir (volver a la ISR on-demand vía revalidatePath del hook de
+// BlogPost) en cuanto el plan de Neon esté activo de nuevo.
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: "Blog de SEO e IA | aprendoclub",
   description:
