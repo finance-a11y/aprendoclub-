@@ -35,11 +35,12 @@ export async function generateStaticParams() {
       ciudad: doc.slug,
     }))
   } catch (err) {
-    // Si la DB está caída (p.ej. cuota de Neon agotada), no tirar acá: eso
-    // aborta `next build` completo y ningún archivo de public/ llega a
-    // desplegarse. Sin params, Next igual sirve estas páginas on-demand
-    // (dynamicParams por defecto), que fallarán en runtime hasta que la DB
-    // vuelva — pero el resto del build (y los assets estáticos) sí se publica.
+    // Guardrail permanente: si la DB está caída durante el build (p.ej. cuota
+    // de Neon agotada), no tirar acá — eso aborta `next build` completo y
+    // ningún archivo de public/ llega a desplegarse. Sin params, Next igual
+    // sirve estas páginas on-demand (dynamicParams por defecto), que fallarán
+    // en runtime hasta que la DB vuelva — pero el resto del build (y los
+    // assets estáticos) sí se publica. Sin costo cuando la DB funciona bien.
     console.error('[cursos-seo] generateStaticParams: DB no disponible, build sin params estáticos', err)
     return []
   }
