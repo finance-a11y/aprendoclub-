@@ -1,11 +1,18 @@
-import type { CollectionAfterChangeHook, Payload, PayloadRequest } from 'payload'
+import type {
+  CollectionAfterChangeHook,
+  CollectionBeforeChangeHook,
+  Field,
+  Payload,
+  PayloadRequest,
+} from 'payload'
 
 /**
  * Redirecciones gestionadas desde Payload (plugin-redirects).
  *
  * Dos responsabilidades:
- *  1. Auto-creación: hooks `afterChange` que, al cambiar el slug (o la categoría
- *     de un post), guardan un redirect 308 de la URL vieja a la nueva.
+ *  1. Creación por defecto: al cambiar el slug (o la categoría de un post) los
+ *     hooks `afterChange` guardan el redirect de la URL vieja a la nueva. El
+ *     editor puede apagarlo con el botón de `RedirectOnSlugChange`.
  *  2. Serving: `resolveRedirect` traduce una ruta entrante a su destino actual,
  *     consumido por el catch-all antes de devolver 404.
  *
@@ -100,9 +107,50 @@ async function upsertRedirect(
   }
 }
 
-// ---------- Hooks de auto-creación ----------
+// ---------- Control desde el admin ----------
 
-/** Pages: al cambiar el slug, redirige la URL vieja al documento. */
+/** Nombre del campo virtual (no se guarda en DB) que activa el botón del admin. */
+export const CREATE_REDIRECT_FIELD = 'createRedirect'
+
+/**
+ * Campo virtual con el botón de redirección (activo por defecto). Va en cada colección con
+ * hook de redirect. `kind` solo cambia el texto que ve el editor.
+ */
+export function createRedirectField(kind: 'page' | 'blogpost' | 'category'): Field {
+  return {
+    name: CREATE_REDIRECT_FIELD,
+    type: 'checkbox',
+    virtual: true,
+    defaultValue: true,
+    admin: {
+      components: {
+        Field: {
+          path: '/components/admin/RedirectOnSlugChange#RedirectOnSlugChange',
+          clientProps: { kind },
+        },
+      },
+    },
+  }
+}
+
+/**
+ * beforeChange: mueve el flag del body al `req.context` y lo quita de `data`,
+ * para que los hooks afterChange sepan si el editor pidió la redirección.
+ */
+export const captureRedirectFlag: CollectionBeforeChangeHook = ({ data, req }) => {
+  if (data && CREATE_REDIRECT_FIELD in data) {
+    req.context.createRedirect = data[CREATE_REDIRECT_FIELD] !== false
+    delete data[CREATE_REDIRECT_FIELD]
+  }
+  return data
+}
+
+/** Activa por defecto: solo el editor que apaga el botón (false explícito) la omite. */
+const wantsRedirect = (req: PayloadRequest): boolean => req.context?.createRedirect !== false
+
+// ---------- Hooks de creación ----------
+
+/** Pages: al cambiar el slug (y si el editor lo pidió), redirige la URL vieja al documento. */
 export const pageRedirectHook: CollectionAfterChangeHook = async ({
   doc,
   previousDoc,
@@ -114,7 +162,7 @@ export const pageRedirectHook: CollectionAfterChangeHook = async ({
   const newSlug: string = doc.slug
   if (oldSlug === newSlug || oldSlug === 'home') return doc
 
-  await upsertRedirect(req, pageUrl(oldSlug), 'pages', doc.id)
+  if (wantsRedirect(req)) await upsertRedirect(req, pageUrl(oldSlug), 'pages', doc.id)
   await deleteRedirectFrom(req, pageUrl(newSlug))
   return doc
 }
@@ -143,7 +191,7 @@ export const blogpostRedirectHook: CollectionAfterChangeHook = async ({
   const to = blogpostUrl(newCat, newSlug)
   if (from === to) return doc
 
-  await upsertRedirect(req, from, 'blogposts', doc.id)
+  if (wantsRedirect(req)) await upsertRedirect(req, from, 'blogposts', doc.id)
   await deleteRedirectFrom(req, to)
   return doc
 }
@@ -164,7 +212,8 @@ export const categoryRedirectHook: CollectionAfterChangeHook = async ({
   if (oldSlug === newSlug) return doc
 
   // Página de la categoría.
-  await upsertRedirect(req, categoryUrl(oldSlug), 'categories', doc.id)
+  const create = wantsRedirect(req)
+  if (create) await upsertRedirect(req, categoryUrl(oldSlug), 'categories', doc.id)
   await deleteRedirectFrom(req, categoryUrl(newSlug))
 
   // Posts de la categoría: /{oldCat}/{postSlug} -> post.
@@ -176,7 +225,7 @@ export const categoryRedirectHook: CollectionAfterChangeHook = async ({
     req,
   })
   for (const p of posts.docs) {
-    await upsertRedirect(req, blogpostUrl(oldSlug, p.slug), 'blogposts', p.id)
+    if (create) await upsertRedirect(req, blogpostUrl(oldSlug, p.slug), 'blogposts', p.id)
     await deleteRedirectFrom(req, blogpostUrl(newSlug, p.slug))
   }
   return doc

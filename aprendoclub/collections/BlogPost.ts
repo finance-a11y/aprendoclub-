@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 
-import { blogpostRedirectHook } from '../lib/redirects'
+import { blogpostRedirectHook, captureRedirectFlag, createRedirectField } from '../lib/redirects'
 import { validateYoutubeUrl } from '../lib/blog/youtube'
 import { videoThumbnailHook } from '../lib/blog/video-thumbnail'
 
@@ -33,7 +33,7 @@ export const BlogPost: CollectionConfig = {
     read: () => true,
   },
   hooks: {
-    beforeChange: [videoThumbnailHook],
+    beforeChange: [captureRedirectFlag, videoThumbnailHook],
     afterChange: [
       blogpostRedirectHook,
       ({ req }) => {
@@ -53,6 +53,7 @@ export const BlogPost: CollectionConfig = {
   fields: [
     { name: 'title', type: 'text', required: true, label: 'Título' },
     slugField,
+    createRedirectField('blogpost'),
     {
       name: 'excerpt',
       type: 'textarea',
