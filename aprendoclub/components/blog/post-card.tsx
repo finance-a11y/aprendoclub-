@@ -7,8 +7,7 @@ import {
   authorOf,
   categoryOf,
   formatDate,
-  mediaAlt,
-  mediaUrl,
+  postHero,
   postHref,
 } from '@/lib/blog/format'
 
@@ -26,7 +25,7 @@ export function PostCard({
 }) {
   const cat = categoryOf(post)
   const author = authorOf(post)
-  const hero = mediaUrl(post.heroImage)
+  const hero = postHero(post, 'hqdefault')
   const Heading = headingLevel
 
   return (
@@ -37,8 +36,8 @@ export function PostCard({
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--bg-primary)]">
         {hero ? (
           <Image
-            src={hero}
-            alt={mediaAlt(post.heroImage, post.title)}
+            src={hero.url}
+            alt={hero.alt}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"

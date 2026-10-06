@@ -2,6 +2,7 @@
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import { slugifyHeading } from '@/lib/blog/lexical-utils'
 
 /**
@@ -44,13 +45,37 @@ function headingText(node: any): string {
   return collect(node)
 }
 
-export function RichBody({ data }: { data: unknown }) {
+/**
+ * Índice (entre bloques top-level) donde insertar un elemento a ~1/3 del
+ * contenido, sin dejar un encabezado huérfano justo antes del corte.
+ */
+function thirdSplitIndex(children: any[]): number {
+  const n = children.length
+  let i = Math.max(1, Math.round(n / 3))
+  while (i < n && children[i - 1]?.type === 'heading') i++
+  return Math.min(i, n)
+}
+
+export function RichBody({
+  data,
+  midContent,
+}: {
+  data: unknown
+  /** Se renderiza a ~1/3 del contenido (ej. video incrustado). */
+  midContent?: ReactNode
+}) {
   const seen = new Map<string, number>()
-  return (
-    <div className="measure-prose blog-prose text-gray-300 leading-relaxed">
-      <RichText
-        data={data as any}
-        converters={(({ defaultConverters }: any) => ({
+  const root = (data as any)?.root
+  const blocks: any[] = Array.isArray(root?.children) ? root.children : []
+  const split = midContent && blocks.length > 0 ? thirdSplitIndex(blocks) : null
+  const parts: any[] =
+    split === null
+      ? [data]
+      : [
+          { ...(data as any), root: { ...root, children: blocks.slice(0, split) } },
+          { ...(data as any), root: { ...root, children: blocks.slice(split) } },
+        ]
+  const converters = (({ defaultConverters }: any) => ({
           ...defaultConverters,
           heading: ({ node, nodesToJSX }: any) => {
             const children = nodesToJSX({ nodes: node.children ?? [] })
@@ -145,8 +170,17 @@ export function RichBody({ data }: { data: unknown }) {
               </figure>
             )
           },
-        })) as any}
-      />
+        })) as any
+  return (
+    <div className="measure-prose blog-prose text-gray-300 leading-relaxed">
+      {parts.map((part, i) => (
+        <div key={i} className="contents">
+          {i === 1 && <div className="my-10">{midContent}</div>}
+          {(i === 0 || part.root.children.length > 0) && (
+            <RichText data={part} converters={converters} />
+          )}
+        </div>
+      ))}
     </div>
   )
 }
