@@ -11,6 +11,7 @@ import { resolveRedirect } from '@/lib/redirects'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { getGraphsForSlug } from '@/lib/schema-mappers'
 import type { Page } from '@/payload-types'
+import { postHero } from '@/lib/blog/format'
 import { BlogPostView } from '@/components/blog/blog-post-view'
 import { CategoryView } from '@/components/blog/category-view'
 import { AuthorView } from '@/components/blog/author-view'
@@ -94,7 +95,15 @@ async function blogMetadata(
   }
   if (slugParts.length === 2) {
     const post = await findPostBySlug(payload, slugParts[0], slugParts[1])
-    if (post) return buildMetadata(post.meta, `${slugParts[0]}/${post.slug}`)
+    if (post) {
+      const md = buildMetadata(post.meta, `${slugParts[0]}/${post.slug}`)
+      // Sin imagen SEO propia: og:image = imagen destacada o miniatura del video.
+      if (!md.openGraph) {
+        const hero = postHero(post)
+        if (hero) md.openGraph = { images: [{ url: hero.url }] }
+      }
+      return md
+    }
   }
   return null
 }

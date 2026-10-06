@@ -1,36 +1,53 @@
 "use client";
 
-import Script from "next/script";
+import { useEffect } from "react";
+
+import { deferUntilInteraction } from "@/lib/defer-until-interaction";
 
 const META_PIXEL_ID = "1460716535038627";
 
+/**
+ * Meta Pixel diferido: `fbq` queda como stub con cola (los eventos previos se
+ * reproducen al cargar) y fbevents.js se descarga en la primera interacción o
+ * a los 4 s.
+ */
 export function MetaPixel() {
+  useEffect(() => {
+    if (!window.fbq) {
+      // Snippet oficial del Pixel, sin el <script> remoto todavía.
+      /* eslint-disable @typescript-eslint/no-explicit-any */
+      const w = window as any;
+      const n: any = (w.fbq = function (...args: unknown[]) {
+        if (n.callMethod) n.callMethod(...args);
+        else n.queue.push(args);
+      });
+      if (!w._fbq) w._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = "2.0";
+      n.queue = [];
+      /* eslint-enable @typescript-eslint/no-explicit-any */
+    }
+    return deferUntilInteraction(() => {
+      window.fbq("init", META_PIXEL_ID);
+      window.fbq("track", "PageView");
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://connect.facebook.net/en_US/fbevents.js";
+      document.head.appendChild(s);
+    });
+  }, []);
+
   return (
-    <>
-      <Script id="meta-pixel" strategy="afterInteractive">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${META_PIXEL_ID}');
-          fbq('track', 'PageView');
-        `}
-      </Script>
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-          alt=""
-        />
-      </noscript>
-    </>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style={{ display: "none" }}
+        src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+        alt=""
+      />
+    </noscript>
   );
 }
 

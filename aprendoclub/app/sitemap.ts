@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 
 import { getPayloadClient } from "@/lib/payload";
 import { SITE_URL } from "@/lib/schema";
+import { parseYoutubeId, youtubeEmbedUrl, youtubeThumbnail } from "@/lib/blog/youtube";
 
 // Se regenera en cada request: una Page nueva creada en /admin aparece en el
 // sitemap sin redeploy.
@@ -30,7 +31,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       collection: "blogposts",
       depth: 1,
       limit: 1000,
-      select: { slug: true, category: true },
+      select: {
+        slug: true,
+        category: true,
+        title: true,
+        excerpt: true,
+        publishedAt: true,
+        videoUrl: true,
+        shortUrl: true,
+      },
     }),
     payload.find({ collection: "categories", depth: 0, limit: 1000 }),
     payload.find({ collection: "authors", depth: 0, limit: 1000 }),
@@ -43,10 +52,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: string,
     priority: number,
     changeFrequency: "weekly" | "monthly",
+    videos?: MetadataRoute.Sitemap[number]["videos"],
   ) => {
     if (seen.has(url)) return;
     seen.add(url);
-    entries.push({ url, lastModified, changeFrequency, priority });
+    entries.push({
+      url,
+      lastModified,
+      changeFrequency,
+      priority,
+      ...(videos?.length ? { videos } : {}),
+    });
   };
 
   // Home primero.
@@ -74,7 +90,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const post of posts) {
     const cat = post.category;
     const catSlug = typeof cat === "object" && cat ? cat.slug : null;
-    if (catSlug) push(`${SITE_URL}/${catSlug}/${post.slug}`, 0.6, "monthly");
+    if (!catSlug) continue;
+    // Extensión de video del sitemap: video normal + Short de YouTube.
+    const videos = [
+      { id: parseYoutubeId(post.videoUrl), title: post.title },
+      { id: parseYoutubeId(post.shortUrl), title: `${post.title} (Short)` },
+    ].flatMap((v) =>
+      v.id
+        ? [
+            {
+              title: v.title,
+              description: post.excerpt || post.title,
+              thumbnail_loc: youtubeThumbnail(v.id, "hqdefault"),
+              player_loc: youtubeEmbedUrl(v.id).split("?")[0],
+              ...(post.publishedAt ? { publication_date: post.publishedAt } : {}),
+            },
+          ]
+        : [],
+    );
+    push(`${SITE_URL}/${catSlug}/${post.slug}`, 0.6, "monthly", videos);
   }
   for (const a of authors) {
     push(`${SITE_URL}/autor/${a.slug}`, 0.4, "monthly");

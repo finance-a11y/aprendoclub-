@@ -177,7 +177,33 @@ type BlogPostingInput = {
   authorPath?: string; // /autor/{slug}
   datePublished?: string;
   section?: string;
+  /** Videos de YouTube del artículo (video normal y/o Short). */
+  videos?: BlogVideoInput[];
 };
+
+type BlogVideoInput = {
+  id: string; // ID de YouTube (11 caracteres)
+  name: string;
+  description?: string;
+  uploadDate?: string;
+};
+
+/** VideoObject de un video de YouTube incrustado (rich results de video). */
+function videoObject({ id, name, description, uploadDate }: BlogVideoInput) {
+  return {
+    "@type": "VideoObject",
+    name,
+    description: description || name,
+    thumbnailUrl: [
+      `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+      `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+    ],
+    // uploadDate es obligatorio para Google; se usa la fecha del artículo.
+    ...(uploadDate ? { uploadDate } : {}),
+    embedUrl: `https://www.youtube-nocookie.com/embed/${id}`,
+    url: `https://www.youtube.com/watch?v=${id}`,
+  };
+}
 
 /** BlogPosting de un artículo del blog (rich results). */
 export function blogPostingGraph({
@@ -189,6 +215,7 @@ export function blogPostingGraph({
   authorPath,
   datePublished,
   section,
+  videos,
 }: BlogPostingInput) {
   const node: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -205,6 +232,7 @@ export function blogPostingGraph({
   }
   if (datePublished) node.datePublished = datePublished;
   if (section) node.articleSection = section;
+  if (videos?.length) node.video = videos.map(videoObject);
   if (authorName) {
     node.author = {
       "@type": "Person",
