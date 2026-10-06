@@ -65,3 +65,22 @@ export function readingTimeMinutes(body: LexicalBody): number {
   children.forEach(walk)
   return Math.max(1, Math.round(words / 200))
 }
+
+type LexicalNode = { type?: string; text?: string; children?: LexicalNode[] }
+
+function blockText(node: LexicalNode | undefined): string {
+  if (typeof node?.text === 'string') return node.text
+  if (!Array.isArray(node?.children)) return ''
+  return node.children.map(blockText).join('')
+}
+
+/**
+ * Índice (entre bloques top-level) justo después del primer párrafo con texto,
+ * donde se inserta el video. Si no hay párrafos, tras el primer bloque.
+ */
+export function afterFirstParagraphIndex(children: LexicalNode[]): number {
+  const i = children.findIndex(
+    (c) => c?.type === 'paragraph' && blockText(c).trim().length > 0,
+  )
+  return Math.min(i === -1 ? 1 : i + 1, children.length)
+}
