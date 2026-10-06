@@ -17,11 +17,15 @@ export function YoutubeFacade({
   vertical?: boolean
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl bg-black">
+    <div
+      // La CSS de la librería fija aspect-ratio 16/9 e ignora los props aspect*.
+      className={`overflow-hidden rounded-2xl bg-black ${vertical ? '[&_.yt-lite]:!aspect-[9/16]' : ''}`}
+    >
       <LiteYouTubeEmbed
         id={videoId}
         title={title}
         noCookie
+        announce="Reproducir"
         lazyLoad
         poster="hqdefault"
         aspectWidth={vertical ? 9 : 16}
