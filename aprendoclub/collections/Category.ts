@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 
-import { categoryRedirectHook } from '../lib/redirects'
+import { captureRedirectFlag, categoryRedirectHook, createRedirectField } from '../lib/redirects'
 
 const slugField = {
   name: 'slug',
@@ -31,6 +31,7 @@ export const Category: CollectionConfig = {
     read: () => true,
   },
   hooks: {
+    beforeChange: [captureRedirectFlag],
     afterChange: [
       categoryRedirectHook,
       ({ req }) => {
@@ -48,6 +49,7 @@ export const Category: CollectionConfig = {
   fields: [
     { name: 'name', type: 'text', required: true, label: 'Nombre' },
     slugField,
+    createRedirectField('category'),
     {
       name: 'description',
       type: 'textarea',

@@ -2,7 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 
 import { allBlocks } from '../blocks'
-import { pageRedirectHook } from '../lib/redirects'
+import { captureRedirectFlag, createRedirectField, pageRedirectHook } from '../lib/redirects'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -16,6 +16,7 @@ export const Pages: CollectionConfig = {
     read: () => true,
   },
   hooks: {
+    beforeChange: [captureRedirectFlag],
     afterChange: [
       pageRedirectHook,
       ({ doc, req }) => {
@@ -57,6 +58,7 @@ export const Pages: CollectionConfig = {
         ],
       },
     },
+    createRedirectField('page'),
     {
       name: 'layout',
       type: 'blocks',
