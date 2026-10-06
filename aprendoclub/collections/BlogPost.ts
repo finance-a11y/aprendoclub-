@@ -3,6 +3,7 @@ import { revalidatePath } from 'next/cache'
 
 import { blogpostRedirectHook } from '../lib/redirects'
 import { validateYoutubeUrl } from '../lib/blog/youtube'
+import { videoThumbnailHook } from '../lib/blog/video-thumbnail'
 
 const slugField = {
   name: 'slug',
@@ -32,6 +33,7 @@ export const BlogPost: CollectionConfig = {
     read: () => true,
   },
   hooks: {
+    beforeChange: [videoThumbnailHook],
     afterChange: [
       blogpostRedirectHook,
       ({ req }) => {
@@ -78,6 +80,17 @@ export const BlogPost: CollectionConfig = {
       admin: {
         description:
           'Opcional. URL de un video normal de YouTube. Se incrusta aproximadamente a un tercio del contenido.',
+      },
+    },
+    {
+      name: 'videoThumbnail',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Miniatura del video (automática)',
+      admin: {
+        readOnly: true,
+        description:
+          'Se genera sola al guardar el video y sirve de imagen destacada si no subes una propia.',
       },
     },
     {

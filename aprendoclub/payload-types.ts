@@ -1384,6 +1384,10 @@ export interface Blogpost {
    */
   videoUrl?: string | null;
   /**
+   * Se genera sola al guardar el video y sirve de imagen destacada si no subes una propia.
+   */
+  videoThumbnail?: (number | null) | Media;
+  /**
    * Opcional. URL de un Short de YouTube. Aparece en la columna lateral, junto al índice del artículo.
    */
   shortUrl?: string | null;
@@ -2776,6 +2780,7 @@ export interface BlogpostsSelect<T extends boolean = true> {
   excerpt?: T;
   heroImage?: T;
   videoUrl?: T;
+  videoThumbnail?: T;
   shortUrl?: T;
   category?: T;
   author?: T;

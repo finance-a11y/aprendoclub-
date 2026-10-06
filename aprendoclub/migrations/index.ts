@@ -24,6 +24,7 @@ import * as migration_20260922_162757_add_ciudades_seo from './20260922_162757_a
 import * as migration_20260922_222511_add_glosario from './20260922_222511_add_glosario';
 import * as migration_20260923_182545_add_programas_coming_soon from './20260923_182545_add_programas_coming_soon';
 import * as migration_20261006_014254_blog_videos from './20261006_014254_blog_videos';
+import * as migration_20261006_020232_blog_video_thumbnail from './20261006_020232_blog_video_thumbnail';
 
 export const migrations = [
   {
@@ -155,5 +156,10 @@ export const migrations = [
     up: migration_20261006_014254_blog_videos.up,
     down: migration_20261006_014254_blog_videos.down,
     name: '20261006_014254_blog_videos',
+  },
+  {
+    up: migration_20261006_020232_blog_video_thumbnail.up,
+    down: migration_20261006_020232_blog_video_thumbnail.down,
+    name: '20261006_020232_blog_video_thumbnail',
   },
 ];

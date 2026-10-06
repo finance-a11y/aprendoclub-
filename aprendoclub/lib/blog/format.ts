@@ -39,8 +39,9 @@ export function postHref(post: Blogpost): string {
 }
 
 /**
- * Imagen principal del post: la imagen destacada si existe (sobrescribe), y si
- * no, la miniatura del video de YouTube. `null` si no hay ninguna.
+ * Imagen principal del post: la imagen destacada si existe (sobrescribe), luego
+ * la miniatura del video guardada en Media y, como último recurso, la remota
+ * de YouTube. `null` si no hay ninguna.
  */
 export function postHero(
   post: Blogpost,
@@ -48,6 +49,8 @@ export function postHero(
 ): { url: string; alt: string; fromVideo: boolean; videoId?: string } | null {
   const url = mediaUrl(post.heroImage)
   if (url) return { url, alt: mediaAlt(post.heroImage, post.title), fromVideo: false }
+  const stored = mediaUrl(post.videoThumbnail)
+  if (stored) return { url: stored, alt: post.title, fromVideo: false }
   const videoId = parseYoutubeId(post.videoUrl)
   if (!videoId) return null
   return { url: youtubeThumbnail(videoId, quality), alt: post.title, fromVideo: true, videoId }
