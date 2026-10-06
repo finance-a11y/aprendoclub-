@@ -23,6 +23,7 @@ import * as migration_20260909_044802_add_antesdespues_comparativa_stats_header 
 import * as migration_20260922_162757_add_ciudades_seo from './20260922_162757_add_ciudades_seo';
 import * as migration_20260922_222511_add_glosario from './20260922_222511_add_glosario';
 import * as migration_20260923_182545_add_programas_coming_soon from './20260923_182545_add_programas_coming_soon';
+import * as migration_20261006_014254_blog_videos from './20261006_014254_blog_videos';
 
 export const migrations = [
   {
@@ -148,6 +149,11 @@ export const migrations = [
   {
     up: migration_20260923_182545_add_programas_coming_soon.up,
     down: migration_20260923_182545_add_programas_coming_soon.down,
-    name: '20260923_182545_add_programas_coming_soon'
+    name: '20260923_182545_add_programas_coming_soon',
+  },
+  {
+    up: migration_20261006_014254_blog_videos.up,
+    down: migration_20261006_014254_blog_videos.down,
+    name: '20261006_014254_blog_videos',
   },
 ];

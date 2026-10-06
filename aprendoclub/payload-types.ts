@@ -1375,7 +1375,18 @@ export interface Blogpost {
    * Teaser para las tarjetas de listado. La meta description SEO vive en la pestaña SEO.
    */
   excerpt?: string | null;
+  /**
+   * Opcional si el artículo tiene video de YouTube: se usa la miniatura del video. Sube una imagen aquí para sobrescribirla.
+   */
   heroImage?: (number | null) | Media;
+  /**
+   * Opcional. URL de un video normal de YouTube. Se incrusta aproximadamente a un tercio del contenido.
+   */
+  videoUrl?: string | null;
+  /**
+   * Opcional. URL de un Short de YouTube. Aparece en la columna lateral, junto al índice del artículo.
+   */
+  shortUrl?: string | null;
   category: number | Category;
   author: number | Author;
   publishedAt?: string | null;
@@ -2764,6 +2775,8 @@ export interface BlogpostsSelect<T extends boolean = true> {
   slug?: T;
   excerpt?: T;
   heroImage?: T;
+  videoUrl?: T;
+  shortUrl?: T;
   category?: T;
   author?: T;
   publishedAt?: T;

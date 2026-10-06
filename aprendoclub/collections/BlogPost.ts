@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 
 import { blogpostRedirectHook } from '../lib/redirects'
+import { validateYoutubeUrl } from '../lib/blog/youtube'
 
 const slugField = {
   name: 'slug',
@@ -64,6 +65,30 @@ export const BlogPost: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       label: 'Imagen destacada',
+      admin: {
+        description:
+          'Opcional si el artículo tiene video de YouTube: se usa la miniatura del video. Sube una imagen aquí para sobrescribirla.',
+      },
+    },
+    {
+      name: 'videoUrl',
+      type: 'text',
+      label: 'Video de YouTube',
+      validate: validateYoutubeUrl,
+      admin: {
+        description:
+          'Opcional. URL de un video normal de YouTube. Se incrusta aproximadamente a un tercio del contenido.',
+      },
+    },
+    {
+      name: 'shortUrl',
+      type: 'text',
+      label: 'Short de YouTube',
+      validate: validateYoutubeUrl,
+      admin: {
+        description:
+          'Opcional. URL de un Short de YouTube. Aparece en la columna lateral, junto al índice del artículo.',
+      },
     },
     {
       name: 'category',

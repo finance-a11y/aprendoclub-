@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { preconnect } from 'react-dom'
 import Link from 'next/link'
 
 import type { Blogpost } from '@/payload-types'
@@ -10,13 +11,16 @@ import { RichBody } from '@/components/blog/rich-body'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { PostCta } from '@/components/blog/post-cta'
 import { PostCard } from '@/components/blog/post-card'
+import { YoutubeFacade } from '@/components/blog/youtube-facade'
+import { VideoHeroImage } from '@/components/blog/video-hero-image'
+import { parseYoutubeId } from '@/lib/blog/youtube'
 import { extractToc, readingTimeMinutes } from '@/lib/blog/lexical-utils'
 import {
   authorOf,
   categoryOf,
   formatDate,
-  mediaAlt,
   mediaUrl,
+  postHero,
 } from '@/lib/blog/format'
 
 /** Vista completa de un artículo: hero, meta, TOC, body, CTA y relacionados. */
@@ -29,7 +33,10 @@ export function BlogPostView({
 }) {
   const cat = categoryOf(post)
   const author = authorOf(post)
-  const hero = mediaUrl(post.heroImage)
+  const hero = postHero(post)
+  const videoId = parseYoutubeId(post.videoUrl)
+  const shortId = parseYoutubeId(post.shortUrl)
+  if (hero?.fromVideo || shortId || videoId) preconnect('https://i.ytimg.com')
   const avatar = author ? mediaUrl(author.avatar) : null
   const toc = extractToc(post.body)
   const readingTime = readingTimeMinutes(post.body)
@@ -38,7 +45,7 @@ export function BlogPostView({
     title: post.title,
     description: post.excerpt ?? undefined,
     path: `/${cat?.slug ?? 'blog'}/${post.slug}`,
-    imageUrl: hero ?? undefined,
+    imageUrl: hero?.url,
     authorName: author?.name,
     authorPath: author ? `/autor/${author.slug}` : undefined,
     datePublished: post.publishedAt ?? undefined,
@@ -95,15 +102,19 @@ export function BlogPostView({
       {hero && (
         <div className="container-padding mx-auto max-w-4xl">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
-            <Image
-              src={hero}
-              alt={mediaAlt(post.heroImage, post.title)}
-              fill
-              sizes="(max-width: 1024px) 100vw, 900px"
-              className="object-cover"
-              priority
-              unoptimized
-            />
+            {hero.fromVideo && hero.videoId ? (
+              <VideoHeroImage videoId={hero.videoId} alt={hero.alt} />
+            ) : (
+              <Image
+                src={hero.url}
+                alt={hero.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 900px"
+                className="object-cover"
+                priority
+                unoptimized
+              />
+            )}
           </div>
         </div>
       )}
@@ -111,13 +122,30 @@ export function BlogPostView({
       {/* Body + TOC */}
       <div className="container-padding mx-auto grid max-w-6xl grid-cols-1 gap-12 py-12 lg:grid-cols-[1fr_260px]">
         <div className="order-2 lg:order-1">
-          <RichBody data={post.body} />
+          <RichBody
+            data={post.body}
+            midContent={
+              videoId ? (
+                <YoutubeFacade videoId={videoId} title={`Video: ${post.title}`} />
+              ) : undefined
+            }
+          />
+          {shortId && (
+            <div className="mx-auto mt-10 w-full max-w-[260px] lg:hidden">
+              <YoutubeFacade videoId={shortId} title={`Short: ${post.title}`} vertical />
+            </div>
+          )}
           <PostCta />
         </div>
-        {toc.length >= 2 && (
+        {(toc.length >= 2 || shortId) && (
           <aside className="order-1 lg:order-2">
-            <div className="lg:sticky lg:top-28">
+            <div className="flex flex-col gap-8 lg:sticky lg:top-28">
               <TableOfContents items={toc} />
+              {shortId && (
+                <div className="hidden lg:block">
+                  <YoutubeFacade videoId={shortId} title={`Short: ${post.title}`} vertical />
+                </div>
+              )}
             </div>
           </aside>
         )}

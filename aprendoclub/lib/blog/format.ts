@@ -1,4 +1,5 @@
 import type { Author, Blogpost, Category, Media } from '@/payload-types'
+import { parseYoutubeId, youtubeThumbnail } from '@/lib/blog/youtube'
 
 type Upload = number | Media | null | undefined
 
@@ -35,4 +36,19 @@ export function formatDate(iso?: string | null): string {
 export function postHref(post: Blogpost): string {
   const cat = categoryOf(post)
   return `/${cat?.slug ?? 'blog'}/${post.slug}`
+}
+
+/**
+ * Imagen principal del post: la imagen destacada si existe (sobrescribe), y si
+ * no, la miniatura del video de YouTube. `null` si no hay ninguna.
+ */
+export function postHero(
+  post: Blogpost,
+  quality: 'maxresdefault' | 'hqdefault' = 'maxresdefault',
+): { url: string; alt: string; fromVideo: boolean; videoId?: string } | null {
+  const url = mediaUrl(post.heroImage)
+  if (url) return { url, alt: mediaAlt(post.heroImage, post.title), fromVideo: false }
+  const videoId = parseYoutubeId(post.videoUrl)
+  if (!videoId) return null
+  return { url: youtubeThumbnail(videoId, quality), alt: post.title, fromVideo: true, videoId }
 }
