@@ -50,6 +50,14 @@ export function BlogPostView({
     authorPath: author ? `/autor/${author.slug}` : undefined,
     datePublished: post.publishedAt ?? undefined,
     section: cat?.name,
+    videos: [
+      ...(videoId ? [{ id: videoId, name: post.title }] : []),
+      ...(shortId ? [{ id: shortId, name: `${post.title} (Short)` }] : []),
+    ].map((v) => ({
+      ...v,
+      description: post.excerpt ?? undefined,
+      uploadDate: post.publishedAt ?? undefined,
+    })),
   })
 
   const crumbs: Crumb[] = [
