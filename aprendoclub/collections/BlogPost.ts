@@ -80,7 +80,7 @@ export const BlogPost: CollectionConfig = {
       validate: validateYoutubeUrl,
       admin: {
         description:
-          'Opcional. URL de un video normal de YouTube. Se incrusta aproximadamente a un tercio del contenido.',
+          'Opcional. URL de un video normal de YouTube. Se incrusta justo después del primer párrafo.',
       },
     },
     {

@@ -3,7 +3,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { slugifyHeading } from '@/lib/blog/lexical-utils'
+import { afterFirstParagraphIndex, slugifyHeading } from '@/lib/blog/lexical-utils'
 
 /**
  * Normaliza enlaces para asegurar que enlaces internos o que apunten a
@@ -45,29 +45,18 @@ function headingText(node: any): string {
   return collect(node)
 }
 
-/**
- * Índice (entre bloques top-level) donde insertar un elemento a ~1/3 del
- * contenido, sin dejar un encabezado huérfano justo antes del corte.
- */
-function thirdSplitIndex(children: any[]): number {
-  const n = children.length
-  let i = Math.max(1, Math.round(n / 3))
-  while (i < n && children[i - 1]?.type === 'heading') i++
-  return Math.min(i, n)
-}
-
 export function RichBody({
   data,
   midContent,
 }: {
   data: unknown
-  /** Se renderiza a ~1/3 del contenido (ej. video incrustado). */
+  /** Se renderiza tras el primer párrafo (ej. video incrustado). */
   midContent?: ReactNode
 }) {
   const seen = new Map<string, number>()
   const root = (data as any)?.root
   const blocks: any[] = Array.isArray(root?.children) ? root.children : []
-  const split = midContent && blocks.length > 0 ? thirdSplitIndex(blocks) : null
+  const split = midContent && blocks.length > 0 ? afterFirstParagraphIndex(blocks) : null
   const parts: any[] =
     split === null
       ? [data]
