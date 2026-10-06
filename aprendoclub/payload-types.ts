@@ -313,6 +313,7 @@ export interface Page {
    * Ruta de la página sin barra inicial. La home usa 'home' (la raíz se cablea en el cutover, Phase 17). Ej: 'nueva-landing', 'promos/verano'.
    */
   slug: string;
+  createRedirect?: boolean | null;
   /**
    * Agrega, reordena y quita bloques para construir la página.
    */
@@ -1332,6 +1333,7 @@ export interface Category {
   id: number;
   name: string;
   slug: string;
+  createRedirect?: boolean | null;
   /**
    * Copy propio de aprendoclub para el índice de la categoría (aprendoseo no tenía descripción real por categoría).
    */
@@ -1371,6 +1373,7 @@ export interface Blogpost {
   id: number;
   title: string;
   slug: string;
+  createRedirect?: boolean | null;
   /**
    * Teaser para las tarjetas de listado. La meta description SEO vive en la pestaña SEO.
    */
@@ -1786,6 +1789,7 @@ export interface FaqSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  createRedirect?: T;
   layout?:
     | T
     | {
@@ -2746,6 +2750,7 @@ export interface AsesoriaWidgetBlockSelect<T extends boolean = true> {
 export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  createRedirect?: T;
   description?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -2777,6 +2782,7 @@ export interface AuthorsSelect<T extends boolean = true> {
 export interface BlogpostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  createRedirect?: T;
   excerpt?: T;
   heroImage?: T;
   videoUrl?: T;
