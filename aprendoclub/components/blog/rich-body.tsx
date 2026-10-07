@@ -82,6 +82,37 @@ export function RichBody({
               </Tag>
             )
           },
+          table: ({ node, nodesToJSX }: any) => (
+            <div
+              className="blog-table-wrap"
+              role="region"
+              aria-label="Tabla de datos, desplázate horizontalmente si no cabe"
+              tabIndex={0}
+            >
+              <table className="blog-table">
+                <tbody>{nodesToJSX({ nodes: node.children ?? [] })}</tbody>
+              </table>
+            </div>
+          ),
+          tablerow: ({ node, nodesToJSX }: any) => (
+            <tr>{nodesToJSX({ nodes: node.children ?? [] })}</tr>
+          ),
+          tablecell: ({ node, nodesToJSX }: any) => {
+            const children = nodesToJSX({ nodes: node.children ?? [] })
+            const isHeader = node.headerState > 0
+            const Tag = isHeader ? 'th' : 'td'
+            // headerState: 1 = fila de encabezado, 2 = columna de encabezado
+            const scope = isHeader ? (node.headerState === 2 ? 'row' : 'col') : undefined
+            return (
+              <Tag
+                scope={scope}
+                colSpan={node.colSpan > 1 ? node.colSpan : undefined}
+                rowSpan={node.rowSpan > 1 ? node.rowSpan : undefined}
+              >
+                {children}
+              </Tag>
+            )
+          },
           link: ({ node, nodesToJSX }: any) => {
             const children = nodesToJSX({ nodes: node.children ?? [] })
             const rawUrl = node.fields?.url ?? node.url ?? ''
