@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { EXPERIMENTAL_TableFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { revalidatePath } from 'next/cache'
 
 import { blogpostRedirectHook, captureRedirectFlag, createRedirectField } from '../lib/redirects'
@@ -130,6 +131,9 @@ export const BlogPost: CollectionConfig = {
       name: 'body',
       type: 'richText',
       label: 'Contenido',
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, EXPERIMENTAL_TableFeature()],
+      }),
     },
   ],
 }
