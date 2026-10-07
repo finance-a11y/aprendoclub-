@@ -233,3 +233,38 @@ a:focus-visible {
 .blog-prose img {
   border-radius: 0.75rem;
 }
+.blog-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 0.75rem;
+}
+.blog-table-wrap:focus-visible {
+  outline: 2px solid var(--accent, #f5a623);
+  outline-offset: 2px;
+}
+.blog-table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.blog-table th,
+.blog-table td {
+  padding: 0.5rem 0.875rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+.blog-table p {
+  margin: 0;
+  line-height: 1.5;
+}
+.blog-table th {
+  color: #fff;
+  font-weight: 600;
+  background: rgb(255 255 255 / 0.05);
+}
+.blog-table tr:last-child > * {
+  border-bottom: 0;
+}
