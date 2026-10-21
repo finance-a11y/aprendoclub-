@@ -50,6 +50,10 @@ const nextConfig: NextConfig = {
       { source: "/seo-con-ia/evento", destination: "/programas/taller-seo-con-ia", permanent: true },
       // CERT-01: Redirección de certificaciones al perfil de autor de Arianna Lupi
       { source: "/certificaciones", destination: "/autor/arianna-lupi", permanent: true },
+      // GSC 404: URLs legales y de blog que Google aún pide con el slug viejo
+      { source: "/politica-de-privacidad", destination: "/politica-privacidad", permanent: true },
+      { source: "/terminos", destination: "/terminos-condiciones", permanent: true },
+      { source: "/blog/como-optimizar-una-url", destination: "/seo-basico/que-es-una-url", permanent: true },
       // BLOG-01: Redirección de categoría legacy aprender-seo a empieza-en-seo
       { source: "/aprender-seo/:slug*", destination: "/empieza-en-seo/:slug*", permanent: true },
     ];
