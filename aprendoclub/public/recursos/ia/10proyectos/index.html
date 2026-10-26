@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
-<title>10 Proyectos con Claude</title>
+<title>5 Herramientas con Claude</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -362,6 +362,48 @@ ul.checklist li::before { content: "✓"; color: var(--lime); font-weight: 700; 
   color: var(--ink-mute);
 }
 
+/* CTA Section */
+.cta-section {
+  background: var(--lime);
+  color: #17181B;
+  padding: 72px 0 80px;
+  text-align: center;
+}
+.cta-section .eyebrow {
+  color: #17181B;
+  opacity: .65;
+  margin-bottom: 16px;
+}
+.cta-section h2 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 20px;
+  color: #17181B;
+}
+.cta-section p {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  font-size: 1.05rem;
+  color: #17181B;
+  opacity: .8;
+  line-height: 1.65;
+}
+.cta-btn {
+  display: inline-block;
+  background: #17181B;
+  color: var(--lime);
+  font-family: var(--font-mono);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 16px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.cta-btn:hover { opacity: .85; }
+
 /* Footer */
 footer {
   padding: 36px 0 52px;
@@ -454,8 +496,8 @@ footer {
 <div class="gate" id="gate">
   <div class="gate-card">
     <span class="badge-pill">IA Lab</span>
-    <h2>Deja tu correo y accede a los 10 proyectos</h2>
-    <p class="gate-desc">Los prompts completos, listos para pegar en Claude. Desde una recepcionista con IA hasta un detector de estafas para tu familia. Se desbloquean aquí mismo.</p>
+    <h2>Deja tu correo y accede a las 5 herramientas</h2>
+    <p class="gate-desc">Los prompts completos para construir herramientas reales de marketing digital con Claude — sin saber programar. Auditoría SEO, redactor, social media, cotizador y más. Se desbloquean aquí mismo.</p>
 
     <!--
       Kajabi form 2149765284
@@ -486,7 +528,7 @@ footer {
 
       <p class="gate-error" id="gate-error">Algo salió mal al enviar. De todas formas te desbloqueamos el contenido — si no recibes nuestro correo, escríbenos.</p>
 
-      <button class="gate-submit" type="submit">Acceder a los proyectos →</button>
+      <button class="gate-submit" type="submit">Acceder a las herramientas →</button>
     </form>
     <p class="gate-disclaimer">Sin spam. Puedes darte de baja cuando quieras.</p>
   </div>
@@ -499,9 +541,9 @@ footer {
   <section class="hero center" id="top">
     <div class="wrap">
       <span class="badge-pill">IA Lab</span>
-      <h1>10 proyectos que puedes construir con Claude <span class="accent">hoy</span></h1>
-      <p class="lede">Prompts completos para pedirle a Claude que construya herramientas reales para tu negocio, tus finanzas y tu vida. Copia, pega y adapta.</p>
-      <p class="note">Cambia lo que está entre [corchetes] por tus datos y pégalo en Claude.</p>
+      <h1>5 herramientas de marketing digital que puedes construir con Claude <span class="accent">sin saber programar</span></h1>
+      <p class="lede">Prompts completos, desarrollados y listos para pegar en Claude. Cada uno construye una herramienta real que puedes usar desde hoy en tu negocio o con tus clientes.</p>
+      <p class="note">Cambia lo que está entre [corchetes] por tus datos y pégalo en Claude. Al final de cada prompt ya viene el tip clave.</p>
       <div class="tip-banner">
         <span class="tip-icon">💡</span>
         <p><strong>El tip que lo cambia todo:</strong> al final de cualquier prompt agrega <strong>"Antes de empezar, hazme las preguntas que necesites"</strong>. Claude te preguntará lo que le falta y el resultado sale mucho mejor.</p>
@@ -512,87 +554,47 @@ footer {
   <!-- ÍNDICE -->
   <section class="tight" id="indice">
     <div class="wrap">
-      <span class="eyebrow">Los 10 proyectos</span>
-      <h2 class="h-section">¿Cuál vas a construir primero?</h2>
+      <span class="eyebrow">Las 5 herramientas</span>
+      <h2 class="h-section">¿Cuál construyes primero?</h2>
       <div class="grid grid-5" style="margin-top:32px;">
 
         <a class="n-card" href="#proyecto-01">
           <span class="n-card__num">01</span>
-          <span class="n-card__cat">Negocio</span>
-          <h3>🤖 Recepcionista con IA</h3>
-          <p>Llamadas, DMs e Instagram respondidos solos.</p>
+          <span class="n-card__cat">SEO</span>
+          <h3>🔍 Auditoría SEO</h3>
+          <p>Analiza cualquier página y genera un informe listo para cliente.</p>
           <span class="n-card__go">Ver →</span>
         </a>
 
         <a class="n-card" href="#proyecto-02">
           <span class="n-card__num">02</span>
-          <span class="n-card__cat">Negocio</span>
-          <h3>💬 WhatsApp que vende solo</h3>
-          <p>Asistente que toma pedidos y agenda citas.</p>
+          <span class="n-card__cat">SEO</span>
+          <h3>✍️ Redactor SEO</h3>
+          <p>De una keyword a un artículo completo, con estructura y meta.</p>
           <span class="n-card__go">Ver →</span>
         </a>
 
         <a class="n-card" href="#proyecto-03">
           <span class="n-card__num">03</span>
-          <span class="n-card__cat">Tu Plata</span>
-          <h3>📊 Tablero de finanzas</h3>
-          <p>Todas tus entradas de dinero en una sola vista.</p>
+          <span class="n-card__cat">Social Media</span>
+          <h3>📅 Asistente de Social Media</h3>
+          <p>Calendario del mes, hooks y captions por cliente en minutos.</p>
           <span class="n-card__go">Ver →</span>
         </a>
 
         <a class="n-card" href="#proyecto-04">
           <span class="n-card__num">04</span>
-          <span class="n-card__cat">Tu Plata</span>
-          <h3>🔍 Cazador de suscripciones</h3>
-          <p>Encuentra lo que pagas sin usar cada mes.</p>
+          <span class="n-card__cat">Negocio</span>
+          <h3>💰 Cotizador de Servicios</h3>
+          <p>Paquetes y presupuestos listos para enviar, sin improvisar.</p>
           <span class="n-card__go">Ver →</span>
         </a>
 
         <a class="n-card" href="#proyecto-05">
           <span class="n-card__num">05</span>
-          <span class="n-card__cat">Ideas</span>
-          <h3>🎙️ Notas de voz a ideas</h3>
-          <p>App que transcribe y organiza tus ideas del día.</p>
-          <span class="n-card__go">Ver →</span>
-        </a>
-
-        <a class="n-card" href="#proyecto-06">
-          <span class="n-card__num">06</span>
-          <span class="n-card__cat">Tu Día</span>
-          <h3>☀️ Resumen de cada mañana</h3>
-          <p>Reuniones, correos urgentes y pendientes listos al despertar.</p>
-          <span class="n-card__go">Ver →</span>
-        </a>
-
-        <a class="n-card" href="#proyecto-07">
-          <span class="n-card__num">07</span>
-          <span class="n-card__cat">Contenido</span>
-          <h3>💡 Comentarios a contenido</h3>
-          <p>Convierte lo que pregunta tu audiencia en ideas de posts.</p>
-          <span class="n-card__go">Ver →</span>
-        </a>
-
-        <a class="n-card" href="#proyecto-08">
-          <span class="n-card__num">08</span>
-          <span class="n-card__cat">Tu Vida</span>
-          <h3>✈️ Viaje desde tus guardados</h3>
-          <p>Itinerario armado con los reels que guardaste.</p>
-          <span class="n-card__go">Ver →</span>
-        </a>
-
-        <a class="n-card" href="#proyecto-09">
-          <span class="n-card__num">09</span>
-          <span class="n-card__cat">Protégete</span>
-          <h3>📄 Detector de letra pequeña</h3>
-          <p>Cláusulas peligrosas en tus contratos, en español.</p>
-          <span class="n-card__go">Ver →</span>
-        </a>
-
-        <a class="n-card" href="#proyecto-10">
-          <span class="n-card__num">10</span>
-          <span class="n-card__cat">Protégete</span>
-          <h3>🚨 Detector de estafas</h3>
-          <p>Tan fácil que la puede usar tu mamá.</p>
+          <span class="n-card__cat">Carrera</span>
+          <h3>🎯 Filtro de Oportunidades</h3>
+          <p>Lee tu CV, compara ofertas y adapta tu perfil a las que valen.</p>
           <span class="n-card__go">Ver →</span>
         </a>
 
@@ -600,48 +602,97 @@ footer {
     </div>
   </section>
 
-  <!-- PROYECTO 01 -->
+  <!-- HERRAMIENTA 01 -->
   <section class="skill" id="proyecto-01">
     <div class="wrap">
-      <span class="eyebrow">Proyecto 01 · Negocio</span>
+      <span class="eyebrow">Herramienta 01 · SEO</span>
       <div class="skill-head">
-        <span class="skill-icon">🤖</span>
-        <h2>Recepcionista con IA</h2>
+        <span class="skill-icon">🔍</span>
+        <h2>Auditoría SEO</h2>
       </div>
       <div class="where-tag">
-        <span>Dónde lo haces:</span> Claude Code + un servicio de voz (tipo Vapi o Twilio)
+        <span>Dónde lo haces:</span> Claude.ai · Projects o chat directo
       </div>
       <div class="framing">
-        <strong>Para qué sirve:</strong> Construye un asistente que contesta llamadas con voz natural, responde DMs de Instagram y WhatsApp, resuelve preguntas frecuentes y te avisa al instante cuando algo es urgente — todo sin que tengas que estar pendiente.
+        <strong>Para qué sirve:</strong> Le pegas la URL o el contenido de cualquier página y Claude la analiza completa: revisa título, meta descripción, encabezados, palabras clave, estructura del contenido y enlaces internos. Luego ordena todos los problemas por impacto y te entrega un informe estructurado listo para enviarle a un cliente o al equipo de desarrollo.
       </div>
       <p class="subhead">Qué puede hacer</p>
       <ul class="checklist">
-        <li>Contestar llamadas con voz natural en español y presentarse con el nombre de tu negocio</li>
-        <li>Responder DMs de Instagram y mensajes de WhatsApp automáticamente</li>
-        <li>Resolver preguntas frecuentes con tu información de horarios, precios y servicios</li>
-        <li>Tomar mensajes con nombre, teléfono y motivo, guardados en Google Sheets</li>
-        <li>Marcar como URGENTE cualquier mensaje crítico y avisarte por WhatsApp al instante</li>
-        <li>Mostrarte un panel con llamadas del día, DMs respondidos y urgentes</li>
+        <li>Revisar el título SEO: longitud, keyword principal, presencia de la marca y claridad del beneficio</li>
+        <li>Auditar la meta descripción: si existe, si invita a hacer clic, si tiene entre 140-160 caracteres</li>
+        <li>Analizar la estructura de encabezados H1-H2-H3: jerarquía correcta, keywords en H1, coherencia temática</li>
+        <li>Detectar páginas sin keyword principal clara o con canibalización entre URLs</li>
+        <li>Revisar densidad y distribución de la keyword objetivo en el contenido</li>
+        <li>Identificar oportunidades de enlazado interno: qué páginas podrían enlazarse entre sí</li>
+        <li>Clasificar cada problema como Crítico / Importante / Mejora con explicación de impacto</li>
+        <li>Generar un informe completo con resumen ejecutivo, tabla de errores y recomendaciones priorizadas</li>
       </ul>
       <div class="prompt-box">
         <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 01</span>
+          <span class="prompt-box__label">Prompt · Herramienta 01</span>
           <button class="copy-btn" data-copy-target="p01-texto" onclick="copyPrompt(this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             <span class="copy-btn__text">Copiar</span>
           </button>
         </div>
         <div class="prompt-box__body clamped" id="p01-texto-wrap">
-<pre id="p01-texto">Quiero que me construyas una recepcionista con IA para mi negocio: [tipo de negocio] en [ciudad]. Debe:
+<pre id="p01-texto">Eres un experto en SEO on-page. Voy a darte el contenido o la URL de una página web y quiero que hagas una auditoría completa.
 
-1. Contestar llamadas con voz natural en español y presentarse como [nombre] de [negocio].
-2. Responder los DMs de Instagram y los mensajes de WhatsApp.
-3. Resolver las preguntas frecuentes con esta información: [horarios, precios, dirección, servicios].
-4. Tomar mensajes (nombre, teléfono y motivo) y guardarlos en una hoja de Google Sheets.
-5. Marcar como URGENTE todo lo que mencione [dolor, emergencia, hoy, reclamo] y avisarme al instante por WhatsApp.
-6. Mostrarme un panel con las llamadas del día, los DMs respondidos y los urgentes.
+Analiza lo siguiente:
 
-Antes de empezar, hazme las preguntas que necesites y dime qué servicios tengo que conectar y cuánto cuestan.</pre>
+1. TÍTULO SEO
+   - ¿Existe? ¿Tiene entre 50-60 caracteres?
+   - ¿Incluye la keyword principal?
+   - ¿Es claro, descriptivo y atractivo para hacer clic?
+   - ¿Tiene la marca al final si corresponde?
+
+2. META DESCRIPCIÓN
+   - ¿Existe? ¿Tiene entre 140-160 caracteres?
+   - ¿Incluye la keyword principal y un llamado a la acción?
+   - ¿Invita genuinamente a hacer clic?
+
+3. ESTRUCTURA DE ENCABEZADOS
+   - ¿Hay un solo H1? ¿Incluye la keyword principal?
+   - ¿Los H2 y H3 están bien jerarquizados?
+   - ¿Los encabezados tienen keywords secundarias relevantes?
+
+4. CONTENIDO Y KEYWORDS
+   - ¿Cuál parece ser la keyword objetivo de esta página?
+   - ¿La keyword aparece de forma natural en las primeras 100 palabras?
+   - ¿La densidad de keyword es adecuada (1-2%)?
+   - ¿Hay sinonimos y términos relacionados (LSI)?
+   - ¿El contenido responde bien la intención de búsqueda (informacional / transaccional / navegacional)?
+
+5. ENLAZADO INTERNO
+   - ¿Hay enlaces internos hacia otras páginas del mismo sitio?
+   - ¿Los textos de anclaje son descriptivos?
+   - ¿Hay oportunidades de enlazar que no se estén aprovechando?
+
+6. OTROS ELEMENTOS SEO
+   - ¿Las imágenes tienen texto alternativo (alt text)?
+   - ¿La URL es corta, descriptiva y sin caracteres especiales?
+   - ¿El contenido tiene una longitud adecuada para el tema?
+
+Una vez analices todo, entrega:
+
+INFORME DE AUDITORÍA SEO — [nombre o URL de la página]
+Fecha: [hoy]
+
+→ RESUMEN EJECUTIVO (3-4 líneas con los hallazgos más importantes)
+
+→ TABLA DE PROBLEMAS
+| Elemento | Estado | Problema detectado | Impacto | Recomendación |
+(clasifica cada problema como 🔴 Crítico / 🟡 Importante / 🟢 Mejora)
+
+→ PLAN DE ACCIÓN PRIORIZADO
+Lista numerada de qué arreglar primero, con la acción específica para cada punto.
+
+→ PUNTUACIÓN GENERAL (sobre 100) con justificación breve.
+
+Aquí está la página que quiero que audites:
+[pega el contenido o la URL de la página]
+
+Antes de empezar, hazme las preguntas que necesites para darte el contexto correcto.</pre>
         </div>
         <button class="expand-toggle" onclick="toggleExpand(this, 'p01-texto-wrap')">
           <span class="expand-toggle__text">Mostrar completo</span>
@@ -652,49 +703,80 @@ Antes de empezar, hazme las preguntas que necesites y dime qué servicios tengo 
     </div>
   </section>
 
-  <!-- PROYECTO 02 -->
+  <!-- HERRAMIENTA 02 -->
   <section class="skill" id="proyecto-02">
     <div class="wrap">
-      <span class="eyebrow">Proyecto 02 · Negocio</span>
+      <span class="eyebrow">Herramienta 02 · SEO</span>
       <div class="skill-head">
-        <span class="skill-icon">💬</span>
-        <h2>WhatsApp que vende solo</h2>
+        <span class="skill-icon">✍️</span>
+        <h2>Redactor SEO</h2>
       </div>
       <div class="where-tag">
-        <span>Dónde lo haces:</span> Claude Code o n8n + WhatsApp Business API
+        <span>Dónde lo haces:</span> Claude.ai · Projects (guarda tu tono de marca ahí)
       </div>
       <div class="framing">
-        <strong>Para qué sirve:</strong> Un asistente de WhatsApp que saluda con el tono de tu marca, responde precios y disponibilidad, toma pedidos completos, agenda citas y guarda todo en Google Sheets — pasándote solo las conversaciones que de verdad necesitan tu atención.
+        <strong>Para qué sirve:</strong> Le das una keyword y Claude analiza qué busca exactamente la persona detrás de esa búsqueda, propone la estructura completa del artículo con H1, H2 y H3, lo redacta con el tono de tu marca, marca dónde van los enlaces internos y te entrega el título SEO y la meta descripción listos para publicar.
       </div>
       <p class="subhead">Qué puede hacer</p>
       <ul class="checklist">
-        <li>Saludar con el tono de tu marca: cercano, formal o divertido</li>
-        <li>Responder precios y disponibilidad usando tu catálogo de productos</li>
-        <li>Tomar pedidos completos: producto, cantidad, dirección y forma de pago</li>
-        <li>Agendar citas o entregas según tu horario disponible</li>
-        <li>Enviar el catálogo cuando alguien lo pida</li>
-        <li>Pasarte la conversación cuando el cliente pida hablar con una persona o se moleste</li>
+        <li>Analizar la intención de búsqueda de la keyword: informacional, transaccional o navegacional</li>
+        <li>Identificar las preguntas y subtemas que la gente busca alrededor de esa keyword</li>
+        <li>Proponer la estructura completa del artículo: H1, H2s y H3s con keywords en cada uno</li>
+        <li>Redactar el artículo completo usando tu tono de marca (que tú le defines al inicio)</li>
+        <li>Incluir keywords secundarias y términos relacionados (LSI) de forma natural</li>
+        <li>Marcar en el texto dónde recomienda agregar enlaces internos y externos</li>
+        <li>Entregar el título SEO (máx. 60 caracteres) y la meta descripción (máx. 155 caracteres) listos</li>
+        <li>Sugerir el slug URL ideal para la página</li>
       </ul>
       <div class="prompt-box">
         <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 02</span>
+          <span class="prompt-box__label">Prompt · Herramienta 02</span>
           <button class="copy-btn" data-copy-target="p02-texto" onclick="copyPrompt(this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
             <span class="copy-btn__text">Copiar</span>
           </button>
         </div>
         <div class="prompt-box__body clamped" id="p02-texto-wrap">
-<pre id="p02-texto">Constrúyeme un asistente de WhatsApp para mi negocio: [qué vendes]. Debe:
+<pre id="p02-texto">Eres un redactor SEO experto en marketing digital para LATAM. Voy a darte una keyword objetivo y necesito que me construyas un artículo completo optimizado para posicionar en Google.
 
-1. Saludar con el tono de mi marca: [cercano / formal / divertido].
-2. Responder precios y disponibilidad usando mi catálogo: [pega tu lista de productos y precios].
-3. Tomar pedidos completos: producto, cantidad, dirección y forma de pago.
-4. Agendar citas o entregas según mi horario: [días y horas].
-5. Enviar el catálogo cuando alguien lo pida.
-6. Pasarme la conversación cuando el cliente pida hablar con una persona o se moleste.
-7. Guardar cada pedido en una hoja de Google Sheets.
+Mi marca / negocio: [describe brevemente qué haces o qué servicio ofreces]
+Mi tono de escritura: [ej: cercano y directo, sin tecnicismos / profesional pero accesible / conversacional con humor / formal y técnico]
+Audiencia objetivo: [ej: emprendedores digitales / community managers / dueños de e-commerce / freelancers]
 
-Antes de empezar, hazme las preguntas que necesites y explícame paso a paso cómo conectar WhatsApp.</pre>
+La keyword objetivo es: [escribe aquí la keyword principal]
+
+Necesito que hagas lo siguiente, paso a paso:
+
+PASO 1 — ANÁLISIS DE INTENCIÓN DE BÚSQUEDA
+¿Qué está buscando exactamente quien escribe esta keyword? ¿Es informacional (quiere aprender), transaccional (quiere comprar/contratar) o navegacional (busca un sitio específico)? ¿Qué espera encontrar en el primer resultado de Google?
+
+PASO 2 — MAPA DE KEYWORDS
+Lista 5-8 keywords secundarias y términos LSI relacionados que debo incluir en el artículo para darle profundidad semántica.
+
+PASO 3 — ESTRUCTURA DEL ARTÍCULO
+Propone la estructura completa:
+- H1: título del artículo (debe incluir la keyword principal)
+- H2 y H3 de cada sección, con la keyword secundaria correspondiente si aplica
+- Indica la longitud estimada de cada sección en palabras
+
+PASO 4 — REDACCIÓN COMPLETA
+Escribe el artículo completo siguiendo:
+- Usa el tono de mi marca que te describí arriba
+- La keyword principal debe aparecer en el primer párrafo (primeras 100 palabras)
+- Incluye las keywords secundarias de forma natural, sin forzarlas
+- Cada sección debe responder una pregunta concreta
+- Usa párrafos cortos (máx. 3-4 líneas), listas cuando sea útil
+- Donde recomiende un enlace interno, escribe: [→ ENLACE INTERNO: "texto del enlace sugerido"]
+- Donde recomiende un enlace externo de autoridad, escribe: [→ ENLACE EXTERNO: "fuente sugerida"]
+
+PASO 5 — ELEMENTOS SEO FINALES
+Al final del artículo entrega:
+- Título SEO: (máx. 60 caracteres, con keyword)
+- Meta descripción: (máx. 155 caracteres, con keyword y llamado a la acción)
+- Slug URL sugerido: (corto, en minúsculas, sin tildes, con guiones)
+- Estimado de palabras del artículo completo
+
+Antes de empezar, hazme las preguntas que necesites para escribir con el tono correcto y entender bien el negocio.</pre>
         </div>
         <button class="expand-toggle" onclick="toggleExpand(this, 'p02-texto-wrap')">
           <span class="expand-toggle__text">Mostrar completo</span>
@@ -705,46 +787,83 @@ Antes de empezar, hazme las preguntas que necesites y explícame paso a paso có
     </div>
   </section>
 
-  <!-- PROYECTO 03 -->
+  <!-- HERRAMIENTA 03 -->
   <section class="skill" id="proyecto-03">
     <div class="wrap">
-      <span class="eyebrow">Proyecto 03 · Tu Plata</span>
+      <span class="eyebrow">Herramienta 03 · Social Media</span>
       <div class="skill-head">
-        <span class="skill-icon">📊</span>
-        <h2>Tablero de tus finanzas</h2>
+        <span class="skill-icon">📅</span>
+        <h2>Asistente de Social Media</h2>
       </div>
       <div class="where-tag">
-        <span>Dónde lo haces:</span> El chat de Claude (subes tus extractos)
+        <span>Dónde lo haces:</span> Claude.ai · Projects (uno por cliente)
       </div>
       <div class="framing">
-        <strong>Para qué sirve:</strong> Sube tus extractos bancarios y reportes de pagos, y Claude arma un tablero interactivo que une todo en una sola vista: ingresos por mes, por fuente, comparación con el mes anterior — sin inventar nada.
+        <strong>Para qué sirve:</strong> Crea un proyecto en Claude por cada cliente, le defines el tono y los pilares de contenido, y Claude arma el calendario completo del mes con ideas por pilar, hooks que paran el scroll, captions adaptados para Instagram, TikTok y LinkedIn — y los recuerda para la próxima vez que abras el proyecto.
       </div>
       <p class="subhead">Qué puede hacer</p>
       <ul class="checklist">
-        <li>Juntar todas tus entradas de dinero (banco, pasarela de pagos, facturas) en una sola vista</li>
-        <li>Mostrar el total por mes en una gráfica de barras interactiva</li>
-        <li>Separar por fuente: clientes, ventas online, Nequi y otros</li>
-        <li>Decirte cuál fuente deja más dinero y cuál está creciendo</li>
-        <li>Comparar este mes contra el anterior automáticamente</li>
+        <li>Guardar en memoria el tono, la voz y los pilares de contenido de cada cliente</li>
+        <li>Generar 20-30 ideas de contenido al mes organizadas por pilar temático</li>
+        <li>Proponer el formato ideal para cada idea: reel, carrusel, historia, post estático o video largo</li>
+        <li>Escribir hooks que paran el scroll adaptados a la plataforma (Instagram vs TikTok vs LinkedIn)</li>
+        <li>Redactar captions completos con el tono del cliente, hashtags estratégicos y llamado a la acción</li>
+        <li>Adaptar el mismo contenido a 3 plataformas distintas con el lenguaje de cada una</li>
+        <li>Entregar todo en un calendario visual por semana, listo para pasar a Notion o Google Sheets</li>
       </ul>
       <div class="prompt-box">
         <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 03</span>
+          <span class="prompt-box__label">Prompt · Herramienta 03</span>
           <button class="copy-btn" data-copy-target="p03-texto" onclick="copyPrompt(this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
             <span class="copy-btn__text">Copiar</span>
           </button>
         </div>
         <div class="prompt-box__body clamped" id="p03-texto-wrap">
-<pre id="p03-texto">Te voy a subir los extractos y reportes de todo lo que me entra de plata: [banco, pasarela de pagos, facturas a clientes]. Constrúyeme un tablero interactivo que:
+<pre id="p03-texto">Eres mi asistente de social media. Voy a darte toda la información de un cliente y quiero que la guardes en este proyecto para usarla cada vez que te pida contenido.
 
-1. Junte todas mis entradas en una sola vista.
-2. Me muestre el total por mes en una gráfica de barras.
-3. Separe por fuente: clientes, ventas online, Nequi y otros.
-4. Me diga cuál fuente me deja más y cuál está creciendo.
-5. Compare este mes contra el anterior.
+INFORMACIÓN DEL CLIENTE:
+- Nombre del negocio: [nombre]
+- Qué vende o qué hace: [describe el producto o servicio]
+- Audiencia objetivo: [quién es su cliente ideal, edad, intereses, dolores]
+- Tono de comunicación: [ej: cercano y divertido / serio y experto / aspiracional / educativo]
+- Frase que NUNCA diría esta marca: [ej: "no olvides darle like" / "contenido de valor" / jerga que no va con ellos]
+- Redes activas: [Instagram / TikTok / LinkedIn / Facebook — marca cuáles]
+- Frecuencia de publicación deseada: [ej: 5 veces por semana en Instagram, 3 en TikTok]
 
-No inventes datos. Si algo no está claro en los archivos, pregúntame.</pre>
+PILARES DE CONTENIDO (los temas sobre los que va a hablar la marca):
+1. [Pilar 1 — ej: Educación / cómo funciona el producto]
+2. [Pilar 2 — ej: Detrás de cámaras / proceso]
+3. [Pilar 3 — ej: Testimonios y resultados de clientes]
+4. [Pilar 4 — ej: Tendencias del sector]
+5. [Pilar 5 — ej: Entretenimiento / contenido relatable]
+
+REFERENCIAS DE ESTILO:
+- Cuentas que admira o que tienen un estilo parecido al que queremos: [menciona 2-3 cuentas de Instagram o TikTok]
+
+---
+
+Con esta información, haz lo siguiente:
+
+1. CALENDARIO DEL MES
+   Crea un calendario de contenido para [mes y año] con una publicación por día de publicación.
+   Formato de tabla:
+   | Semana | Día | Pilar | Formato | Idea de contenido | Red(es) |
+
+2. DESARROLLO DE 5 PIEZAS COMPLETAS
+   Elige las 5 ideas más fuertes del calendario y desarrolla cada una con:
+   - Hook de apertura (para reel/video) o primera línea impactante (para carrusel/post)
+   - Caption completo listo para publicar en Instagram
+   - Versión adaptada para TikTok (más casual, con jerga de la plataforma)
+   - Versión adaptada para LinkedIn si aplica (más profesional, sin emojis excesivos)
+   - 5-8 hashtags estratégicos para Instagram
+
+3. BANCO DE HOOKS
+   Dame 10 hooks adicionales que podemos usar este mes, en el tono de este cliente, listos para adaptar a cualquier idea.
+
+Guarda toda la información del cliente en la memoria de este proyecto. Cada vez que vuelva, ya sabes quién es, cómo habla y qué necesita.
+
+Antes de empezar, hazme las preguntas que necesites para entender mejor la marca y crear contenido que realmente conecte.</pre>
         </div>
         <button class="expand-toggle" onclick="toggleExpand(this, 'p03-texto-wrap')">
           <span class="expand-toggle__text">Mostrar completo</span>
@@ -755,47 +874,122 @@ No inventes datos. Si algo no está claro en los archivos, pregúntame.</pre>
     </div>
   </section>
 
-  <!-- PROYECTO 04 -->
+  <!-- HERRAMIENTA 04 -->
   <section class="skill" id="proyecto-04">
     <div class="wrap">
-      <span class="eyebrow">Proyecto 04 · Tu Plata</span>
+      <span class="eyebrow">Herramienta 04 · Negocio</span>
       <div class="skill-head">
-        <span class="skill-icon">🔍</span>
-        <h2>Cazador de suscripciones</h2>
+        <span class="skill-icon">💰</span>
+        <h2>Cotizador de Servicios</h2>
       </div>
       <div class="where-tag">
-        <span>Dónde lo haces:</span> El chat de Claude (subes tu extracto en PDF)
+        <span>Dónde lo haces:</span> Claude.ai · Projects (guarda tus tarifas ahí)
       </div>
       <div class="framing">
-        <strong>Para qué sirve:</strong> Sube tus extractos de los últimos 3 meses y Claude encuentra todos los cobros que se repiten, los marca si probablemente no los usas, te dice cuánto estás pagando y cuánto te ahorrarías si cancelas los innecesarios.
+        <strong>Para qué sirve:</strong> Le defines tus servicios y tarifas una sola vez, y cada vez que llegue un cliente nuevo Claude calcula las horas, suma los extras, arma tres paquetes con distintos niveles de servicio, te avisa si estás cobrando por debajo de tu mínimo y genera el presupuesto profesional listo para enviar.
       </div>
       <p class="subhead">Qué puede hacer</p>
       <ul class="checklist">
-        <li>Encontrar todos los cobros que se repiten cada mes: suscripciones, apps, membresías</li>
-        <li>Armar una tabla con nombre, valor, día del cobro y desde cuándo lo pagas</li>
-        <li>Marcar los que probablemente no usas o están duplicados</li>
-        <li>Calcular cuánto pagas al mes y al año en total</li>
-        <li>Decirte cuánto ahorrarías si cancelas los marcados</li>
-        <li>Convertirlo en un tablero visual para revisar cada mes</li>
+        <li>Guardar tu catálogo completo de servicios con tarifas base por hora o por entregable</li>
+        <li>Calcular el costo total de un proyecto según horas estimadas, alcance y extras solicitados</li>
+        <li>Armar tres propuestas de paquetes: Básico, Profesional y Premium con lo que incluye cada uno</li>
+        <li>Avisarte si el precio calculado está por debajo de tu tarifa mínima rentable</li>
+        <li>Generar el presupuesto en formato profesional listo para enviar por correo o WhatsApp</li>
+        <li>Proponer extras o servicios adicionales que podrías ofrecerle al cliente según su necesidad</li>
+        <li>Recordar tu historial de cotizaciones para que puedas comparar y ajustar precios</li>
       </ul>
       <div class="prompt-box">
         <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 04</span>
+          <span class="prompt-box__label">Prompt · Herramienta 04</span>
           <button class="copy-btn" data-copy-target="p04-texto" onclick="copyPrompt(this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
             <span class="copy-btn__text">Copiar</span>
           </button>
         </div>
         <div class="prompt-box__body clamped" id="p04-texto-wrap">
-<pre id="p04-texto">Te voy a subir mis extractos bancarios de los últimos 3 meses. Quiero que:
+<pre id="p04-texto">Eres mi asistente de cotizaciones y ventas. Voy a darte toda la información de mis servicios y tarifas, y quiero que la guardes en este proyecto para usarla cada vez que necesite cotizar.
 
-1. Encuentres todos los cobros que se repiten cada mes (suscripciones, apps, membresías).
-2. Me hagas una tabla con: nombre, valor, día del cobro y desde cuándo lo pago.
-3. Marques los que probablemente no uso o están duplicados.
-4. Me digas cuánto pago al mes y al año en total.
-5. Me digas cuánto me ahorraría si cancelo los marcados.
+MI INFORMACIÓN PROFESIONAL:
+- Nombre / Nombre del negocio: [tu nombre o el de tu agencia]
+- Qué hago: [ej: gestión de redes sociales, diseño web, copywriting, consultoría SEO]
+- Moneda en la que cotizo: [USD / COP / MXN / ARS / otro]
+- Tarifa mínima por proyecto: [el mínimo que aceptas, en tu moneda]
+- Tarifa hora actual: [cuánto cobras por hora de trabajo]
 
-Al final, conviértelo en un tablero visual que pueda revisar cada mes.</pre>
+MIS SERVICIOS Y TARIFAS BASE:
+[Copia este bloque por cada servicio que ofreces]
+
+Servicio: [nombre del servicio]
+Descripción: [qué incluye exactamente]
+Tarifa base: [precio fijo o rango]
+Horas promedio que me toma: [estimado]
+Extras que se pueden sumar: [ej: urgencia +30%, idioma adicional +20%, revisiones extra +X]
+
+CONDICIONES GENERALES:
+- Anticipo que pido: [ej: 50% para empezar]
+- Forma de entrega: [ej: por correo / Google Drive / Notion]
+- Tiempo de respuesta para revisiones: [ej: 3 días hábiles]
+- Política de revisiones: [ej: 2 rondas de revisión incluidas]
+
+---
+
+Cada vez que llegue una solicitud de cotización, voy a describírtela y quiero que hagas esto:
+
+1. ANÁLISIS DE LA SOLICITUD
+   - ¿Qué servicios de mi catálogo aplican para lo que pide el cliente?
+   - ¿Hay algo que no ofrece lo que el cliente necesita? ¿Qué le recomendarías?
+   - Estimado de horas totales que involucra el proyecto
+
+2. TRES PROPUESTAS DE PAQUETES
+   Arma tres opciones, de menor a mayor:
+
+   BÁSICO — [nombre sugerido]
+   Incluye: [lista de entregables]
+   Precio: [total]
+   Ideal para: [perfil de cliente]
+
+   PROFESIONAL — [nombre sugerido]
+   Incluye: [lista de entregables]
+   Precio: [total]
+   Ideal para: [perfil de cliente]
+
+   PREMIUM — [nombre sugerido]
+   Incluye: [lista de entregables]
+   Precio: [total]
+   Ideal para: [perfil de cliente]
+
+   ⚠️ Si algún paquete está por debajo de mi tarifa mínima, avísame antes de presentarlo.
+
+3. PRESUPUESTO FORMAL
+   Genera el presupuesto en este formato, listo para enviar:
+
+   ─────────────────────────────────
+   PROPUESTA DE SERVICIOS
+   Para: [nombre del cliente]
+   Preparada por: [mi nombre]
+   Fecha: [hoy]
+   Válida hasta: [30 días después]
+
+   [Descripción del proyecto en 2-3 líneas]
+
+   PAQUETE RECOMENDADO: [nombre]
+   ✓ [Entregable 1]
+   ✓ [Entregable 2]
+   ✓ [Entregable 3]
+
+   INVERSIÓN: [precio]
+   Anticipo (50%): [monto]
+   Saldo al entregar: [monto]
+
+   Condiciones: [tus condiciones]
+   ─────────────────────────────────
+
+4. SUGERENCIA DE UPSELL
+   ¿Hay algún servicio adicional de mi catálogo que le podría ofrecer a este cliente para que el proyecto sea más completo o rentable?
+
+Guarda mis tarifas y condiciones en este proyecto para que no tenga que repetirlas cada vez.
+
+Antes de empezar, hazme las preguntas que necesites para armar el cotizador de la forma más útil para mi tipo de servicios.</pre>
         </div>
         <button class="expand-toggle" onclick="toggleExpand(this, 'p04-texto-wrap')">
           <span class="expand-toggle__text">Mostrar completo</span>
@@ -806,48 +1000,99 @@ Al final, conviértelo en un tablero visual que pueda revisar cada mes.</pre>
     </div>
   </section>
 
-  <!-- PROYECTO 05 -->
+  <!-- HERRAMIENTA 05 -->
   <section class="skill" id="proyecto-05">
     <div class="wrap">
-      <span class="eyebrow">Proyecto 05 · Ideas</span>
+      <span class="eyebrow">Herramienta 05 · Carrera</span>
       <div class="skill-head">
-        <span class="skill-icon">🎙️</span>
-        <h2>Notas de voz a ideas</h2>
+        <span class="skill-icon">🎯</span>
+        <h2>Filtro de Oportunidades</h2>
       </div>
       <div class="where-tag">
-        <span>Dónde lo haces:</span> Claude Code (app en tu celular)
+        <span>Dónde lo haces:</span> Claude.ai · Projects (guarda tu CV ahí una vez)
       </div>
       <div class="framing">
-        <strong>Para qué sirve:</strong> Una app que vive en el navegador de tu celular: grabas notas de voz mientras caminas, se transcriben solas, extraen ideas clave y las organizan en listas por categoría. Sin tiendas de apps, sin instalaciones.
+        <strong>Para qué sirve:</strong> Subes tu CV y tu portafolio al proyecto una sola vez. Cada vez que encuentres una oferta interesante, la pegas y Claude te dice en porcentaje cuánto encajas, qué te falta, si vale la pena aplicar y adapta tu CV específicamente para esa oferta — en minutos, no en horas.
       </div>
       <p class="subhead">Qué puede hacer</p>
       <ul class="checklist">
-        <li>Botón grande para grabar notas de voz mientras caminas</li>
-        <li>Transcripción automática al español de cada nota</li>
-        <li>Ideas clave extraídas en frases cortas desde la transcripción</li>
-        <li>Organización en listas: Ideas, Negocio, Contenido y Pendientes</li>
-        <li>Búsqueda por palabra y marcado de ideas como hechas</li>
+        <li>Leer y recordar tu CV, portafolio y experiencia en este proyecto de forma permanente</li>
+        <li>Analizar cualquier oferta que le pegues y compararla punto a punto con tu perfil</li>
+        <li>Darte un porcentaje de compatibilidad con explicación detallada por área (experiencia, skills, perfil)</li>
+        <li>Identificar exactamente qué te falta o qué deberías reforzar para esa oferta específica</li>
+        <li>Recomendarte si vale la pena aplicar, negociar o descartar la oferta</li>
+        <li>Reescribir tu resumen profesional y experiencia usando las keywords exactas de la oferta</li>
+        <li>Sugerirte qué incluir en la carta de presentación para esa empresa en particular</li>
       </ul>
       <div class="prompt-box">
         <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 05</span>
+          <span class="prompt-box__label">Prompt · Herramienta 05</span>
           <button class="copy-btn" data-copy-target="p05-texto" onclick="copyPrompt(this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
             <span class="copy-btn__text">Copiar</span>
           </button>
         </div>
         <div class="prompt-box__body clamped" id="p05-texto-wrap">
-<pre id="p05-texto">Constrúyeme una app sencilla para mi celular donde:
+<pre id="p05-texto">Eres mi asistente de carrera profesional. Voy a darte toda mi información profesional y quiero que la guardes en este proyecto. Cada vez que encuentre una oferta de trabajo o cliente, te la voy a pegar y quiero que me ayudes a evaluar si vale la pena y a prepararme para aplicar.
 
-1. Tenga un botón grande para grabar notas de voz mientras camino.
-2. Transcriba cada nota al español automáticamente.
-3. Saque las ideas clave de cada nota en frases cortas.
-4. Las organice en listas: Ideas, Negocio, Contenido y Pendientes.
-5. Me deje buscar por palabra y marcar ideas como hechas.
+MI PERFIL PROFESIONAL:
 
-Quiero que funcione desde el navegador del celular, sin publicarla en ninguna tienda.
+Nombre: [tu nombre]
+Rol actual o al que aspiras: [ej: Community Manager / Social Media Manager / Copywriter SEO / Consultor de marketing digital]
+Años de experiencia: [número]
+Ubicación: [ciudad y país] — disponibilidad remota: [sí / no / híbrido]
 
-Antes de empezar, dime qué necesito y cuánto cuesta la transcripción.</pre>
+EXPERIENCIA LABORAL:
+[Para cada trabajo o proyecto relevante, agrega:]
+- Empresa / Cliente: [nombre]
+- Rol: [título]
+- Período: [de cuándo a cuándo]
+- Qué hice: [describe en 2-4 puntos concretos con resultados si los tienes]
+- Logros medibles: [ej: crecí la cuenta de 2k a 15k en 6 meses / reduje el costo por clic en 40%]
+
+SKILLS Y HERRAMIENTAS:
+- Habilidades principales: [ej: gestión de comunidades, copywriting, estrategia de contenido, SEO on-page]
+- Herramientas que manejo: [ej: Meta Ads, Google Analytics, Canva, Notion, Hootsuite, Ahrefs]
+- Idiomas: [idioma y nivel]
+- Certificaciones: [si tienes alguna relevante]
+
+PORTAFOLIO:
+[Link o descripción de tus trabajos más relevantes]
+[Si tienes resultados concretos, ponlos aquí: métricas, antes y después, casos de éxito]
+
+LO QUE BUSCO:
+- Tipo de oportunidad: [empleo fijo / freelance / proyecto puntual / consultoría]
+- Modalidad: [remoto / presencial / híbrido]
+- Pretensión salarial o tarifa: [rango en tu moneda]
+- Lo que NO quiero en mi próximo rol: [ej: no quiero trabajar con más de X clientes simultáneos / no quiero roles puramente operativos]
+
+---
+
+Guarda toda esta información. Cada vez que te pegue una oferta de trabajo o de cliente, haz lo siguiente:
+
+1. ANÁLISIS DE COMPATIBILIDAD
+   - % de compatibilidad con mi perfil (del 0 al 100%)
+   - Justificación: en qué encajo muy bien, en qué encajo parcialmente, en qué no encajo
+   - Señales positivas de la oferta (cultura, crecimiento, compensación)
+   - Señales de alerta o red flags
+
+2. VEREDICTO
+   ✅ APLICA YA — si encajo bien y vale la pena
+   ⚠️ APLICA CON AJUSTES — si necesito reforzar algo antes o adaptar mi perfil
+   ❌ DESCARTA — si no es para mí y por qué
+
+3. MI CV ADAPTADO PARA ESTA OFERTA
+   Reescribe estas dos secciones de mi CV usando las keywords y el lenguaje exacto de la oferta:
+   - Resumen profesional (4-5 líneas)
+   - Descripción de mis 2-3 experiencias más relevantes para este rol
+
+4. CARTA DE PRESENTACIÓN
+   Escríbeme una carta de presentación de máx. 200 palabras, personalizada para esta empresa y este rol específico.
+
+5. PREGUNTAS PARA LA ENTREVISTA
+   Dame 5 preguntas que probablemente me harán en la entrevista para este rol y cómo responderlas con mi experiencia.
+
+Antes de empezar, hazme las preguntas que necesites para entender mejor mi perfil y lo que busco.</pre>
         </div>
         <button class="expand-toggle" onclick="toggleExpand(this, 'p05-texto-wrap')">
           <span class="expand-toggle__text">Mostrar completo</span>
@@ -858,262 +1103,21 @@ Antes de empezar, dime qué necesito y cuánto cuesta la transcripción.</pre>
     </div>
   </section>
 
-  <!-- PROYECTO 06 -->
-  <section class="skill" id="proyecto-06">
-    <div class="wrap">
-      <span class="eyebrow">Proyecto 06 · Tu Día</span>
-      <div class="skill-head">
-        <span class="skill-icon">☀️</span>
-        <h2>Resumen de cada mañana</h2>
-      </div>
-      <div class="where-tag">
-        <span>Dónde lo haces:</span> Claude con Gmail y Google Calendar conectados (o n8n)
-      </div>
-      <div class="framing">
-        <strong>Para qué sirve:</strong> Todas las mañanas a la hora que elijas, Claude lee tu calendario, revisa tu correo de las últimas 24 horas y te manda un resumen que se lee en menos de un minuto — con borradores de los correos fáciles de responder ya listos.
-      </div>
-      <p class="subhead">Qué puede hacer</p>
-      <ul class="checklist">
-        <li>Leer tu Google Calendar del día y listar tus reuniones con horarios</li>
-        <li>Revisar los correos de las últimas 24 horas y ordenarlos por importancia</li>
-        <li>Detectar pendientes que se te están pasando</li>
-        <li>Dejar borradores listos para los correos fáciles de responder</li>
-        <li>Todo en menos de 1 minuto de lectura, sin relleno</li>
-      </ul>
-      <div class="prompt-box">
-        <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 06</span>
-          <button class="copy-btn" data-copy-target="p06-texto" onclick="copyPrompt(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
-            <span class="copy-btn__text">Copiar</span>
-          </button>
-        </div>
-        <div class="prompt-box__body clamped" id="p06-texto-wrap">
-<pre id="p06-texto">Todas las mañanas a las [7:00 am], quiero que:
-
-1. Leas mi Google Calendar del día.
-2. Revises mi correo de las últimas 24 horas.
-3. Me mandes un resumen corto con:
-   · Mis reuniones de hoy y a qué hora.
-   · Los correos que necesitan respuesta, ordenados por importancia.
-   · Pendientes que se me están pasando.
-4. Si un correo es fácil de responder, déjame un borrador listo.
-
-Que el resumen se lea en menos de 1 minuto. Sin relleno.</pre>
-        </div>
-        <button class="expand-toggle" onclick="toggleExpand(this, 'p06-texto-wrap')">
-          <span class="expand-toggle__text">Mostrar completo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-      </div>
-      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
-    </div>
-  </section>
-
-  <!-- PROYECTO 07 -->
-  <section class="skill" id="proyecto-07">
-    <div class="wrap">
-      <span class="eyebrow">Proyecto 07 · Contenido</span>
-      <div class="skill-head">
-        <span class="skill-icon">💡</span>
-        <h2>Comentarios a contenido</h2>
-      </div>
-      <div class="where-tag">
-        <span>Dónde lo haces:</span> El chat de Claude (pegas o exportas los comentarios)
-      </div>
-      <div class="framing">
-        <strong>Para qué sirve:</strong> Pegas los comentarios de tus últimos posts y Claude extrae todas las preguntas, las agrupa por tema, las ordena de mayor a menor interés y te da ideas de post con gancho para cada una — más una herramienta para repetirlo con comentarios nuevos.
-      </div>
-      <p class="subhead">Qué puede hacer</p>
-      <ul class="checklist">
-        <li>Extraer todas las preguntas que hace tu audiencia en los comentarios</li>
-        <li>Agrupar por tema y contar cuántas veces se repite cada pregunta</li>
-        <li>Ordenar de mayor a menor lo que más quieren saber</li>
-        <li>Dar 3 ideas de post con gancho por cada tema, en el formato ideal (reel, carrusel o historia)</li>
-        <li>Convertirse en una herramienta que actualize la lista con comentarios nuevos</li>
-      </ul>
-      <div class="prompt-box">
-        <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 07</span>
-          <button class="copy-btn" data-copy-target="p07-texto" onclick="copyPrompt(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
-            <span class="copy-btn__text">Copiar</span>
-          </button>
-        </div>
-        <div class="prompt-box__body clamped" id="p07-texto-wrap">
-<pre id="p07-texto">Te voy a pasar los comentarios de mis últimos posts de [Instagram / TikTok / YouTube]. Mi nicho es: [tu nicho]. Quiero que:
-
-1. Saques todas las preguntas que hace la gente.
-2. Las agrupes por tema y me digas cuántas veces se repite cada una.
-3. Me ordenes de mayor a menor lo que más quieren saber.
-4. Por cada tema, me des 3 ideas de post con un gancho para el inicio.
-5. Me digas qué formato le va mejor a cada idea: reel, carrusel o historia.
-
-Después, conviértelo en una herramienta donde pueda pegar comentarios nuevos y me actualice la lista.</pre>
-        </div>
-        <button class="expand-toggle" onclick="toggleExpand(this, 'p07-texto-wrap')">
-          <span class="expand-toggle__text">Mostrar completo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-      </div>
-      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
-    </div>
-  </section>
-
-  <!-- PROYECTO 08 -->
-  <section class="skill" id="proyecto-08">
-    <div class="wrap">
-      <span class="eyebrow">Proyecto 08 · Tu Vida</span>
-      <div class="skill-head">
-        <span class="skill-icon">✈️</span>
-        <h2>Viaje desde tus guardados</h2>
-      </div>
-      <div class="where-tag">
-        <span>Dónde lo haces:</span> El chat de Claude (subes tus capturas)
-      </div>
-      <div class="framing">
-        <strong>Para qué sirve:</strong> Subes capturas de todos los reels y posts que guardaste del destino, y Claude identifica los lugares, los agrupa por zona, arma un itinerario día a día con horarios realistas, te dice qué reservar con tiempo y da un estimado de presupuesto por día.
-      </div>
-      <p class="subhead">Qué puede hacer</p>
-      <ul class="checklist">
-        <li>Identificar cada lugar de tus capturas: restaurantes, playas, planes, cafés</li>
-        <li>Agrupar por zona para optimizar movimientos</li>
-        <li>Armar un itinerario día a día con horarios realistas</li>
-        <li>Indicar qué lugares hay que reservar con anticipación</li>
-        <li>Dar un estimado de presupuesto por día según tu estilo de viaje</li>
-        <li>Presentarlo como un itinerario visual para el celular</li>
-      </ul>
-      <div class="prompt-box">
-        <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 08</span>
-          <button class="copy-btn" data-copy-target="p08-texto" onclick="copyPrompt(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
-            <span class="copy-btn__text">Copiar</span>
-          </button>
-        </div>
-        <div class="prompt-box__body clamped" id="p08-texto-wrap">
-<pre id="p08-texto">Voy a [destino] del [fecha] al [fecha]. Te voy a subir capturas de los reels, posts y lugares que guardé. Quiero que:
-
-1. Identifiques cada lugar de las capturas (restaurantes, playas, planes, cafés).
-2. Los agrupes por zona para no perder tiempo moviéndome.
-3. Me armes un itinerario día por día con horarios realistas.
-4. Me digas qué lugares hay que reservar con anticipación.
-5. Me des un estimado de presupuesto por día.
-
-Mi estilo de viaje es: [relajado / aventurero / foodie].
-
-Preséntalo como un itinerario visual que pueda abrir en el celular.</pre>
-        </div>
-        <button class="expand-toggle" onclick="toggleExpand(this, 'p08-texto-wrap')">
-          <span class="expand-toggle__text">Mostrar completo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-      </div>
-      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
-    </div>
-  </section>
-
-  <!-- PROYECTO 09 -->
-  <section class="skill" id="proyecto-09">
-    <div class="wrap">
-      <span class="eyebrow">Proyecto 09 · Protégete</span>
-      <div class="skill-head">
-        <span class="skill-icon">📄</span>
-        <h2>Detector de letra pequeña</h2>
-      </div>
-      <div class="where-tag">
-        <span>Dónde lo haces:</span> El chat de Claude (subes el contrato en PDF)
-      </div>
-      <div class="framing">
-        <strong>Para qué sirve:</strong> Sube cualquier contrato en PDF, dile quién eres en la transacción, y Claude te marca cada cláusula peligrosa con nivel de riesgo (alto / medio / bajo), te la explica en palabras simples y te dice qué pedir que cambien antes de firmar.
-      </div>
-      <p class="subhead">Qué puede hacer</p>
-      <ul class="checklist">
-        <li>Leer el contrato completo y marcar las cláusulas peligrosas para ti</li>
-        <li>Asignar nivel de riesgo: alto, medio o bajo</li>
-        <li>Explicar cada cláusula en palabras simples, sin jerga legal</li>
-        <li>Decirte qué pedir que cambien antes de firmar, con la redacción sugerida</li>
-        <li>Hacer una lista de preguntas para hacerle a la otra parte</li>
-      </ul>
-      <div class="prompt-box">
-        <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 09</span>
-          <button class="copy-btn" data-copy-target="p09-texto" onclick="copyPrompt(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
-            <span class="copy-btn__text">Copiar</span>
-          </button>
-        </div>
-        <div class="prompt-box__body clamped" id="p09-texto-wrap">
-<pre id="p09-texto">Te voy a subir un contrato de [arriendo / trabajo / préstamo / proveedor]. Yo soy [el arrendatario / el empleado / el cliente]. Quiero que:
-
-1. Leas todo el contrato.
-2. Me marques las cláusulas peligrosas o injustas para mí, con nivel de riesgo: alto, medio o bajo.
-3. Me expliques cada una en palabras simples, como si no supiera nada de leyes.
-4. Me digas qué pedir que cambien antes de firmar, con la redacción sugerida.
-5. Me hagas una lista de preguntas para hacerle a la otra parte.
-
-Esto no reemplaza a un abogado, pero quiero llegar con todo listo a la conversación.</pre>
-        </div>
-        <button class="expand-toggle" onclick="toggleExpand(this, 'p09-texto-wrap')">
-          <span class="expand-toggle__text">Mostrar completo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-      </div>
-      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
-    </div>
-  </section>
-
-  <!-- PROYECTO 10 -->
-  <section class="skill" id="proyecto-10">
-    <div class="wrap">
-      <span class="eyebrow">Proyecto 10 · Protégete</span>
-      <div class="skill-head">
-        <span class="skill-icon">🚨</span>
-        <h2>Detector de estafas</h2>
-      </div>
-      <div class="where-tag">
-        <span>Dónde lo haces:</span> El chat de Claude (y se lo puedes compartir a tu familia)
-      </div>
-      <div class="framing">
-        <strong>Para qué sirve:</strong> Una herramienta donde puedes pegar un mensaje, correo o link sospechoso y te dice en segundos qué tan probable es que sea estafa, qué señales lo delatan y qué hacer ahora — con letra grande y un solo botón para que la pueda usar tu mamá.
-      </div>
-      <p class="subhead">Qué puede hacer</p>
-      <ul class="checklist">
-        <li>Evaluar la probabilidad de estafa en porcentaje</li>
-        <li>Identificar las señales que la delatan: links raros, urgencia, errores, remitente falso</li>
-        <li>Decirte qué hacer: no abrir, bloquear o llamar a la línea oficial</li>
-        <li>Mostrar cómo se vería el mensaje real de esa empresa</li>
-        <li>Interfaz súper simple: letra grande, un solo botón, respuesta en lenguaje simple</li>
-      </ul>
-      <div class="prompt-box">
-        <div class="prompt-box__head">
-          <span class="prompt-box__label">Prompt · Proyecto 10</span>
-          <button class="copy-btn" data-copy-target="p10-texto" onclick="copyPrompt(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
-            <span class="copy-btn__text">Copiar</span>
-          </button>
-        </div>
-        <div class="prompt-box__body clamped" id="p10-texto-wrap">
-<pre id="p10-texto">Constrúyeme una herramienta sencilla donde pueda pegar un mensaje, correo o link sospechoso y me diga:
-
-1. Qué tan probable es que sea estafa, en porcentaje.
-2. Las señales que lo delatan (links raros, urgencia, errores, remitente falso).
-3. Qué hacer ahora: no abrir, bloquear o llamar a la línea oficial.
-4. Un ejemplo de cómo se vería el mensaje real de esa empresa.
-
-Hazla tan fácil que la pueda usar mi mamá: letra grande, un solo botón y la respuesta en lenguaje simple.</pre>
-        </div>
-        <button class="expand-toggle" onclick="toggleExpand(this, 'p10-texto-wrap')">
-          <span class="expand-toggle__text">Mostrar completo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-      </div>
-      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
-    </div>
-  </section>
 
 
 </main>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <span class="eyebrow">¿Quieres ir más lejos?</span>
+    <h2>Conviértete en especialista en las habilidades de marketing que más se pagan hoy</h2>
+    <p>En aprendoclub formamos profesionales de marketing digital de LATAM con las habilidades reales que el mercado exige: SEO, contenido, ads, social media y más — con IA como ventaja, no como reemplazo.</p>
+    <a class="cta-btn" href="https://aprendoclub.com" target="_blank" rel="noopener">
+      Conocer aprendoclub →
+    </a>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
