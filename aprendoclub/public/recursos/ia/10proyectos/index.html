@@ -1,0 +1,1212 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>10 Proyectos con Claude</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* === Tokens — IA Lab (aprendoclub brand, dark-first single theme) === */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  --bg:        #17181B;
+  --bg-soft:   #1B1C20;
+  --card:      #1E2023;
+  --card-raised:#232529;
+  --ink:       #F5F5F3;
+  --ink-soft:  #9C9FA5;
+  --ink-mute:  #6D7076;
+  --lime:      #D7FF4B;
+  --lime-dim:  #A9CC3C;
+  --lime-ink:  #14150E;
+  --lime-tint: rgba(215,255,75,.10);
+  --lime-glow: rgba(215,255,75,.28);
+  --border:    rgba(255,255,255,.08);
+  --border-soft:rgba(255,255,255,.06);
+  --code-bg:   #101113;
+  --code-ink:  #D9DBDD;
+  --shadow:    rgba(0,0,0,.45);
+  color-scheme: dark;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+body.locked { overflow: hidden; }
+a { color: inherit; }
+h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  margin: 0 0 .5em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+p { margin: 0 0 1em; }
+.accent { color: var(--lime); }
+
+/* Layout */
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left:  max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.center { text-align: center; }
+.center .wrap { display: flex; flex-direction: column; align-items: center; }
+
+section { padding: 72px 0; }
+section.tight { padding: 56px 0; }
+section + section { border-top: 1px solid var(--border-soft); }
+
+/* Typography helpers */
+.eyebrow {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--lime);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+/* Hero */
+.hero { padding: 96px 0 72px; }
+.hero h1 { font-size: 44px; max-width: 16ch; margin: 0 auto .4em; }
+.hero .lede { font-size: 18px; color: var(--ink-soft); max-width: 52ch; margin: 0 auto 10px; }
+.hero .note { font-size: 14.5px; color: var(--ink-mute); max-width: 44ch; margin: 0 auto 0; }
+
+/* Golden tip banner */
+.tip-banner {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--lime-tint);
+  border: 1px solid var(--lime-glow);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-top: 36px;
+  max-width: 680px;
+  text-align: left;
+}
+.tip-banner .tip-icon { font-size: 22px; flex: none; margin-top: 2px; }
+.tip-banner p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
+.tip-banner strong { color: var(--lime); font-weight: 700; }
+
+/* Index grid */
+.h-section { font-size: 32px; max-width: 18ch; }
+.grid { display: grid; gap: 16px; }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+.n-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 20px;
+  text-decoration: none;
+  display: block;
+  transition: border-color .15s ease, transform .15s ease;
+}
+a.n-card:hover { border-color: var(--lime-glow); transform: translateY(-2px); }
+.n-card__num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--lime);
+  display: block;
+  margin-bottom: 8px;
+}
+.n-card__cat {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: block;
+  margin-bottom: 10px;
+}
+.n-card h3 { font-size: 14.5px; font-weight: 700; margin: 0 0 6px; color: var(--ink); }
+.n-card p { font-size: 13px; color: var(--ink-soft); margin: 0; }
+.n-card__go { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--lime); }
+
+/* Content sections */
+.skill-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+.skill-icon { font-size: 28px; line-height: 1; }
+.skill h2 { font-size: 27px; margin: 0; }
+.where-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+}
+.where-tag span { color: var(--ink-mute); font-size: 11px; }
+
+.framing {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--lime);
+  border-radius: 4px 14px 14px 4px;
+  padding: 20px 22px;
+  margin: 22px 0;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.framing strong { color: var(--lime); font-weight: 700; }
+
+.subhead {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--lime);
+  margin: 28px 0 14px;
+}
+ul.checklist {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+ul.checklist li {
+  display: flex;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+ul.checklist li::before { content: "✓"; color: var(--lime); font-weight: 700; flex: none; }
+
+/* Prompt box */
+.prompt-box {
+  margin-top: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+.prompt-box__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.prompt-box__label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: var(--lime);
+  letter-spacing: .06em;
+}
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--code-ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.copy-btn:hover { background: var(--lime-tint); border-color: var(--lime-glow); color: var(--lime); }
+.copy-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+.copy-btn.copied { border-color: var(--lime); color: var(--lime); background: var(--lime-tint); }
+.copy-btn svg { width: 14px; height: 14px; flex: none; }
+.prompt-box__body {
+  position: relative;
+  max-height: 1600px;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.prompt-box__body.clamped { max-height: 240px; }
+.prompt-box__body.clamped::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 90px;
+  background: linear-gradient(to bottom, transparent, var(--code-bg));
+  pointer-events: none;
+}
+.prompt-box pre {
+  margin: 0;
+  padding: 20px 22px 26px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.8px;
+  line-height: 1.75;
+  color: var(--code-ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.expand-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: var(--bg-soft);
+  color: var(--ink-soft);
+  border: none;
+  border-top: 1px solid var(--border-soft);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px;
+  cursor: pointer;
+  justify-content: center;
+}
+.expand-toggle:hover { color: var(--lime); }
+.expand-toggle svg { width: 13px; height: 13px; transition: transform .25s ease; }
+.expand-toggle.is-open svg { transform: rotate(180deg); }
+
+.back-to-index {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--lime);
+  text-decoration: none;
+  font-weight: 600;
+}
+.back-to-index:hover { color: var(--lime-dim); }
+
+/* CTA band */
+.cta-band h2 { font-size: 32px; max-width: 18ch; }
+.cta-band > .wrap > p { color: var(--ink-soft); max-width: 56ch; }
+.cta-panel {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  background: var(--card);
+  border: 1px solid var(--lime-glow);
+  border-radius: 26px;
+  padding: 40px;
+  margin-top: 32px;
+  box-shadow: 0 0 60px var(--lime-tint);
+}
+.cta-panel h3 { font-size: 20px; margin-bottom: 16px; }
+.cta-check {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--lime-tint);
+  color: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.cta-right h3 { font-size: 19px; margin-bottom: 8px; }
+.cta-right p { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 22px; }
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-weight: 700;
+  font-size: 15.5px;
+  padding: 16px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .15s ease, transform .15s ease;
+}
+.cta-btn:hover { background: #E4FF7A; transform: translateY(-1px); }
+.cta-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+.cta-url {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+/* Footer */
+footer {
+  padding: 36px 0 52px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+/* Gate */
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10,11,10,.78);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  opacity: 1;
+  transition: opacity .35s ease;
+}
+.gate.is-hidden { opacity: 0; pointer-events: none; }
+.gate-card {
+  width: 100%;
+  max-width: 440px;
+  background: #FFFFFF;
+  color: #14151A;
+  border-radius: 28px;
+  padding: 40px 36px;
+  box-shadow: 0 40px 100px rgba(0,0,0,.55);
+}
+.gate-card h2 { color: #14151A; font-size: 24px; margin-bottom: 12px; }
+.gate-card p.gate-desc { color: #5B5F66; font-size: 15px; line-height: 1.55; margin-bottom: 26px; }
+.gate-field { margin-bottom: 16px; }
+.gate-field label { display: block; font-weight: 700; font-size: 13.5px; margin-bottom: 7px; color: #14151A; }
+.gate-field input {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 12px;
+  border: 1px solid #E2E1DA;
+  background: #fff;
+  color: #14151A;
+  font-size: 15px;
+  font-family: inherit;
+}
+.gate-field input::placeholder { color: #A9ACB1; }
+.gate-field input:focus { outline: 2px solid #D7FF4B; outline-offset: 1px; border-color: transparent; }
+.gate-submit {
+  width: 100%;
+  background: #14151A;
+  color: #D7FF4B;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 15px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background .15s ease, opacity .15s ease;
+}
+.gate-submit:hover { background: #0B0C0F; }
+.gate-submit[disabled] { opacity: .65; cursor: progress; }
+.gate-disclaimer { text-align: center; font-size: 13px; color: #8B8E93; margin: 16px 0 0; }
+.gate-error { display: none; color: #B3261E; font-size: 13px; margin: -6px 0 14px; font-weight: 600; }
+.gate-error.show { display: block; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .grid-5 { grid-template-columns: repeat(3, 1fr); }
+  .cta-panel { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 30px; }
+  .h-section { font-size: 26px; }
+  .grid-5 { grid-template-columns: 1fr 1fr; }
+  .cta-panel { padding: 26px; }
+  .gate-card { padding: 32px 24px; border-radius: 22px; }
+  section { padding: 56px 0; }
+}
+@media (max-width: 400px) {
+  .grid-5 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- GATE -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <span class="badge-pill">IA Lab</span>
+    <h2>Deja tu correo y accede a los 10 proyectos</h2>
+    <p class="gate-desc">Los prompts completos, listos para pegar en Claude. Desde una recepcionista con IA hasta un detector de estafas para tu familia. Se desbloquean aquí mismo.</p>
+
+    <!--
+      Kajabi form 2149765284
+      El embed.js no pudo cargarse desde este entorno.
+      Si los campos o el authenticity_token no coinciden con los reales,
+      reemplaza los name="" con los valores de embed.js abierto en el navegador.
+    -->
+    <form id="gate-form"
+          action="https://academia.aprendoclub.com/forms/2149765284/form_submissions"
+          method="post"
+          accept-charset="UTF-8">
+
+      <!-- hidden utf8 helper, estándar Rails -->
+      <input type="hidden" name="utf8" value="✓">
+      <!-- authenticity_token: obtener de academia.aprendoclub.com/forms/2149765284/embed.js -->
+      <input type="hidden" name="authenticity_token" id="csrf-token" value="">
+
+      <div class="gate-field">
+        <label for="g-name">Nombre</label>
+        <input type="text" id="g-name" name="contact[first_name]"
+               placeholder="Tu nombre" required autocomplete="given-name">
+      </div>
+      <div class="gate-field">
+        <label for="g-email">Correo electrónico</label>
+        <input type="email" id="g-email" name="contact[email]"
+               placeholder="tu@correo.com" required autocomplete="email">
+      </div>
+
+      <p class="gate-error" id="gate-error">Algo salió mal al enviar. De todas formas te desbloqueamos el contenido — si no recibes nuestro correo, escríbenos.</p>
+
+      <button class="gate-submit" type="submit">Acceder a los proyectos →</button>
+    </form>
+    <p class="gate-disclaimer">Sin spam. Puedes darte de baja cuando quieras.</p>
+  </div>
+</div>
+<!-- /GATE -->
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero center" id="top">
+    <div class="wrap">
+      <span class="badge-pill">IA Lab</span>
+      <h1>10 proyectos que puedes construir con Claude <span class="accent">hoy</span></h1>
+      <p class="lede">Prompts completos para pedirle a Claude que construya herramientas reales para tu negocio, tus finanzas y tu vida. Copia, pega y adapta.</p>
+      <p class="note">Cambia lo que está entre [corchetes] por tus datos y pégalo en Claude.</p>
+      <div class="tip-banner">
+        <span class="tip-icon">💡</span>
+        <p><strong>El tip que lo cambia todo:</strong> al final de cualquier prompt agrega <strong>"Antes de empezar, hazme las preguntas que necesites"</strong>. Claude te preguntará lo que le falta y el resultado sale mucho mejor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÍNDICE -->
+  <section class="tight" id="indice">
+    <div class="wrap">
+      <span class="eyebrow">Los 10 proyectos</span>
+      <h2 class="h-section">¿Cuál vas a construir primero?</h2>
+      <div class="grid grid-5" style="margin-top:32px;">
+
+        <a class="n-card" href="#proyecto-01">
+          <span class="n-card__num">01</span>
+          <span class="n-card__cat">Negocio</span>
+          <h3>🤖 Recepcionista con IA</h3>
+          <p>Llamadas, DMs e Instagram respondidos solos.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-02">
+          <span class="n-card__num">02</span>
+          <span class="n-card__cat">Negocio</span>
+          <h3>💬 WhatsApp que vende solo</h3>
+          <p>Asistente que toma pedidos y agenda citas.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-03">
+          <span class="n-card__num">03</span>
+          <span class="n-card__cat">Tu Plata</span>
+          <h3>📊 Tablero de finanzas</h3>
+          <p>Todas tus entradas de dinero en una sola vista.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-04">
+          <span class="n-card__num">04</span>
+          <span class="n-card__cat">Tu Plata</span>
+          <h3>🔍 Cazador de suscripciones</h3>
+          <p>Encuentra lo que pagas sin usar cada mes.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-05">
+          <span class="n-card__num">05</span>
+          <span class="n-card__cat">Ideas</span>
+          <h3>🎙️ Notas de voz a ideas</h3>
+          <p>App que transcribe y organiza tus ideas del día.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-06">
+          <span class="n-card__num">06</span>
+          <span class="n-card__cat">Tu Día</span>
+          <h3>☀️ Resumen de cada mañana</h3>
+          <p>Reuniones, correos urgentes y pendientes listos al despertar.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-07">
+          <span class="n-card__num">07</span>
+          <span class="n-card__cat">Contenido</span>
+          <h3>💡 Comentarios a contenido</h3>
+          <p>Convierte lo que pregunta tu audiencia en ideas de posts.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-08">
+          <span class="n-card__num">08</span>
+          <span class="n-card__cat">Tu Vida</span>
+          <h3>✈️ Viaje desde tus guardados</h3>
+          <p>Itinerario armado con los reels que guardaste.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-09">
+          <span class="n-card__num">09</span>
+          <span class="n-card__cat">Protégete</span>
+          <h3>📄 Detector de letra pequeña</h3>
+          <p>Cláusulas peligrosas en tus contratos, en español.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+        <a class="n-card" href="#proyecto-10">
+          <span class="n-card__num">10</span>
+          <span class="n-card__cat">Protégete</span>
+          <h3>🚨 Detector de estafas</h3>
+          <p>Tan fácil que la puede usar tu mamá.</p>
+          <span class="n-card__go">Ver →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTO 01 -->
+  <section class="skill" id="proyecto-01">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 01 · Negocio</span>
+      <div class="skill-head">
+        <span class="skill-icon">🤖</span>
+        <h2>Recepcionista con IA</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> Claude Code + un servicio de voz (tipo Vapi o Twilio)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Construye un asistente que contesta llamadas con voz natural, responde DMs de Instagram y WhatsApp, resuelve preguntas frecuentes y te avisa al instante cuando algo es urgente — todo sin que tengas que estar pendiente.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Contestar llamadas con voz natural en español y presentarse con el nombre de tu negocio</li>
+        <li>Responder DMs de Instagram y mensajes de WhatsApp automáticamente</li>
+        <li>Resolver preguntas frecuentes con tu información de horarios, precios y servicios</li>
+        <li>Tomar mensajes con nombre, teléfono y motivo, guardados en Google Sheets</li>
+        <li>Marcar como URGENTE cualquier mensaje crítico y avisarte por WhatsApp al instante</li>
+        <li>Mostrarte un panel con llamadas del día, DMs respondidos y urgentes</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 01</span>
+          <button class="copy-btn" data-copy-target="p01-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p01-texto-wrap">
+<pre id="p01-texto">Quiero que me construyas una recepcionista con IA para mi negocio: [tipo de negocio] en [ciudad]. Debe:
+
+1. Contestar llamadas con voz natural en español y presentarse como [nombre] de [negocio].
+2. Responder los DMs de Instagram y los mensajes de WhatsApp.
+3. Resolver las preguntas frecuentes con esta información: [horarios, precios, dirección, servicios].
+4. Tomar mensajes (nombre, teléfono y motivo) y guardarlos en una hoja de Google Sheets.
+5. Marcar como URGENTE todo lo que mencione [dolor, emergencia, hoy, reclamo] y avisarme al instante por WhatsApp.
+6. Mostrarme un panel con las llamadas del día, los DMs respondidos y los urgentes.
+
+Antes de empezar, hazme las preguntas que necesites y dime qué servicios tengo que conectar y cuánto cuestan.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p01-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 02 -->
+  <section class="skill" id="proyecto-02">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 02 · Negocio</span>
+      <div class="skill-head">
+        <span class="skill-icon">💬</span>
+        <h2>WhatsApp que vende solo</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> Claude Code o n8n + WhatsApp Business API
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Un asistente de WhatsApp que saluda con el tono de tu marca, responde precios y disponibilidad, toma pedidos completos, agenda citas y guarda todo en Google Sheets — pasándote solo las conversaciones que de verdad necesitan tu atención.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Saludar con el tono de tu marca: cercano, formal o divertido</li>
+        <li>Responder precios y disponibilidad usando tu catálogo de productos</li>
+        <li>Tomar pedidos completos: producto, cantidad, dirección y forma de pago</li>
+        <li>Agendar citas o entregas según tu horario disponible</li>
+        <li>Enviar el catálogo cuando alguien lo pida</li>
+        <li>Pasarte la conversación cuando el cliente pida hablar con una persona o se moleste</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 02</span>
+          <button class="copy-btn" data-copy-target="p02-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p02-texto-wrap">
+<pre id="p02-texto">Constrúyeme un asistente de WhatsApp para mi negocio: [qué vendes]. Debe:
+
+1. Saludar con el tono de mi marca: [cercano / formal / divertido].
+2. Responder precios y disponibilidad usando mi catálogo: [pega tu lista de productos y precios].
+3. Tomar pedidos completos: producto, cantidad, dirección y forma de pago.
+4. Agendar citas o entregas según mi horario: [días y horas].
+5. Enviar el catálogo cuando alguien lo pida.
+6. Pasarme la conversación cuando el cliente pida hablar con una persona o se moleste.
+7. Guardar cada pedido en una hoja de Google Sheets.
+
+Antes de empezar, hazme las preguntas que necesites y explícame paso a paso cómo conectar WhatsApp.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p02-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 03 -->
+  <section class="skill" id="proyecto-03">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 03 · Tu Plata</span>
+      <div class="skill-head">
+        <span class="skill-icon">📊</span>
+        <h2>Tablero de tus finanzas</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> El chat de Claude (subes tus extractos)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Sube tus extractos bancarios y reportes de pagos, y Claude arma un tablero interactivo que une todo en una sola vista: ingresos por mes, por fuente, comparación con el mes anterior — sin inventar nada.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Juntar todas tus entradas de dinero (banco, pasarela de pagos, facturas) en una sola vista</li>
+        <li>Mostrar el total por mes en una gráfica de barras interactiva</li>
+        <li>Separar por fuente: clientes, ventas online, Nequi y otros</li>
+        <li>Decirte cuál fuente deja más dinero y cuál está creciendo</li>
+        <li>Comparar este mes contra el anterior automáticamente</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 03</span>
+          <button class="copy-btn" data-copy-target="p03-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p03-texto-wrap">
+<pre id="p03-texto">Te voy a subir los extractos y reportes de todo lo que me entra de plata: [banco, pasarela de pagos, facturas a clientes]. Constrúyeme un tablero interactivo que:
+
+1. Junte todas mis entradas en una sola vista.
+2. Me muestre el total por mes en una gráfica de barras.
+3. Separe por fuente: clientes, ventas online, Nequi y otros.
+4. Me diga cuál fuente me deja más y cuál está creciendo.
+5. Compare este mes contra el anterior.
+
+No inventes datos. Si algo no está claro en los archivos, pregúntame.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p03-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 04 -->
+  <section class="skill" id="proyecto-04">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 04 · Tu Plata</span>
+      <div class="skill-head">
+        <span class="skill-icon">🔍</span>
+        <h2>Cazador de suscripciones</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> El chat de Claude (subes tu extracto en PDF)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Sube tus extractos de los últimos 3 meses y Claude encuentra todos los cobros que se repiten, los marca si probablemente no los usas, te dice cuánto estás pagando y cuánto te ahorrarías si cancelas los innecesarios.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Encontrar todos los cobros que se repiten cada mes: suscripciones, apps, membresías</li>
+        <li>Armar una tabla con nombre, valor, día del cobro y desde cuándo lo pagas</li>
+        <li>Marcar los que probablemente no usas o están duplicados</li>
+        <li>Calcular cuánto pagas al mes y al año en total</li>
+        <li>Decirte cuánto ahorrarías si cancelas los marcados</li>
+        <li>Convertirlo en un tablero visual para revisar cada mes</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 04</span>
+          <button class="copy-btn" data-copy-target="p04-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p04-texto-wrap">
+<pre id="p04-texto">Te voy a subir mis extractos bancarios de los últimos 3 meses. Quiero que:
+
+1. Encuentres todos los cobros que se repiten cada mes (suscripciones, apps, membresías).
+2. Me hagas una tabla con: nombre, valor, día del cobro y desde cuándo lo pago.
+3. Marques los que probablemente no uso o están duplicados.
+4. Me digas cuánto pago al mes y al año en total.
+5. Me digas cuánto me ahorraría si cancelo los marcados.
+
+Al final, conviértelo en un tablero visual que pueda revisar cada mes.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p04-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 05 -->
+  <section class="skill" id="proyecto-05">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 05 · Ideas</span>
+      <div class="skill-head">
+        <span class="skill-icon">🎙️</span>
+        <h2>Notas de voz a ideas</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> Claude Code (app en tu celular)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Una app que vive en el navegador de tu celular: grabas notas de voz mientras caminas, se transcriben solas, extraen ideas clave y las organizan en listas por categoría. Sin tiendas de apps, sin instalaciones.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Botón grande para grabar notas de voz mientras caminas</li>
+        <li>Transcripción automática al español de cada nota</li>
+        <li>Ideas clave extraídas en frases cortas desde la transcripción</li>
+        <li>Organización en listas: Ideas, Negocio, Contenido y Pendientes</li>
+        <li>Búsqueda por palabra y marcado de ideas como hechas</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 05</span>
+          <button class="copy-btn" data-copy-target="p05-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p05-texto-wrap">
+<pre id="p05-texto">Constrúyeme una app sencilla para mi celular donde:
+
+1. Tenga un botón grande para grabar notas de voz mientras camino.
+2. Transcriba cada nota al español automáticamente.
+3. Saque las ideas clave de cada nota en frases cortas.
+4. Las organice en listas: Ideas, Negocio, Contenido y Pendientes.
+5. Me deje buscar por palabra y marcar ideas como hechas.
+
+Quiero que funcione desde el navegador del celular, sin publicarla en ninguna tienda.
+
+Antes de empezar, dime qué necesito y cuánto cuesta la transcripción.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p05-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 06 -->
+  <section class="skill" id="proyecto-06">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 06 · Tu Día</span>
+      <div class="skill-head">
+        <span class="skill-icon">☀️</span>
+        <h2>Resumen de cada mañana</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> Claude con Gmail y Google Calendar conectados (o n8n)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Todas las mañanas a la hora que elijas, Claude lee tu calendario, revisa tu correo de las últimas 24 horas y te manda un resumen que se lee en menos de un minuto — con borradores de los correos fáciles de responder ya listos.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Leer tu Google Calendar del día y listar tus reuniones con horarios</li>
+        <li>Revisar los correos de las últimas 24 horas y ordenarlos por importancia</li>
+        <li>Detectar pendientes que se te están pasando</li>
+        <li>Dejar borradores listos para los correos fáciles de responder</li>
+        <li>Todo en menos de 1 minuto de lectura, sin relleno</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 06</span>
+          <button class="copy-btn" data-copy-target="p06-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p06-texto-wrap">
+<pre id="p06-texto">Todas las mañanas a las [7:00 am], quiero que:
+
+1. Leas mi Google Calendar del día.
+2. Revises mi correo de las últimas 24 horas.
+3. Me mandes un resumen corto con:
+   · Mis reuniones de hoy y a qué hora.
+   · Los correos que necesitan respuesta, ordenados por importancia.
+   · Pendientes que se me están pasando.
+4. Si un correo es fácil de responder, déjame un borrador listo.
+
+Que el resumen se lea en menos de 1 minuto. Sin relleno.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p06-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 07 -->
+  <section class="skill" id="proyecto-07">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 07 · Contenido</span>
+      <div class="skill-head">
+        <span class="skill-icon">💡</span>
+        <h2>Comentarios a contenido</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> El chat de Claude (pegas o exportas los comentarios)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Pegas los comentarios de tus últimos posts y Claude extrae todas las preguntas, las agrupa por tema, las ordena de mayor a menor interés y te da ideas de post con gancho para cada una — más una herramienta para repetirlo con comentarios nuevos.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Extraer todas las preguntas que hace tu audiencia en los comentarios</li>
+        <li>Agrupar por tema y contar cuántas veces se repite cada pregunta</li>
+        <li>Ordenar de mayor a menor lo que más quieren saber</li>
+        <li>Dar 3 ideas de post con gancho por cada tema, en el formato ideal (reel, carrusel o historia)</li>
+        <li>Convertirse en una herramienta que actualize la lista con comentarios nuevos</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 07</span>
+          <button class="copy-btn" data-copy-target="p07-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p07-texto-wrap">
+<pre id="p07-texto">Te voy a pasar los comentarios de mis últimos posts de [Instagram / TikTok / YouTube]. Mi nicho es: [tu nicho]. Quiero que:
+
+1. Saques todas las preguntas que hace la gente.
+2. Las agrupes por tema y me digas cuántas veces se repite cada una.
+3. Me ordenes de mayor a menor lo que más quieren saber.
+4. Por cada tema, me des 3 ideas de post con un gancho para el inicio.
+5. Me digas qué formato le va mejor a cada idea: reel, carrusel o historia.
+
+Después, conviértelo en una herramienta donde pueda pegar comentarios nuevos y me actualice la lista.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p07-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 08 -->
+  <section class="skill" id="proyecto-08">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 08 · Tu Vida</span>
+      <div class="skill-head">
+        <span class="skill-icon">✈️</span>
+        <h2>Viaje desde tus guardados</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> El chat de Claude (subes tus capturas)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Subes capturas de todos los reels y posts que guardaste del destino, y Claude identifica los lugares, los agrupa por zona, arma un itinerario día a día con horarios realistas, te dice qué reservar con tiempo y da un estimado de presupuesto por día.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Identificar cada lugar de tus capturas: restaurantes, playas, planes, cafés</li>
+        <li>Agrupar por zona para optimizar movimientos</li>
+        <li>Armar un itinerario día a día con horarios realistas</li>
+        <li>Indicar qué lugares hay que reservar con anticipación</li>
+        <li>Dar un estimado de presupuesto por día según tu estilo de viaje</li>
+        <li>Presentarlo como un itinerario visual para el celular</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 08</span>
+          <button class="copy-btn" data-copy-target="p08-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p08-texto-wrap">
+<pre id="p08-texto">Voy a [destino] del [fecha] al [fecha]. Te voy a subir capturas de los reels, posts y lugares que guardé. Quiero que:
+
+1. Identifiques cada lugar de las capturas (restaurantes, playas, planes, cafés).
+2. Los agrupes por zona para no perder tiempo moviéndome.
+3. Me armes un itinerario día por día con horarios realistas.
+4. Me digas qué lugares hay que reservar con anticipación.
+5. Me des un estimado de presupuesto por día.
+
+Mi estilo de viaje es: [relajado / aventurero / foodie].
+
+Preséntalo como un itinerario visual que pueda abrir en el celular.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p08-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 09 -->
+  <section class="skill" id="proyecto-09">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 09 · Protégete</span>
+      <div class="skill-head">
+        <span class="skill-icon">📄</span>
+        <h2>Detector de letra pequeña</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> El chat de Claude (subes el contrato en PDF)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Sube cualquier contrato en PDF, dile quién eres en la transacción, y Claude te marca cada cláusula peligrosa con nivel de riesgo (alto / medio / bajo), te la explica en palabras simples y te dice qué pedir que cambien antes de firmar.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Leer el contrato completo y marcar las cláusulas peligrosas para ti</li>
+        <li>Asignar nivel de riesgo: alto, medio o bajo</li>
+        <li>Explicar cada cláusula en palabras simples, sin jerga legal</li>
+        <li>Decirte qué pedir que cambien antes de firmar, con la redacción sugerida</li>
+        <li>Hacer una lista de preguntas para hacerle a la otra parte</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 09</span>
+          <button class="copy-btn" data-copy-target="p09-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p09-texto-wrap">
+<pre id="p09-texto">Te voy a subir un contrato de [arriendo / trabajo / préstamo / proveedor]. Yo soy [el arrendatario / el empleado / el cliente]. Quiero que:
+
+1. Leas todo el contrato.
+2. Me marques las cláusulas peligrosas o injustas para mí, con nivel de riesgo: alto, medio o bajo.
+3. Me expliques cada una en palabras simples, como si no supiera nada de leyes.
+4. Me digas qué pedir que cambien antes de firmar, con la redacción sugerida.
+5. Me hagas una lista de preguntas para hacerle a la otra parte.
+
+Esto no reemplaza a un abogado, pero quiero llegar con todo listo a la conversación.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p09-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+  <!-- PROYECTO 10 -->
+  <section class="skill" id="proyecto-10">
+    <div class="wrap">
+      <span class="eyebrow">Proyecto 10 · Protégete</span>
+      <div class="skill-head">
+        <span class="skill-icon">🚨</span>
+        <h2>Detector de estafas</h2>
+      </div>
+      <div class="where-tag">
+        <span>Dónde lo haces:</span> El chat de Claude (y se lo puedes compartir a tu familia)
+      </div>
+      <div class="framing">
+        <strong>Para qué sirve:</strong> Una herramienta donde puedes pegar un mensaje, correo o link sospechoso y te dice en segundos qué tan probable es que sea estafa, qué señales lo delatan y qué hacer ahora — con letra grande y un solo botón para que la pueda usar tu mamá.
+      </div>
+      <p class="subhead">Qué puede hacer</p>
+      <ul class="checklist">
+        <li>Evaluar la probabilidad de estafa en porcentaje</li>
+        <li>Identificar las señales que la delatan: links raros, urgencia, errores, remitente falso</li>
+        <li>Decirte qué hacer: no abrir, bloquear o llamar a la línea oficial</li>
+        <li>Mostrar cómo se vería el mensaje real de esa empresa</li>
+        <li>Interfaz súper simple: letra grande, un solo botón, respuesta en lenguaje simple</li>
+      </ul>
+      <div class="prompt-box">
+        <div class="prompt-box__head">
+          <span class="prompt-box__label">Prompt · Proyecto 10</span>
+          <button class="copy-btn" data-copy-target="p10-texto" onclick="copyPrompt(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path></svg>
+            <span class="copy-btn__text">Copiar</span>
+          </button>
+        </div>
+        <div class="prompt-box__body clamped" id="p10-texto-wrap">
+<pre id="p10-texto">Constrúyeme una herramienta sencilla donde pueda pegar un mensaje, correo o link sospechoso y me diga:
+
+1. Qué tan probable es que sea estafa, en porcentaje.
+2. Las señales que lo delatan (links raros, urgencia, errores, remitente falso).
+3. Qué hacer ahora: no abrir, bloquear o llamar a la línea oficial.
+4. Un ejemplo de cómo se vería el mensaje real de esa empresa.
+
+Hazla tan fácil que la pueda usar mi mamá: letra grande, un solo botón y la respuesta en lenguaje simple.</pre>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this, 'p10-texto-wrap')">
+          <span class="expand-toggle__text">Mostrar completo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a class="back-to-index" href="#indice">↑ Volver al índice</a>
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 aprendoclub · Hecho con 💚 para la comunidad digital de LATAM
+  </div>
+</footer>
+
+<script>
+  /* ── Copy buttons ── */
+  function copyPrompt(btn) {
+    var targetId = btn.getAttribute('data-copy-target');
+    var el = document.getElementById(targetId);
+    if (!el) return;
+    var text = el.innerText;
+    function showCopied() {
+      var label = btn.querySelector('.copy-btn__text');
+      btn.classList.add('copied');
+      label.textContent = '¡Copiado!';
+      setTimeout(function () {
+        btn.classList.remove('copied');
+        label.textContent = 'Copiar';
+      }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showCopied, function () { fallbackCopy(text, showCopied); });
+    } else {
+      fallbackCopy(text, showCopied);
+    }
+  }
+  function fallbackCopy(text, cb) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      cb();
+    } catch (e) {}
+  }
+
+  /* ── Expand toggles ── */
+  function toggleExpand(btn, wrapId) {
+    var wrap = document.getElementById(wrapId);
+    var label = btn.querySelector('.expand-toggle__text');
+    var clamped = wrap.classList.toggle('clamped');
+    if (clamped) {
+      label.textContent = 'Mostrar completo';
+      btn.classList.remove('is-open');
+    } else {
+      label.textContent = 'Contraer';
+      btn.classList.add('is-open');
+    }
+  }
+
+  /* ── Gate ── */
+  (function () {
+    var form   = document.getElementById('gate-form');
+    var gate   = document.getElementById('gate');
+    var errEl  = document.getElementById('gate-error');
+    var unlocked = false;
+
+    function unlockPage() {
+      if (unlocked) return;
+      unlocked = true;
+      gate.classList.add('is-hidden');
+      document.body.classList.remove('locked');
+      setTimeout(function () { gate.style.display = 'none'; }, 400);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('.gate-submit');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      var data    = new FormData(form);
+      var action  = form.getAttribute('action');
+      var failsafe = setTimeout(unlockPage, 2800);
+
+      fetch(action, { method: 'POST', mode: 'no-cors', body: data })
+        .catch(function () { errEl.classList.add('show'); })
+        .finally(function () {
+          clearTimeout(failsafe);
+          btn.disabled = false;
+          btn.textContent = 'Acceder a los proyectos →';
+          unlockPage();
+        });
+    });
+  })();
+</script>
+</body>
+</html>
+
+</body></html>
