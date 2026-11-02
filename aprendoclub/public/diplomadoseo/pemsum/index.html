@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pénsum Diplomado SEO + AIO | aprendoclub</title>
+<meta name="description" content="Plan de estudios completo del Diplomado SEO + AIO de aprendoclub: 16 semanas, de cero a especialista SEO, con IA integrada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-primary:#0a0f14;--bg-secondary:#111827;--bg-tertiary:#1f2937;
+  --primary:#012fd8;--primary-light:#0495f1;--primary-medium:#0360e5;
+  --accent:#b8f60d;--surface-card:#0d1117;--border-card:#ffffff1a;
+  --text:#fff;--text-2:#ffffffcc;--muted:#99a1af;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text);font-family:"Montserrat",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+::selection{background:#012fd84d;color:#fff}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:640px){.wrap{padding:0 3rem}}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+h2.sec{font-size:1.75rem;font-weight:700;line-height:1.2;margin-top:.75rem;text-wrap:balance}
+@media(min-width:768px){h2.sec{font-size:2.25rem}}
+.lead{color:var(--muted);font-size:1.05rem;margin-top:.75rem;max-width:42rem}
+section{padding:3rem 0}
+@media(min-width:768px){section{padding:4.5rem 0}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:20;height:68px;display:flex;align-items:center;background:#0a0f14e6;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff0f}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;width:100%}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
+.logo img{height:28px;width:auto}
+.logo .fallback{display:none}
+.logo .fallback b{color:var(--accent)}
+.cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#000;font-weight:600;font-size:.9rem;padding:.7rem 1.2rem;border-radius:10px;transition:.3s;white-space:nowrap}
+.cta:hover{filter:brightness(1.1);box-shadow:0 0 40px #b8f60d4d}
+.cta.lg{font-size:1.05rem;padding:1rem 1.8rem}
+.ghost{display:inline-flex;align-items:center;gap:.5rem;background:var(--surface-card);border:1px solid var(--border-card);font-weight:600;padding:1rem 1.8rem;border-radius:10px;transition:.3s}
+.ghost:hover{border-color:#ffffff33;background:#ffffff1a}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;text-align:center;padding:4rem 0 3rem}
+.blob{position:absolute;width:24rem;height:24rem;border-radius:50%;filter:blur(64px);pointer-events:none;animation:float 20s ease-in-out infinite}
+.blob.a{top:10%;left:-12rem;background:#012fd833}
+.blob.b{bottom:0;right:-12rem;background:#b8f60d14;animation-direction:reverse}
+@keyframes float{0%,100%{transform:translate(0)}25%{transform:translate(20px,-30px)}50%{transform:translate(-10px,20px)}75%{transform:translate(30px,10px)}}
+.pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border-card);background:var(--surface-card);border-radius:999px;padding:.4rem 1rem;font-size:.85rem;color:var(--muted)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{font-size:2.25rem;font-weight:700;line-height:1.12;letter-spacing:-.025em;max-width:56rem;margin:1.5rem auto 0;text-wrap:balance}
+@media(min-width:768px){.hero h1{font-size:3.4rem}}
+.hero h1 span{color:var(--accent)}
+.hero p.sub{color:var(--muted);font-size:1.1rem;max-width:42rem;margin:1.25rem auto 0}
+.hero .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
+
+/* CERO -> SEO journey visual */
+.journey{position:relative;max-width:56rem;margin:3.5rem auto 0;padding:1.5rem;border:1px solid var(--border-card);border-radius:24px;background:linear-gradient(135deg,#012fd81f,#0d1117 45%,#b8f60d12)}
+.journey-top{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
+.big0,.bigseo{font-weight:800;line-height:.9;letter-spacing:-.04em}
+.big0{font-size:4.5rem;color:transparent;-webkit-text-stroke:2px #ffffff55}
+.bigseo{font-size:3.2rem;color:var(--accent);text-shadow:0 0 40px #b8f60d55}
+.bigseo small{display:block;font-size:.9rem;letter-spacing:.1em;color:var(--primary-light);text-shadow:none;margin-top:.4rem;font-weight:700}
+@media(min-width:768px){.big0{font-size:7rem}.bigseo{font-size:5rem}}
+.track{position:relative;height:10px;border-radius:99px;background:#ffffff12;margin:1.5rem 0 .75rem;overflow:hidden}
+.track i{position:absolute;inset:0;width:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light) 55%,var(--accent));border-radius:99px;transform-origin:left;animation:grow 2.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.stops{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;text-align:left}
+.stops div{font-size:.72rem;color:var(--muted);line-height:1.3}
+.stops b{display:block;color:#fff;font-size:.78rem}
+@media(max-width:560px){.stops{grid-template-columns:repeat(2,1fr)}.stops div:last-child{grid-column:span 2}}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem}
+@media(min-width:768px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--surface-card);border:1px solid var(--border-card);border-radius:16px;padding:1.25rem;text-align:center}
+.stat b{display:block;font-size:2rem;font-weight:700;color:var(--primary-light)}
+.stat span{font-size:.85rem;color:var(--muted)}
+
+/* AIO section */
+.alt{background:var(--bg-secondary)}
+.aio-grid{display:grid;gap:1.25rem;margin-top:2.25rem}
+@media(min-width:900px){.aio-grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface-card);border:1px solid var(--border-card);border-radius:16px;padding:1.5rem}
+.card h3{font-size:1.1rem;font-weight:600;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.95rem}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem}
+.compare div{border-radius:12px;padding:1rem;font-size:.85rem;color:var(--muted)}
+.compare .seo{background:#012fd81f;border:1px solid #0495f14d}
+.compare .aio{background:#b8f60d10;border:1px solid #b8f60d4d}
+.compare b{display:block;color:#fff;font-size:.95rem;margin-bottom:.35rem}
+.aio-map{display:flex;flex-direction:column;gap:.6rem;margin-top:1rem}
+.aio-row{display:flex;gap:.9rem;align-items:flex-start;padding:.75rem .9rem;border-radius:12px;background:#ffffff06;border:1px solid #ffffff0f}
+.wk{flex-shrink:0;min-width:3.3rem;text-align:center;font-size:.72rem;font-weight:700;border-radius:8px;padding:.35rem .4rem;background:#b8f60d1a;color:var(--accent);border:1px solid #b8f60d40}
+.aio-row p{font-size:.88rem;color:var(--text-2)}
+.aio-row p span{color:var(--muted)}
+
+/* PENSUM */
+.toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;margin-top:2rem}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{border:1px solid var(--border-card);background:var(--surface-card);border-radius:999px;padding:.45rem .9rem;font-size:.8rem;font-weight:600;color:var(--muted);transition:.2s}
+.chip:hover{color:#fff;border-color:#ffffff33}
+.chip.on{background:var(--accent);color:#000;border-color:var(--accent)}
+.toggle-all{font-size:.8rem;font-weight:600;color:var(--primary-light);padding:.45rem .2rem}
+.toggle-all:hover{color:#fff}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;font-size:.78rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.tag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:.12rem .4rem;vertical-align:middle}
+.tag.ia{background:#b8f60d1f;color:var(--accent);border:1px solid #b8f60d4d}
+.tag.pr{background:#0495f11f;color:var(--primary-light);border:1px solid #0495f14d}
+.tag.cr{background:#a855f71f;color:#c99bff;border:1px solid #a855f74d}
+
+.weeks{list-style:none;margin-top:2rem;max-width:56rem}
+.week{display:flex;gap:1rem}
+.rail{display:flex;flex-direction:column;align-items:center}
+.num{display:flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;flex-shrink:0;border-radius:50%;border:1px solid var(--border-card);background:var(--surface-card);color:var(--primary-light);font-weight:700;font-size:.9rem;transition:.25s}
+.week.open .num{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 0 24px #012fd866}
+.week.final .num{background:var(--accent);border-color:var(--accent);color:#000}
+.line{width:1px;flex:1;background:var(--border-card);margin-top:.3rem}
+.week:last-child .line{display:none}
+.body{flex:1;padding-bottom:1.5rem;min-width:0}
+.head{display:flex;width:100%;gap:.75rem;align-items:flex-start;text-align:left;padding-top:.35rem}
+.head .t{flex:1}
+.head small{display:block;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--primary-light)}
+.head strong{display:block;font-size:1rem;font-weight:600;margin-top:.15rem}
+@media(min-width:768px){.head strong{font-size:1.1rem}}
+.head .desc{display:block;font-size:.85rem;color:var(--muted);margin-top:.2rem;font-weight:400}
+.chev{width:18px;height:18px;margin-top:.4rem;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.week.open .chev{transform:rotate(180deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.week.open .panel{grid-template-rows:1fr}
+.panel>div{overflow:hidden;min-height:0}
+.blocks{display:grid;gap:.9rem;padding-top:1rem}
+@media(min-width:768px){.blocks.two{grid-template-columns:1fr 1fr}}
+.block{background:var(--surface-card);border:1px solid var(--border-card);border-radius:14px;padding:1.1rem 1.2rem}
+.block h4{font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:#fff}
+.block ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.block li{display:flex;gap:.55rem;font-size:.88rem;color:var(--text-2);line-height:1.45}
+.block li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.5rem}
+.week[hidden]{display:none}
+
+/* Bonus */
+.bonus{margin-top:1rem;border:1px solid #b8f60d40;background:linear-gradient(135deg,#b8f60d0d,var(--surface-card));border-radius:20px;padding:1.5rem;max-width:56rem}
+.bonus .eyebrow{display:block;margin-bottom:.5rem}
+.bonus h3{font-size:1.25rem;font-weight:700}
+.bonus-items{display:grid;gap:.75rem;margin-top:1rem}
+@media(min-width:700px){.bonus-items{grid-template-columns:1fr 1fr}}
+
+/* How it works */
+.how{display:grid;gap:1rem;margin-top:2rem}
+@media(min-width:768px){.how{grid-template-columns:repeat(3,1fr)}}
+.how .card b{display:block;font-size:1.8rem;color:var(--accent);font-weight:700;line-height:1}
+
+/* Final CTA */
+.final{position:relative;overflow:hidden;text-align:center}
+.final h2{font-size:1.9rem;font-weight:700;line-height:1.2;max-width:40rem;margin:0 auto}
+@media(min-width:768px){.final h2{font-size:2.5rem}}
+.final p{color:#d1d5dc;max-width:38rem;margin:1rem auto 2rem}
+footer{border-top:1px solid #ffffff0f;padding:1.75rem 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+
+@media print{
+  nav,.toolbar,.legend,.final .btns,.hero .btns{display:none}
+  .panel{grid-template-rows:1fr!important}
+  body{background:#fff;color:#000}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="https://www.aprendoclub.com" class="logo" aria-label="aprendoclub">
+      <img src="https://www.aprendoclub.com/logo.svg" alt="aprendoclub" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="fallback">aprendo<b>club</b></span>
+    </a>
+    <a class="toggle-all" href="#pensum">Ver pénsum</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob a"></div><div class="blob b"></div>
+  <div class="wrap" style="position:relative">
+    <span class="pill"><i></i>Plan de estudios · Diplomado SEO + AIO</span>
+    <h1>De <span>cero</span> a especialista SEO en 16 semanas, <span>con IA</span> en cada etapa</h1>
+    <p class="sub">El pénsum completo, semana por semana: qué vas a aprender, qué vas a practicar en tu proyecto y cómo la IA y la AIO entran en tu forma de trabajar.</p>
+
+    <div class="journey" aria-label="Recorrido de cero a SEO">
+      <div class="journey-top">
+        <div class="big0">0</div>
+        <div class="bigseo">SEO<small>+ AIO</small></div>
+      </div>
+      <div class="track"><i></i></div>
+      <div class="stops">
+        <div><b>Sem. 1–3</b>Fundamentos y herramientas</div>
+        <div><b>Sem. 4–7</b>Keywords, competencia y estrategia</div>
+        <div><b>Sem. 8–11</b>Producción y redacción SEO</div>
+        <div><b>Sem. 12–14</b>Resultados y especialización</div>
+        <div><b>Sem. 15–16</b>Carrera, proyecto final y diploma</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>16</b><span>semanas de ruta guiada</span></div>
+      <div class="stat"><b>3</b><span>sesiones en vivo por semana</span></div>
+      <div class="stat"><b>1</b><span>proyecto real para tu portafolio</span></div>
+      <div class="stat"><b>6</b><span>meses de acceso al contenido</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- AIO -->
+<section class="alt" id="aio">
+  <div class="wrap">
+    <span class="eyebrow">SEO + AIO</span>
+    <h2 class="sec">¿Cómo entra la AIO en el diplomado?</h2>
+    <p class="lead">AIO (AI Optimization) es posicionar tu marca o la de tu cliente dentro de las respuestas de la IA generativa: ChatGPT, Gemini, Perplexity y los AI Overviews de Google. No es una materia aparte: se construye sobre un buen SEO y la vas aplicando a lo largo de toda la ruta.</p>
+
+    <div class="aio-grid">
+      <div class="card">
+        <h3>SEO y AIO trabajan juntos</h3>
+        <p>La IA cita fuentes que ya considera confiables, claras y bien estructuradas. Por eso primero dominas el SEO y luego aprendes a hacerlo visible para los modelos de lenguaje.</p>
+        <div class="compare">
+          <div class="seo"><b>SEO</b>Aparecer en los resultados de Google y conseguir clics hacia tu web.</div>
+          <div class="aio"><b>AIO / GEO / AEO</b>Ser la fuente que la IA menciona o cita cuando responde una pregunta.</div>
+        </div>
+        <p style="margin-top:1rem">Además, desde las primeras semanas usas IA como herramienta de trabajo: para investigar, crear briefs, redactar y analizar más rápido, sin perder el criterio profesional.</p>
+      </div>
+      <div class="card">
+        <h3>Dónde la vas a ver en el pénsum</h3>
+        <div class="aio-map">
+          <div class="aio-row"><span class="wk">Sem. 3</span><p>Cómo funciona Google y cómo aparecer en él. <span>La base técnica que también usan los motores de IA para leer tu web.</span></p></div>
+          <div class="aio-row"><span class="wk">Sem. 7</span><p>Estrategia de E-E-A-T y clustering. <span>La autoridad y la cobertura temática que hacen que la IA te considere fuente confiable.</span></p></div>
+          <div class="aio-row"><span class="wk">Sem. 8–10</span><p>Briefs, encabezados y optimización de contenido. <span>Contenido estructurado que los modelos pueden entender y citar.</span></p></div>
+          <div class="aio-row"><span class="wk">Sem. 11</span><p>Herramientas de redacción SEO y NLP. <span>Escribir con entidades y lenguaje que buscadores e IA interpretan bien.</span></p></div>
+          <div class="aio-row"><span class="wk">Sem. 14</span><p>Cómo usar la IA en SEO. <span>Flujos de trabajo con IA aplicados a cada etapa del proyecto.</span></p></div>
+          <div class="aio-row"><span class="wk">Sem. 16</span><p>Clase especial: SEO para LLMs (GEO/AEO). <span>Cómo posicionarte en ChatGPT, Gemini y AI Overviews.</span></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENSUM -->
+<section id="pensum">
+  <div class="wrap">
+    <span class="eyebrow">Pénsum completo</span>
+    <h2 class="sec">Pasa de no saber nada a optimizar tu primer sitio web en 16 semanas</h2>
+    <p class="lead">Cada semana tiene lecciones grabadas, una práctica sobre tu proyecto y acompañamiento en las sesiones en vivo con los coaches.</p>
+
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="Filtrar por etapa">
+        <button class="chip on" data-f="all">Todo</button>
+        <button class="chip" data-f="1">Fundamentos</button>
+        <button class="chip" data-f="2">Estrategia</button>
+        <button class="chip" data-f="3">Producción</button>
+        <button class="chip" data-f="4">Resultados</button>
+        <button class="chip" data-f="5">Carrera</button>
+      </div>
+      <button class="toggle-all" id="toggleAll">Abrir todas las semanas</button>
+    </div>
+    <div class="legend">
+      <span><em class="tag ia">IA</em> IA o AIO aplicada</span>
+      <span><em class="tag pr">Práctica</em> Ejercicio sobre tu proyecto</span>
+      <span><em class="tag cr">Carrera</em> Empleo y clientes</span>
+    </div>
+
+    <ol class="weeks" id="weeks"></ol>
+
+    <div class="bonus">
+      <span class="eyebrow">⭐ Bonus incluido</span>
+      <h3>SEO Avanzado</h3>
+      <p style="color:var(--muted);font-size:.95rem;margin-top:.35rem">Contenido extra para quienes quieren ir más profundo en la parte técnica y en casos reales.</p>
+      <div class="bonus-items">
+        <div class="block"><h4>Implementación de SEO Técnico</h4><ul><li>Cómo llevar a la práctica las mejoras técnicas detectadas en una auditoría</li></ul></div>
+        <div class="block"><h4>Análisis SEO y experiencias</h4><ul><li>Análisis de casos y experiencias reales de proyectos SEO</li></ul></div>
+      </div>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:1rem">También incluye clases especiales con expertos invitados (link building, SEO internacional y e-commerce) y cursos cortos que se actualizan: SEO con IA, AIO avanzado, SEO para redes y marca personal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Metodología EPAM</span>
+    <h2 class="sec">Cómo se vive cada semana</h2>
+    <div class="how">
+      <div class="card"><b>01</b><h3 style="margin-top:.75rem">Aprendes</h3><p>Lecciones grabadas en la plataforma, a tu ritmo, del concepto básico a la estrategia avanzada.</p></div>
+      <div class="card"><b>02</b><h3 style="margin-top:.75rem">Practicas</h3><p>Aplicas lo visto en tu proyecto SEO desde la semana 1. Ese proyecto se convierte en tu portafolio.</p></div>
+      <div class="card"><b>03</b><h3 style="margin-top:.75rem">Recibes feedback</h3><p>3 sesiones grupales en vivo por semana con coaches SEO y una comunidad activa para resolver dudas.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 aprendoclub · Academia de marketing con IA</span>
+    <span>Plan de estudios · Diplomado SEO + AIO</span>
+  </div>
+</footer>
+
+<script>
+// Etapas: 1 Fundamentos, 2 Estrategia, 3 Producción, 4 Resultados/Especialización, 5 Carrera
+const IA = ' <em class="tag ia">IA</em>', PR = ' <em class="tag pr">Práctica</em>', CR = ' <em class="tag cr">Carrera</em>';
+const W = [
+ {n:1,s:1,t:"Introducción al SEO — Empezando desde cero",d:"Conoce el diplomado, tu equipo y los fundamentos del SEO.",b:[
+  ["Conoce de Cero a SEO",["Introducción al Diplomado","El pénsum de Cero a SEO","Introducción a Kajabi","Descarga Kajabi en el celular","Aprende a utilizar Zoom","Firma tu contrato de compromiso","Aprende a organizar tu horario","Introducción a las sesiones en vivo","Aprende lo básico de Google Suite","Introducción a la comunidad","Conoce a tus coaches"]],
+  ["Conoce el SEO",["El SEO","Los buscadores","Google","La web","Elementos de un sitio web","Práctica de los elementos de un sitio"+PR]],
+  ["Conoce los primeros pasos",["La mentalidad remota","El glosario SEO","Introducción al proyecto aprendoclub"+PR]]]},
+ {n:2,s:1,t:"Proyecto SEO — Inicia tu camino",d:"Configura tu primer proyecto SEO paso a paso.",b:[
+  ["El proyecto SEO",["Qué es un proyecto SEO","Qué es el proyecto aprendoclub","Qué es un plan SEO"]],
+  ["Análisis del proyecto",["Aprende a realizar un análisis web","Práctica de un análisis web"+PR,"Define los objetivos SEO"]],
+  ["Inicio del proyecto",["Cómo iniciar un proyecto SEO","Cómo presentar una propuesta a un cliente","Cómo hacer un cuestionario SEO para clientes","Cuestionario SEO para proyecto propio"+PR,"Cómo hacer un plan SEO"]]]},
+ {n:3,s:1,t:"Herramientas SEO — SEO técnico básico",d:"Entiende cómo funciona Google y domina las herramientas esenciales.",b:[
+  ["Análisis técnico",["Qué es el SEO técnico","Cómo funciona Google"+IA,"Qué hace un SEO técnico","Cuáles son las herramientas del SEO técnico","Cómo aparecer en Google","Cómo analizar la estructura del sitio"]],
+  ["Introducción a las herramientas SEO",["Herramientas del SEO","Navegador y extensiones SEO","Google Search Console","Google Analytics","Screaming Frog"]],
+  ["Herramientas de palabras clave",["Ahrefs","Semrush","Moz","DinoRank"]]]},
+ {n:4,s:2,t:"Palabras clave — La base de tu estrategia",d:"Aprende a investigar y seleccionar las mejores keywords.",b:[
+  ["Conoce las palabras clave",["Qué son las palabras clave","Cuáles son los tipos de palabras clave","Cómo posicionar para palabras clave","Para qué sirven las palabras clave","Cómo medir el posicionamiento de palabras clave"]],
+  ["Investigación de palabras clave",["Tutorial de la plantilla máster","Tipos de contenido SEO","El público objetivo","Métodos para buscar palabras clave","Agrupar palabras clave","Herramientas para analizar palabras clave","Cómo elegir las palabras clave correctas","Organiza la estrategia de palabras clave"+PR]]]},
+ {n:5,s:2,t:"Mapa de palabras clave — Enfócate en lo que ya tiene",d:"Organiza y prioriza las keywords de las páginas existentes.",b:[
+  ["Mapa de palabras clave",["Qué es un mapa de palabras clave","Cómo obtener las URLs de tu sitio web","Cómo evaluar el valor SEO","Cómo definir las palabras clave","Cómo evaluar la intención del usuario","Cómo analizar los datos","Cómo accionar el mapa"+PR,"Cómo elegir las mejores páginas"]]]},
+ {n:6,s:2,t:"Análisis de la competencia — Encuentra oportunidades",d:"Descubre qué hacen tus competidores y cómo superarlos.",b:[
+  ["Analizar competidores SEO",["Qué es un análisis de competidores","Cómo identificar competidores SEO","Cómo analizar la estrategia de la competencia","Cómo compartir y reportar un análisis de la competencia"+PR,"Qué hacer luego de un análisis de competencia"]]]},
+ {n:7,s:2,t:"Estrategias SEO — Acelera tu crecimiento",d:"Diseña la estrategia de contenido, autoridad y conversión.",b:[
+  ["Estrategias para contenido SEO",["Qué es una estrategia de contenido SEO","Cómo crear una estrategia de contenido","Cómo definir una estrategia de clustering","Estrategia de E-E-A-T"+IA,"Estrategia de CRO"]]]},
+ {n:8,s:3,t:"Producción de contenido — Crea contenido que posicione",d:"Del brief al contenido nuevo para blog, e-commerce y ventas.",b:[
+  ["Brief de contenido nuevo",["Cómo empezar una producción de contenido","Qué es un brief de contenido","Elementos de un brief","Taller de encabezados","Taller de meta títulos","Tipos de brief de contenido","Brief de contenido para blog"+PR,"Brief de contenido para e-commerce","Brief de contenido para páginas de ventas"]]]},
+ {n:9,s:3,t:"Arquitectura web — Organiza una web que Google ame",d:"Estructura el sitio y su enlazado interno.",b:[
+  ["Arquitectura web",["Qué es la arquitectura web","Análisis de arquitectura","Cómo hacer una arquitectura web"+PR]],
+  ["Enlazado interno",["Qué es el enlazado interno","Tipos de enlazado interno","Cómo incluir enlaces internos en el contenido"]]]},
+ {n:10,s:3,t:"Optimización de contenido existente — Impulsa lo que ya tienes",d:"Briefs de optimización para sacar más tráfico de lo publicado.",b:[
+  ["Brief de contenido existente",["Cómo empezar una actualización de contenido","Qué es un brief de optimización","Elementos de un brief de contenido existente","Cómo hacer un brief de contenido existente para blog"+PR,"Cómo hacer un brief de contenido existente para e-commerce","Cómo hacer un brief de contenido existente para páginas de destino"]]]},
+ {n:11,s:3,t:"Redacción SEO y SEO multimedia — Escribe para posicionar",d:"Redacción, herramientas NLP, imágenes y video.",b:[
+  ["Redacción",["Bases de la redacción SEO","Paso a paso para redactar un texto desde cero"+PR,"Herramientas de redacción SEO"+IA,"Herramientas NLP"+IA]],
+  ["Multimedia",["Imágenes SEO","Videos SEO"]]]},
+ {n:12,s:4,t:"Medición de resultados — Evalúa el éxito de tus estrategias",d:"Métricas, KPIs y reporte de tu proyecto.",b:[
+  ["Métricas",["Métricas SEO y KPIs","Informes de resultados SEO"]],
+  ["Proyecto SEO",["Plantilla de reporte SEO","La entrega del proyecto"+PR]]]},
+ {n:13,s:4,t:"Tipos de SEO — Especialízate",d:"On-page, técnico, off-page y los roles del mercado.",b:[
+  ["Tipos de SEO",["SEO en la página (on-page)","SEO técnico","SEO fuera de la página (off-page)","Cómo aplicar los tipos de SEO"]],
+  ["Especializaciones en SEO",["Roles y ofrecimientos"+CR,"Especialista SEO","SEO técnico","SEO fuera de la página","SEO de contenidos","Redactor SEO","Analista SEO","Gerente SEO"]]]},
+ {n:14,s:4,t:"SEO para nichos — Domina mercados específicos",d:"Industrias, IA aplicada y SEO para redes.",b:[
+  ["Industrias SEO",["Qué es el SEO local","Qué es el SEO de e-commerce","SEO para servicios, marcas personales y negocios pequeños","Cómo usar la IA en SEO"+IA,"SEO para nichos","SEO para redes sociales"]]]},
+ {n:15,s:5,t:"Freelance y empleo SEO — Da el siguiente paso",d:"Prepara tu perfil y aprende a conseguir trabajo o clientes.",b:[
+  ["Cómo buscar trabajo en SEO",["Cómo convertirte en un especialista o freelancer SEO magnético","Optimizar tu LinkedIn"+CR,"Optimizar tu CV"+CR,"Cover letter o carta de presentación","Crea experiencia sin experiencia","Crea un portafolio SEO"+PR,"Dónde encontrar oportunidades SEO","Cómo navegar y negociar en las entrevistas de trabajo"]],
+  ["Ofrecer servicios SEO o ser freelancer",["Cómo ofrecer servicios SEO","Cómo empaquetar servicios","Cómo conseguir clientes"+CR,"Conviértete en freelancer SEO","Cómo manejar clientes","Clase especial de plataformas freelance"]]]},
+ {n:16,s:5,final:true,t:"Proyecto final y certificación — Conviértete en especialista SEO",d:"AIO avanzado, cierre profesional, entrega del proyecto y graduación.",b:[
+  ["Clases especiales",["Clase especial: SEO para LLMs (GEO/AEO)"+IA,"Cómo ofrecer servicios SEO"+CR,"Empaquetar servicios freelance de SEO"+CR,"Manejo de clientes y estrategia SEO","Masterclass de Upwork con Amigafreelance"+CR]],
+  ["Cierre del diplomado",["El paso final: entrega tu proyecto"+PR,"Solicitar diploma de aprobación","Graduación 🎓"]]]}
+];
+const chev='<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+const ol=document.getElementById('weeks');
+ol.innerHTML=W.map((w,i)=>`
+<li class="week${i===0?' open':''}${w.final?' final':''}" data-s="${w.s}">
+  <div class="rail"><span class="num">${w.n}</span><span class="line"></span></div>
+  <div class="body">
+    <button class="head" aria-expanded="${i===0}" aria-controls="p${w.n}">
+      <span class="t"><small>Semana ${w.n}</small><strong>${w.t}</strong><span class="desc">${w.d}</span></span>${chev}
+    </button>
+    <div class="panel" id="p${w.n}" role="region"><div>
+      <div class="blocks${w.b.length>1?' two':''}">
+        ${w.b.map(([h,items])=>`<div class="block"><h4>${h}</h4><ul>${items.map(x=>`<li><span>${x}</span></li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div></div>
+  </div>
+</li>`).join('');
+
+ol.addEventListener('click',e=>{
+  const h=e.target.closest('.head'); if(!h) return;
+  const li=h.closest('.week'); const o=li.classList.toggle('open');
+  h.setAttribute('aria-expanded',o);
+});
+const tAll=document.getElementById('toggleAll'); let allOpen=false;
+tAll.addEventListener('click',()=>{
+  allOpen=!allOpen;
+  document.querySelectorAll('.week:not([hidden])').forEach(li=>{li.classList.toggle('open',allOpen);li.querySelector('.head').setAttribute('aria-expanded',allOpen)});
+  tAll.textContent=allOpen?'Cerrar todas las semanas':'Abrir todas las semanas';
+});
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on')); c.classList.add('on');
+  const f=c.dataset.f;
+  document.querySelectorAll('.week').forEach(li=>{li.hidden=!(f==='all'||li.dataset.s===f)});
+}));
+</script>
+</body>
+</html>
